@@ -8,51 +8,59 @@ const fragmentShader = /* glsl */`
     uniform float pixelSize;
     uniform vec3 uTint;
 
-    void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor){
-        
-        //vec2 textureSize = vec2(textureSize(tDiffuse, 0));
-        //vec2 texelSize = 1.0 / textureSize;
-        vec2 texelSize = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
-        vec2 texCoords = vUv;
-    
-        vec3 i00 = texture2D(inputBuffer, texCoords + vec2(-1.0, -1.0) * texelSize).rgb;
-        vec3 i01 = texture2D(inputBuffer, texCoords + vec2(-1.0, 0.0) * texelSize).rgb;
-        vec3 i02 = texture2D(inputBuffer, texCoords + vec2(-1.0, 1.0) * texelSize).rgb;
-        vec3 i10 = texture2D(inputBuffer, texCoords + vec2(0.0, -1.0) * texelSize).rgb;
-        vec3 i11 = texture2D(inputBuffer, texCoords).rgb;
-        vec3 i12 = texture2D(inputBuffer, texCoords + vec2(0.0, 1.0) * texelSize).rgb;
-        vec3 i20 = texture2D(inputBuffer, texCoords + vec2(1.0, -1.0) * texelSize).rgb;
-        vec3 i21 = texture2D(inputBuffer, texCoords + vec2(1.0, 0.0) * texelSize).rgb;
-        vec3 i22 = texture2D(inputBuffer, texCoords + vec2(1.0, 1.0) * texelSize).rgb;
-    
-        // Sobel operator masks for h+v edges
-        mat3 sobelX = mat3(-1.0, 0.0, 1.0, 
-                            -2.0, 0.0, 2.0, 
-                            -1.0, 0.0, 1.0);
-        mat3 sobelY = mat3(-1.0, -2.0, -1.0,  
-                            0.0,  0.0,  0.0, 
-                            1.0,  2.0,  1.0);
-    
-        // Convolve Sobel masks with image
-        float gx = dot(sobelX[0], vec3(i00.r+i00.g+i00.b, i10.r+i10.g+i10.b, i20.r+i20.g+i20.b)) +
-                dot(sobelX[1], vec3(i01.r+i01.g+i01.b, i11.r+i11.g+i11.b, i21.r+i21.g+i21.b)) +
-                dot(sobelX[2], vec3(i02.r+i02.g+i02.b, i12.r+i12.g+i12.b, i22.r+i22.g+i22.b));
-                
-        float gy = dot(sobelY[0], vec3(i00.r+i00.g+i00.b, i10.r+i10.g+i10.b, i20.r+i20.g+i20.b)) +
-                dot(sobelY[1], vec3(i01.r+i01.g+i01.b, i11.r+i11.g+i11.b, i21.r+i21.g+i21.b)) +
-                dot(sobelY[2], vec3(i02.r+i02.g+i02.b, i12.r+i12.g+i12.b, i22.r+i22.g+i22.b));
-                
-        // Calculate edge magnitude and threshold it
-        float edge = sqrt(gx*gx + gy*gy);
-        //float threshold = uTint.x; // 0.2 
-        float threshold =  0.036; // 0.036; // 0.2 // higher = less lines
-        edge = edge > threshold ? 1.0 : 0.0;
-        edge = 1.0 - edge;
-        vec4 texelColor = texture(tDiffuse, vUv);
+    void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+        vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
 
-        // Output the edge color
-        //gl_FragColor = vec4(vec3(edge), 1.0);
-        outputColor = texelColor * ( vec4(vec3(edge), 1) );
+        // kernel definition (in glsl matrices are filled in column-major order)
+
+        const mat3 Gx = mat3( -1, -2, -1, 0, 0, 0, 1, 2, 1 ); // x direction kernel
+        const mat3 Gy = mat3( -1, 0, 1, -2, 0, 2, -1, 0, 1 ); // y direction kernel
+
+        // fetch the 3x3 neighbourhood of a fragment
+
+        // first column
+
+        float tx0y0 = texture2D( inputBuffer, uv + texel * vec2( -1, -1 ) ).r;
+        float tx0y1 = texture2D( inputBuffer, uv + texel * vec2( -1,  0 ) ).r;
+        float tx0y2 = texture2D( inputBuffer, uv + texel * vec2( -1,  1 ) ).r;
+
+        // second column
+
+        float tx1y0 = texture2D( inputBuffer, uv + texel * vec2(  0, -1 ) ).r;
+        float tx1y1 = texture2D( inputBuffer, uv + texel * vec2(  0,  0 ) ).r;
+        float tx1y2 = texture2D( inputBuffer, uv + texel * vec2(  0,  1 ) ).r;
+
+        // third column
+
+        float tx2y0 = texture2D( inputBuffer, uv + texel * vec2(  1, -1 ) ).r;
+        float tx2y1 = texture2D( inputBuffer, uv + texel * vec2(  1,  0 ) ).r;
+        float tx2y2 = texture2D( inputBuffer, uv + texel * vec2(  1,  1 ) ).r;
+
+        // gradient value in x direction
+
+        float valueGx = Gx[0][0] * tx0y0 + Gx[1][0] * tx1y0 + Gx[2][0] * tx2y0 +
+            Gx[0][1] * tx0y1 + Gx[1][1] * tx1y1 + Gx[2][1] * tx2y1 +
+            Gx[0][2] * tx0y2 + Gx[1][2] * tx1y2 + Gx[2][2] * tx2y2;
+
+        // gradient value in y direction
+
+        float valueGy = Gy[0][0] * tx0y0 + Gy[1][0] * tx1y0 + Gy[2][0] * tx2y0 +
+            Gy[0][1] * tx0y1 + Gy[1][1] * tx1y1 + Gy[2][1] * tx2y1 +
+            Gy[0][2] * tx0y2 + Gy[1][2] * tx1y2 + Gy[2][2] * tx2y2;
+
+        // magnitute of the total gradient
+
+        float G = sqrt( ( valueGx * valueGx ) + ( valueGy * valueGy ) );
+        G = 1.0 - G;
+
+         // Calculate the luminance (brightness) of the original color
+        float luminance = dot( vec3(G), vec3(0.2126, 0.7152, 0.0722));
+        
+        // Determine if the pixel is part of the black outline or the transparent background
+        float alpha = step(0.5, luminance);
+        vec3 finalcolor = mix(vec3(0.0, 0.0, 0.0), inputColor.rgb, alpha);
+
+        outputColor = vec4( vec3( finalcolor ), 1.0 );
     }
 `
 

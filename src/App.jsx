@@ -10,7 +10,7 @@ function App() {
      
       <color args={[ '#364d81' ]} attach="background" />
       <OrbitControls />
-      {/* <Effects /> */}
+      <Effects />
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={[1, 6, 0]} castShadow /> 
       <Ground />
