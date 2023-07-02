@@ -13,8 +13,12 @@ const fragmentShader = /* glsl */`
 
         // kernel definition (in glsl matrices are filled in column-major order)
 
-        const mat3 Gx = mat3( -1, -2, -1, 0, 0, 0, 1, 2, 1 ); // x direction kernel
-        const mat3 Gy = mat3( -1, 0, 1, -2, 0, 2, -1, 0, 1 ); // y direction kernel
+        const mat3 Gx = mat3( -1, 0, 1, 
+                               -2, 0, 2, 
+                               -1, 0, 1 ); // x direction kernel
+        const mat3 Gy = mat3( -1, -2, -1, 
+                               0, 0, 0, 
+                               1, 2, 1 ); // y direction kernel
 
         // fetch the 3x3 neighbourhood of a fragment
 
