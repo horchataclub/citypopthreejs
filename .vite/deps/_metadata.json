@@ -1,0 +1,77 @@
+{
+  "hash": "9378c95a",
+  "browserHash": "6ce04c4b",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "b2e0bca8",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "969ebc99",
+      "needsInterop": true
+    },
+    "@react-three/fiber": {
+      "src": "../../node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+      "file": "@react-three_fiber.js",
+      "fileHash": "8cccc2f6",
+      "needsInterop": false
+    },
+    "@react-three/drei": {
+      "src": "../../node_modules/@react-three/drei/index.js",
+      "file": "@react-three_drei.js",
+      "fileHash": "5c9b83a0",
+      "needsInterop": false
+    },
+    "three": {
+      "src": "../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "34afbe4b",
+      "needsInterop": false
+    },
+    "@react-three/postprocessing": {
+      "src": "../../node_modules/@react-three/postprocessing/dist/index.js",
+      "file": "@react-three_postprocessing.js",
+      "fileHash": "7e373f08",
+      "needsInterop": false
+    },
+    "@nodetoy/react-nodetoy": {
+      "src": "../../node_modules/@nodetoy/react-nodetoy/dist/react-nodetoy.es.js",
+      "file": "@nodetoy_react-nodetoy.js",
+      "fileHash": "da63ad90",
+      "needsInterop": false
+    },
+    "postprocessing": {
+      "src": "../../node_modules/postprocessing/build/index.js",
+      "file": "postprocessing.js",
+      "fileHash": "e0c73544",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-6P77UDZB": {
+      "file": "chunk-6P77UDZB.js"
+    },
+    "chunk-GXFDE2YG": {
+      "file": "chunk-GXFDE2YG.js"
+    },
+    "chunk-BXYVNOPC": {
+      "file": "chunk-BXYVNOPC.js"
+    },
+    "chunk-6DDWND5A": {
+      "file": "chunk-6DDWND5A.js"
+    },
+    "chunk-S5WGWP4U": {
+      "file": "chunk-S5WGWP4U.js"
+    },
+    "chunk-7EGGLTW3": {
+      "file": "chunk-7EGGLTW3.js"
+    },
+    "chunk-4EOJPDL2": {
+      "file": "chunk-4EOJPDL2.js"
+    }
+  }
+}
