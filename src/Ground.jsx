@@ -14,6 +14,7 @@ export default function Model(props) {
         receiveShadow
         geometry={nodes.Grid.geometry}
         material={nodes.Grid.material}
+        scale={ 15 }
       >
          <NodeToyMaterial data={data} />
       </mesh>
@@ -24,6 +25,7 @@ export default function Model(props) {
         receiveShadow
         geometry={nodes.road.geometry}
         material={nodes.road.material}
+        scale={ 15 }
       />
     </group>
   );

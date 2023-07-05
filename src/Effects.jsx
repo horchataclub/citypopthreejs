@@ -6,6 +6,8 @@ import { useRef } from 'react'
 
 export default function Effects () {
 
+
+
     const outlinesRef = useRef()
 
     return <EffectComposer multisampling={ 8 }>
