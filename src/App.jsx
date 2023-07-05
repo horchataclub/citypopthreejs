@@ -22,6 +22,6 @@ function App() {
       <Ground /> 
     </>
   )
-}
+} 
 
 export default App
