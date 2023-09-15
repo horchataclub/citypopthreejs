@@ -31,4 +31,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload("./models//landscape.gltf");
+useGLTF.preload("./models/landscape.gltf");
