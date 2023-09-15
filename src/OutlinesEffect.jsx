@@ -1,4 +1,4 @@
-import { Effect } from "postprocessing"
+import { Effect, EffectAttribute } from "postprocessing"
 import { Uniform } from "three"
 
 
@@ -57,6 +57,9 @@ const fragmentShader = /* glsl */`
         float alpha = step(0.5, luminance);
         finalColor = mix(vec3(0.0, 0.0, 0.0), inputColor.rgb, alpha);
 
+       // outputColor = vec4(0, 0, 0, alpha);
+       // outputColor = inputColor; // testing the default color
+       // outputColor = vec4(uv, 1.0, 1.0);
         outputColor = vec4( finalColor, 1.0 );
     }
 `
@@ -70,10 +73,11 @@ export default class OutlinesEffect extends Effect
             'OutlinesEffect', 
             fragmentShader, 
             {
+                attributes: EffectAttribute.CONVOLUTION,
                 uniforms: new Map([
                     [ 'tDiffuse', new Uniform(tDiffuse) ],
                     [ 'uTint', new Uniform(uTint) ],
-                    [ 'pizelSize', new Uniform(pixelSize) ]
+                    [ 'pixelSize', new Uniform(pixelSize) ]
                 ])
             }
         )
