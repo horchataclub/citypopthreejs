@@ -2,6 +2,7 @@
 import { EffectComposer } from '@react-three/postprocessing'
 import Outlines from './Outlines'
 import { useRef } from 'react'
+import { HalfFloatType } from 'three'
 
 
 export default function Effects () {
@@ -16,6 +17,7 @@ export default function Effects () {
             tDiffuse={ null } 
             uTint={ null } 
             pixelSize={  0.001 } 
+            //frameBufferType={ HalfFloatType }
         />
     </EffectComposer>
 }
