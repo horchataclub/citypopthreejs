@@ -8,6 +8,7 @@ import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial } from
 import { useEffect } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
+import { PerspectiveCamera } from '@react-three/drei'
 
 
 function App() {
@@ -39,8 +40,11 @@ function App() {
       
       <color args={[ '#364d81' ]} attach="background" />
       
-      <OrbitControls />
-      
+      <OrbitControls  target={[1, 3, 0]} />
+
+      <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
+
+      </PerspectiveCamera>
       {enableEffect && (<Effects />)}
       
       <ambientLight intensity={0.00} />

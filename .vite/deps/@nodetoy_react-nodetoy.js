@@ -1,7 +1,8 @@
 import {
   extend,
   useFrame
-} from "./chunk-BXYVNOPC.js";
+} from "./chunk-JLFZSDCW.js";
+import "./chunk-52R4BH6Y.js";
 import {
   require_react
 } from "./chunk-6DDWND5A.js";
@@ -24,7 +25,7 @@ import {
   Vector2,
   Vector3,
   Vector4
-} from "./chunk-7EGGLTW3.js";
+} from "./chunk-MFGWOOG5.js";
 import {
   __toESM
 } from "./chunk-4EOJPDL2.js";

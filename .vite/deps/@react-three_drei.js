@@ -1,6 +1,13 @@
 import {
   require_client
-} from "./chunk-6P77UDZB.js";
+} from "./chunk-HQZ5IH36.js";
+import {
+  require_prop_types,
+  shallow,
+  subscribeWithSelector,
+  useGesture
+} from "./chunk-6E4FU46B.js";
+import "./chunk-2MRMY2VI.js";
 import {
   ArcballControls,
   AsciiEffect,
@@ -46,15 +53,13 @@ import {
   easing,
   mergeVertices,
   toCreasedNormals
-} from "./chunk-GXFDE2YG.js";
+} from "./chunk-2PVCCXF7.js";
 import {
-  _extends,
   addAfterEffect,
   addEffect,
   applyProps,
   clear,
   context,
-  create,
   createPortal,
   extend,
   preload,
@@ -62,7 +67,11 @@ import {
   useFrame,
   useLoader,
   useThree
-} from "./chunk-BXYVNOPC.js";
+} from "./chunk-JLFZSDCW.js";
+import {
+  _extends,
+  create
+} from "./chunk-52R4BH6Y.js";
 import {
   require_react
 } from "./chunk-6DDWND5A.js";
@@ -173,7 +182,7 @@ import {
   WebGLCubeRenderTarget,
   WebGLRenderTarget,
   three_module_exports
-} from "./chunk-7EGGLTW3.js";
+} from "./chunk-MFGWOOG5.js";
 import {
   __commonJS,
   __toESM
@@ -903,783 +912,6 @@ var require_stats_min = __commonJS({
   }
 });
 
-// node_modules/react-is/cjs/react-is.development.js
-var require_react_is_development = __commonJS({
-  "node_modules/react-is/cjs/react-is.development.js"(exports3) {
-    "use strict";
-    if (true) {
-      (function() {
-        "use strict";
-        var hasSymbol = typeof Symbol === "function" && Symbol.for;
-        var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
-        var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
-        var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
-        var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
-        var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
-        var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
-        var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
-        var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
-        var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
-        var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
-        var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
-        var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
-        var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
-        var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
-        var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
-        var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
-        var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
-        var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
-        function isValidElementType(type) {
-          return typeof type === "string" || typeof type === "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-          type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-        }
-        function typeOf(object) {
-          if (typeof object === "object" && object !== null) {
-            var $$typeof = object.$$typeof;
-            switch ($$typeof) {
-              case REACT_ELEMENT_TYPE:
-                var type = object.type;
-                switch (type) {
-                  case REACT_ASYNC_MODE_TYPE:
-                  case REACT_CONCURRENT_MODE_TYPE:
-                  case REACT_FRAGMENT_TYPE:
-                  case REACT_PROFILER_TYPE:
-                  case REACT_STRICT_MODE_TYPE:
-                  case REACT_SUSPENSE_TYPE:
-                    return type;
-                  default:
-                    var $$typeofType = type && type.$$typeof;
-                    switch ($$typeofType) {
-                      case REACT_CONTEXT_TYPE:
-                      case REACT_FORWARD_REF_TYPE:
-                      case REACT_LAZY_TYPE:
-                      case REACT_MEMO_TYPE:
-                      case REACT_PROVIDER_TYPE:
-                        return $$typeofType;
-                      default:
-                        return $$typeof;
-                    }
-                }
-              case REACT_PORTAL_TYPE:
-                return $$typeof;
-            }
-          }
-          return void 0;
-        }
-        var AsyncMode = REACT_ASYNC_MODE_TYPE;
-        var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-        var ContextConsumer = REACT_CONTEXT_TYPE;
-        var ContextProvider = REACT_PROVIDER_TYPE;
-        var Element = REACT_ELEMENT_TYPE;
-        var ForwardRef = REACT_FORWARD_REF_TYPE;
-        var Fragment20 = REACT_FRAGMENT_TYPE;
-        var Lazy = REACT_LAZY_TYPE;
-        var Memo = REACT_MEMO_TYPE;
-        var Portal = REACT_PORTAL_TYPE;
-        var Profiler = REACT_PROFILER_TYPE;
-        var StrictMode = REACT_STRICT_MODE_TYPE;
-        var Suspense4 = REACT_SUSPENSE_TYPE;
-        var hasWarnedAboutDeprecatedIsAsyncMode = false;
-        function isAsyncMode(object) {
-          {
-            if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-              hasWarnedAboutDeprecatedIsAsyncMode = true;
-              console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
-            }
-          }
-          return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-        }
-        function isConcurrentMode(object) {
-          return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-        }
-        function isContextConsumer(object) {
-          return typeOf(object) === REACT_CONTEXT_TYPE;
-        }
-        function isContextProvider(object) {
-          return typeOf(object) === REACT_PROVIDER_TYPE;
-        }
-        function isElement(object) {
-          return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-        }
-        function isForwardRef(object) {
-          return typeOf(object) === REACT_FORWARD_REF_TYPE;
-        }
-        function isFragment(object) {
-          return typeOf(object) === REACT_FRAGMENT_TYPE;
-        }
-        function isLazy(object) {
-          return typeOf(object) === REACT_LAZY_TYPE;
-        }
-        function isMemo(object) {
-          return typeOf(object) === REACT_MEMO_TYPE;
-        }
-        function isPortal(object) {
-          return typeOf(object) === REACT_PORTAL_TYPE;
-        }
-        function isProfiler(object) {
-          return typeOf(object) === REACT_PROFILER_TYPE;
-        }
-        function isStrictMode(object) {
-          return typeOf(object) === REACT_STRICT_MODE_TYPE;
-        }
-        function isSuspense(object) {
-          return typeOf(object) === REACT_SUSPENSE_TYPE;
-        }
-        exports3.AsyncMode = AsyncMode;
-        exports3.ConcurrentMode = ConcurrentMode;
-        exports3.ContextConsumer = ContextConsumer;
-        exports3.ContextProvider = ContextProvider;
-        exports3.Element = Element;
-        exports3.ForwardRef = ForwardRef;
-        exports3.Fragment = Fragment20;
-        exports3.Lazy = Lazy;
-        exports3.Memo = Memo;
-        exports3.Portal = Portal;
-        exports3.Profiler = Profiler;
-        exports3.StrictMode = StrictMode;
-        exports3.Suspense = Suspense4;
-        exports3.isAsyncMode = isAsyncMode;
-        exports3.isConcurrentMode = isConcurrentMode;
-        exports3.isContextConsumer = isContextConsumer;
-        exports3.isContextProvider = isContextProvider;
-        exports3.isElement = isElement;
-        exports3.isForwardRef = isForwardRef;
-        exports3.isFragment = isFragment;
-        exports3.isLazy = isLazy;
-        exports3.isMemo = isMemo;
-        exports3.isPortal = isPortal;
-        exports3.isProfiler = isProfiler;
-        exports3.isStrictMode = isStrictMode;
-        exports3.isSuspense = isSuspense;
-        exports3.isValidElementType = isValidElementType;
-        exports3.typeOf = typeOf;
-      })();
-    }
-  }
-});
-
-// node_modules/react-is/index.js
-var require_react_is = __commonJS({
-  "node_modules/react-is/index.js"(exports3, module) {
-    "use strict";
-    if (false) {
-      module.exports = null;
-    } else {
-      module.exports = require_react_is_development();
-    }
-  }
-});
-
-// node_modules/object-assign/index.js
-var require_object_assign = __commonJS({
-  "node_modules/object-assign/index.js"(exports3, module) {
-    "use strict";
-    var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
-    var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-    function toObject(val) {
-      if (val === null || val === void 0) {
-        throw new TypeError("Object.assign cannot be called with null or undefined");
-      }
-      return Object(val);
-    }
-    function shouldUseNative() {
-      try {
-        if (!Object.assign) {
-          return false;
-        }
-        var test1 = new String("abc");
-        test1[5] = "de";
-        if (Object.getOwnPropertyNames(test1)[0] === "5") {
-          return false;
-        }
-        var test2 = {};
-        for (var i3 = 0; i3 < 10; i3++) {
-          test2["_" + String.fromCharCode(i3)] = i3;
-        }
-        var order2 = Object.getOwnPropertyNames(test2).map(function(n2) {
-          return test2[n2];
-        });
-        if (order2.join("") !== "0123456789") {
-          return false;
-        }
-        var test3 = {};
-        "abcdefghijklmnopqrst".split("").forEach(function(letter) {
-          test3[letter] = letter;
-        });
-        if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
-          return false;
-        }
-        return true;
-      } catch (err) {
-        return false;
-      }
-    }
-    module.exports = shouldUseNative() ? Object.assign : function(target2, source) {
-      var from;
-      var to2 = toObject(target2);
-      var symbols;
-      for (var s2 = 1; s2 < arguments.length; s2++) {
-        from = Object(arguments[s2]);
-        for (var key in from) {
-          if (hasOwnProperty.call(from, key)) {
-            to2[key] = from[key];
-          }
-        }
-        if (getOwnPropertySymbols) {
-          symbols = getOwnPropertySymbols(from);
-          for (var i3 = 0; i3 < symbols.length; i3++) {
-            if (propIsEnumerable.call(from, symbols[i3])) {
-              to2[symbols[i3]] = from[symbols[i3]];
-            }
-          }
-        }
-      }
-      return to2;
-    };
-  }
-});
-
-// node_modules/prop-types/lib/ReactPropTypesSecret.js
-var require_ReactPropTypesSecret = __commonJS({
-  "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports3, module) {
-    "use strict";
-    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-    module.exports = ReactPropTypesSecret;
-  }
-});
-
-// node_modules/prop-types/lib/has.js
-var require_has = __commonJS({
-  "node_modules/prop-types/lib/has.js"(exports3, module) {
-    module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
-  }
-});
-
-// node_modules/prop-types/checkPropTypes.js
-var require_checkPropTypes = __commonJS({
-  "node_modules/prop-types/checkPropTypes.js"(exports3, module) {
-    "use strict";
-    var printWarning = function() {
-    };
-    if (true) {
-      ReactPropTypesSecret = require_ReactPropTypesSecret();
-      loggedTypeFailures = {};
-      has = require_has();
-      printWarning = function(text) {
-        var message = "Warning: " + text;
-        if (typeof console !== "undefined") {
-          console.error(message);
-        }
-        try {
-          throw new Error(message);
-        } catch (x) {
-        }
-      };
-    }
-    var ReactPropTypesSecret;
-    var loggedTypeFailures;
-    var has;
-    function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-      if (true) {
-        for (var typeSpecName in typeSpecs) {
-          if (has(typeSpecs, typeSpecName)) {
-            var error;
-            try {
-              if (typeof typeSpecs[typeSpecName] !== "function") {
-                var err = Error(
-                  (componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
-                );
-                err.name = "Invariant Violation";
-                throw err;
-              }
-              error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-            } catch (ex) {
-              error = ex;
-            }
-            if (error && !(error instanceof Error)) {
-              printWarning(
-                (componentName || "React class") + ": type specification of " + location + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
-              );
-            }
-            if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-              loggedTypeFailures[error.message] = true;
-              var stack = getStack ? getStack() : "";
-              printWarning(
-                "Failed " + location + " type: " + error.message + (stack != null ? stack : "")
-              );
-            }
-          }
-        }
-      }
-    }
-    checkPropTypes.resetWarningCache = function() {
-      if (true) {
-        loggedTypeFailures = {};
-      }
-    };
-    module.exports = checkPropTypes;
-  }
-});
-
-// node_modules/prop-types/factoryWithTypeCheckers.js
-var require_factoryWithTypeCheckers = __commonJS({
-  "node_modules/prop-types/factoryWithTypeCheckers.js"(exports3, module) {
-    "use strict";
-    var ReactIs = require_react_is();
-    var assign4 = require_object_assign();
-    var ReactPropTypesSecret = require_ReactPropTypesSecret();
-    var has = require_has();
-    var checkPropTypes = require_checkPropTypes();
-    var printWarning = function() {
-    };
-    if (true) {
-      printWarning = function(text) {
-        var message = "Warning: " + text;
-        if (typeof console !== "undefined") {
-          console.error(message);
-        }
-        try {
-          throw new Error(message);
-        } catch (x) {
-        }
-      };
-    }
-    function emptyFunctionThatReturnsNull() {
-      return null;
-    }
-    module.exports = function(isValidElement2, throwOnDirectAccess) {
-      var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
-      var FAUX_ITERATOR_SYMBOL = "@@iterator";
-      function getIteratorFn(maybeIterable) {
-        var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-        if (typeof iteratorFn === "function") {
-          return iteratorFn;
-        }
-      }
-      var ANONYMOUS = "<<anonymous>>";
-      var ReactPropTypes = {
-        array: createPrimitiveTypeChecker("array"),
-        bigint: createPrimitiveTypeChecker("bigint"),
-        bool: createPrimitiveTypeChecker("boolean"),
-        func: createPrimitiveTypeChecker("function"),
-        number: createPrimitiveTypeChecker("number"),
-        object: createPrimitiveTypeChecker("object"),
-        string: createPrimitiveTypeChecker("string"),
-        symbol: createPrimitiveTypeChecker("symbol"),
-        any: createAnyTypeChecker(),
-        arrayOf: createArrayOfTypeChecker,
-        element: createElementTypeChecker(),
-        elementType: createElementTypeTypeChecker(),
-        instanceOf: createInstanceTypeChecker,
-        node: createNodeChecker(),
-        objectOf: createObjectOfTypeChecker,
-        oneOf: createEnumTypeChecker,
-        oneOfType: createUnionTypeChecker,
-        shape: createShapeTypeChecker,
-        exact: createStrictShapeTypeChecker
-      };
-      function is2(x, y) {
-        if (x === y) {
-          return x !== 0 || 1 / x === 1 / y;
-        } else {
-          return x !== x && y !== y;
-        }
-      }
-      function PropTypeError(message, data) {
-        this.message = message;
-        this.data = data && typeof data === "object" ? data : {};
-        this.stack = "";
-      }
-      PropTypeError.prototype = Error.prototype;
-      function createChainableTypeChecker(validate) {
-        if (true) {
-          var manualPropTypeCallCache = {};
-          var manualPropTypeWarningCount = 0;
-        }
-        function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-          componentName = componentName || ANONYMOUS;
-          propFullName = propFullName || propName;
-          if (secret !== ReactPropTypesSecret) {
-            if (throwOnDirectAccess) {
-              var err = new Error(
-                "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
-              );
-              err.name = "Invariant Violation";
-              throw err;
-            } else if (typeof console !== "undefined") {
-              var cacheKey2 = componentName + ":" + propName;
-              if (!manualPropTypeCallCache[cacheKey2] && // Avoid spamming the console because they are often not actionable except for lib authors
-              manualPropTypeWarningCount < 3) {
-                printWarning(
-                  "You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
-                );
-                manualPropTypeCallCache[cacheKey2] = true;
-                manualPropTypeWarningCount++;
-              }
-            }
-          }
-          if (props[propName] == null) {
-            if (isRequired) {
-              if (props[propName] === null) {
-                return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`."));
-              }
-              return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`."));
-            }
-            return null;
-          } else {
-            return validate(props, propName, componentName, location, propFullName);
-          }
-        }
-        var chainedCheckType = checkType.bind(null, false);
-        chainedCheckType.isRequired = checkType.bind(null, true);
-        return chainedCheckType;
-      }
-      function createPrimitiveTypeChecker(expectedType) {
-        function validate(props, propName, componentName, location, propFullName, secret) {
-          var propValue = props[propName];
-          var propType = getPropType(propValue);
-          if (propType !== expectedType) {
-            var preciseType = getPreciseType(propValue);
-            return new PropTypeError(
-              "Invalid " + location + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."),
-              { expectedType }
-            );
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createAnyTypeChecker() {
-        return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-      }
-      function createArrayOfTypeChecker(typeChecker) {
-        function validate(props, propName, componentName, location, propFullName) {
-          if (typeof typeChecker !== "function") {
-            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
-          }
-          var propValue = props[propName];
-          if (!Array.isArray(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
-          }
-          for (var i3 = 0; i3 < propValue.length; i3++) {
-            var error = typeChecker(propValue, i3, componentName, location, propFullName + "[" + i3 + "]", ReactPropTypesSecret);
-            if (error instanceof Error) {
-              return error;
-            }
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createElementTypeChecker() {
-        function validate(props, propName, componentName, location, propFullName) {
-          var propValue = props[propName];
-          if (!isValidElement2(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createElementTypeTypeChecker() {
-        function validate(props, propName, componentName, location, propFullName) {
-          var propValue = props[propName];
-          if (!ReactIs.isValidElementType(propValue)) {
-            var propType = getPropType(propValue);
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createInstanceTypeChecker(expectedClass) {
-        function validate(props, propName, componentName, location, propFullName) {
-          if (!(props[propName] instanceof expectedClass)) {
-            var expectedClassName = expectedClass.name || ANONYMOUS;
-            var actualClassName = getClassName(props[propName]);
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createEnumTypeChecker(expectedValues) {
-        if (!Array.isArray(expectedValues)) {
-          if (true) {
-            if (arguments.length > 1) {
-              printWarning(
-                "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
-              );
-            } else {
-              printWarning("Invalid argument supplied to oneOf, expected an array.");
-            }
-          }
-          return emptyFunctionThatReturnsNull;
-        }
-        function validate(props, propName, componentName, location, propFullName) {
-          var propValue = props[propName];
-          for (var i3 = 0; i3 < expectedValues.length; i3++) {
-            if (is2(propValue, expectedValues[i3])) {
-              return null;
-            }
-          }
-          var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-            var type = getPreciseType(value);
-            if (type === "symbol") {
-              return String(value);
-            }
-            return value;
-          });
-          return new PropTypeError("Invalid " + location + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createObjectOfTypeChecker(typeChecker) {
-        function validate(props, propName, componentName, location, propFullName) {
-          if (typeof typeChecker !== "function") {
-            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
-          }
-          var propValue = props[propName];
-          var propType = getPropType(propValue);
-          if (propType !== "object") {
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
-          }
-          for (var key in propValue) {
-            if (has(propValue, key)) {
-              var error = typeChecker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
-              if (error instanceof Error) {
-                return error;
-              }
-            }
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createUnionTypeChecker(arrayOfTypeCheckers) {
-        if (!Array.isArray(arrayOfTypeCheckers)) {
-          true ? printWarning("Invalid argument supplied to oneOfType, expected an instance of array.") : void 0;
-          return emptyFunctionThatReturnsNull;
-        }
-        for (var i3 = 0; i3 < arrayOfTypeCheckers.length; i3++) {
-          var checker = arrayOfTypeCheckers[i3];
-          if (typeof checker !== "function") {
-            printWarning(
-              "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i3 + "."
-            );
-            return emptyFunctionThatReturnsNull;
-          }
-        }
-        function validate(props, propName, componentName, location, propFullName) {
-          var expectedTypes = [];
-          for (var i4 = 0; i4 < arrayOfTypeCheckers.length; i4++) {
-            var checker2 = arrayOfTypeCheckers[i4];
-            var checkerResult = checker2(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
-            if (checkerResult == null) {
-              return null;
-            }
-            if (checkerResult.data && has(checkerResult.data, "expectedType")) {
-              expectedTypes.push(checkerResult.data.expectedType);
-            }
-          }
-          var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
-          return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createNodeChecker() {
-        function validate(props, propName, componentName, location, propFullName) {
-          if (!isNode(props[propName])) {
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function invalidValidatorError(componentName, location, propFullName, key, type) {
-        return new PropTypeError(
-          (componentName || "React class") + ": " + location + " type `" + propFullName + "." + key + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type + "`."
-        );
-      }
-      function createShapeTypeChecker(shapeTypes) {
-        function validate(props, propName, componentName, location, propFullName) {
-          var propValue = props[propName];
-          var propType = getPropType(propValue);
-          if (propType !== "object") {
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-          }
-          for (var key in shapeTypes) {
-            var checker = shapeTypes[key];
-            if (typeof checker !== "function") {
-              return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
-            }
-            var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
-            if (error) {
-              return error;
-            }
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function createStrictShapeTypeChecker(shapeTypes) {
-        function validate(props, propName, componentName, location, propFullName) {
-          var propValue = props[propName];
-          var propType = getPropType(propValue);
-          if (propType !== "object") {
-            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
-          }
-          var allKeys = assign4({}, props[propName], shapeTypes);
-          for (var key in allKeys) {
-            var checker = shapeTypes[key];
-            if (has(shapeTypes, key) && typeof checker !== "function") {
-              return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
-            }
-            if (!checker) {
-              return new PropTypeError(
-                "Invalid " + location + " `" + propFullName + "` key `" + key + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + "\nValid keys: " + JSON.stringify(Object.keys(shapeTypes), null, "  ")
-              );
-            }
-            var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
-            if (error) {
-              return error;
-            }
-          }
-          return null;
-        }
-        return createChainableTypeChecker(validate);
-      }
-      function isNode(propValue) {
-        switch (typeof propValue) {
-          case "number":
-          case "string":
-          case "undefined":
-            return true;
-          case "boolean":
-            return !propValue;
-          case "object":
-            if (Array.isArray(propValue)) {
-              return propValue.every(isNode);
-            }
-            if (propValue === null || isValidElement2(propValue)) {
-              return true;
-            }
-            var iteratorFn = getIteratorFn(propValue);
-            if (iteratorFn) {
-              var iterator = iteratorFn.call(propValue);
-              var step;
-              if (iteratorFn !== propValue.entries) {
-                while (!(step = iterator.next()).done) {
-                  if (!isNode(step.value)) {
-                    return false;
-                  }
-                }
-              } else {
-                while (!(step = iterator.next()).done) {
-                  var entry = step.value;
-                  if (entry) {
-                    if (!isNode(entry[1])) {
-                      return false;
-                    }
-                  }
-                }
-              }
-            } else {
-              return false;
-            }
-            return true;
-          default:
-            return false;
-        }
-      }
-      function isSymbol(propType, propValue) {
-        if (propType === "symbol") {
-          return true;
-        }
-        if (!propValue) {
-          return false;
-        }
-        if (propValue["@@toStringTag"] === "Symbol") {
-          return true;
-        }
-        if (typeof Symbol === "function" && propValue instanceof Symbol) {
-          return true;
-        }
-        return false;
-      }
-      function getPropType(propValue) {
-        var propType = typeof propValue;
-        if (Array.isArray(propValue)) {
-          return "array";
-        }
-        if (propValue instanceof RegExp) {
-          return "object";
-        }
-        if (isSymbol(propType, propValue)) {
-          return "symbol";
-        }
-        return propType;
-      }
-      function getPreciseType(propValue) {
-        if (typeof propValue === "undefined" || propValue === null) {
-          return "" + propValue;
-        }
-        var propType = getPropType(propValue);
-        if (propType === "object") {
-          if (propValue instanceof Date) {
-            return "date";
-          } else if (propValue instanceof RegExp) {
-            return "regexp";
-          }
-        }
-        return propType;
-      }
-      function getPostfixForTypeWarning(value) {
-        var type = getPreciseType(value);
-        switch (type) {
-          case "array":
-          case "object":
-            return "an " + type;
-          case "boolean":
-          case "date":
-          case "regexp":
-            return "a " + type;
-          default:
-            return type;
-        }
-      }
-      function getClassName(propValue) {
-        if (!propValue.constructor || !propValue.constructor.name) {
-          return ANONYMOUS;
-        }
-        return propValue.constructor.name;
-      }
-      ReactPropTypes.checkPropTypes = checkPropTypes;
-      ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
-      ReactPropTypes.PropTypes = ReactPropTypes;
-      return ReactPropTypes;
-    };
-  }
-});
-
-// node_modules/prop-types/index.js
-var require_prop_types = __commonJS({
-  "node_modules/prop-types/index.js"(exports3, module) {
-    if (true) {
-      ReactIs = require_react_is();
-      throwOnDirectAccess = true;
-      module.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
-    } else {
-      module.exports = null();
-    }
-    var ReactIs;
-    var throwOnDirectAccess;
-  }
-});
-
 // node_modules/lodash.clamp/index.js
 var require_lodash3 = __commonJS({
   "node_modules/lodash.clamp/index.js"(exports3, module) {
@@ -1731,7 +963,7 @@ var require_lodash3 = __commonJS({
       var isBinary = reIsBinary.test(value);
       return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
     }
-    function clamp5(number, lower, upper) {
+    function clamp4(number, lower, upper) {
       if (upper === void 0) {
         upper = lower;
         lower = void 0;
@@ -1746,7 +978,7 @@ var require_lodash3 = __commonJS({
       }
       return baseClamp(toNumber(number), lower, upper);
     }
-    module.exports = clamp5;
+    module.exports = clamp4;
   }
 });
 
@@ -2624,7 +1856,7 @@ var Scroll = React5.forwardRef(({
 });
 
 // node_modules/@react-three/drei/web/PresentationControls.js
-var React9 = __toESM(require_react());
+var React8 = __toESM(require_react());
 
 // node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js
 var updateQueue = makeQueue();
@@ -5639,1982 +4871,6 @@ var host = createHost(primitives, {
 });
 var animated = host.animated;
 
-// node_modules/@use-gesture/core/dist/maths-0ab39ae9.esm.js
-function clamp2(v4, min, max) {
-  return Math.max(min, Math.min(v4, max));
-}
-var V = {
-  toVector(v4, fallback) {
-    if (v4 === void 0)
-      v4 = fallback;
-    return Array.isArray(v4) ? v4 : [v4, v4];
-  },
-  add(v12, v22) {
-    return [v12[0] + v22[0], v12[1] + v22[1]];
-  },
-  sub(v12, v22) {
-    return [v12[0] - v22[0], v12[1] - v22[1]];
-  },
-  addTo(v12, v22) {
-    v12[0] += v22[0];
-    v12[1] += v22[1];
-  },
-  subTo(v12, v22) {
-    v12[0] -= v22[0];
-    v12[1] -= v22[1];
-  }
-};
-function rubberband(distance, dimension, constant) {
-  if (dimension === 0 || Math.abs(dimension) === Infinity)
-    return Math.pow(distance, constant * 5);
-  return distance * dimension * constant / (dimension + constant * distance);
-}
-function rubberbandIfOutOfBounds(position2, min, max, constant = 0.15) {
-  if (constant === 0)
-    return clamp2(position2, min, max);
-  if (position2 < min)
-    return -rubberband(min - position2, max - min, constant) + min;
-  if (position2 > max)
-    return +rubberband(position2 - max, max - min, constant) + max;
-  return position2;
-}
-function computeRubberband(bounds, [Vx, Vy], [Rx, Ry]) {
-  const [[X0, X1], [Y0, Y1]] = bounds;
-  return [rubberbandIfOutOfBounds(Vx, X0, X1, Rx), rubberbandIfOutOfBounds(Vy, Y0, Y1, Ry)];
-}
-
-// node_modules/@use-gesture/core/dist/actions-76b8683e.esm.js
-function _toPrimitive(input, hint) {
-  if (typeof input !== "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res !== "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return typeof key === "symbol" ? key : String(key);
-}
-function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-function _objectSpread2(target2) {
-  for (var i3 = 1; i3 < arguments.length; i3++) {
-    var source = null != arguments[i3] ? arguments[i3] : {};
-    i3 % 2 ? ownKeys(Object(source), true).forEach(function(key) {
-      _defineProperty(target2, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target2, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
-      Object.defineProperty(target2, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target2;
-}
-var EVENT_TYPE_MAP = {
-  pointer: {
-    start: "down",
-    change: "move",
-    end: "up"
-  },
-  mouse: {
-    start: "down",
-    change: "move",
-    end: "up"
-  },
-  touch: {
-    start: "start",
-    change: "move",
-    end: "end"
-  },
-  gesture: {
-    start: "start",
-    change: "change",
-    end: "end"
-  }
-};
-function capitalize(string) {
-  if (!string)
-    return "";
-  return string[0].toUpperCase() + string.slice(1);
-}
-var actionsWithoutCaptureSupported = ["enter", "leave"];
-function hasCapture(capture = false, actionKey) {
-  return capture && !actionsWithoutCaptureSupported.includes(actionKey);
-}
-function toHandlerProp(device, action = "", capture = false) {
-  const deviceProps = EVENT_TYPE_MAP[device];
-  const actionKey = deviceProps ? deviceProps[action] || action : action;
-  return "on" + capitalize(device) + capitalize(actionKey) + (hasCapture(capture, actionKey) ? "Capture" : "");
-}
-var pointerCaptureEvents = ["gotpointercapture", "lostpointercapture"];
-function parseProp(prop) {
-  let eventKey = prop.substring(2).toLowerCase();
-  const passive = !!~eventKey.indexOf("passive");
-  if (passive)
-    eventKey = eventKey.replace("passive", "");
-  const captureKey = pointerCaptureEvents.includes(eventKey) ? "capturecapture" : "capture";
-  const capture = !!~eventKey.indexOf(captureKey);
-  if (capture)
-    eventKey = eventKey.replace("capture", "");
-  return {
-    device: eventKey,
-    capture,
-    passive
-  };
-}
-function toDomEventType(device, action = "") {
-  const deviceProps = EVENT_TYPE_MAP[device];
-  const actionKey = deviceProps ? deviceProps[action] || action : action;
-  return device + actionKey;
-}
-function isTouch(event) {
-  return "touches" in event;
-}
-function getPointerType(event) {
-  if (isTouch(event))
-    return "touch";
-  if ("pointerType" in event)
-    return event.pointerType;
-  return "mouse";
-}
-function getCurrentTargetTouchList(event) {
-  return Array.from(event.touches).filter((e2) => {
-    var _event$currentTarget, _event$currentTarget$;
-    return e2.target === event.currentTarget || ((_event$currentTarget = event.currentTarget) === null || _event$currentTarget === void 0 ? void 0 : (_event$currentTarget$ = _event$currentTarget.contains) === null || _event$currentTarget$ === void 0 ? void 0 : _event$currentTarget$.call(_event$currentTarget, e2.target));
-  });
-}
-function getTouchList(event) {
-  return event.type === "touchend" || event.type === "touchcancel" ? event.changedTouches : event.targetTouches;
-}
-function getValueEvent(event) {
-  return isTouch(event) ? getTouchList(event)[0] : event;
-}
-function distanceAngle(P1, P2) {
-  try {
-    const dx = P2.clientX - P1.clientX;
-    const dy = P2.clientY - P1.clientY;
-    const cx = (P2.clientX + P1.clientX) / 2;
-    const cy = (P2.clientY + P1.clientY) / 2;
-    const distance = Math.hypot(dx, dy);
-    const angle = -(Math.atan2(dx, dy) * 180) / Math.PI;
-    const origin2 = [cx, cy];
-    return {
-      angle,
-      distance,
-      origin: origin2
-    };
-  } catch (_unused) {
-  }
-  return null;
-}
-function touchIds(event) {
-  return getCurrentTargetTouchList(event).map((touch) => touch.identifier);
-}
-function touchDistanceAngle(event, ids) {
-  const [P1, P2] = Array.from(event.touches).filter((touch) => ids.includes(touch.identifier));
-  return distanceAngle(P1, P2);
-}
-function pointerId(event) {
-  const valueEvent = getValueEvent(event);
-  return isTouch(event) ? valueEvent.identifier : valueEvent.pointerId;
-}
-function pointerValues(event) {
-  const valueEvent = getValueEvent(event);
-  return [valueEvent.clientX, valueEvent.clientY];
-}
-var LINE_HEIGHT = 40;
-var PAGE_HEIGHT = 800;
-function wheelValues(event) {
-  let {
-    deltaX,
-    deltaY,
-    deltaMode
-  } = event;
-  if (deltaMode === 1) {
-    deltaX *= LINE_HEIGHT;
-    deltaY *= LINE_HEIGHT;
-  } else if (deltaMode === 2) {
-    deltaX *= PAGE_HEIGHT;
-    deltaY *= PAGE_HEIGHT;
-  }
-  return [deltaX, deltaY];
-}
-function scrollValues(event) {
-  var _ref, _ref2;
-  const {
-    scrollX,
-    scrollY,
-    scrollLeft,
-    scrollTop
-  } = event.currentTarget;
-  return [(_ref = scrollX !== null && scrollX !== void 0 ? scrollX : scrollLeft) !== null && _ref !== void 0 ? _ref : 0, (_ref2 = scrollY !== null && scrollY !== void 0 ? scrollY : scrollTop) !== null && _ref2 !== void 0 ? _ref2 : 0];
-}
-function getEventDetails(event) {
-  const payload = {};
-  if ("buttons" in event)
-    payload.buttons = event.buttons;
-  if ("shiftKey" in event) {
-    const {
-      shiftKey,
-      altKey,
-      metaKey,
-      ctrlKey
-    } = event;
-    Object.assign(payload, {
-      shiftKey,
-      altKey,
-      metaKey,
-      ctrlKey
-    });
-  }
-  return payload;
-}
-function call2(v4, ...args) {
-  if (typeof v4 === "function") {
-    return v4(...args);
-  } else {
-    return v4;
-  }
-}
-function noop2() {
-}
-function chain(...fns) {
-  if (fns.length === 0)
-    return noop2;
-  if (fns.length === 1)
-    return fns[0];
-  return function() {
-    let result;
-    for (const fn of fns) {
-      result = fn.apply(this, arguments) || result;
-    }
-    return result;
-  };
-}
-function assignDefault(value, fallback) {
-  return Object.assign({}, fallback, value || {});
-}
-var BEFORE_LAST_KINEMATICS_DELAY = 32;
-var Engine = class {
-  constructor(ctrl, args, key) {
-    this.ctrl = ctrl;
-    this.args = args;
-    this.key = key;
-    if (!this.state) {
-      this.state = {};
-      this.computeValues([0, 0]);
-      this.computeInitial();
-      if (this.init)
-        this.init();
-      this.reset();
-    }
-  }
-  get state() {
-    return this.ctrl.state[this.key];
-  }
-  set state(state) {
-    this.ctrl.state[this.key] = state;
-  }
-  get shared() {
-    return this.ctrl.state.shared;
-  }
-  get eventStore() {
-    return this.ctrl.gestureEventStores[this.key];
-  }
-  get timeoutStore() {
-    return this.ctrl.gestureTimeoutStores[this.key];
-  }
-  get config() {
-    return this.ctrl.config[this.key];
-  }
-  get sharedConfig() {
-    return this.ctrl.config.shared;
-  }
-  get handler() {
-    return this.ctrl.handlers[this.key];
-  }
-  reset() {
-    const {
-      state,
-      shared,
-      ingKey,
-      args
-    } = this;
-    shared[ingKey] = state._active = state.active = state._blocked = state._force = false;
-    state._step = [false, false];
-    state.intentional = false;
-    state._movement = [0, 0];
-    state._distance = [0, 0];
-    state._direction = [0, 0];
-    state._delta = [0, 0];
-    state._bounds = [[-Infinity, Infinity], [-Infinity, Infinity]];
-    state.args = args;
-    state.axis = void 0;
-    state.memo = void 0;
-    state.elapsedTime = state.timeDelta = 0;
-    state.direction = [0, 0];
-    state.distance = [0, 0];
-    state.overflow = [0, 0];
-    state._movementBound = [false, false];
-    state.velocity = [0, 0];
-    state.movement = [0, 0];
-    state.delta = [0, 0];
-    state.timeStamp = 0;
-  }
-  start(event) {
-    const state = this.state;
-    const config2 = this.config;
-    if (!state._active) {
-      this.reset();
-      this.computeInitial();
-      state._active = true;
-      state.target = event.target;
-      state.currentTarget = event.currentTarget;
-      state.lastOffset = config2.from ? call2(config2.from, state) : state.offset;
-      state.offset = state.lastOffset;
-      state.startTime = state.timeStamp = event.timeStamp;
-    }
-  }
-  computeValues(values) {
-    const state = this.state;
-    state._values = values;
-    state.values = this.config.transform(values);
-  }
-  computeInitial() {
-    const state = this.state;
-    state._initial = state._values;
-    state.initial = state.values;
-  }
-  compute(event) {
-    const {
-      state,
-      config: config2,
-      shared
-    } = this;
-    state.args = this.args;
-    let dt = 0;
-    if (event) {
-      state.event = event;
-      if (config2.preventDefault && event.cancelable)
-        state.event.preventDefault();
-      state.type = event.type;
-      shared.touches = this.ctrl.pointerIds.size || this.ctrl.touchIds.size;
-      shared.locked = !!document.pointerLockElement;
-      Object.assign(shared, getEventDetails(event));
-      shared.down = shared.pressed = shared.buttons % 2 === 1 || shared.touches > 0;
-      dt = event.timeStamp - state.timeStamp;
-      state.timeStamp = event.timeStamp;
-      state.elapsedTime = state.timeStamp - state.startTime;
-    }
-    if (state._active) {
-      const _absoluteDelta = state._delta.map(Math.abs);
-      V.addTo(state._distance, _absoluteDelta);
-    }
-    if (this.axisIntent)
-      this.axisIntent(event);
-    const [_m0, _m1] = state._movement;
-    const [t0, t1] = config2.threshold;
-    const {
-      _step,
-      values
-    } = state;
-    if (config2.hasCustomTransform) {
-      if (_step[0] === false)
-        _step[0] = Math.abs(_m0) >= t0 && values[0];
-      if (_step[1] === false)
-        _step[1] = Math.abs(_m1) >= t1 && values[1];
-    } else {
-      if (_step[0] === false)
-        _step[0] = Math.abs(_m0) >= t0 && Math.sign(_m0) * t0;
-      if (_step[1] === false)
-        _step[1] = Math.abs(_m1) >= t1 && Math.sign(_m1) * t1;
-    }
-    state.intentional = _step[0] !== false || _step[1] !== false;
-    if (!state.intentional)
-      return;
-    const movement = [0, 0];
-    if (config2.hasCustomTransform) {
-      const [v0, v12] = values;
-      movement[0] = _step[0] !== false ? v0 - _step[0] : 0;
-      movement[1] = _step[1] !== false ? v12 - _step[1] : 0;
-    } else {
-      movement[0] = _step[0] !== false ? _m0 - _step[0] : 0;
-      movement[1] = _step[1] !== false ? _m1 - _step[1] : 0;
-    }
-    if (this.restrictToAxis && !state._blocked)
-      this.restrictToAxis(movement);
-    const previousOffset = state.offset;
-    const gestureIsActive = state._active && !state._blocked || state.active;
-    if (gestureIsActive) {
-      state.first = state._active && !state.active;
-      state.last = !state._active && state.active;
-      state.active = shared[this.ingKey] = state._active;
-      if (event) {
-        if (state.first) {
-          if ("bounds" in config2)
-            state._bounds = call2(config2.bounds, state);
-          if (this.setup)
-            this.setup();
-        }
-        state.movement = movement;
-        this.computeOffset();
-      }
-    }
-    const [ox, oy] = state.offset;
-    const [[x0, x1], [y0, y1]] = state._bounds;
-    state.overflow = [ox < x0 ? -1 : ox > x1 ? 1 : 0, oy < y0 ? -1 : oy > y1 ? 1 : 0];
-    state._movementBound[0] = state.overflow[0] ? state._movementBound[0] === false ? state._movement[0] : state._movementBound[0] : false;
-    state._movementBound[1] = state.overflow[1] ? state._movementBound[1] === false ? state._movement[1] : state._movementBound[1] : false;
-    const rubberband2 = state._active ? config2.rubberband || [0, 0] : [0, 0];
-    state.offset = computeRubberband(state._bounds, state.offset, rubberband2);
-    state.delta = V.sub(state.offset, previousOffset);
-    this.computeMovement();
-    if (gestureIsActive && (!state.last || dt > BEFORE_LAST_KINEMATICS_DELAY)) {
-      state.delta = V.sub(state.offset, previousOffset);
-      const absoluteDelta = state.delta.map(Math.abs);
-      V.addTo(state.distance, absoluteDelta);
-      state.direction = state.delta.map(Math.sign);
-      state._direction = state._delta.map(Math.sign);
-      if (!state.first && dt > 0) {
-        state.velocity = [absoluteDelta[0] / dt, absoluteDelta[1] / dt];
-        state.timeDelta = dt;
-      }
-    }
-  }
-  emit() {
-    const state = this.state;
-    const shared = this.shared;
-    const config2 = this.config;
-    if (!state._active)
-      this.clean();
-    if ((state._blocked || !state.intentional) && !state._force && !config2.triggerAllEvents)
-      return;
-    const memo = this.handler(_objectSpread2(_objectSpread2(_objectSpread2({}, shared), state), {}, {
-      [this.aliasKey]: state.values
-    }));
-    if (memo !== void 0)
-      state.memo = memo;
-  }
-  clean() {
-    this.eventStore.clean();
-    this.timeoutStore.clean();
-  }
-};
-function selectAxis([dx, dy], threshold) {
-  const absDx = Math.abs(dx);
-  const absDy = Math.abs(dy);
-  if (absDx > absDy && absDx > threshold) {
-    return "x";
-  }
-  if (absDy > absDx && absDy > threshold) {
-    return "y";
-  }
-  return void 0;
-}
-var CoordinatesEngine = class extends Engine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "aliasKey", "xy");
-  }
-  reset() {
-    super.reset();
-    this.state.axis = void 0;
-  }
-  init() {
-    this.state.offset = [0, 0];
-    this.state.lastOffset = [0, 0];
-  }
-  computeOffset() {
-    this.state.offset = V.add(this.state.lastOffset, this.state.movement);
-  }
-  computeMovement() {
-    this.state.movement = V.sub(this.state.offset, this.state.lastOffset);
-  }
-  axisIntent(event) {
-    const state = this.state;
-    const config2 = this.config;
-    if (!state.axis && event) {
-      const threshold = typeof config2.axisThreshold === "object" ? config2.axisThreshold[getPointerType(event)] : config2.axisThreshold;
-      state.axis = selectAxis(state._movement, threshold);
-    }
-    state._blocked = (config2.lockDirection || !!config2.axis) && !state.axis || !!config2.axis && config2.axis !== state.axis;
-  }
-  restrictToAxis(v4) {
-    if (this.config.axis || this.config.lockDirection) {
-      switch (this.state.axis) {
-        case "x":
-          v4[1] = 0;
-          break;
-        case "y":
-          v4[0] = 0;
-          break;
-      }
-    }
-  }
-};
-var identity = (v4) => v4;
-var DEFAULT_RUBBERBAND = 0.15;
-var commonConfigResolver = {
-  enabled(value = true) {
-    return value;
-  },
-  eventOptions(value, _k, config2) {
-    return _objectSpread2(_objectSpread2({}, config2.shared.eventOptions), value);
-  },
-  preventDefault(value = false) {
-    return value;
-  },
-  triggerAllEvents(value = false) {
-    return value;
-  },
-  rubberband(value = 0) {
-    switch (value) {
-      case true:
-        return [DEFAULT_RUBBERBAND, DEFAULT_RUBBERBAND];
-      case false:
-        return [0, 0];
-      default:
-        return V.toVector(value);
-    }
-  },
-  from(value) {
-    if (typeof value === "function")
-      return value;
-    if (value != null)
-      return V.toVector(value);
-  },
-  transform(value, _k, config2) {
-    const transform = value || config2.shared.transform;
-    this.hasCustomTransform = !!transform;
-    if (true) {
-      const originalTransform = transform || identity;
-      return (v4) => {
-        const r2 = originalTransform(v4);
-        if (!isFinite(r2[0]) || !isFinite(r2[1])) {
-          console.warn(`[@use-gesture]: config.transform() must produce a valid result, but it was: [${r2[0]},${[1]}]`);
-        }
-        return r2;
-      };
-    }
-    return transform || identity;
-  },
-  threshold(value) {
-    return V.toVector(value, 0);
-  }
-};
-if (true) {
-  Object.assign(commonConfigResolver, {
-    domTarget(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`domTarget\` option has been renamed to \`target\`.`);
-      }
-      return NaN;
-    },
-    lockDirection(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`lockDirection\` option has been merged with \`axis\`. Use it as in \`{ axis: 'lock' }\``);
-      }
-      return NaN;
-    },
-    initial(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`initial\` option has been renamed to \`from\`.`);
-      }
-      return NaN;
-    }
-  });
-}
-var DEFAULT_AXIS_THRESHOLD = 0;
-var coordinatesConfigResolver = _objectSpread2(_objectSpread2({}, commonConfigResolver), {}, {
-  axis(_v, _k, {
-    axis
-  }) {
-    this.lockDirection = axis === "lock";
-    if (!this.lockDirection)
-      return axis;
-  },
-  axisThreshold(value = DEFAULT_AXIS_THRESHOLD) {
-    return value;
-  },
-  bounds(value = {}) {
-    if (typeof value === "function") {
-      return (state) => coordinatesConfigResolver.bounds(value(state));
-    }
-    if ("current" in value) {
-      return () => value.current;
-    }
-    if (typeof HTMLElement === "function" && value instanceof HTMLElement) {
-      return value;
-    }
-    const {
-      left = -Infinity,
-      right = Infinity,
-      top = -Infinity,
-      bottom = Infinity
-    } = value;
-    return [[left, right], [top, bottom]];
-  }
-});
-var KEYS_DELTA_MAP = {
-  ArrowRight: (displacement, factor = 1) => [displacement * factor, 0],
-  ArrowLeft: (displacement, factor = 1) => [-1 * displacement * factor, 0],
-  ArrowUp: (displacement, factor = 1) => [0, -1 * displacement * factor],
-  ArrowDown: (displacement, factor = 1) => [0, displacement * factor]
-};
-var DragEngine = class extends CoordinatesEngine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "dragging");
-  }
-  reset() {
-    super.reset();
-    const state = this.state;
-    state._pointerId = void 0;
-    state._pointerActive = false;
-    state._keyboardActive = false;
-    state._preventScroll = false;
-    state._delayed = false;
-    state.swipe = [0, 0];
-    state.tap = false;
-    state.canceled = false;
-    state.cancel = this.cancel.bind(this);
-  }
-  setup() {
-    const state = this.state;
-    if (state._bounds instanceof HTMLElement) {
-      const boundRect = state._bounds.getBoundingClientRect();
-      const targetRect = state.currentTarget.getBoundingClientRect();
-      const _bounds = {
-        left: boundRect.left - targetRect.left + state.offset[0],
-        right: boundRect.right - targetRect.right + state.offset[0],
-        top: boundRect.top - targetRect.top + state.offset[1],
-        bottom: boundRect.bottom - targetRect.bottom + state.offset[1]
-      };
-      state._bounds = coordinatesConfigResolver.bounds(_bounds);
-    }
-  }
-  cancel() {
-    const state = this.state;
-    if (state.canceled)
-      return;
-    state.canceled = true;
-    state._active = false;
-    setTimeout(() => {
-      this.compute();
-      this.emit();
-    }, 0);
-  }
-  setActive() {
-    this.state._active = this.state._pointerActive || this.state._keyboardActive;
-  }
-  clean() {
-    this.pointerClean();
-    this.state._pointerActive = false;
-    this.state._keyboardActive = false;
-    super.clean();
-  }
-  pointerDown(event) {
-    const config2 = this.config;
-    const state = this.state;
-    if (event.buttons != null && (Array.isArray(config2.pointerButtons) ? !config2.pointerButtons.includes(event.buttons) : config2.pointerButtons !== -1 && config2.pointerButtons !== event.buttons))
-      return;
-    const ctrlIds = this.ctrl.setEventIds(event);
-    if (config2.pointerCapture) {
-      event.target.setPointerCapture(event.pointerId);
-    }
-    if (ctrlIds && ctrlIds.size > 1 && state._pointerActive)
-      return;
-    this.start(event);
-    this.setupPointer(event);
-    state._pointerId = pointerId(event);
-    state._pointerActive = true;
-    this.computeValues(pointerValues(event));
-    this.computeInitial();
-    if (config2.preventScrollAxis && getPointerType(event) !== "mouse") {
-      state._active = false;
-      this.setupScrollPrevention(event);
-    } else if (config2.delay > 0) {
-      this.setupDelayTrigger(event);
-      if (config2.triggerAllEvents) {
-        this.compute(event);
-        this.emit();
-      }
-    } else {
-      this.startPointerDrag(event);
-    }
-  }
-  startPointerDrag(event) {
-    const state = this.state;
-    state._active = true;
-    state._preventScroll = true;
-    state._delayed = false;
-    this.compute(event);
-    this.emit();
-  }
-  pointerMove(event) {
-    const state = this.state;
-    const config2 = this.config;
-    if (!state._pointerActive)
-      return;
-    const id = pointerId(event);
-    if (state._pointerId !== void 0 && id !== state._pointerId)
-      return;
-    const _values = pointerValues(event);
-    if (document.pointerLockElement === event.target) {
-      state._delta = [event.movementX, event.movementY];
-    } else {
-      state._delta = V.sub(_values, state._values);
-      this.computeValues(_values);
-    }
-    V.addTo(state._movement, state._delta);
-    this.compute(event);
-    if (state._delayed && state.intentional) {
-      this.timeoutStore.remove("dragDelay");
-      state.active = false;
-      this.startPointerDrag(event);
-      return;
-    }
-    if (config2.preventScrollAxis && !state._preventScroll) {
-      if (state.axis) {
-        if (state.axis === config2.preventScrollAxis || config2.preventScrollAxis === "xy") {
-          state._active = false;
-          this.clean();
-          return;
-        } else {
-          this.timeoutStore.remove("startPointerDrag");
-          this.startPointerDrag(event);
-          return;
-        }
-      } else {
-        return;
-      }
-    }
-    this.emit();
-  }
-  pointerUp(event) {
-    this.ctrl.setEventIds(event);
-    try {
-      if (this.config.pointerCapture && event.target.hasPointerCapture(event.pointerId)) {
-        ;
-        event.target.releasePointerCapture(event.pointerId);
-      }
-    } catch (_unused) {
-      if (true) {
-        console.warn(`[@use-gesture]: If you see this message, it's likely that you're using an outdated version of \`@react-three/fiber\`. 
-
-Please upgrade to the latest version.`);
-      }
-    }
-    const state = this.state;
-    const config2 = this.config;
-    if (!state._active || !state._pointerActive)
-      return;
-    const id = pointerId(event);
-    if (state._pointerId !== void 0 && id !== state._pointerId)
-      return;
-    this.state._pointerActive = false;
-    this.setActive();
-    this.compute(event);
-    const [dx, dy] = state._distance;
-    state.tap = dx <= config2.tapsThreshold && dy <= config2.tapsThreshold;
-    if (state.tap && config2.filterTaps) {
-      state._force = true;
-    } else {
-      const [_dx, _dy] = state._delta;
-      const [_mx, _my] = state._movement;
-      const [svx, svy] = config2.swipe.velocity;
-      const [sx, sy] = config2.swipe.distance;
-      const sdt = config2.swipe.duration;
-      if (state.elapsedTime < sdt) {
-        const _vx = Math.abs(_dx / state.timeDelta);
-        const _vy = Math.abs(_dy / state.timeDelta);
-        if (_vx > svx && Math.abs(_mx) > sx)
-          state.swipe[0] = Math.sign(_dx);
-        if (_vy > svy && Math.abs(_my) > sy)
-          state.swipe[1] = Math.sign(_dy);
-      }
-    }
-    this.emit();
-  }
-  pointerClick(event) {
-    if (!this.state.tap && event.detail > 0) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-  }
-  setupPointer(event) {
-    const config2 = this.config;
-    const device = config2.device;
-    if (true) {
-      try {
-        if (device === "pointer" && config2.preventScrollDelay === void 0) {
-          const currentTarget = "uv" in event ? event.sourceEvent.currentTarget : event.currentTarget;
-          const style = window.getComputedStyle(currentTarget);
-          if (style.touchAction === "auto") {
-            console.warn(`[@use-gesture]: The drag target has its \`touch-action\` style property set to \`auto\`. It is recommended to add \`touch-action: 'none'\` so that the drag gesture behaves correctly on touch-enabled devices. For more information read this: https://use-gesture.netlify.app/docs/extras/#touch-action.
-
-This message will only show in development mode. It won't appear in production. If this is intended, you can ignore it.`, currentTarget);
-          }
-        }
-      } catch (_unused2) {
-      }
-    }
-    if (config2.pointerLock) {
-      event.currentTarget.requestPointerLock();
-    }
-    if (!config2.pointerCapture) {
-      this.eventStore.add(this.sharedConfig.window, device, "change", this.pointerMove.bind(this));
-      this.eventStore.add(this.sharedConfig.window, device, "end", this.pointerUp.bind(this));
-      this.eventStore.add(this.sharedConfig.window, device, "cancel", this.pointerUp.bind(this));
-    }
-  }
-  pointerClean() {
-    if (this.config.pointerLock && document.pointerLockElement === this.state.currentTarget) {
-      document.exitPointerLock();
-    }
-  }
-  preventScroll(event) {
-    if (this.state._preventScroll && event.cancelable) {
-      event.preventDefault();
-    }
-  }
-  setupScrollPrevention(event) {
-    this.state._preventScroll = false;
-    persistEvent(event);
-    const remove = this.eventStore.add(this.sharedConfig.window, "touch", "change", this.preventScroll.bind(this), {
-      passive: false
-    });
-    this.eventStore.add(this.sharedConfig.window, "touch", "end", remove);
-    this.eventStore.add(this.sharedConfig.window, "touch", "cancel", remove);
-    this.timeoutStore.add("startPointerDrag", this.startPointerDrag.bind(this), this.config.preventScrollDelay, event);
-  }
-  setupDelayTrigger(event) {
-    this.state._delayed = true;
-    this.timeoutStore.add("dragDelay", () => {
-      this.state._step = [0, 0];
-      this.startPointerDrag(event);
-    }, this.config.delay);
-  }
-  keyDown(event) {
-    const deltaFn = KEYS_DELTA_MAP[event.key];
-    if (deltaFn) {
-      const state = this.state;
-      const factor = event.shiftKey ? 10 : event.altKey ? 0.1 : 1;
-      this.start(event);
-      state._delta = deltaFn(this.config.keyboardDisplacement, factor);
-      state._keyboardActive = true;
-      V.addTo(state._movement, state._delta);
-      this.compute(event);
-      this.emit();
-    }
-  }
-  keyUp(event) {
-    if (!(event.key in KEYS_DELTA_MAP))
-      return;
-    this.state._keyboardActive = false;
-    this.setActive();
-    this.compute(event);
-    this.emit();
-  }
-  bind(bindFunction) {
-    const device = this.config.device;
-    bindFunction(device, "start", this.pointerDown.bind(this));
-    if (this.config.pointerCapture) {
-      bindFunction(device, "change", this.pointerMove.bind(this));
-      bindFunction(device, "end", this.pointerUp.bind(this));
-      bindFunction(device, "cancel", this.pointerUp.bind(this));
-      bindFunction("lostPointerCapture", "", this.pointerUp.bind(this));
-    }
-    if (this.config.keys) {
-      bindFunction("key", "down", this.keyDown.bind(this));
-      bindFunction("key", "up", this.keyUp.bind(this));
-    }
-    if (this.config.filterTaps) {
-      bindFunction("click", "", this.pointerClick.bind(this), {
-        capture: true,
-        passive: false
-      });
-    }
-  }
-};
-function persistEvent(event) {
-  "persist" in event && typeof event.persist === "function" && event.persist();
-}
-var isBrowser = typeof window !== "undefined" && window.document && window.document.createElement;
-function supportsTouchEvents() {
-  return isBrowser && "ontouchstart" in window;
-}
-function isTouchScreen() {
-  return supportsTouchEvents() || isBrowser && window.navigator.maxTouchPoints > 1;
-}
-function supportsPointerEvents() {
-  return isBrowser && "onpointerdown" in window;
-}
-function supportsPointerLock() {
-  return isBrowser && "exitPointerLock" in window.document;
-}
-function supportsGestureEvents() {
-  try {
-    return "constructor" in GestureEvent;
-  } catch (e2) {
-    return false;
-  }
-}
-var SUPPORT = {
-  isBrowser,
-  gesture: supportsGestureEvents(),
-  touch: isTouchScreen(),
-  touchscreen: isTouchScreen(),
-  pointer: supportsPointerEvents(),
-  pointerLock: supportsPointerLock()
-};
-var DEFAULT_PREVENT_SCROLL_DELAY = 250;
-var DEFAULT_DRAG_DELAY = 180;
-var DEFAULT_SWIPE_VELOCITY = 0.5;
-var DEFAULT_SWIPE_DISTANCE = 50;
-var DEFAULT_SWIPE_DURATION = 250;
-var DEFAULT_KEYBOARD_DISPLACEMENT = 10;
-var DEFAULT_DRAG_AXIS_THRESHOLD = {
-  mouse: 0,
-  touch: 0,
-  pen: 8
-};
-var dragConfigResolver = _objectSpread2(_objectSpread2({}, coordinatesConfigResolver), {}, {
-  device(_v, _k, {
-    pointer: {
-      touch = false,
-      lock = false,
-      mouse = false
-    } = {}
-  }) {
-    this.pointerLock = lock && SUPPORT.pointerLock;
-    if (SUPPORT.touch && touch)
-      return "touch";
-    if (this.pointerLock)
-      return "mouse";
-    if (SUPPORT.pointer && !mouse)
-      return "pointer";
-    if (SUPPORT.touch)
-      return "touch";
-    return "mouse";
-  },
-  preventScrollAxis(value, _k, {
-    preventScroll
-  }) {
-    this.preventScrollDelay = typeof preventScroll === "number" ? preventScroll : preventScroll || preventScroll === void 0 && value ? DEFAULT_PREVENT_SCROLL_DELAY : void 0;
-    if (!SUPPORT.touchscreen || preventScroll === false)
-      return void 0;
-    return value ? value : preventScroll !== void 0 ? "y" : void 0;
-  },
-  pointerCapture(_v, _k, {
-    pointer: {
-      capture = true,
-      buttons = 1,
-      keys = true
-    } = {}
-  }) {
-    this.pointerButtons = buttons;
-    this.keys = keys;
-    return !this.pointerLock && this.device === "pointer" && capture;
-  },
-  threshold(value, _k, {
-    filterTaps = false,
-    tapsThreshold = 3,
-    axis = void 0
-  }) {
-    const threshold = V.toVector(value, filterTaps ? tapsThreshold : axis ? 1 : 0);
-    this.filterTaps = filterTaps;
-    this.tapsThreshold = tapsThreshold;
-    return threshold;
-  },
-  swipe({
-    velocity = DEFAULT_SWIPE_VELOCITY,
-    distance = DEFAULT_SWIPE_DISTANCE,
-    duration = DEFAULT_SWIPE_DURATION
-  } = {}) {
-    return {
-      velocity: this.transform(V.toVector(velocity)),
-      distance: this.transform(V.toVector(distance)),
-      duration
-    };
-  },
-  delay(value = 0) {
-    switch (value) {
-      case true:
-        return DEFAULT_DRAG_DELAY;
-      case false:
-        return 0;
-      default:
-        return value;
-    }
-  },
-  axisThreshold(value) {
-    if (!value)
-      return DEFAULT_DRAG_AXIS_THRESHOLD;
-    return _objectSpread2(_objectSpread2({}, DEFAULT_DRAG_AXIS_THRESHOLD), value);
-  },
-  keyboardDisplacement(value = DEFAULT_KEYBOARD_DISPLACEMENT) {
-    return value;
-  }
-});
-if (true) {
-  Object.assign(dragConfigResolver, {
-    useTouch(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`useTouch\` option has been renamed to \`pointer.touch\`. Use it as in \`{ pointer: { touch: true } }\`.`);
-      }
-      return NaN;
-    },
-    experimental_preventWindowScrollY(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`experimental_preventWindowScrollY\` option has been renamed to \`preventScroll\`.`);
-      }
-      return NaN;
-    },
-    swipeVelocity(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`swipeVelocity\` option has been renamed to \`swipe.velocity\`. Use it as in \`{ swipe: { velocity: 0.5 } }\`.`);
-      }
-      return NaN;
-    },
-    swipeDistance(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`swipeDistance\` option has been renamed to \`swipe.distance\`. Use it as in \`{ swipe: { distance: 50 } }\`.`);
-      }
-      return NaN;
-    },
-    swipeDuration(value) {
-      if (value !== void 0) {
-        throw Error(`[@use-gesture]: \`swipeDuration\` option has been renamed to \`swipe.duration\`. Use it as in \`{ swipe: { duration: 250 } }\`.`);
-      }
-      return NaN;
-    }
-  });
-}
-function clampStateInternalMovementToBounds(state) {
-  const [ox, oy] = state.overflow;
-  const [dx, dy] = state._delta;
-  const [dirx, diry] = state._direction;
-  if (ox < 0 && dx > 0 && dirx < 0 || ox > 0 && dx < 0 && dirx > 0) {
-    state._movement[0] = state._movementBound[0];
-  }
-  if (oy < 0 && dy > 0 && diry < 0 || oy > 0 && dy < 0 && diry > 0) {
-    state._movement[1] = state._movementBound[1];
-  }
-}
-var SCALE_ANGLE_RATIO_INTENT_DEG = 30;
-var PINCH_WHEEL_RATIO = 100;
-var PinchEngine = class extends Engine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "pinching");
-    _defineProperty(this, "aliasKey", "da");
-  }
-  init() {
-    this.state.offset = [1, 0];
-    this.state.lastOffset = [1, 0];
-    this.state._pointerEvents = /* @__PURE__ */ new Map();
-  }
-  reset() {
-    super.reset();
-    const state = this.state;
-    state._touchIds = [];
-    state.canceled = false;
-    state.cancel = this.cancel.bind(this);
-    state.turns = 0;
-  }
-  computeOffset() {
-    const {
-      type,
-      movement,
-      lastOffset
-    } = this.state;
-    if (type === "wheel") {
-      this.state.offset = V.add(movement, lastOffset);
-    } else {
-      this.state.offset = [(1 + movement[0]) * lastOffset[0], movement[1] + lastOffset[1]];
-    }
-  }
-  computeMovement() {
-    const {
-      offset,
-      lastOffset
-    } = this.state;
-    this.state.movement = [offset[0] / lastOffset[0], offset[1] - lastOffset[1]];
-  }
-  axisIntent() {
-    const state = this.state;
-    const [_m0, _m1] = state._movement;
-    if (!state.axis) {
-      const axisMovementDifference = Math.abs(_m0) * SCALE_ANGLE_RATIO_INTENT_DEG - Math.abs(_m1);
-      if (axisMovementDifference < 0)
-        state.axis = "angle";
-      else if (axisMovementDifference > 0)
-        state.axis = "scale";
-    }
-  }
-  restrictToAxis(v4) {
-    if (this.config.lockDirection) {
-      if (this.state.axis === "scale")
-        v4[1] = 0;
-      else if (this.state.axis === "angle")
-        v4[0] = 0;
-    }
-  }
-  cancel() {
-    const state = this.state;
-    if (state.canceled)
-      return;
-    setTimeout(() => {
-      state.canceled = true;
-      state._active = false;
-      this.compute();
-      this.emit();
-    }, 0);
-  }
-  touchStart(event) {
-    this.ctrl.setEventIds(event);
-    const state = this.state;
-    const ctrlTouchIds = this.ctrl.touchIds;
-    if (state._active) {
-      if (state._touchIds.every((id) => ctrlTouchIds.has(id)))
-        return;
-    }
-    if (ctrlTouchIds.size < 2)
-      return;
-    this.start(event);
-    state._touchIds = Array.from(ctrlTouchIds).slice(0, 2);
-    const payload = touchDistanceAngle(event, state._touchIds);
-    if (!payload)
-      return;
-    this.pinchStart(event, payload);
-  }
-  pointerStart(event) {
-    if (event.buttons != null && event.buttons % 2 !== 1)
-      return;
-    this.ctrl.setEventIds(event);
-    event.target.setPointerCapture(event.pointerId);
-    const state = this.state;
-    const _pointerEvents = state._pointerEvents;
-    const ctrlPointerIds = this.ctrl.pointerIds;
-    if (state._active) {
-      if (Array.from(_pointerEvents.keys()).every((id) => ctrlPointerIds.has(id)))
-        return;
-    }
-    if (_pointerEvents.size < 2) {
-      _pointerEvents.set(event.pointerId, event);
-    }
-    if (state._pointerEvents.size < 2)
-      return;
-    this.start(event);
-    const payload = distanceAngle(...Array.from(_pointerEvents.values()));
-    if (!payload)
-      return;
-    this.pinchStart(event, payload);
-  }
-  pinchStart(event, payload) {
-    const state = this.state;
-    state.origin = payload.origin;
-    this.computeValues([payload.distance, payload.angle]);
-    this.computeInitial();
-    this.compute(event);
-    this.emit();
-  }
-  touchMove(event) {
-    if (!this.state._active)
-      return;
-    const payload = touchDistanceAngle(event, this.state._touchIds);
-    if (!payload)
-      return;
-    this.pinchMove(event, payload);
-  }
-  pointerMove(event) {
-    const _pointerEvents = this.state._pointerEvents;
-    if (_pointerEvents.has(event.pointerId)) {
-      _pointerEvents.set(event.pointerId, event);
-    }
-    if (!this.state._active)
-      return;
-    const payload = distanceAngle(...Array.from(_pointerEvents.values()));
-    if (!payload)
-      return;
-    this.pinchMove(event, payload);
-  }
-  pinchMove(event, payload) {
-    const state = this.state;
-    const prev_a = state._values[1];
-    const delta_a = payload.angle - prev_a;
-    let delta_turns = 0;
-    if (Math.abs(delta_a) > 270)
-      delta_turns += Math.sign(delta_a);
-    this.computeValues([payload.distance, payload.angle - 360 * delta_turns]);
-    state.origin = payload.origin;
-    state.turns = delta_turns;
-    state._movement = [state._values[0] / state._initial[0] - 1, state._values[1] - state._initial[1]];
-    this.compute(event);
-    this.emit();
-  }
-  touchEnd(event) {
-    this.ctrl.setEventIds(event);
-    if (!this.state._active)
-      return;
-    if (this.state._touchIds.some((id) => !this.ctrl.touchIds.has(id))) {
-      this.state._active = false;
-      this.compute(event);
-      this.emit();
-    }
-  }
-  pointerEnd(event) {
-    const state = this.state;
-    this.ctrl.setEventIds(event);
-    try {
-      event.target.releasePointerCapture(event.pointerId);
-    } catch (_unused) {
-    }
-    if (state._pointerEvents.has(event.pointerId)) {
-      state._pointerEvents.delete(event.pointerId);
-    }
-    if (!state._active)
-      return;
-    if (state._pointerEvents.size < 2) {
-      state._active = false;
-      this.compute(event);
-      this.emit();
-    }
-  }
-  gestureStart(event) {
-    if (event.cancelable)
-      event.preventDefault();
-    const state = this.state;
-    if (state._active)
-      return;
-    this.start(event);
-    this.computeValues([event.scale, event.rotation]);
-    state.origin = [event.clientX, event.clientY];
-    this.compute(event);
-    this.emit();
-  }
-  gestureMove(event) {
-    if (event.cancelable)
-      event.preventDefault();
-    if (!this.state._active)
-      return;
-    const state = this.state;
-    this.computeValues([event.scale, event.rotation]);
-    state.origin = [event.clientX, event.clientY];
-    const _previousMovement = state._movement;
-    state._movement = [event.scale - 1, event.rotation];
-    state._delta = V.sub(state._movement, _previousMovement);
-    this.compute(event);
-    this.emit();
-  }
-  gestureEnd(event) {
-    if (!this.state._active)
-      return;
-    this.state._active = false;
-    this.compute(event);
-    this.emit();
-  }
-  wheel(event) {
-    const modifierKey = this.config.modifierKey;
-    if (modifierKey && !event[modifierKey])
-      return;
-    if (!this.state._active)
-      this.wheelStart(event);
-    else
-      this.wheelChange(event);
-    this.timeoutStore.add("wheelEnd", this.wheelEnd.bind(this));
-  }
-  wheelStart(event) {
-    this.start(event);
-    this.wheelChange(event);
-  }
-  wheelChange(event) {
-    const isR3f = "uv" in event;
-    if (!isR3f) {
-      if (event.cancelable) {
-        event.preventDefault();
-      }
-      if (!event.defaultPrevented) {
-        console.warn(`[@use-gesture]: To properly support zoom on trackpads, try using the \`target\` option.
-
-This message will only appear in development mode.`);
-      }
-    }
-    const state = this.state;
-    state._delta = [-wheelValues(event)[1] / PINCH_WHEEL_RATIO * state.offset[0], 0];
-    V.addTo(state._movement, state._delta);
-    clampStateInternalMovementToBounds(state);
-    this.state.origin = [event.clientX, event.clientY];
-    this.compute(event);
-    this.emit();
-  }
-  wheelEnd() {
-    if (!this.state._active)
-      return;
-    this.state._active = false;
-    this.compute();
-    this.emit();
-  }
-  bind(bindFunction) {
-    const device = this.config.device;
-    if (!!device) {
-      bindFunction(device, "start", this[device + "Start"].bind(this));
-      bindFunction(device, "change", this[device + "Move"].bind(this));
-      bindFunction(device, "end", this[device + "End"].bind(this));
-      bindFunction(device, "cancel", this[device + "End"].bind(this));
-      bindFunction("lostPointerCapture", "", this[device + "End"].bind(this));
-    }
-    if (this.config.pinchOnWheel) {
-      bindFunction("wheel", "", this.wheel.bind(this), {
-        passive: false
-      });
-    }
-  }
-};
-var pinchConfigResolver = _objectSpread2(_objectSpread2({}, commonConfigResolver), {}, {
-  device(_v, _k, {
-    shared,
-    pointer: {
-      touch = false
-    } = {}
-  }) {
-    const sharedConfig = shared;
-    if (sharedConfig.target && !SUPPORT.touch && SUPPORT.gesture)
-      return "gesture";
-    if (SUPPORT.touch && touch)
-      return "touch";
-    if (SUPPORT.touchscreen) {
-      if (SUPPORT.pointer)
-        return "pointer";
-      if (SUPPORT.touch)
-        return "touch";
-    }
-  },
-  bounds(_v, _k, {
-    scaleBounds = {},
-    angleBounds = {}
-  }) {
-    const _scaleBounds = (state) => {
-      const D = assignDefault(call2(scaleBounds, state), {
-        min: -Infinity,
-        max: Infinity
-      });
-      return [D.min, D.max];
-    };
-    const _angleBounds = (state) => {
-      const A = assignDefault(call2(angleBounds, state), {
-        min: -Infinity,
-        max: Infinity
-      });
-      return [A.min, A.max];
-    };
-    if (typeof scaleBounds !== "function" && typeof angleBounds !== "function")
-      return [_scaleBounds(), _angleBounds()];
-    return (state) => [_scaleBounds(state), _angleBounds(state)];
-  },
-  threshold(value, _k, config2) {
-    this.lockDirection = config2.axis === "lock";
-    const threshold = V.toVector(value, this.lockDirection ? [0.1, 3] : 0);
-    return threshold;
-  },
-  modifierKey(value) {
-    if (value === void 0)
-      return "ctrlKey";
-    return value;
-  },
-  pinchOnWheel(value = true) {
-    return value;
-  }
-});
-var MoveEngine = class extends CoordinatesEngine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "moving");
-  }
-  move(event) {
-    if (this.config.mouseOnly && event.pointerType !== "mouse")
-      return;
-    if (!this.state._active)
-      this.moveStart(event);
-    else
-      this.moveChange(event);
-    this.timeoutStore.add("moveEnd", this.moveEnd.bind(this));
-  }
-  moveStart(event) {
-    this.start(event);
-    this.computeValues(pointerValues(event));
-    this.compute(event);
-    this.computeInitial();
-    this.emit();
-  }
-  moveChange(event) {
-    if (!this.state._active)
-      return;
-    const values = pointerValues(event);
-    const state = this.state;
-    state._delta = V.sub(values, state._values);
-    V.addTo(state._movement, state._delta);
-    this.computeValues(values);
-    this.compute(event);
-    this.emit();
-  }
-  moveEnd(event) {
-    if (!this.state._active)
-      return;
-    this.state._active = false;
-    this.compute(event);
-    this.emit();
-  }
-  bind(bindFunction) {
-    bindFunction("pointer", "change", this.move.bind(this));
-    bindFunction("pointer", "leave", this.moveEnd.bind(this));
-  }
-};
-var moveConfigResolver = _objectSpread2(_objectSpread2({}, coordinatesConfigResolver), {}, {
-  mouseOnly: (value = true) => value
-});
-var ScrollEngine = class extends CoordinatesEngine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "scrolling");
-  }
-  scroll(event) {
-    if (!this.state._active)
-      this.start(event);
-    this.scrollChange(event);
-    this.timeoutStore.add("scrollEnd", this.scrollEnd.bind(this));
-  }
-  scrollChange(event) {
-    if (event.cancelable)
-      event.preventDefault();
-    const state = this.state;
-    const values = scrollValues(event);
-    state._delta = V.sub(values, state._values);
-    V.addTo(state._movement, state._delta);
-    this.computeValues(values);
-    this.compute(event);
-    this.emit();
-  }
-  scrollEnd() {
-    if (!this.state._active)
-      return;
-    this.state._active = false;
-    this.compute();
-    this.emit();
-  }
-  bind(bindFunction) {
-    bindFunction("scroll", "", this.scroll.bind(this));
-  }
-};
-var scrollConfigResolver = coordinatesConfigResolver;
-var WheelEngine = class extends CoordinatesEngine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "wheeling");
-  }
-  wheel(event) {
-    if (!this.state._active)
-      this.start(event);
-    this.wheelChange(event);
-    this.timeoutStore.add("wheelEnd", this.wheelEnd.bind(this));
-  }
-  wheelChange(event) {
-    const state = this.state;
-    state._delta = wheelValues(event);
-    V.addTo(state._movement, state._delta);
-    clampStateInternalMovementToBounds(state);
-    this.compute(event);
-    this.emit();
-  }
-  wheelEnd() {
-    if (!this.state._active)
-      return;
-    this.state._active = false;
-    this.compute();
-    this.emit();
-  }
-  bind(bindFunction) {
-    bindFunction("wheel", "", this.wheel.bind(this));
-  }
-};
-var wheelConfigResolver = coordinatesConfigResolver;
-var HoverEngine = class extends CoordinatesEngine {
-  constructor(...args) {
-    super(...args);
-    _defineProperty(this, "ingKey", "hovering");
-  }
-  enter(event) {
-    if (this.config.mouseOnly && event.pointerType !== "mouse")
-      return;
-    this.start(event);
-    this.computeValues(pointerValues(event));
-    this.compute(event);
-    this.emit();
-  }
-  leave(event) {
-    if (this.config.mouseOnly && event.pointerType !== "mouse")
-      return;
-    const state = this.state;
-    if (!state._active)
-      return;
-    state._active = false;
-    const values = pointerValues(event);
-    state._movement = state._delta = V.sub(values, state._values);
-    this.computeValues(values);
-    this.compute(event);
-    state.delta = state.movement;
-    this.emit();
-  }
-  bind(bindFunction) {
-    bindFunction("pointer", "enter", this.enter.bind(this));
-    bindFunction("pointer", "leave", this.leave.bind(this));
-  }
-};
-var hoverConfigResolver = _objectSpread2(_objectSpread2({}, coordinatesConfigResolver), {}, {
-  mouseOnly: (value = true) => value
-});
-var EngineMap = /* @__PURE__ */ new Map();
-var ConfigResolverMap = /* @__PURE__ */ new Map();
-function registerAction(action) {
-  EngineMap.set(action.key, action.engine);
-  ConfigResolverMap.set(action.key, action.resolver);
-}
-var dragAction = {
-  key: "drag",
-  engine: DragEngine,
-  resolver: dragConfigResolver
-};
-var hoverAction = {
-  key: "hover",
-  engine: HoverEngine,
-  resolver: hoverConfigResolver
-};
-var moveAction = {
-  key: "move",
-  engine: MoveEngine,
-  resolver: moveConfigResolver
-};
-var pinchAction = {
-  key: "pinch",
-  engine: PinchEngine,
-  resolver: pinchConfigResolver
-};
-var scrollAction = {
-  key: "scroll",
-  engine: ScrollEngine,
-  resolver: scrollConfigResolver
-};
-var wheelAction = {
-  key: "wheel",
-  engine: WheelEngine,
-  resolver: wheelConfigResolver
-};
-
-// node_modules/@use-gesture/react/dist/use-gesture-react.esm.js
-var import_react4 = __toESM(require_react());
-
-// node_modules/@use-gesture/core/dist/use-gesture-core.esm.js
-function _objectWithoutPropertiesLoose2(source, excluded) {
-  if (source == null)
-    return {};
-  var target2 = {};
-  var sourceKeys = Object.keys(source);
-  var key, i3;
-  for (i3 = 0; i3 < sourceKeys.length; i3++) {
-    key = sourceKeys[i3];
-    if (excluded.indexOf(key) >= 0)
-      continue;
-    target2[key] = source[key];
-  }
-  return target2;
-}
-function _objectWithoutProperties(source, excluded) {
-  if (source == null)
-    return {};
-  var target2 = _objectWithoutPropertiesLoose2(source, excluded);
-  var key, i3;
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-    for (i3 = 0; i3 < sourceSymbolKeys.length; i3++) {
-      key = sourceSymbolKeys[i3];
-      if (excluded.indexOf(key) >= 0)
-        continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key))
-        continue;
-      target2[key] = source[key];
-    }
-  }
-  return target2;
-}
-var sharedConfigResolver = {
-  target(value) {
-    if (value) {
-      return () => "current" in value ? value.current : value;
-    }
-    return void 0;
-  },
-  enabled(value = true) {
-    return value;
-  },
-  window(value = SUPPORT.isBrowser ? window : void 0) {
-    return value;
-  },
-  eventOptions({
-    passive = true,
-    capture = false
-  } = {}) {
-    return {
-      passive,
-      capture
-    };
-  },
-  transform(value) {
-    return value;
-  }
-};
-var _excluded = ["target", "eventOptions", "window", "enabled", "transform"];
-function resolveWith(config2 = {}, resolvers) {
-  const result = {};
-  for (const [key, resolver] of Object.entries(resolvers)) {
-    switch (typeof resolver) {
-      case "function":
-        if (true) {
-          const r2 = resolver.call(result, config2[key], key, config2);
-          if (!Number.isNaN(r2))
-            result[key] = r2;
-        } else {
-          result[key] = resolver.call(result, config2[key], key, config2);
-        }
-        break;
-      case "object":
-        result[key] = resolveWith(config2[key], resolver);
-        break;
-      case "boolean":
-        if (resolver)
-          result[key] = config2[key];
-        break;
-    }
-  }
-  return result;
-}
-function parse(newConfig, gestureKey, _config = {}) {
-  const _ref = newConfig, {
-    target: target2,
-    eventOptions,
-    window: window2,
-    enabled,
-    transform
-  } = _ref, rest = _objectWithoutProperties(_ref, _excluded);
-  _config.shared = resolveWith({
-    target: target2,
-    eventOptions,
-    window: window2,
-    enabled,
-    transform
-  }, sharedConfigResolver);
-  if (gestureKey) {
-    const resolver = ConfigResolverMap.get(gestureKey);
-    _config[gestureKey] = resolveWith(_objectSpread2({
-      shared: _config.shared
-    }, rest), resolver);
-  } else {
-    for (const key in rest) {
-      const resolver = ConfigResolverMap.get(key);
-      if (resolver) {
-        _config[key] = resolveWith(_objectSpread2({
-          shared: _config.shared
-        }, rest[key]), resolver);
-      } else if (true) {
-        if (!["drag", "pinch", "scroll", "wheel", "move", "hover"].includes(key)) {
-          if (key === "domTarget") {
-            throw Error(`[@use-gesture]: \`domTarget\` option has been renamed to \`target\`.`);
-          }
-          console.warn(`[@use-gesture]: Unknown config key \`${key}\` was used. Please read the documentation for further information.`);
-        }
-      }
-    }
-  }
-  return _config;
-}
-var EventStore = class {
-  constructor(ctrl, gestureKey) {
-    _defineProperty(this, "_listeners", /* @__PURE__ */ new Set());
-    this._ctrl = ctrl;
-    this._gestureKey = gestureKey;
-  }
-  add(element, device, action, handler, options) {
-    const listeners = this._listeners;
-    const type = toDomEventType(device, action);
-    const _options = this._gestureKey ? this._ctrl.config[this._gestureKey].eventOptions : {};
-    const eventOptions = _objectSpread2(_objectSpread2({}, _options), options);
-    element.addEventListener(type, handler, eventOptions);
-    const remove = () => {
-      element.removeEventListener(type, handler, eventOptions);
-      listeners.delete(remove);
-    };
-    listeners.add(remove);
-    return remove;
-  }
-  clean() {
-    this._listeners.forEach((remove) => remove());
-    this._listeners.clear();
-  }
-};
-var TimeoutStore = class {
-  constructor() {
-    _defineProperty(this, "_timeouts", /* @__PURE__ */ new Map());
-  }
-  add(key, callback, ms = 140, ...args) {
-    this.remove(key);
-    this._timeouts.set(key, window.setTimeout(callback, ms, ...args));
-  }
-  remove(key) {
-    const timeout = this._timeouts.get(key);
-    if (timeout)
-      window.clearTimeout(timeout);
-  }
-  clean() {
-    this._timeouts.forEach((timeout) => void window.clearTimeout(timeout));
-    this._timeouts.clear();
-  }
-};
-var Controller2 = class {
-  constructor(handlers) {
-    _defineProperty(this, "gestures", /* @__PURE__ */ new Set());
-    _defineProperty(this, "_targetEventStore", new EventStore(this));
-    _defineProperty(this, "gestureEventStores", {});
-    _defineProperty(this, "gestureTimeoutStores", {});
-    _defineProperty(this, "handlers", {});
-    _defineProperty(this, "config", {});
-    _defineProperty(this, "pointerIds", /* @__PURE__ */ new Set());
-    _defineProperty(this, "touchIds", /* @__PURE__ */ new Set());
-    _defineProperty(this, "state", {
-      shared: {
-        shiftKey: false,
-        metaKey: false,
-        ctrlKey: false,
-        altKey: false
-      }
-    });
-    resolveGestures(this, handlers);
-  }
-  setEventIds(event) {
-    if (isTouch(event)) {
-      this.touchIds = new Set(touchIds(event));
-      return this.touchIds;
-    } else if ("pointerId" in event) {
-      if (event.type === "pointerup" || event.type === "pointercancel")
-        this.pointerIds.delete(event.pointerId);
-      else if (event.type === "pointerdown")
-        this.pointerIds.add(event.pointerId);
-      return this.pointerIds;
-    }
-  }
-  applyHandlers(handlers, nativeHandlers) {
-    this.handlers = handlers;
-    this.nativeHandlers = nativeHandlers;
-  }
-  applyConfig(config2, gestureKey) {
-    this.config = parse(config2, gestureKey, this.config);
-  }
-  clean() {
-    this._targetEventStore.clean();
-    for (const key of this.gestures) {
-      this.gestureEventStores[key].clean();
-      this.gestureTimeoutStores[key].clean();
-    }
-  }
-  effect() {
-    if (this.config.shared.target)
-      this.bind();
-    return () => this._targetEventStore.clean();
-  }
-  bind(...args) {
-    const sharedConfig = this.config.shared;
-    const props = {};
-    let target2;
-    if (sharedConfig.target) {
-      target2 = sharedConfig.target();
-      if (!target2)
-        return;
-    }
-    if (sharedConfig.enabled) {
-      for (const gestureKey of this.gestures) {
-        const gestureConfig = this.config[gestureKey];
-        const bindFunction = bindToProps(props, gestureConfig.eventOptions, !!target2);
-        if (gestureConfig.enabled) {
-          const Engine2 = EngineMap.get(gestureKey);
-          new Engine2(this, args, gestureKey).bind(bindFunction);
-        }
-      }
-      const nativeBindFunction = bindToProps(props, sharedConfig.eventOptions, !!target2);
-      for (const eventKey in this.nativeHandlers) {
-        nativeBindFunction(eventKey, "", (event) => this.nativeHandlers[eventKey](_objectSpread2(_objectSpread2({}, this.state.shared), {}, {
-          event,
-          args
-        })), void 0, true);
-      }
-    }
-    for (const handlerProp in props) {
-      props[handlerProp] = chain(...props[handlerProp]);
-    }
-    if (!target2)
-      return props;
-    for (const handlerProp in props) {
-      const {
-        device,
-        capture,
-        passive
-      } = parseProp(handlerProp);
-      this._targetEventStore.add(target2, device, "", props[handlerProp], {
-        capture,
-        passive
-      });
-    }
-  }
-};
-function setupGesture(ctrl, gestureKey) {
-  ctrl.gestures.add(gestureKey);
-  ctrl.gestureEventStores[gestureKey] = new EventStore(ctrl, gestureKey);
-  ctrl.gestureTimeoutStores[gestureKey] = new TimeoutStore();
-}
-function resolveGestures(ctrl, internalHandlers) {
-  if (internalHandlers.drag)
-    setupGesture(ctrl, "drag");
-  if (internalHandlers.wheel)
-    setupGesture(ctrl, "wheel");
-  if (internalHandlers.scroll)
-    setupGesture(ctrl, "scroll");
-  if (internalHandlers.move)
-    setupGesture(ctrl, "move");
-  if (internalHandlers.pinch)
-    setupGesture(ctrl, "pinch");
-  if (internalHandlers.hover)
-    setupGesture(ctrl, "hover");
-}
-var bindToProps = (props, eventOptions, withPassiveOption) => (device, action, handler, options = {}, isNative = false) => {
-  var _options$capture, _options$passive;
-  const capture = (_options$capture = options.capture) !== null && _options$capture !== void 0 ? _options$capture : eventOptions.capture;
-  const passive = (_options$passive = options.passive) !== null && _options$passive !== void 0 ? _options$passive : eventOptions.passive;
-  let handlerProp = isNative ? device : toHandlerProp(device, action, capture);
-  if (withPassiveOption && passive)
-    handlerProp += "Passive";
-  props[handlerProp] = props[handlerProp] || [];
-  props[handlerProp].push(handler);
-};
-var RE_NOT_NATIVE = /^on(Drag|Wheel|Scroll|Move|Pinch|Hover)/;
-function sortHandlers(_handlers) {
-  const native = {};
-  const handlers = {};
-  const actions = /* @__PURE__ */ new Set();
-  for (let key in _handlers) {
-    if (RE_NOT_NATIVE.test(key)) {
-      actions.add(RegExp.lastMatch);
-      handlers[key] = _handlers[key];
-    } else {
-      native[key] = _handlers[key];
-    }
-  }
-  return [handlers, native, actions];
-}
-function registerGesture(actions, handlers, handlerKey, key, internalHandlers, config2) {
-  if (!actions.has(handlerKey))
-    return;
-  if (!EngineMap.has(key)) {
-    if (true) {
-      console.warn(`[@use-gesture]: You've created a custom handler that that uses the \`${key}\` gesture but isn't properly configured.
-
-Please add \`${key}Action\` when creating your handler.`);
-    }
-    return;
-  }
-  const startKey = handlerKey + "Start";
-  const endKey = handlerKey + "End";
-  const fn = (state) => {
-    let memo = void 0;
-    if (state.first && startKey in handlers)
-      handlers[startKey](state);
-    if (handlerKey in handlers)
-      memo = handlers[handlerKey](state);
-    if (state.last && endKey in handlers)
-      handlers[endKey](state);
-    return memo;
-  };
-  internalHandlers[key] = fn;
-  config2[key] = config2[key] || {};
-}
-function parseMergedHandlers(mergedHandlers, mergedConfig) {
-  const [handlers, nativeHandlers, actions] = sortHandlers(mergedHandlers);
-  const internalHandlers = {};
-  registerGesture(actions, handlers, "onDrag", "drag", internalHandlers, mergedConfig);
-  registerGesture(actions, handlers, "onWheel", "wheel", internalHandlers, mergedConfig);
-  registerGesture(actions, handlers, "onScroll", "scroll", internalHandlers, mergedConfig);
-  registerGesture(actions, handlers, "onPinch", "pinch", internalHandlers, mergedConfig);
-  registerGesture(actions, handlers, "onMove", "move", internalHandlers, mergedConfig);
-  registerGesture(actions, handlers, "onHover", "hover", internalHandlers, mergedConfig);
-  return {
-    handlers: internalHandlers,
-    config: mergedConfig,
-    nativeHandlers
-  };
-}
-
-// node_modules/@use-gesture/react/dist/use-gesture-react.esm.js
-function useRecognizers(handlers, config2 = {}, gestureKey, nativeHandlers) {
-  const ctrl = import_react4.default.useMemo(() => new Controller2(handlers), []);
-  ctrl.applyHandlers(handlers, nativeHandlers);
-  ctrl.applyConfig(config2, gestureKey);
-  import_react4.default.useEffect(ctrl.effect.bind(ctrl));
-  import_react4.default.useEffect(() => {
-    return ctrl.clean.bind(ctrl);
-  }, []);
-  if (config2.target === void 0) {
-    return ctrl.bind.bind(ctrl);
-  }
-  return void 0;
-}
-function createUseGesture(actions) {
-  actions.forEach(registerAction);
-  return function useGesture2(_handlers, _config) {
-    const {
-      handlers,
-      nativeHandlers,
-      config: config2
-    } = parseMergedHandlers(_handlers, _config || {});
-    return useRecognizers(handlers, config2, void 0, nativeHandlers);
-  };
-}
-function useGesture(handlers, config2) {
-  const hook = createUseGesture([dragAction, pinchAction, scrollAction, wheelAction, moveAction, hoverAction]);
-  return hook(handlers, config2 || {});
-}
-
 // node_modules/@react-three/drei/web/PresentationControls.js
 function PresentationControls({
   enabled = true,
@@ -7640,20 +4896,20 @@ function PresentationControls({
   const {
     size
   } = useThree();
-  const rPolar = React9.useMemo(() => [rotation2[0] + polar[0], rotation2[0] + polar[1]], [rotation2[0], polar[0], polar[1]]);
-  const rAzimuth = React9.useMemo(() => [rotation2[1] + azimuth[0], rotation2[1] + azimuth[1]], [rotation2[1], azimuth[0], azimuth[1]]);
-  const rInitial = React9.useMemo(() => [MathUtils.clamp(rotation2[0], ...rPolar), MathUtils.clamp(rotation2[1], ...rAzimuth), rotation2[2]], [rotation2[0], rotation2[1], rotation2[2], rPolar, rAzimuth]);
+  const rPolar = React8.useMemo(() => [rotation2[0] + polar[0], rotation2[0] + polar[1]], [rotation2[0], polar[0], polar[1]]);
+  const rAzimuth = React8.useMemo(() => [rotation2[1] + azimuth[0], rotation2[1] + azimuth[1]], [rotation2[1], azimuth[0], azimuth[1]]);
+  const rInitial = React8.useMemo(() => [MathUtils.clamp(rotation2[0], ...rPolar), MathUtils.clamp(rotation2[1], ...rAzimuth), rotation2[2]], [rotation2[0], rotation2[1], rotation2[2], rPolar, rAzimuth]);
   const [spring, api] = useSpring(() => ({
     scale: 1,
     rotation: rInitial,
     config: config2
   }));
-  React9.useEffect(() => void api.start({
+  React8.useEffect(() => void api.start({
     scale: 1,
     rotation: rInitial,
     config: config2
   }), [rInitial]);
-  React9.useEffect(() => {
+  React8.useEffect(() => {
     if (global2 && cursor && enabled) {
       explDomElement.style.cursor = "grab";
       gl.domElement.style.cursor = "";
@@ -7695,39 +4951,12 @@ function PresentationControls({
   }, {
     target: global2 ? explDomElement : void 0
   });
-  return React9.createElement(animated.group, _extends({}, bind == null ? void 0 : bind(), spring), children);
+  return React8.createElement(animated.group, _extends({}, bind == null ? void 0 : bind(), spring), children);
 }
 
 // node_modules/@react-three/drei/web/KeyboardControls.js
-var React10 = __toESM(require_react());
-
-// node_modules/zustand/esm/middleware.js
-var subscribeWithSelector = (fn) => (set, get, api) => {
-  const origSubscribe = api.subscribe;
-  api.subscribe = (selector, optListener, options) => {
-    let listener = selector;
-    if (optListener) {
-      const equalityFn = (options == null ? void 0 : options.equalityFn) || Object.is;
-      let currentSlice = selector(api.getState());
-      listener = (state) => {
-        const nextSlice = selector(state);
-        if (!equalityFn(currentSlice, nextSlice)) {
-          const previousSlice = currentSlice;
-          optListener(currentSlice = nextSlice, previousSlice);
-        }
-      };
-      if (options == null ? void 0 : options.fireImmediately) {
-        optListener(currentSlice, currentSlice);
-      }
-    }
-    return origSubscribe(listener);
-  };
-  const initialState = fn(set, get, api);
-  return initialState;
-};
-
-// node_modules/@react-three/drei/web/KeyboardControls.js
-var context3 = React10.createContext(null);
+var React9 = __toESM(require_react());
+var context3 = React9.createContext(null);
 function KeyboardControls({
   map,
   children,
@@ -7735,15 +4964,15 @@ function KeyboardControls({
   domElement
 }) {
   const key = map.map((item) => item.name + item.keys).join("-");
-  const useControls = React10.useMemo(() => {
+  const useControls = React9.useMemo(() => {
     return create(subscribeWithSelector(() => map.reduce((prev, cur) => ({
       ...prev,
       [cur.name]: false
     }), {})));
   }, [key]);
-  const api = React10.useMemo(() => [useControls.subscribe, useControls.getState, useControls], [key]);
+  const api = React9.useMemo(() => [useControls.subscribe, useControls.getState, useControls], [key]);
   const set = useControls.setState;
-  React10.useEffect(() => {
+  React9.useEffect(() => {
     const config2 = map.map(({
       name,
       keys,
@@ -7814,13 +5043,13 @@ function KeyboardControls({
       source.removeEventListener("keyup", upHandler);
     };
   }, [domElement, key]);
-  return React10.createElement(context3.Provider, {
+  return React9.createElement(context3.Provider, {
     value: api,
     children
   });
 }
 function useKeyboardControls(sel) {
-  const [sub, get, store] = React10.useContext(context3);
+  const [sub, get, store] = React9.useContext(context3);
   if (sel)
     return store(sel);
   else
@@ -7828,30 +5057,8 @@ function useKeyboardControls(sel) {
 }
 
 // node_modules/@react-three/drei/web/Select.js
-var React11 = __toESM(require_react());
-
-// node_modules/zustand/esm/shallow.js
-function shallow(objA, objB) {
-  if (Object.is(objA, objB)) {
-    return true;
-  }
-  if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) {
-    return false;
-  }
-  const keysA = Object.keys(objA);
-  if (keysA.length !== Object.keys(objB).length) {
-    return false;
-  }
-  for (let i3 = 0; i3 < keysA.length; i3++) {
-    if (!Object.prototype.hasOwnProperty.call(objB, keysA[i3]) || !Object.is(objA[keysA[i3]], objB[keysA[i3]])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-// node_modules/@react-three/drei/web/Select.js
-var context4 = React11.createContext([]);
+var React10 = __toESM(require_react());
+var context4 = React10.createContext([]);
 function Select({
   box,
   multiple,
@@ -7863,7 +5070,7 @@ function Select({
   filter: customFilter = (item) => item,
   ...props
 }) {
-  const [downed, down] = React11.useState(false);
+  const [downed, down] = React10.useState(false);
   const {
     setEvents,
     camera,
@@ -7873,8 +5080,8 @@ function Select({
     size,
     get
   } = useThree();
-  const [hovered, hover] = React11.useState(false);
-  const [active, dispatch] = React11.useReducer((state, {
+  const [hovered, hover] = React10.useState(false);
+  const [active, dispatch] = React10.useReducer((state, {
     object,
     shift
   }) => {
@@ -7889,22 +5096,22 @@ function Select({
     else
       return [object, ...state];
   }, []);
-  React11.useEffect(() => {
+  React10.useEffect(() => {
     if (downed)
       onChange == null ? void 0 : onChange(active);
     else
       onChangePointerUp == null ? void 0 : onChangePointerUp(active);
   }, [active, downed]);
-  const onClick = React11.useCallback((e2) => {
+  const onClick = React10.useCallback((e2) => {
     e2.stopPropagation();
     dispatch({
       object: customFilter([e2.object])[0],
       shift: multiple && e2.shiftKey
     });
   }, []);
-  const onPointerMissed = React11.useCallback((e2) => !hovered && dispatch({}), [hovered]);
-  const ref = React11.useRef(null);
-  React11.useEffect(() => {
+  const onPointerMissed = React10.useCallback((e2) => !hovered && dispatch({}), [hovered]);
+  const ref = React10.useRef(null);
+  React10.useEffect(() => {
     if (!box || !multiple)
       return;
     const selBox = new SelectionBox(camera, ref.current);
@@ -8008,30 +5215,30 @@ function Select({
       document.removeEventListener("pointerup", pointerUp);
     };
   }, [size.width, size.height, raycaster, camera, controls, gl]);
-  return React11.createElement("group", _extends({
+  return React10.createElement("group", _extends({
     ref,
     onClick,
     onPointerOver: () => hover(true),
     onPointerOut: () => hover(false),
     onPointerMissed
-  }, props), React11.createElement(context4.Provider, {
+  }, props), React10.createElement(context4.Provider, {
     value: active
   }, children));
 }
 function useSelect() {
-  return React11.useContext(context4);
+  return React10.useContext(context4);
 }
 
 // node_modules/@react-three/drei/core/Billboard.js
-var React12 = __toESM(require_react());
-var Billboard = React12.forwardRef(function Billboard2({
+var React11 = __toESM(require_react());
+var Billboard = React11.forwardRef(function Billboard2({
   follow = true,
   lockX = false,
   lockY = false,
   lockZ = false,
   ...props
 }, ref) {
-  const localRef = React12.useRef();
+  const localRef = React11.useRef();
   useFrame(({
     camera
   }) => {
@@ -8046,38 +5253,38 @@ var Billboard = React12.forwardRef(function Billboard2({
     if (lockZ)
       localRef.current.rotation.z = prevRotation.z;
   });
-  return React12.createElement("group", _extends({
+  return React11.createElement("group", _extends({
     ref: react_merge_refs_esm_default([localRef, ref])
   }, props));
 });
 
 // node_modules/@react-three/drei/core/ScreenSpace.js
-var React13 = __toESM(require_react());
-var ScreenSpace = React13.forwardRef(({
+var React12 = __toESM(require_react());
+var ScreenSpace = React12.forwardRef(({
   children,
   depth = -1,
   ...rest
 }, ref) => {
-  const localRef = React13.useRef(null);
+  const localRef = React12.useRef(null);
   useFrame(({
     camera
   }) => {
     localRef.current.quaternion.copy(camera.quaternion);
     localRef.current.position.copy(camera.position);
   });
-  return React13.createElement("group", _extends({
+  return React12.createElement("group", _extends({
     ref: react_merge_refs_esm_default([ref, localRef])
-  }, rest), React13.createElement("group", {
+  }, rest), React12.createElement("group", {
     "position-z": -depth
   }, children));
 });
 
 // node_modules/@react-three/drei/core/QuadraticBezierLine.js
-var React15 = __toESM(require_react());
+var React14 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/Line.js
-var React14 = __toESM(require_react());
-var Line = React14.forwardRef(function Line4({
+var React13 = __toESM(require_react());
+var Line = React13.forwardRef(function Line4({
   points,
   color = "black",
   vertexColors,
@@ -8088,9 +5295,9 @@ var Line = React14.forwardRef(function Line4({
   ...rest
 }, ref) {
   const size = useThree((state) => state.size);
-  const line2 = React14.useMemo(() => segments ? new LineSegments2() : new Line2(), [segments]);
-  const [lineMaterial] = React14.useState(() => new LineMaterial());
-  const lineGeom = React14.useMemo(() => {
+  const line2 = React13.useMemo(() => segments ? new LineSegments2() : new Line2(), [segments]);
+  const [lineMaterial] = React13.useState(() => new LineMaterial());
+  const lineGeom = React13.useMemo(() => {
     const geom = segments ? new LineSegmentsGeometry() : new LineGeometry();
     const pValues = points.map((p) => {
       const isArray3 = Array.isArray(p);
@@ -8103,10 +5310,10 @@ var Line = React14.forwardRef(function Line4({
     }
     return geom;
   }, [points, segments, vertexColors]);
-  React14.useLayoutEffect(() => {
+  React13.useLayoutEffect(() => {
     line2.computeLineDistances();
   }, [points, line2]);
-  React14.useLayoutEffect(() => {
+  React13.useLayoutEffect(() => {
     if (dashed) {
       lineMaterial.defines.USE_DASH = "";
     } else {
@@ -8114,16 +5321,16 @@ var Line = React14.forwardRef(function Line4({
     }
     lineMaterial.needsUpdate = true;
   }, [dashed, lineMaterial]);
-  React14.useEffect(() => {
+  React13.useEffect(() => {
     return () => lineGeom.dispose();
   }, [lineGeom]);
-  return React14.createElement("primitive", _extends({
+  return React13.createElement("primitive", _extends({
     object: line2,
     ref
-  }, rest), React14.createElement("primitive", {
+  }, rest), React13.createElement("primitive", {
     object: lineGeom,
     attach: "geometry"
-  }), React14.createElement("primitive", _extends({
+  }), React13.createElement("primitive", _extends({
     object: lineMaterial,
     attach: "material",
     color,
@@ -8136,16 +5343,16 @@ var Line = React14.forwardRef(function Line4({
 
 // node_modules/@react-three/drei/core/QuadraticBezierLine.js
 var v = new Vector3();
-var QuadraticBezierLine = React15.forwardRef(function QuadraticBezierLine2({
+var QuadraticBezierLine = React14.forwardRef(function QuadraticBezierLine2({
   start: start2 = [0, 0, 0],
   end = [0, 0, 0],
   mid,
   segments = 20,
   ...rest
 }, forwardref) {
-  const ref = React15.useRef(null);
-  const [curve] = React15.useState(() => new QuadraticBezierCurve3(void 0, void 0, void 0));
-  const getPoints = React15.useCallback((start3, end2, mid2, segments2 = 20) => {
+  const ref = React14.useRef(null);
+  const [curve] = React14.useState(() => new QuadraticBezierCurve3(void 0, void 0, void 0));
+  const getPoints = React14.useCallback((start3, end2, mid2, segments2 = 20) => {
     if (start3 instanceof Vector3)
       curve.v0.copy(start3);
     else
@@ -8163,23 +5370,23 @@ var QuadraticBezierLine = React15.forwardRef(function QuadraticBezierLine2({
     }
     return curve.getPoints(segments2);
   }, []);
-  React15.useLayoutEffect(() => {
+  React14.useLayoutEffect(() => {
     ref.current.setPoints = (start3, end2, mid2) => {
       const points2 = getPoints(start3, end2, mid2);
       if (ref.current.geometry)
         ref.current.geometry.setPositions(points2.map((p) => p.toArray()).flat());
     };
   }, []);
-  const points = React15.useMemo(() => getPoints(start2, end, mid, segments), [start2, end, mid, segments]);
-  return React15.createElement(Line, _extends({
+  const points = React14.useMemo(() => getPoints(start2, end, mid, segments), [start2, end, mid, segments]);
+  return React14.createElement(Line, _extends({
     ref: react_merge_refs_esm_default([ref, forwardref]),
     points
   }, rest));
 });
 
 // node_modules/@react-three/drei/core/CubicBezierLine.js
-var React16 = __toESM(require_react());
-var CubicBezierLine = React16.forwardRef(function CubicBezierLine2({
+var React15 = __toESM(require_react());
+var CubicBezierLine = React15.forwardRef(function CubicBezierLine2({
   start: start2,
   end,
   midA,
@@ -8187,7 +5394,7 @@ var CubicBezierLine = React16.forwardRef(function CubicBezierLine2({
   segments = 20,
   ...rest
 }, ref) {
-  const points = React16.useMemo(() => {
+  const points = React15.useMemo(() => {
     const startV = start2 instanceof Vector3 ? start2 : new Vector3(...start2);
     const endV = end instanceof Vector3 ? end : new Vector3(...end);
     const midAV = midA instanceof Vector3 ? midA : new Vector3(...midA);
@@ -8195,15 +5402,15 @@ var CubicBezierLine = React16.forwardRef(function CubicBezierLine2({
     const interpolatedV = new CubicBezierCurve3(startV, midAV, midBV, endV).getPoints(segments);
     return interpolatedV;
   }, [start2, end, midA, midB, segments]);
-  return React16.createElement(Line, _extends({
+  return React15.createElement(Line, _extends({
     ref,
     points
   }, rest));
 });
 
 // node_modules/@react-three/drei/core/CatmullRomLine.js
-var React17 = __toESM(require_react());
-var CatmullRomLine = React17.forwardRef(function CatmullRomLine2({
+var React16 = __toESM(require_react());
+var CatmullRomLine = React16.forwardRef(function CatmullRomLine2({
   points,
   closed = false,
   curveType = "centripetal",
@@ -8212,12 +5419,12 @@ var CatmullRomLine = React17.forwardRef(function CatmullRomLine2({
   vertexColors,
   ...rest
 }, ref) {
-  const curve = React17.useMemo(() => {
+  const curve = React16.useMemo(() => {
     const mappedPoints = points.map((pt) => pt instanceof Vector3 ? pt : new Vector3(...pt));
     return new CatmullRomCurve3(mappedPoints, closed, curveType, tension);
   }, [points, closed, curveType, tension]);
-  const segmentedPoints = React17.useMemo(() => curve.getPoints(segments), [curve, segments]);
-  const interpolatedVertexColors = React17.useMemo(() => {
+  const segmentedPoints = React16.useMemo(() => curve.getPoints(segments), [curve, segments]);
+  const interpolatedVertexColors = React16.useMemo(() => {
     if (!vertexColors || vertexColors.length < 2)
       return void 0;
     if (vertexColors.length === segments + 1)
@@ -8235,7 +5442,7 @@ var CatmullRomLine = React17.forwardRef(function CatmullRomLine2({
     iColors.push(mappedColors[mappedColors.length - 1]);
     return iColors;
   }, [vertexColors, segments]);
-  return React17.createElement(Line, _extends({
+  return React16.createElement(Line, _extends({
     ref,
     points: segmentedPoints,
     vertexColors: interpolatedVertexColors
@@ -8243,21 +5450,21 @@ var CatmullRomLine = React17.forwardRef(function CatmullRomLine2({
 });
 
 // node_modules/@react-three/drei/core/PositionalAudio.js
-var React18 = __toESM(require_react());
-var PositionalAudio = React18.forwardRef(({
+var React17 = __toESM(require_react());
+var PositionalAudio = React17.forwardRef(({
   url,
   distance = 1,
   loop: loop2 = true,
   autoplay,
   ...props
 }, ref) => {
-  const sound = React18.useRef();
+  const sound = React17.useRef();
   const camera = useThree(({
     camera: camera2
   }) => camera2);
-  const [listener] = React18.useState(() => new AudioListener());
+  const [listener] = React17.useState(() => new AudioListener());
   const buffer = useLoader(AudioLoader, url);
-  React18.useEffect(() => {
+  React17.useEffect(() => {
     const _sound = sound.current;
     if (_sound) {
       _sound.setBuffer(buffer);
@@ -8267,7 +5474,7 @@ var PositionalAudio = React18.forwardRef(({
         _sound.play();
     }
   }, [buffer, camera, distance, loop2]);
-  React18.useEffect(() => {
+  React17.useEffect(() => {
     const _sound = sound.current;
     camera.add(listener);
     return () => {
@@ -8280,14 +5487,14 @@ var PositionalAudio = React18.forwardRef(({
       }
     };
   }, []);
-  return React18.createElement("positionalAudio", _extends({
+  return React17.createElement("positionalAudio", _extends({
     ref: react_merge_refs_esm_default([sound, ref]),
     args: [listener]
   }, props));
 });
 
 // node_modules/@react-three/drei/core/Text.js
-var React19 = __toESM(require_react());
+var React18 = __toESM(require_react());
 
 // node_modules/troika-worker-utils/dist/troika-worker-utils.esm.js
 function workerBootstrap() {
@@ -9930,7 +7137,7 @@ function bidiFactory() {
     }
     var data = "14>1,j>2,t>2,u>2,1a>g,2v3>1,1>1,1ge>1,1wd>1,b>1,1j>1,f>1,ai>3,-2>3,+1,8>1k0,-1jq>1y7,-1y6>1hf,-1he>1h6,-1h5>1ha,-1h8>1qi,-1pu>1,6>3u,-3s>7,6>1,1>1,f>1,1>1,+2,3>1,1>1,+13,4>1,1>1,6>1eo,-1ee>1,3>1mg,-1me>1mk,-1mj>1mi,-1mg>1mi,-1md>1,1>1,+2,1>10k,-103>1,1>1,4>1,5>1,1>1,+10,3>1,1>8,-7>8,+1,-6>7,+1,a>1,1>1,u>1,u6>1,1>1,+5,26>1,1>1,2>1,2>2,8>1,7>1,4>1,1>1,+5,b8>1,1>1,+3,1>3,-2>1,2>1,1>1,+2,c>1,3>1,1>1,+2,h>1,3>1,a>1,1>1,2>1,3>1,1>1,d>1,f>1,3>1,1a>1,1>1,6>1,7>1,13>1,k>1,1>1,+19,4>1,1>1,+2,2>1,1>1,+18,m>1,a>1,1>1,lk>1,1>1,4>1,2>1,f>1,3>1,1>1,+3,db>1,1>1,+3,3>1,1>1,+2,14qm>1,1>1,+1,6>1,4j>1,j>2,t>2,u>2,2>1,+1";
     var mirrorMap;
-    function parse2() {
+    function parse() {
       if (!mirrorMap) {
         var ref = parseCharacterMap(data, true);
         var map2 = ref.map;
@@ -9942,7 +7149,7 @@ function bidiFactory() {
       }
     }
     function getMirroredCharacter(char) {
-      parse2();
+      parse();
       return mirrorMap.get(char) || null;
     }
     function getMirroredCharactersMap(string, embeddingLevels, start2, end) {
@@ -12037,8 +9244,8 @@ function typrFactory() {
               t3.x = l2, t3.y = v4, t3.nStems = i3, t3.haveWidth = h, t3.width = f2, t3.open = d2, e2.U._drawCFF(M, t3, a4, n2, o2), l2 = t3.x, v4 = t3.y, i3 = t3.nStems, h = t3.haveWidth, f2 = t3.width, d2 = t3.open;
             }
           } else if ("o30" == x || "o31" == x) {
-            var V2 = s2.length, N = (T = 0, "o31" == x);
-            for (T += V2 - (P = -3 & V2); T < P; )
+            var V = s2.length, N = (T = 0, "o31" == x);
+            for (T += V - (P = -3 & V); T < P; )
               N ? (p = v4, U = (c6 = l2 + s2.shift()) + s2.shift(), v4 = (g = p + s2.shift()) + s2.shift(), P - T == 5 ? (l2 = U + s2.shift(), T++) : l2 = U, N = false) : (c6 = l2, p = v4 + s2.shift(), U = c6 + s2.shift(), g = p + s2.shift(), l2 = U + s2.shift(), P - T == 5 ? (v4 = g + s2.shift(), T++) : v4 = g, N = true), e2.U.P.curveTo(o2, c6, p, U, g, l2, v4), T += 4;
           } else {
             if ("o" == (x + "").charAt(0))
@@ -12131,12 +9338,12 @@ function woff2otfFactory() {
           u2.f = m2 = L(r3, k2, 1);
           var S = L(r3, k2 + 1, 3);
           if (k2 += 3, !S) {
-            var V2 = r3[(I = ((h2 = k2) / 8 | 0) + (7 & h2 && 1) + 4) - 4] | r3[I - 3] << 8, _ = I + V2;
+            var V = r3[(I = ((h2 = k2) / 8 | 0) + (7 & h2 && 1) + 4) - 4] | r3[I - 3] << 8, _ = I + V;
             if (_ > s3) {
               g2 && T(0);
               break;
             }
-            c7 && d3(O2 + V2), f3.set(r3.subarray(I, _), O2), u2.b = O2 += V2, u2.p = k2 = 8 * _;
+            c7 && d3(O2 + V), f3.set(r3.subarray(I, _), O2), u2.b = O2 += V, u2.p = k2 = 8 * _;
             continue;
           }
           if (1 == S)
@@ -12469,7 +9676,7 @@ function parserFactory(Typr, woff2otf) {
     };
     return fontObj;
   }
-  return function parse2(buffer) {
+  return function parse(buffer) {
     const peek = new Uint8Array(buffer, 0, 4);
     const tag = Typr._bin.readASCII(peek, 0, 4);
     if (tag === "wOFF") {
@@ -13570,7 +10777,7 @@ SYNCABLE_PROPS.forEach((prop) => {
 });
 
 // node_modules/@react-three/drei/core/Text.js
-var Text2 = React19.forwardRef(({
+var Text2 = React18.forwardRef(({
   sdfGlyphSize = 64,
   anchorX = "center",
   anchorY = "middle",
@@ -13584,11 +10791,11 @@ var Text2 = React19.forwardRef(({
   const invalidate = useThree(({
     invalidate: invalidate2
   }) => invalidate2);
-  const [troikaMesh] = React19.useState(() => new Text());
-  const [nodes, text] = React19.useMemo(() => {
+  const [troikaMesh] = React18.useState(() => new Text());
+  const [nodes, text] = React18.useMemo(() => {
     const n2 = [];
     let t2 = "";
-    React19.Children.forEach(children, (child) => {
+    React18.Children.forEach(children, (child) => {
       if (typeof child === "string" || typeof child === "number") {
         t2 += child;
       } else {
@@ -13601,15 +10808,15 @@ var Text2 = React19.forwardRef(({
     font,
     characters
   }, res)), ["troika-text", font, characters]);
-  React19.useLayoutEffect(() => void troikaMesh.sync(() => {
+  React18.useLayoutEffect(() => void troikaMesh.sync(() => {
     invalidate();
     if (onSync)
       onSync(troikaMesh);
   }));
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     return () => troikaMesh.dispose();
   }, [troikaMesh]);
-  return React19.createElement("primitive", _extends({
+  return React18.createElement("primitive", _extends({
     object: troikaMesh,
     ref,
     font,
@@ -13622,8 +10829,8 @@ var Text2 = React19.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Text3D.js
-var React20 = __toESM(require_react());
-var import_react6 = __toESM(require_react());
+var React19 = __toESM(require_react());
+var import_react5 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/useFont.js
 var fontLoader = null;
@@ -13644,7 +10851,7 @@ var types = ["string", "number"];
 var getTextFromChildren = (children) => {
   let label = "";
   const rest = [];
-  React20.Children.forEach(children, (child) => {
+  React19.Children.forEach(children, (child) => {
     if (types.includes(typeof child))
       label += child + "";
     else
@@ -13652,7 +10859,7 @@ var getTextFromChildren = (children) => {
   });
   return [label, ...rest];
 };
-var Text3D = React20.forwardRef(({
+var Text3D = React19.forwardRef(({
   font: _font,
   letterSpacing = 0,
   lineHeight = 1,
@@ -13668,12 +10875,12 @@ var Text3D = React20.forwardRef(({
   children,
   ...props
 }, fref) => {
-  React20.useMemo(() => extend({
+  React19.useMemo(() => extend({
     RenamedTextGeometry: TextGeometry
   }), []);
-  const ref = React20.useRef(null);
+  const ref = React19.useRef(null);
   const font = useFont(_font);
-  const opts = (0, import_react6.useMemo)(() => {
+  const opts = (0, import_react5.useMemo)(() => {
     return {
       font,
       size,
@@ -13688,24 +10895,24 @@ var Text3D = React20.forwardRef(({
       lineHeight
     };
   }, [font, size, height, bevelThickness, bevelSize, bevelEnabled, bevelSegments, bevelOffset, curveSegments, letterSpacing, lineHeight]);
-  const [label, ...rest] = (0, import_react6.useMemo)(() => getTextFromChildren(children), [children]);
-  const args = React20.useMemo(() => [label, opts], [label, opts]);
-  React20.useLayoutEffect(() => {
+  const [label, ...rest] = (0, import_react5.useMemo)(() => getTextFromChildren(children), [children]);
+  const args = React19.useMemo(() => [label, opts], [label, opts]);
+  React19.useLayoutEffect(() => {
     if (smooth) {
       ref.current.geometry = mergeVertices(ref.current.geometry, smooth);
       ref.current.geometry.computeVertexNormals();
     }
   }, [args, smooth]);
-  React20.useImperativeHandle(fref, () => ref.current, []);
-  return React20.createElement("mesh", _extends({}, props, {
+  React19.useImperativeHandle(fref, () => ref.current, []);
+  return React19.createElement("mesh", _extends({}, props, {
     ref
-  }), React20.createElement("renamedTextGeometry", {
+  }), React19.createElement("renamedTextGeometry", {
     args
   }), rest);
 });
 
 // node_modules/@react-three/drei/core/Effects.js
-var React21 = __toESM(require_react());
+var React20 = __toESM(require_react());
 var isWebGL2Available = () => {
   try {
     var canvas = document.createElement("canvas");
@@ -13714,7 +10921,7 @@ var isWebGL2Available = () => {
     return false;
   }
 };
-var Effects = React21.forwardRef(({
+var Effects = React20.forwardRef(({
   children,
   multisamping = 8,
   renderIndex = 1,
@@ -13728,12 +10935,12 @@ var Effects = React21.forwardRef(({
   type,
   ...props
 }, ref) => {
-  React21.useMemo(() => extend({
+  React20.useMemo(() => extend({
     EffectComposer,
     RenderPass,
     ShaderPass
   }), []);
-  const composer = React21.useRef();
+  const composer = React20.useRef();
   const {
     scene,
     camera,
@@ -13741,7 +10948,7 @@ var Effects = React21.forwardRef(({
     size,
     viewport
   } = useThree();
-  const [target2] = React21.useState(() => {
+  const [target2] = React20.useState(() => {
     const t2 = new WebGLRenderTarget(size.width, size.height, {
       type: type || HalfFloatType,
       format: RGBAFormat,
@@ -13758,7 +10965,7 @@ var Effects = React21.forwardRef(({
     t2.samples = multisamping;
     return t2;
   });
-  React21.useEffect(() => {
+  React20.useEffect(() => {
     var _composer$current, _composer$current2;
     (_composer$current = composer.current) == null ? void 0 : _composer$current.setSize(size.width, size.height);
     (_composer$current2 = composer.current) == null ? void 0 : _composer$current2.setPixelRatio(viewport.dpr);
@@ -13770,31 +10977,31 @@ var Effects = React21.forwardRef(({
   }, renderIndex);
   const passes = [];
   if (!disableRenderPass)
-    passes.push(React21.createElement("renderPass", {
+    passes.push(React20.createElement("renderPass", {
       key: "renderpass",
       attach: `passes-${passes.length}`,
       args: [scene, camera]
     }));
   if (!disableGamma)
-    passes.push(React21.createElement("shaderPass", {
+    passes.push(React20.createElement("shaderPass", {
       attach: `passes-${passes.length}`,
       key: "gammapass",
       args: [GammaCorrectionShader]
     }));
-  React21.Children.forEach(children, (el) => {
-    el && passes.push(React21.cloneElement(el, {
+  React20.Children.forEach(children, (el) => {
+    el && passes.push(React20.cloneElement(el, {
       key: passes.length,
       attach: `passes-${passes.length}`
     }));
   });
-  return React21.createElement("effectComposer", _extends({
+  return React20.createElement("effectComposer", _extends({
     ref: react_merge_refs_esm_default([ref, composer]),
     args: [gl, target2]
   }, props), passes);
 });
 
 // node_modules/@react-three/drei/core/GradientTexture.js
-var React22 = __toESM(require_react());
+var React21 = __toESM(require_react());
 var GradientType = function(GradientType2) {
   GradientType2["Linear"] = "linear";
   GradientType2["Radial"] = "radial";
@@ -13812,7 +11019,7 @@ function GradientTexture({
   ...props
 }) {
   const gl = useThree((state) => state.gl);
-  const canvas = React22.useMemo(() => {
+  const canvas = React21.useMemo(() => {
     const canvas2 = document.createElement("canvas");
     const context10 = canvas2.getContext("2d");
     canvas2.width = width;
@@ -13836,7 +11043,7 @@ function GradientTexture({
     context10.restore();
     return canvas2;
   }, [stops]);
-  return React22.createElement("canvasTexture", _extends({
+  return React21.createElement("canvasTexture", _extends({
     colorSpace: gl.outputColorSpace,
     args: [canvas],
     attach: "map"
@@ -13844,7 +11051,7 @@ function GradientTexture({
 }
 
 // node_modules/@react-three/drei/core/Image.js
-var React23 = __toESM(require_react());
+var React22 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/shaderMaterial.js
 function shaderMaterial(uniforms, vertexShader2, fragmentShader2, onInit) {
@@ -13881,15 +11088,15 @@ function shaderMaterial(uniforms, vertexShader2, fragmentShader2, onInit) {
 }
 
 // node_modules/@react-three/drei/core/useTexture.js
-var import_react7 = __toESM(require_react());
+var import_react6 = __toESM(require_react());
 var IsObject = (url) => url === Object(url) && !Array.isArray(url) && typeof url !== "function";
 function useTexture(input, onLoad) {
   const gl = useThree((state) => state.gl);
   const textures = useLoader(TextureLoader, IsObject(input) ? Object.values(input) : input);
-  (0, import_react7.useLayoutEffect)(() => {
+  (0, import_react6.useLayoutEffect)(() => {
     onLoad == null ? void 0 : onLoad(textures);
   }, [onLoad]);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     const array = Array.isArray(textures) ? textures : [textures];
     array.forEach(gl.initTexture);
   }, [gl, textures]);
@@ -13960,7 +11167,7 @@ var ImageMaterialImpl = shaderMaterial(
   }
 `
 );
-var ImageBase = React23.forwardRef(({
+var ImageBase = React22.forwardRef(({
   children,
   color,
   segments = 1,
@@ -13978,12 +11185,12 @@ var ImageBase = React23.forwardRef(({
   });
   const planeBounds = Array.isArray(scale2) ? [scale2[0], scale2[1]] : [scale2, scale2];
   const imageBounds = [texture.image.width, texture.image.height];
-  return React23.createElement("mesh", _extends({
+  return React22.createElement("mesh", _extends({
     ref,
     scale: Array.isArray(scale2) ? [...scale2, 1] : scale2
-  }, props), React23.createElement("planeGeometry", {
+  }, props), React22.createElement("planeGeometry", {
     args: [1, 1, segments, segments]
-  }), React23.createElement("imageMaterial", {
+  }), React22.createElement("imageMaterial", {
     color,
     map: texture,
     zoom,
@@ -13995,31 +11202,31 @@ var ImageBase = React23.forwardRef(({
     transparent
   }), children);
 });
-var ImageWithUrl = React23.forwardRef(({
+var ImageWithUrl = React22.forwardRef(({
   url,
   ...props
 }, ref) => {
   const texture = useTexture(url);
-  return React23.createElement(ImageBase, _extends({}, props, {
+  return React22.createElement(ImageBase, _extends({}, props, {
     texture,
     ref
   }));
 });
-var ImageWithTexture = React23.forwardRef(({
+var ImageWithTexture = React22.forwardRef(({
   url: _url,
   ...props
 }, ref) => {
-  return React23.createElement(ImageBase, _extends({}, props, {
+  return React22.createElement(ImageBase, _extends({}, props, {
     ref
   }));
 });
-var Image = React23.forwardRef((props, ref) => {
+var Image = React22.forwardRef((props, ref) => {
   if (props.url)
-    return React23.createElement(ImageWithUrl, _extends({}, props, {
+    return React22.createElement(ImageWithUrl, _extends({}, props, {
       ref
     }));
   else if (props.texture)
-    return React23.createElement(ImageWithTexture, _extends({}, props, {
+    return React22.createElement(ImageWithTexture, _extends({}, props, {
       ref
     }));
   else
@@ -14027,8 +11234,8 @@ var Image = React23.forwardRef((props, ref) => {
 });
 
 // node_modules/@react-three/drei/core/Edges.js
-var React24 = __toESM(require_react());
-var Edges = React24.forwardRef(({
+var React23 = __toESM(require_react());
+var Edges = React23.forwardRef(({
   userData,
   children,
   geometry,
@@ -14036,8 +11243,8 @@ var Edges = React24.forwardRef(({
   color = "black",
   ...props
 }, fref) => {
-  const ref = React24.useRef(null);
-  React24.useLayoutEffect(() => {
+  const ref = React23.useRef(null);
+  React23.useLayoutEffect(() => {
     const parent = ref.current.parent;
     if (parent) {
       const geom = geometry || parent.geometry;
@@ -14048,17 +11255,17 @@ var Edges = React24.forwardRef(({
       }
     }
   });
-  React24.useImperativeHandle(fref, () => ref.current);
-  return React24.createElement("lineSegments", _extends({
+  React23.useImperativeHandle(fref, () => ref.current);
+  return React23.createElement("lineSegments", _extends({
     ref,
     raycast: () => null
-  }, props), children ? children : React24.createElement("lineBasicMaterial", {
+  }, props), children ? children : React23.createElement("lineBasicMaterial", {
     color
   }));
 });
 
 // node_modules/@react-three/drei/core/Trail.js
-var React25 = __toESM(require_react());
+var React24 = __toESM(require_react());
 
 // node_modules/meshline/dist/index.js
 var __defProp = Object.defineProperty;
@@ -14623,17 +11830,17 @@ function useTrail(target2, settings) {
     ...defaults2,
     ...settings
   };
-  const points = React25.useRef();
-  const [worldPosition] = React25.useState(() => new Vector3());
-  React25.useLayoutEffect(() => {
+  const points = React24.useRef();
+  const [worldPosition] = React24.useState(() => new Vector3());
+  React24.useLayoutEffect(() => {
     if (target2) {
       points.current = Float32Array.from({
         length: length * 10 * 3
       }, (_, i3) => target2.position.getComponent(i3 % 3));
     }
   }, [length, target2]);
-  const prevPosition = React25.useRef(new Vector3());
-  const frameCount = React25.useRef(0);
+  const prevPosition = React24.useRef(new Vector3());
+  const frameCount = React24.useRef(0);
   useFrame(() => {
     if (!target2)
       return;
@@ -14661,7 +11868,7 @@ function useTrail(target2, settings) {
   });
   return points;
 }
-var Trail = React25.forwardRef((props, forwardRef71) => {
+var Trail = React24.forwardRef((props, forwardRef71) => {
   const {
     children
   } = props;
@@ -14683,8 +11890,8 @@ var Trail = React25.forwardRef((props, forwardRef71) => {
   } = props;
   const size = useThree((s2) => s2.size);
   const scene = useThree((s2) => s2.scene);
-  const ref = React25.useRef(null);
-  const [anchor, setAnchor] = React25.useState(null);
+  const ref = React24.useRef(null);
+  const [anchor, setAnchor] = React24.useState(null);
   const points = useTrail(anchor, {
     length,
     decay,
@@ -14692,7 +11899,7 @@ var Trail = React25.forwardRef((props, forwardRef71) => {
     stride,
     interval
   });
-  React25.useEffect(() => {
+  React24.useEffect(() => {
     const t2 = (target2 == null ? void 0 : target2.current) || ref.current.children.find((o2) => {
       return o2 instanceof Object3D;
     });
@@ -14700,8 +11907,8 @@ var Trail = React25.forwardRef((props, forwardRef71) => {
       setAnchor(t2);
     }
   }, [points, target2]);
-  const geo = React25.useMemo(() => new MeshLineGeometry(), []);
-  const mat = React25.useMemo(() => {
+  const geo = React24.useMemo(() => new MeshLineGeometry(), []);
+  const mat = React24.useMemo(() => {
     var _matOverride;
     const m = new MeshLineMaterial({
       lineWidth: 0.1 * width,
@@ -14728,7 +11935,7 @@ var Trail = React25.forwardRef((props, forwardRef71) => {
     }
     return m;
   }, [width, color, size, children]);
-  React25.useEffect(() => {
+  React24.useEffect(() => {
     mat.uniforms.resolution.value.set(size.width, size.height);
   }, [size]);
   useFrame(() => {
@@ -14736,25 +11943,25 @@ var Trail = React25.forwardRef((props, forwardRef71) => {
       return;
     geo.setPoints(points.current, attenuation);
   });
-  return React25.createElement("group", null, createPortal(React25.createElement("mesh", {
+  return React24.createElement("group", null, createPortal(React24.createElement("mesh", {
     ref: forwardRef71,
     geometry: geo,
     material: mat
-  }), scene), React25.createElement("group", {
+  }), scene), React24.createElement("group", {
     ref
   }, children));
 });
 
 // node_modules/@react-three/drei/core/Sampler.js
-var React26 = __toESM(require_react());
+var React25 = __toESM(require_react());
 function useSurfaceSampler(mesh, count = 16, transform, weight, instanceMesh) {
-  const [buffer, setBuffer2] = React26.useState(() => {
+  const [buffer, setBuffer2] = React25.useState(() => {
     const arr = Array.from({
       length: count
     }, () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]).flat();
     return new InstancedBufferAttribute(Float32Array.from(arr), 16);
   });
-  React26.useLayoutEffect(() => {
+  React25.useLayoutEffect(() => {
     if (typeof mesh.current === "undefined")
       return;
     const sampler = new MeshSurfaceSampler(mesh.current);
@@ -14803,30 +12010,30 @@ function Sampler({
   count = 16,
   ...props
 }) {
-  const group = React26.useRef(null);
-  const instancedRef = React26.useRef(null);
-  const meshToSampleRef = React26.useRef(null);
-  React26.useLayoutEffect(() => {
+  const group = React25.useRef(null);
+  const instancedRef = React25.useRef(null);
+  const meshToSampleRef = React25.useRef(null);
+  React25.useLayoutEffect(() => {
     var _instances$current, _mesh$current;
     instancedRef.current = (_instances$current = instances == null ? void 0 : instances.current) !== null && _instances$current !== void 0 ? _instances$current : group.current.children.find((c6) => c6.hasOwnProperty("instanceMatrix"));
     meshToSampleRef.current = (_mesh$current = mesh == null ? void 0 : mesh.current) !== null && _mesh$current !== void 0 ? _mesh$current : group.current.children.find((c6) => c6.type === "Mesh");
   }, [children, mesh == null ? void 0 : mesh.current, instances == null ? void 0 : instances.current]);
   useSurfaceSampler(meshToSampleRef, count, transform, weight, instancedRef);
-  return React26.createElement("group", _extends({
+  return React25.createElement("group", _extends({
     ref: group
   }, props), children);
 }
 
 // node_modules/@react-three/drei/core/ComputedAttribute.js
-var React27 = __toESM(require_react());
+var React26 = __toESM(require_react());
 var ComputedAttribute = ({
   compute: compute2,
   name,
   ...props
 }) => {
-  const [bufferAttribute] = React27.useState(() => new BufferAttribute(new Float32Array(0), 1));
-  const primitive = React27.useRef(null);
-  React27.useLayoutEffect(() => {
+  const [bufferAttribute] = React26.useState(() => new BufferAttribute(new Float32Array(0), 1));
+  const primitive = React26.useRef(null);
+  React26.useLayoutEffect(() => {
     if (primitive.current) {
       var _ref;
       const parent = (_ref = primitive.current.parent) !== null && _ref !== void 0 ? _ref : primitive.current.__r3f.parent;
@@ -14834,7 +12041,7 @@ var ComputedAttribute = ({
       primitive.current.copy(attr);
     }
   }, [compute2]);
-  return React27.createElement("primitive", _extends({
+  return React26.createElement("primitive", _extends({
     ref: primitive,
     object: bufferAttribute,
     attach: `attributes-${name}`
@@ -14842,7 +12049,7 @@ var ComputedAttribute = ({
 };
 
 // node_modules/@react-three/drei/core/Clone.js
-var React28 = __toESM(require_react());
+var React27 = __toESM(require_react());
 var import_lodash = __toESM(require_lodash());
 function createSpread(child, {
   keys = ["near", "far", "color", "distance", "decay", "penumbra", "angle", "intensity", "skeleton", "visible", "castShadow", "receiveShadow", "morphTargetDictionary", "morphTargetInfluences", "name", "geometry", "material", "position", "rotation", "scale", "up", "userData", "bindMode", "bindMatrix", "bindMatrixInverse", "skeleton"],
@@ -14864,7 +12071,7 @@ function createSpread(child, {
         ...spread,
         children: inject(child)
       };
-    else if (React28.isValidElement(inject))
+    else if (React27.isValidElement(inject))
       spread = {
         ...spread,
         children: inject
@@ -14883,7 +12090,7 @@ function createSpread(child, {
   }
   return spread;
 }
-var Clone = React28.forwardRef(({
+var Clone = React27.forwardRef(({
   isChild = false,
   object,
   children,
@@ -14902,7 +12109,7 @@ var Clone = React28.forwardRef(({
     castShadow,
     receiveShadow
   };
-  object = React28.useMemo(() => {
+  object = React27.useMemo(() => {
     if (isChild === false && !Array.isArray(object)) {
       let isSkinned = false;
       object.traverse((object2) => {
@@ -14915,9 +12122,9 @@ var Clone = React28.forwardRef(({
     return object;
   }, [object, isChild]);
   if (Array.isArray(object)) {
-    return React28.createElement("group", _extends({}, props, {
+    return React27.createElement("group", _extends({}, props, {
       ref: forwardRef71
-    }), object.map((o2) => React28.createElement(Clone, _extends({
+    }), object.map((o2) => React27.createElement(Clone, _extends({
       key: o2.uuid,
       object: o2
     }, config2))), children);
@@ -14927,15 +12134,15 @@ var Clone = React28.forwardRef(({
     ...spread
   } = createSpread(object, config2);
   const Element = object.type[0].toLowerCase() + object.type.slice(1);
-  return React28.createElement(Element, _extends({}, spread, props, {
+  return React27.createElement(Element, _extends({}, spread, props, {
     ref: forwardRef71
   }), ((_object = object) == null ? void 0 : _object.children).map((child) => {
     if (child.type === "Bone")
-      return React28.createElement("primitive", _extends({
+      return React27.createElement("primitive", _extends({
         key: child.uuid,
         object: child
       }, config2));
-    return React28.createElement(Clone, _extends({
+    return React27.createElement(Clone, _extends({
       key: child.uuid,
       object: child
     }, config2, {
@@ -14945,9 +12152,9 @@ var Clone = React28.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MarchingCubes.js
-var React29 = __toESM(require_react());
-var globalContext = React29.createContext(null);
-var MarchingCubes2 = React29.forwardRef(({
+var React28 = __toESM(require_react());
+var globalContext = React28.createContext(null);
+var MarchingCubes2 = React28.forwardRef(({
   resolution = 28,
   maxPolyCount = 1e4,
   enableUvs = false,
@@ -14955,23 +12162,23 @@ var MarchingCubes2 = React29.forwardRef(({
   children,
   ...props
 }, ref) => {
-  const marchingCubesRef = React29.useRef(null);
-  const marchingCubes = React29.useMemo(() => new MarchingCubes(resolution, null, enableUvs, enableColors, maxPolyCount), [resolution, maxPolyCount, enableUvs, enableColors]);
-  const api = React29.useMemo(() => ({
+  const marchingCubesRef = React28.useRef(null);
+  const marchingCubes = React28.useMemo(() => new MarchingCubes(resolution, null, enableUvs, enableColors, maxPolyCount), [resolution, maxPolyCount, enableUvs, enableColors]);
+  const api = React28.useMemo(() => ({
     getParent: () => marchingCubesRef
   }), []);
   useFrame(() => {
     marchingCubes.update();
     marchingCubes.reset();
   }, -1);
-  return React29.createElement(React29.Fragment, null, React29.createElement("primitive", _extends({
+  return React28.createElement(React28.Fragment, null, React28.createElement("primitive", _extends({
     object: marchingCubes,
     ref: react_merge_refs_esm_default([marchingCubesRef, ref])
-  }, props), React29.createElement(globalContext.Provider, {
+  }, props), React28.createElement(globalContext.Provider, {
     value: api
   }, children)));
 });
-var MarchingCube = React29.forwardRef(({
+var MarchingCube = React28.forwardRef(({
   strength = 0.5,
   subtract = 12,
   color,
@@ -14979,9 +12186,9 @@ var MarchingCube = React29.forwardRef(({
 }, ref) => {
   const {
     getParent
-  } = React29.useContext(globalContext);
-  const parentRef = React29.useMemo(() => getParent(), [getParent]);
-  const cubeRef = React29.useRef();
+  } = React28.useContext(globalContext);
+  const parentRef = React28.useMemo(() => getParent(), [getParent]);
+  const cubeRef = React28.useRef();
   const vec = new Vector3();
   useFrame((state) => {
     if (!parentRef.current || !cubeRef.current)
@@ -14989,11 +12196,11 @@ var MarchingCube = React29.forwardRef(({
     cubeRef.current.getWorldPosition(vec);
     parentRef.current.addBall(0.5 + vec.x * 0.5, 0.5 + vec.y * 0.5, 0.5 + vec.z * 0.5, strength, subtract, color);
   });
-  return React29.createElement("group", _extends({
+  return React28.createElement("group", _extends({
     ref: react_merge_refs_esm_default([ref, cubeRef])
   }, props));
 });
-var MarchingPlane = React29.forwardRef(({
+var MarchingPlane = React28.forwardRef(({
   planeType: _planeType = "x",
   strength = 0.5,
   subtract = 12,
@@ -15001,22 +12208,22 @@ var MarchingPlane = React29.forwardRef(({
 }, ref) => {
   const {
     getParent
-  } = React29.useContext(globalContext);
-  const parentRef = React29.useMemo(() => getParent(), [getParent]);
-  const wallRef = React29.useRef();
-  const planeType = React29.useMemo(() => _planeType === "x" ? "addPlaneX" : _planeType === "y" ? "addPlaneY" : "addPlaneZ", [_planeType]);
+  } = React28.useContext(globalContext);
+  const parentRef = React28.useMemo(() => getParent(), [getParent]);
+  const wallRef = React28.useRef();
+  const planeType = React28.useMemo(() => _planeType === "x" ? "addPlaneX" : _planeType === "y" ? "addPlaneY" : "addPlaneZ", [_planeType]);
   useFrame(() => {
     if (!parentRef.current || !wallRef.current)
       return;
     parentRef.current[planeType](strength, subtract);
   });
-  return React29.createElement("group", _extends({
+  return React28.createElement("group", _extends({
     ref: react_merge_refs_esm_default([ref, wallRef])
   }, props));
 });
 
 // node_modules/@react-three/drei/core/Decal.js
-var React30 = __toESM(require_react());
+var React29 = __toESM(require_react());
 function isArray(vec) {
   return Array.isArray(vec);
 }
@@ -15029,7 +12236,7 @@ function vecToArray(vec = [0, 0, 0]) {
     return [vec, vec, vec];
   }
 }
-var Decal = React30.forwardRef(function Decal2({
+var Decal = React29.forwardRef(function Decal2({
   debug,
   mesh,
   children,
@@ -15038,10 +12245,10 @@ var Decal = React30.forwardRef(function Decal2({
   scale: scale2,
   ...props
 }, forwardRef71) {
-  const ref = React30.useRef(null);
-  React30.useImperativeHandle(forwardRef71, () => ref.current);
-  const helper = React30.useRef(null);
-  React30.useLayoutEffect(() => {
+  const ref = React29.useRef(null);
+  React29.useImperativeHandle(forwardRef71, () => ref.current);
+  const helper = React29.useRef(null);
+  React29.useLayoutEffect(() => {
     const parent = (mesh == null ? void 0 : mesh.current) || ref.current.parent;
     const target2 = ref.current;
     if (!(parent instanceof Mesh)) {
@@ -15084,23 +12291,23 @@ var Decal = React30.forwardRef(function Decal2({
       };
     }
   }, [mesh, ...vecToArray(position2), ...vecToArray(scale2), ...vecToArray(rotation2)]);
-  return React30.createElement("mesh", {
+  return React29.createElement("mesh", {
     ref
-  }, children || React30.createElement("meshStandardMaterial", _extends({
+  }, children || React29.createElement("meshStandardMaterial", _extends({
     transparent: true,
     polygonOffset: true,
     polygonOffsetFactor: -10
-  }, props)), debug && React30.createElement("mesh", {
+  }, props)), debug && React29.createElement("mesh", {
     ref: helper
-  }, React30.createElement("boxGeometry", null), React30.createElement("meshNormalMaterial", {
+  }, React29.createElement("boxGeometry", null), React29.createElement("meshNormalMaterial", {
     wireframe: true
-  }), React30.createElement("axesHelper", null)));
+  }), React29.createElement("axesHelper", null)));
 });
 
 // node_modules/@react-three/drei/core/Svg.js
-var React31 = __toESM(require_react());
-var import_react8 = __toESM(require_react());
-var Svg = (0, import_react8.forwardRef)(function R3FSvg({
+var React30 = __toESM(require_react());
+var import_react7 = __toESM(require_react());
+var Svg = (0, import_react7.forwardRef)(function R3FSvg({
   src,
   skipFill,
   skipStrokes,
@@ -15111,35 +12318,35 @@ var Svg = (0, import_react8.forwardRef)(function R3FSvg({
   ...props
 }, ref) {
   const svg = useLoader(SVGLoader, !src.startsWith("<svg") ? src : `data:image/svg+xml;utf8,${src}`);
-  const strokeGeometries = (0, import_react8.useMemo)(() => skipStrokes ? [] : svg.paths.map((path) => {
+  const strokeGeometries = (0, import_react7.useMemo)(() => skipStrokes ? [] : svg.paths.map((path) => {
     var _path$userData;
     return ((_path$userData = path.userData) == null ? void 0 : _path$userData.style.stroke) === void 0 || path.userData.style.stroke === "none" ? null : path.subPaths.map((subPath) => SVGLoader.pointsToStroke(subPath.getPoints(), path.userData.style));
   }), [svg, skipStrokes]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react7.useEffect)(() => {
     return () => strokeGeometries.forEach((group) => group && group.map((g) => g.dispose()));
   }, [strokeGeometries]);
-  return React31.createElement("object3D", _extends({
+  return React30.createElement("object3D", _extends({
     ref
-  }, props), React31.createElement("object3D", {
+  }, props), React30.createElement("object3D", {
     scale: [1, -1, 1]
   }, svg.paths.map((path, p) => {
     var _path$userData2, _path$userData3;
-    return React31.createElement(import_react8.Fragment, {
+    return React30.createElement(import_react7.Fragment, {
       key: p
-    }, !skipFill && ((_path$userData2 = path.userData) == null ? void 0 : _path$userData2.style.fill) !== void 0 && path.userData.style.fill !== "none" && SVGLoader.createShapes(path).map((shape, s2) => React31.createElement("mesh", _extends({
+    }, !skipFill && ((_path$userData2 = path.userData) == null ? void 0 : _path$userData2.style.fill) !== void 0 && path.userData.style.fill !== "none" && SVGLoader.createShapes(path).map((shape, s2) => React30.createElement("mesh", _extends({
       key: s2
-    }, fillMeshProps), React31.createElement("shapeGeometry", {
+    }, fillMeshProps), React30.createElement("shapeGeometry", {
       args: [shape]
-    }), React31.createElement("meshBasicMaterial", _extends({
+    }), React30.createElement("meshBasicMaterial", _extends({
       color: path.userData.style.fill,
       opacity: path.userData.style.fillOpacity,
       transparent: true,
       side: DoubleSide,
       depthWrite: false
-    }, fillMaterial)))), !skipStrokes && ((_path$userData3 = path.userData) == null ? void 0 : _path$userData3.style.stroke) !== void 0 && path.userData.style.stroke !== "none" && path.subPaths.map((_subPath, s2) => React31.createElement("mesh", _extends({
+    }, fillMaterial)))), !skipStrokes && ((_path$userData3 = path.userData) == null ? void 0 : _path$userData3.style.stroke) !== void 0 && path.userData.style.stroke !== "none" && path.subPaths.map((_subPath, s2) => React30.createElement("mesh", _extends({
       key: s2,
       geometry: strokeGeometries[p][s2]
-    }, strokeMeshProps), React31.createElement("meshBasicMaterial", _extends({
+    }, strokeMeshProps), React30.createElement("meshBasicMaterial", _extends({
       color: path.userData.style.stroke,
       opacity: path.userData.style.strokeOpacity,
       transparent: true,
@@ -15150,7 +12357,7 @@ var Svg = (0, import_react8.forwardRef)(function R3FSvg({
 });
 
 // node_modules/@react-three/drei/core/Gltf.js
-var React32 = __toESM(require_react());
+var React31 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/useGLTF.js
 var dracoLoader = null;
@@ -15179,14 +12386,14 @@ useGLTF.preload = (path, useDraco = true, useMeshOpt = true, extendLoader) => us
 useGLTF.clear = (input) => useLoader.clear(GLTFLoader, input);
 
 // node_modules/@react-three/drei/core/Gltf.js
-var Gltf = React32.forwardRef(({
+var Gltf = React31.forwardRef(({
   src,
   ...props
 }, ref) => {
   const {
     scene
   } = useGLTF(src);
-  return React32.createElement(Clone, _extends({
+  return React31.createElement(Clone, _extends({
     ref
   }, props, {
     object: scene
@@ -15194,7 +12401,7 @@ var Gltf = React32.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/AsciiRenderer.js
-var React33 = __toESM(require_react());
+var React32 = __toESM(require_react());
 function AsciiRenderer({
   renderIndex = 1,
   bgColor = "black",
@@ -15210,7 +12417,7 @@ function AsciiRenderer({
     scene,
     camera
   } = useThree();
-  const effect = React33.useMemo(() => {
+  const effect = React32.useMemo(() => {
     const effect2 = new AsciiEffect(gl, characters, {
       invert,
       color,
@@ -15222,11 +12429,11 @@ function AsciiRenderer({
     effect2.domElement.style.pointerEvents = "none";
     return effect2;
   }, [characters, invert, color, resolution]);
-  React33.useLayoutEffect(() => {
+  React32.useLayoutEffect(() => {
     effect.domElement.style.color = fgColor;
     effect.domElement.style.backgroundColor = bgColor;
   }, [fgColor, bgColor]);
-  React33.useEffect(() => {
+  React32.useEffect(() => {
     gl.domElement.style.opacity = "0";
     gl.domElement.parentNode.appendChild(effect.domElement);
     return () => {
@@ -15234,20 +12441,20 @@ function AsciiRenderer({
       gl.domElement.parentNode.removeChild(effect.domElement);
     };
   }, [effect]);
-  React33.useEffect(() => {
+  React32.useEffect(() => {
     effect.setSize(size.width, size.height);
   }, [effect, size]);
   useFrame((state) => {
     effect.render(scene, camera);
   }, renderIndex);
-  return React33.createElement(React33.Fragment, null);
+  return React32.createElement(React32.Fragment, null);
 }
 
 // node_modules/@react-three/drei/core/OrthographicCamera.js
-var React35 = __toESM(require_react());
+var React34 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/useFBO.js
-var React34 = __toESM(require_react());
+var React33 = __toESM(require_react());
 function useFBO(width, height, settings) {
   const size = useThree((state) => state.size);
   const viewport = useThree((state) => state.viewport);
@@ -15259,7 +12466,7 @@ function useFBO(width, height, settings) {
     depth,
     ...targetSettings
   } = _settings;
-  const target2 = React34.useMemo(() => {
+  const target2 = React33.useMemo(() => {
     const target3 = new WebGLRenderTarget(_width, _height, {
       minFilter: LinearFilter,
       magFilter: LinearFilter,
@@ -15272,12 +12479,12 @@ function useFBO(width, height, settings) {
     target3.samples = samples;
     return target3;
   }, []);
-  React34.useLayoutEffect(() => {
+  React33.useLayoutEffect(() => {
     target2.setSize(_width, _height);
     if (samples)
       target2.samples = samples;
   }, [samples, target2, _width, _height]);
-  React34.useEffect(() => {
+  React33.useEffect(() => {
     return () => target2.dispose();
   }, []);
   return target2;
@@ -15285,7 +12492,7 @@ function useFBO(width, height, settings) {
 
 // node_modules/@react-three/drei/core/OrthographicCamera.js
 var isFunction = (node) => typeof node === "function";
-var OrthographicCamera2 = React35.forwardRef(({
+var OrthographicCamera2 = React34.forwardRef(({
   envMap,
   resolution = 256,
   frames = Infinity,
@@ -15302,18 +12509,18 @@ var OrthographicCamera2 = React35.forwardRef(({
   const size = useThree(({
     size: size2
   }) => size2);
-  const cameraRef = React35.useRef(null);
-  const groupRef = React35.useRef(null);
+  const cameraRef = React34.useRef(null);
+  const groupRef = React34.useRef(null);
   const fbo = useFBO(resolution);
-  React35.useLayoutEffect(() => {
+  React34.useLayoutEffect(() => {
     if (!props.manual) {
       cameraRef.current.updateProjectionMatrix();
     }
   }, [size, props]);
-  React35.useLayoutEffect(() => {
+  React34.useLayoutEffect(() => {
     cameraRef.current.updateProjectionMatrix();
   });
-  React35.useLayoutEffect(() => {
+  React34.useLayoutEffect(() => {
     if (makeDefault) {
       const oldCam = camera;
       set(() => ({
@@ -15341,21 +12548,21 @@ var OrthographicCamera2 = React35.forwardRef(({
       count++;
     }
   });
-  return React35.createElement(React35.Fragment, null, React35.createElement("orthographicCamera", _extends({
+  return React34.createElement(React34.Fragment, null, React34.createElement("orthographicCamera", _extends({
     left: size.width / -2,
     right: size.width / 2,
     top: size.height / 2,
     bottom: size.height / -2,
     ref: react_merge_refs_esm_default([cameraRef, ref])
-  }, props), !functional && children), React35.createElement("group", {
+  }, props), !functional && children), React34.createElement("group", {
     ref: groupRef
   }, functional && children(fbo.texture)));
 });
 
 // node_modules/@react-three/drei/core/PerspectiveCamera.js
-var React36 = __toESM(require_react());
+var React35 = __toESM(require_react());
 var isFunction2 = (node) => typeof node === "function";
-var PerspectiveCamera2 = React36.forwardRef(({
+var PerspectiveCamera2 = React35.forwardRef(({
   envMap,
   resolution = 256,
   frames = Infinity,
@@ -15372,15 +12579,15 @@ var PerspectiveCamera2 = React36.forwardRef(({
   const size = useThree(({
     size: size2
   }) => size2);
-  const cameraRef = React36.useRef(null);
-  const groupRef = React36.useRef(null);
+  const cameraRef = React35.useRef(null);
+  const groupRef = React35.useRef(null);
   const fbo = useFBO(resolution);
-  React36.useLayoutEffect(() => {
+  React35.useLayoutEffect(() => {
     if (!props.manual) {
       cameraRef.current.aspect = size.width / size.height;
     }
   }, [size, props]);
-  React36.useLayoutEffect(() => {
+  React35.useLayoutEffect(() => {
     cameraRef.current.updateProjectionMatrix();
   });
   let count = 0;
@@ -15400,7 +12607,7 @@ var PerspectiveCamera2 = React36.forwardRef(({
       count++;
     }
   });
-  React36.useLayoutEffect(() => {
+  React35.useLayoutEffect(() => {
     if (makeDefault) {
       const oldCam = camera;
       set(() => ({
@@ -15411,19 +12618,19 @@ var PerspectiveCamera2 = React36.forwardRef(({
       }));
     }
   }, [cameraRef, makeDefault, set]);
-  return React36.createElement(React36.Fragment, null, React36.createElement("perspectiveCamera", _extends({
+  return React35.createElement(React35.Fragment, null, React35.createElement("perspectiveCamera", _extends({
     ref: react_merge_refs_esm_default([cameraRef, ref])
-  }, props), !functional && children), React36.createElement("group", {
+  }, props), !functional && children), React35.createElement("group", {
     ref: groupRef
   }, functional && children(fbo.texture)));
 });
 
 // node_modules/@react-three/drei/core/CubeCamera.js
-var React38 = __toESM(require_react());
+var React37 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/useCubeCamera.js
-var React37 = __toESM(require_react());
-var import_react9 = __toESM(require_react());
+var React36 = __toESM(require_react());
+var import_react8 = __toESM(require_react());
 function useCubeCamera({
   resolution = 256,
   near = 0.1,
@@ -15437,20 +12644,20 @@ function useCubeCamera({
   const scene = useThree(({
     scene: scene2
   }) => scene2);
-  const fbo = (0, import_react9.useMemo)(() => {
+  const fbo = (0, import_react8.useMemo)(() => {
     const fbo2 = new WebGLCubeRenderTarget(resolution);
     fbo2.texture.type = HalfFloatType;
     return fbo2;
   }, [resolution]);
-  (0, import_react9.useEffect)(() => {
+  (0, import_react8.useEffect)(() => {
     return () => {
       fbo.dispose();
     };
   }, [fbo]);
-  const camera = (0, import_react9.useMemo)(() => new CubeCamera(near, far, fbo), [near, far, fbo]);
+  const camera = (0, import_react8.useMemo)(() => new CubeCamera(near, far, fbo), [near, far, fbo]);
   let originalFog;
   let originalBackground;
-  const update3 = React37.useCallback(() => {
+  const update3 = React36.useCallback(() => {
     originalFog = scene.fog;
     originalBackground = scene.background;
     scene.background = envMap || originalBackground;
@@ -15477,7 +12684,7 @@ function CubeCamera2({
   fog,
   ...props
 }) {
-  const ref = React38.useRef();
+  const ref = React37.useRef();
   const {
     fbo,
     camera,
@@ -15498,16 +12705,16 @@ function CubeCamera2({
       count++;
     }
   });
-  return React38.createElement("group", props, React38.createElement("primitive", {
+  return React37.createElement("group", props, React37.createElement("primitive", {
     object: camera
-  }), React38.createElement("group", {
+  }), React37.createElement("group", {
     ref
   }, children(fbo.texture)));
 }
 
 // node_modules/@react-three/drei/core/DeviceOrientationControls.js
-var React39 = __toESM(require_react());
-var DeviceOrientationControls2 = React39.forwardRef((props, ref) => {
+var React38 = __toESM(require_react());
+var DeviceOrientationControls2 = React38.forwardRef((props, ref) => {
   const {
     camera,
     onChange,
@@ -15519,8 +12726,8 @@ var DeviceOrientationControls2 = React39.forwardRef((props, ref) => {
   const get = useThree((state) => state.get);
   const set = useThree((state) => state.set);
   const explCamera = camera || defaultCamera;
-  const [controls] = React39.useState(() => new DeviceOrientationControls(explCamera));
-  React39.useEffect(() => {
+  const [controls] = React38.useState(() => new DeviceOrientationControls(explCamera));
+  React38.useEffect(() => {
     const callback = (e2) => {
       invalidate();
       if (onChange)
@@ -15530,12 +12737,12 @@ var DeviceOrientationControls2 = React39.forwardRef((props, ref) => {
     return () => controls == null ? void 0 : controls.removeEventListener == null ? void 0 : controls.removeEventListener("change", callback);
   }, [onChange, controls, invalidate]);
   useFrame(() => controls == null ? void 0 : controls.update(), -1);
-  React39.useEffect(() => {
+  React38.useEffect(() => {
     const current = controls;
     current == null ? void 0 : current.connect();
     return () => current == null ? void 0 : current.dispose();
   }, [controls]);
-  React39.useEffect(() => {
+  React38.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15546,15 +12753,15 @@ var DeviceOrientationControls2 = React39.forwardRef((props, ref) => {
       });
     }
   }, [makeDefault, controls]);
-  return controls ? React39.createElement("primitive", _extends({
+  return controls ? React38.createElement("primitive", _extends({
     ref,
     object: controls
   }, rest)) : null;
 });
 
 // node_modules/@react-three/drei/core/FlyControls.js
-var React40 = __toESM(require_react());
-var FlyControls2 = React40.forwardRef(({
+var React39 = __toESM(require_react());
+var FlyControls2 = React39.forwardRef(({
   domElement,
   ...props
 }, fref) => {
@@ -15570,12 +12777,12 @@ var FlyControls2 = React40.forwardRef(({
   const get = useThree((state) => state.get);
   const set = useThree((state) => state.set);
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = React40.useMemo(() => new FlyControls(camera), [camera]);
-  React40.useEffect(() => {
+  const controls = React39.useMemo(() => new FlyControls(camera), [camera]);
+  React39.useEffect(() => {
     controls.connect(explDomElement);
     return () => void controls.dispose();
   }, [explDomElement, controls, invalidate]);
-  React40.useEffect(() => {
+  React39.useEffect(() => {
     const callback = (e2) => {
       invalidate();
       if (onChange)
@@ -15584,7 +12791,7 @@ var FlyControls2 = React40.forwardRef(({
     controls.addEventListener == null ? void 0 : controls.addEventListener("change", callback);
     return () => controls.removeEventListener == null ? void 0 : controls.removeEventListener("change", callback);
   }, [onChange, invalidate]);
-  React40.useEffect(() => {
+  React39.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15596,7 +12803,7 @@ var FlyControls2 = React40.forwardRef(({
     }
   }, [makeDefault, controls]);
   useFrame((_, delta) => controls.update(delta));
-  return React40.createElement("primitive", _extends({
+  return React39.createElement("primitive", _extends({
     ref: fref,
     object: controls,
     args: [camera, explDomElement]
@@ -15604,8 +12811,8 @@ var FlyControls2 = React40.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MapControls.js
-var React41 = __toESM(require_react());
-var MapControls2 = React41.forwardRef((props = {
+var React40 = __toESM(require_react());
+var MapControls2 = React40.forwardRef((props = {
   enableDamping: true
 }, ref) => {
   const {
@@ -15625,8 +12832,8 @@ var MapControls2 = React41.forwardRef((props = {
   const get = useThree((state) => state.get);
   const explDomElement = domElement || events.connected || gl.domElement;
   const explCamera = camera || defaultCamera;
-  const controls = React41.useMemo(() => new MapControls(explCamera), [explCamera]);
-  React41.useEffect(() => {
+  const controls = React40.useMemo(() => new MapControls(explCamera), [explCamera]);
+  React40.useEffect(() => {
     controls.connect(explDomElement);
     const callback = (e2) => {
       invalidate();
@@ -15647,7 +12854,7 @@ var MapControls2 = React41.forwardRef((props = {
         controls.removeEventListener("end", onEnd);
     };
   }, [onChange, onStart, onEnd, controls, invalidate, explDomElement]);
-  React41.useEffect(() => {
+  React40.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15659,7 +12866,7 @@ var MapControls2 = React41.forwardRef((props = {
     }
   }, [makeDefault, controls]);
   useFrame(() => controls.update(), -1);
-  return React41.createElement("primitive", _extends({
+  return React40.createElement("primitive", _extends({
     ref,
     object: controls,
     enableDamping: true
@@ -15667,8 +12874,8 @@ var MapControls2 = React41.forwardRef((props = {
 });
 
 // node_modules/@react-three/drei/core/OrbitControls.js
-var React42 = __toESM(require_react());
-var OrbitControls2 = React42.forwardRef(({
+var React41 = __toESM(require_react());
+var OrbitControls2 = React41.forwardRef(({
   makeDefault,
   camera,
   regress,
@@ -15690,19 +12897,19 @@ var OrbitControls2 = React42.forwardRef(({
   const performance2 = useThree((state) => state.performance);
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = React42.useMemo(() => new OrbitControls(explCamera), [explCamera]);
+  const controls = React41.useMemo(() => new OrbitControls(explCamera), [explCamera]);
   useFrame(() => {
     if (controls.enabled)
       controls.update();
   }, -1);
-  React42.useEffect(() => {
+  React41.useEffect(() => {
     if (keyEvents) {
       controls.connect(keyEvents === true ? explDomElement : keyEvents);
     }
     controls.connect(explDomElement);
     return () => void controls.dispose();
   }, [keyEvents, explDomElement, regress, controls, invalidate]);
-  React42.useEffect(() => {
+  React41.useEffect(() => {
     const callback = (e2) => {
       invalidate();
       if (regress)
@@ -15727,7 +12934,7 @@ var OrbitControls2 = React42.forwardRef(({
       controls.removeEventListener("change", callback);
     };
   }, [onChange, onStart, onEnd, controls, invalidate, setEvents]);
-  React42.useEffect(() => {
+  React41.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15738,7 +12945,7 @@ var OrbitControls2 = React42.forwardRef(({
       });
     }
   }, [makeDefault, controls]);
-  return React42.createElement("primitive", _extends({
+  return React41.createElement("primitive", _extends({
     ref,
     object: controls,
     enableDamping
@@ -15746,8 +12953,8 @@ var OrbitControls2 = React42.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/TrackballControls.js
-var React43 = __toESM(require_react());
-var TrackballControls2 = React43.forwardRef(({
+var React42 = __toESM(require_react());
+var TrackballControls2 = React42.forwardRef(({
   makeDefault,
   camera,
   domElement,
@@ -15769,16 +12976,16 @@ var TrackballControls2 = React43.forwardRef(({
   } = useThree();
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = React43.useMemo(() => new TrackballControls(explCamera), [explCamera]);
+  const controls = React42.useMemo(() => new TrackballControls(explCamera), [explCamera]);
   useFrame(() => {
     if (controls.enabled)
       controls.update();
   }, -1);
-  React43.useEffect(() => {
+  React42.useEffect(() => {
     controls.connect(explDomElement);
     return () => void controls.dispose();
   }, [explDomElement, regress, controls, invalidate]);
-  React43.useEffect(() => {
+  React42.useEffect(() => {
     const callback = (e2) => {
       invalidate();
       if (regress)
@@ -15799,10 +13006,10 @@ var TrackballControls2 = React43.forwardRef(({
       controls.removeEventListener("change", callback);
     };
   }, [onChange, onStart, onEnd, controls, invalidate]);
-  React43.useEffect(() => {
+  React42.useEffect(() => {
     controls.handleResize();
   }, [viewport]);
-  React43.useEffect(() => {
+  React42.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15813,16 +13020,16 @@ var TrackballControls2 = React43.forwardRef(({
       });
     }
   }, [makeDefault, controls]);
-  return React43.createElement("primitive", _extends({
+  return React42.createElement("primitive", _extends({
     ref,
     object: controls
   }, restProps));
 });
 
 // node_modules/@react-three/drei/core/ArcballControls.js
-var React44 = __toESM(require_react());
-var import_react10 = __toESM(require_react());
-var ArcballControls2 = (0, import_react10.forwardRef)(({
+var React43 = __toESM(require_react());
+var import_react9 = __toESM(require_react());
+var ArcballControls2 = (0, import_react9.forwardRef)(({
   camera,
   makeDefault,
   regress,
@@ -15841,16 +13048,16 @@ var ArcballControls2 = (0, import_react10.forwardRef)(({
   const performance2 = useThree((state) => state.performance);
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = (0, import_react10.useMemo)(() => new ArcballControls(explCamera), [explCamera]);
+  const controls = (0, import_react9.useMemo)(() => new ArcballControls(explCamera), [explCamera]);
   useFrame(() => {
     if (controls.enabled)
       controls.update();
   }, -1);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     controls.connect(explDomElement);
     return () => void controls.dispose();
   }, [explDomElement, regress, controls, invalidate]);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     const callback = (e2) => {
       invalidate();
       if (regress)
@@ -15871,7 +13078,7 @@ var ArcballControls2 = (0, import_react10.forwardRef)(({
         controls.removeEventListener("end", onEnd);
     };
   }, [onChange, onStart, onEnd]);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15882,7 +13089,7 @@ var ArcballControls2 = (0, import_react10.forwardRef)(({
       });
     }
   }, [makeDefault, controls]);
-  return React44.createElement("primitive", _extends({
+  return React43.createElement("primitive", _extends({
     ref,
     object: controls
   }, restProps));
@@ -15891,8 +13098,8 @@ var ArcballControls2 = (0, import_react10.forwardRef)(({
 // node_modules/@react-three/drei/core/TransformControls.js
 var import_lodash2 = __toESM(require_lodash2());
 var import_lodash3 = __toESM(require_lodash());
-var React45 = __toESM(require_react());
-var TransformControls2 = React45.forwardRef(({
+var React44 = __toESM(require_react());
+var TransformControls2 = React44.forwardRef(({
   children,
   domElement,
   onChange,
@@ -15919,9 +13126,9 @@ var TransformControls2 = React45.forwardRef(({
   const set = useThree((state) => state.set);
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = React45.useMemo(() => new TransformControls(explCamera, explDomElement), [explCamera, explDomElement]);
-  const group = React45.useRef();
-  React45.useLayoutEffect(() => {
+  const controls = React44.useMemo(() => new TransformControls(explCamera, explDomElement), [explCamera, explDomElement]);
+  const group = React44.useRef();
+  React44.useLayoutEffect(() => {
     if (object) {
       controls.attach(object instanceof Object3D ? object : object.current);
     } else if (group.current instanceof Object3D) {
@@ -15929,22 +13136,22 @@ var TransformControls2 = React45.forwardRef(({
     }
     return () => void controls.detach();
   }, [object, children, controls]);
-  React45.useEffect(() => {
+  React44.useEffect(() => {
     if (defaultControls) {
       const callback = (event) => defaultControls.enabled = !event.value;
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
   }, [controls, defaultControls]);
-  const onChangeRef = React45.useRef();
-  const onMouseDownRef = React45.useRef();
-  const onMouseUpRef = React45.useRef();
-  const onObjectChangeRef = React45.useRef();
-  React45.useLayoutEffect(() => void (onChangeRef.current = onChange), [onChange]);
-  React45.useLayoutEffect(() => void (onMouseDownRef.current = onMouseDown), [onMouseDown]);
-  React45.useLayoutEffect(() => void (onMouseUpRef.current = onMouseUp), [onMouseUp]);
-  React45.useLayoutEffect(() => void (onObjectChangeRef.current = onObjectChange), [onObjectChange]);
-  React45.useEffect(() => {
+  const onChangeRef = React44.useRef();
+  const onMouseDownRef = React44.useRef();
+  const onMouseUpRef = React44.useRef();
+  const onObjectChangeRef = React44.useRef();
+  React44.useLayoutEffect(() => void (onChangeRef.current = onChange), [onChange]);
+  React44.useLayoutEffect(() => void (onMouseDownRef.current = onMouseDown), [onMouseDown]);
+  React44.useLayoutEffect(() => void (onMouseUpRef.current = onMouseUp), [onMouseUp]);
+  React44.useLayoutEffect(() => void (onObjectChangeRef.current = onObjectChange), [onObjectChange]);
+  React44.useEffect(() => {
     const onChange2 = (e2) => {
       invalidate();
       onChangeRef.current == null ? void 0 : onChangeRef.current(e2);
@@ -15963,7 +13170,7 @@ var TransformControls2 = React45.forwardRef(({
       controls.removeEventListener("objectChange", onObjectChange2);
     };
   }, [invalidate, controls]);
-  React45.useEffect(() => {
+  React44.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -15974,17 +13181,17 @@ var TransformControls2 = React45.forwardRef(({
       });
     }
   }, [makeDefault, controls]);
-  return controls ? React45.createElement(React45.Fragment, null, React45.createElement("primitive", _extends({
+  return controls ? React44.createElement(React44.Fragment, null, React44.createElement("primitive", _extends({
     ref,
     object: controls
-  }, transformProps)), React45.createElement("group", _extends({
+  }, transformProps)), React44.createElement("group", _extends({
     ref: group
   }, objectProps), children)) : null;
 });
 
 // node_modules/@react-three/drei/core/PointerLockControls.js
-var React46 = __toESM(require_react());
-var PointerLockControls2 = React46.forwardRef(({
+var React45 = __toESM(require_react());
+var PointerLockControls2 = React45.forwardRef(({
   domElement,
   selector,
   onChange,
@@ -16007,8 +13214,8 @@ var PointerLockControls2 = React46.forwardRef(({
   const set = useThree((state) => state.set);
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const [controls] = React46.useState(() => new PointerLockControls(explCamera));
-  React46.useEffect(() => {
+  const [controls] = React45.useState(() => new PointerLockControls(explCamera));
+  React45.useEffect(() => {
     if (enabled) {
       controls.connect(explDomElement);
       const oldComputeOffsets = get().events.compute;
@@ -16028,7 +13235,7 @@ var PointerLockControls2 = React46.forwardRef(({
       };
     }
   }, [enabled, controls]);
-  React46.useEffect(() => {
+  React45.useEffect(() => {
     const callback = (e2) => {
       invalidate();
       if (onChange)
@@ -16051,7 +13258,7 @@ var PointerLockControls2 = React46.forwardRef(({
       elements.forEach((element) => element ? element.removeEventListener("click", handler) : void 0);
     };
   }, [onChange, onLock, onUnlock, selector, controls, invalidate]);
-  React46.useEffect(() => {
+  React45.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -16062,15 +13269,15 @@ var PointerLockControls2 = React46.forwardRef(({
       });
     }
   }, [makeDefault, controls]);
-  return React46.createElement("primitive", _extends({
+  return React45.createElement("primitive", _extends({
     ref,
     object: controls
   }, rest));
 });
 
 // node_modules/@react-three/drei/core/FirstPersonControls.js
-var React47 = __toESM(require_react());
-var FirstPersonControls2 = React47.forwardRef(({
+var React46 = __toESM(require_react());
+var FirstPersonControls2 = React46.forwardRef(({
   domElement,
   makeDefault,
   ...props
@@ -16081,8 +13288,8 @@ var FirstPersonControls2 = React47.forwardRef(({
   const get = useThree((state) => state.get);
   const set = useThree((state) => state.set);
   const explDomElement = domElement || events.connected || gl.domElement;
-  const [controls] = React47.useState(() => new FirstPersonControls(camera, explDomElement));
-  React47.useEffect(() => {
+  const [controls] = React46.useState(() => new FirstPersonControls(camera, explDomElement));
+  React46.useEffect(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -16096,15 +13303,15 @@ var FirstPersonControls2 = React47.forwardRef(({
   useFrame((_, delta) => {
     controls.update(delta);
   }, -1);
-  return controls ? React47.createElement("primitive", _extends({
+  return controls ? React46.createElement("primitive", _extends({
     ref,
     object: controls
   }, props)) : null;
 });
 
 // node_modules/@react-three/drei/core/CameraControls.js
-var React48 = __toESM(require_react());
-var import_react11 = __toESM(require_react());
+var React47 = __toESM(require_react());
+var import_react10 = __toESM(require_react());
 
 // node_modules/camera-controls/dist/camera-controls.module.js
 var MOUSE_BUTTON = {
@@ -16146,7 +13353,7 @@ var PI_2 = Math.PI * 2;
 var PI_HALF = Math.PI / 2;
 var EPSILON = 1e-5;
 var DEG2RAD = Math.PI / 180;
-function clamp3(value, min, max) {
+function clamp2(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 function approxZero(number, error = EPSILON) {
@@ -16178,7 +13385,7 @@ function smoothDamp(current, target2, currentVelocityRef, smoothTime, maxSpeed =
   let change = current - target2;
   const originalTo = target2;
   const maxChange = maxSpeed * smoothTime;
-  change = clamp3(change, -maxChange, maxChange);
+  change = clamp2(change, -maxChange, maxChange);
   target2 = current - change;
   const temp5 = (currentVelocityRef.value + omega * change) * deltaTime;
   currentVelocityRef.value = (currentVelocityRef.value - omega * temp5) * exp;
@@ -16330,9 +13537,9 @@ var EventDispatcher2 = class {
 };
 var VERSION = "2.6.0";
 var TOUCH_DOLLY_FACTOR = 1 / 8;
-var isBrowser2 = typeof window !== "undefined";
-var isMac = isBrowser2 && /Mac/.test(navigator.platform);
-var isPointerEventsNotSupported = !(isBrowser2 && "PointerEvent" in window);
+var isBrowser = typeof window !== "undefined";
+var isMac = isBrowser && /Mac/.test(navigator.platform);
+var isPointerEventsNotSupported = !(isBrowser && "PointerEvent" in window);
 var THREE;
 var _ORIGIN;
 var _AXIS_Y;
@@ -16654,8 +13861,8 @@ var CameraControls = class extends EventDispatcher2 {
     const onPointerMove = (event) => {
       if (event.cancelable)
         event.preventDefault();
-      const pointerId2 = event.pointerId;
-      const pointer = this._lockedPointer || this._findPointerById(pointerId2);
+      const pointerId = event.pointerId;
+      const pointer = this._lockedPointer || this._findPointerById(pointerId);
       if (!pointer)
         return;
       pointer.clientX = event.clientX;
@@ -16789,8 +13996,8 @@ var CameraControls = class extends EventDispatcher2 {
       if (!this._domElement || !this._enabled)
         return;
       if (this.mouseButtons.right === CameraControls.ACTION.NONE) {
-        const pointerId2 = event instanceof PointerEvent ? event.pointerId : event instanceof MouseEvent ? 0 : 0;
-        const pointer = this._findPointerById(pointerId2);
+        const pointerId = event instanceof PointerEvent ? event.pointerId : event instanceof MouseEvent ? 0 : 0;
+        const pointer = this._findPointerById(pointerId);
         pointer && this._disposePointer(pointer);
         this._domElement.ownerDocument.removeEventListener("pointermove", onPointerMove, { passive: false });
         this._domElement.ownerDocument.removeEventListener("pointerup", onPointerUp);
@@ -17244,8 +14451,8 @@ var CameraControls = class extends EventDispatcher2 {
    */
   rotateTo(azimuthAngle, polarAngle, enableTransition = false) {
     this._isUserControllingRotate = false;
-    const theta = clamp3(azimuthAngle, this.minAzimuthAngle, this.maxAzimuthAngle);
-    const phi = clamp3(polarAngle, this.minPolarAngle, this.maxPolarAngle);
+    const theta = clamp2(azimuthAngle, this.minAzimuthAngle, this.maxAzimuthAngle);
+    const phi = clamp2(polarAngle, this.minPolarAngle, this.maxPolarAngle);
     this._sphericalEnd.theta = theta;
     this._sphericalEnd.phi = phi;
     this._sphericalEnd.makeSafe();
@@ -17276,7 +14483,7 @@ var CameraControls = class extends EventDispatcher2 {
     this._isUserControllingDolly = false;
     this._lastDollyDirection = DOLLY_DIRECTION.NONE;
     this._changedDolly = 0;
-    return this._dollyToNoClamp(clamp3(distance, this.minDistance, this.maxDistance), enableTransition);
+    return this._dollyToNoClamp(clamp2(distance, this.minDistance, this.maxDistance), enableTransition);
   }
   _dollyToNoClamp(distance, enableTransition = false) {
     const lastRadius = this._sphericalEnd.radius;
@@ -17332,7 +14539,7 @@ var CameraControls = class extends EventDispatcher2 {
    */
   zoomTo(zoom, enableTransition = false) {
     this._isUserControllingZoom = false;
-    this._zoomEnd = clamp3(zoom, this.minZoom, this.maxZoom);
+    this._zoomEnd = clamp2(zoom, this.minZoom, this.maxZoom);
     this._needsUpdate = true;
     if (!enableTransition) {
       this._zoom = this._zoomEnd;
@@ -17618,7 +14825,7 @@ var CameraControls = class extends EventDispatcher2 {
   setTarget(targetX, targetY, targetZ, enableTransition = false) {
     const pos = this.getPosition(_v3A);
     const promise = this.setLookAt(pos.x, pos.y, pos.z, targetX, targetY, targetZ, enableTransition);
-    this._sphericalEnd.phi = clamp3(this._sphericalEnd.phi, this.minPolarAngle, this.maxPolarAngle);
+    this._sphericalEnd.phi = clamp2(this._sphericalEnd.phi, this.minPolarAngle, this.maxPolarAngle);
     return promise;
   }
   /**
@@ -18098,8 +15305,8 @@ var CameraControls = class extends EventDispatcher2 {
   _getCameraDirection(out) {
     return this._getTargetDirection(out).negate();
   }
-  _findPointerById(pointerId2) {
-    return this._activePointers.find((activePointer) => activePointer.pointerId === pointerId2);
+  _findPointerById(pointerId) {
+    return this._activePointers.find((activePointer) => activePointer.pointerId === pointerId);
   }
   _findPointerByMouseButton(mouseButton) {
     return this._activePointers.find((activePointer) => activePointer.mouseButton === mouseButton);
@@ -18276,8 +15483,8 @@ var CameraControls = class extends EventDispatcher2 {
 };
 
 // node_modules/@react-three/drei/core/CameraControls.js
-var CameraControls2 = (0, import_react11.forwardRef)((props, ref) => {
-  (0, import_react11.useMemo)(() => {
+var CameraControls2 = (0, import_react10.forwardRef)((props, ref) => {
+  (0, import_react10.useMemo)(() => {
     const subsetOfTHREE = {
       Box3,
       MathUtils: {
@@ -18319,16 +15526,16 @@ var CameraControls2 = (0, import_react11.forwardRef)((props, ref) => {
   const performance2 = useThree((state) => state.performance);
   const explCamera = camera || defaultCamera;
   const explDomElement = domElement || events.connected || gl.domElement;
-  const controls = (0, import_react11.useMemo)(() => new CameraControls(explCamera), [explCamera]);
+  const controls = (0, import_react10.useMemo)(() => new CameraControls(explCamera), [explCamera]);
   useFrame((state, delta) => {
     if (controls.enabled)
       controls.update(delta);
   }, -1);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     controls.connect(explDomElement);
     return () => void controls.disconnect();
   }, [explDomElement, controls]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     const callback = (e2) => {
       invalidate();
       if (regress)
@@ -18359,7 +15566,7 @@ var CameraControls2 = (0, import_react11.forwardRef)((props, ref) => {
       controls.removeEventListener("wake", callback);
     };
   }, [controls, onStart, onEnd, invalidate, setEvents, regress, onChange]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -18370,18 +15577,18 @@ var CameraControls2 = (0, import_react11.forwardRef)((props, ref) => {
       });
     }
   }, [makeDefault, controls]);
-  return React48.createElement("primitive", _extends({
+  return React47.createElement("primitive", _extends({
     ref,
     object: controls
   }, restProps));
 });
 
 // node_modules/@react-three/drei/core/FaceControls.js
-var React51 = __toESM(require_react());
-var import_react14 = __toESM(require_react());
+var React50 = __toESM(require_react());
+var import_react13 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/useVideoTexture.js
-var import_react12 = __toESM(require_react());
+var import_react11 = __toESM(require_react());
 function useVideoTexture(src, props) {
   const {
     unsuspend,
@@ -18416,12 +15623,12 @@ function useVideoTexture(src, props) {
       texture2.encoding = gl.outputEncoding;
     video.addEventListener(unsuspend, () => res(texture2));
   }), [src]);
-  (0, import_react12.useEffect)(() => void (start2 && texture.image.play()), [texture, start2]);
+  (0, import_react11.useEffect)(() => void (start2 && texture.image.play()), [texture, start2]);
   return texture;
 }
 
 // node_modules/@react-three/drei/core/Facemesh.js
-var React49 = __toESM(require_react());
+var React48 = __toESM(require_react());
 var defaultLookAt = new Vector3(0, 0, -1);
 var normal = function() {
   const a3 = new Vector3();
@@ -18441,7 +15648,7 @@ var normal = function() {
 function mean(v12, v22) {
   return v12.clone().add(v22).multiplyScalar(0.5);
 }
-var Facemesh = React49.forwardRef(({
+var Facemesh = React48.forwardRef(({
   points = FacemeshDatas.SAMPLE_FACELANDMARKER_RESULT.faceLandmarks[0],
   face,
   facialTransformationMatrix,
@@ -18464,26 +15671,26 @@ var Facemesh = React49.forwardRef(({
     points = face.keypoints;
     console.warn("Facemesh `face` prop is deprecated: use `points` instead");
   }
-  const offsetRef = React49.useRef(null);
-  const scaleRef = React49.useRef(null);
-  const originRef = React49.useRef(null);
-  const outerRef = React49.useRef(null);
-  const meshRef = React49.useRef(null);
-  const eyeRightRef = React49.useRef(null);
-  const eyeLeftRef = React49.useRef(null);
-  const [sightDir] = React49.useState(() => new Vector3());
-  const [transform] = React49.useState(() => new Object3D());
-  const [sightDirQuaternion] = React49.useState(() => new Quaternion());
-  const [_origin] = React49.useState(() => new Vector3());
+  const offsetRef = React48.useRef(null);
+  const scaleRef = React48.useRef(null);
+  const originRef = React48.useRef(null);
+  const outerRef = React48.useRef(null);
+  const meshRef = React48.useRef(null);
+  const eyeRightRef = React48.useRef(null);
+  const eyeLeftRef = React48.useRef(null);
+  const [sightDir] = React48.useState(() => new Vector3());
+  const [transform] = React48.useState(() => new Object3D());
+  const [sightDirQuaternion] = React48.useState(() => new Quaternion());
+  const [_origin] = React48.useState(() => new Vector3());
   const {
     invalidate
   } = useThree();
-  React49.useEffect(() => {
+  React48.useEffect(() => {
     var _meshRef$current;
     (_meshRef$current = meshRef.current) == null ? void 0 : _meshRef$current.geometry.setIndex(FacemeshDatas.TRIANGULATION);
   }, []);
-  const [bboxSize] = React49.useState(() => new Vector3());
-  React49.useEffect(() => {
+  const [bboxSize] = React48.useState(() => new Vector3());
+  React48.useEffect(() => {
     var _meshRef$current2, _outerRef$current;
     const faceGeometry = (_meshRef$current2 = meshRef.current) == null ? void 0 : _meshRef$current2.geometry;
     if (!faceGeometry)
@@ -18564,43 +15771,43 @@ var Facemesh = React49.forwardRef(({
     faceGeometry.computeVertexNormals();
     faceGeometry.attributes.position.needsUpdate = true;
   }, [points, facialTransformationMatrix, faceBlendshapes, transform, offset, offsetScalar, width, height, depth, verticalTri, origin2, eyes, debug, invalidate, sightDir, sightDirQuaternion, bboxSize, _origin]);
-  const api = React49.useMemo(() => ({
+  const api = React48.useMemo(() => ({
     outerRef,
     meshRef,
     eyeRightRef,
     eyeLeftRef
   }), []);
-  React49.useImperativeHandle(fref, () => api, [api]);
-  const [meshBboxSize] = React49.useState(() => new Vector3());
+  React48.useImperativeHandle(fref, () => api, [api]);
+  const [meshBboxSize] = React48.useState(() => new Vector3());
   const bbox = (_meshRef$current3 = meshRef.current) == null ? void 0 : _meshRef$current3.geometry.boundingBox;
   const one = (bbox == null ? void 0 : bbox.getSize(meshBboxSize).z) || 1;
-  return React49.createElement("group", props, React49.createElement("group", {
+  return React48.createElement("group", props, React48.createElement("group", {
     ref: offsetRef
-  }, React49.createElement("group", {
+  }, React48.createElement("group", {
     ref: outerRef
-  }, React49.createElement("group", {
+  }, React48.createElement("group", {
     ref: scaleRef
-  }, debug ? React49.createElement(React49.Fragment, null, React49.createElement("axesHelper", {
+  }, debug ? React48.createElement(React48.Fragment, null, React48.createElement("axesHelper", {
     args: [one]
-  }), React49.createElement(Line, {
+  }), React48.createElement(Line, {
     points: [[0, 0, 0], [0, 0, -one]],
     color: 65535
-  })) : null, React49.createElement("group", {
+  })) : null, React48.createElement("group", {
     ref: originRef
-  }, eyes && faceBlendshapes && React49.createElement("group", {
+  }, eyes && faceBlendshapes && React48.createElement("group", {
     name: "eyes"
-  }, React49.createElement(FacemeshEye, {
+  }, React48.createElement(FacemeshEye, {
     side: "left",
     ref: eyeRightRef,
     debug
-  }), React49.createElement(FacemeshEye, {
+  }), React48.createElement(FacemeshEye, {
     side: "right",
     ref: eyeLeftRef,
     debug
-  })), React49.createElement("mesh", {
+  })), React48.createElement("mesh", {
     ref: meshRef,
     name: "face"
-  }, children, debug ? React49.createElement(React49.Fragment, null, bbox && React49.createElement("box3Helper", {
+  }, children, debug ? React48.createElement(React48.Fragment, null, bbox && React48.createElement("box3Helper", {
     args: [bbox]
   })) : null))))));
 });
@@ -18624,14 +15831,14 @@ var FacemeshEyeDefaults = {
     vertical: 90
   }
 };
-var FacemeshEye = React49.forwardRef(({
+var FacemeshEye = React48.forwardRef(({
   side,
   debug = true
 }, fref) => {
-  const eyeMeshRef = React49.useRef(null);
-  const irisDirRef = React49.useRef(null);
-  const [sphere] = React49.useState(() => new Sphere());
-  const _computeSphere = React49.useCallback((faceGeometry) => {
+  const eyeMeshRef = React48.useRef(null);
+  const irisDirRef = React48.useRef(null);
+  const [sphere] = React48.useState(() => new Sphere());
+  const _computeSphere = React48.useCallback((faceGeometry) => {
     const position2 = faceGeometry.getAttribute("position");
     const eyeContourLandmarks = FacemeshEyeDefaults.contourLandmarks[side];
     const eyeContourPoints = eyeContourLandmarks.map((i3) => new Vector3(position2.getX(i3), position2.getY(i3), position2.getZ(i3)));
@@ -18641,8 +15848,8 @@ var FacemeshEye = React49.forwardRef(({
     sphere.radius = eyeContourPoints[0].sub(eyeContourPoints[1]).length() / 2;
     return sphere;
   }, [sphere, side]);
-  const [rotation2] = React49.useState(() => new Euler());
-  const _update = React49.useCallback((faceGeometry, faceBlendshapes, sphere2) => {
+  const [rotation2] = React48.useState(() => new Euler());
+  const _update = React48.useCallback((faceGeometry, faceBlendshapes, sphere2) => {
     if (eyeMeshRef.current) {
       var _sphere4;
       (_sphere4 = sphere2) !== null && _sphere4 !== void 0 ? _sphere4 : sphere2 = _computeSphere(faceGeometry);
@@ -18663,19 +15870,19 @@ var FacemeshEye = React49.forwardRef(({
       irisDirRef.current.setRotationFromEuler(rotation2);
     }
   }, [_computeSphere, side, rotation2]);
-  const api = React49.useMemo(() => ({
+  const api = React48.useMemo(() => ({
     eyeMeshRef,
     irisDirRef,
     _computeSphere,
     _update
   }), [_computeSphere, _update]);
-  React49.useImperativeHandle(fref, () => api, [api]);
+  React48.useImperativeHandle(fref, () => api, [api]);
   const color = FacemeshEyeDefaults.color[side];
-  return React49.createElement("group", null, React49.createElement("group", {
+  return React48.createElement("group", null, React48.createElement("group", {
     ref: eyeMeshRef
-  }, debug && React49.createElement("axesHelper", null), React49.createElement("group", {
+  }, debug && React48.createElement("axesHelper", null), React48.createElement("group", {
     ref: irisDirRef
-  }, React49.createElement(React49.Fragment, null, debug && React49.createElement(Line, {
+  }, React48.createElement(React48.Fragment, null, debug && React48.createElement(Line, {
     points: [[0, 0, 0], [0, 0, -2]],
     lineWidth: 1,
     color
@@ -22885,8 +20092,8 @@ var FacemeshDatas = {
 };
 
 // node_modules/@react-three/drei/core/FaceLandmarker.js
-var React50 = __toESM(require_react());
-var import_react13 = __toESM(require_react());
+var React49 = __toESM(require_react());
+var import_react12 = __toESM(require_react());
 
 // node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
 var commonjsGlobal = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {};
@@ -36241,7 +33448,7 @@ var PoseLandmarker = pose_landmarker_1.PoseLandmarker;
 PoseLandmarker_1 = vision.PoseLandmarker = PoseLandmarker;
 
 // node_modules/@react-three/drei/core/FaceLandmarker.js
-var FaceLandmarkerContext = (0, import_react13.createContext)({});
+var FaceLandmarkerContext = (0, import_react12.createContext)({});
 var FaceLandmarkerDefaults = {
   basePath: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2-rc2/wasm",
   options: {
@@ -36263,18 +33470,18 @@ function FaceLandmarker2({
   const faceLandmarker = suspend(async () => {
     return await FilesetResolver_1.forVisionTasks(basePath).then((vision2) => FaceLandmarker_1.createFromOptions(vision2, options));
   }, [basePath, opts]);
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     return () => {
       faceLandmarker == null ? void 0 : faceLandmarker.close();
       clear([basePath, opts]);
     };
   }, [faceLandmarker, basePath, opts]);
-  return React50.createElement(FaceLandmarkerContext.Provider, {
+  return React49.createElement(FaceLandmarkerContext.Provider, {
     value: faceLandmarker
   }, children);
 }
 function useFaceLandmarker() {
-  return (0, import_react13.useContext)(FaceLandmarkerContext);
+  return (0, import_react12.useContext)(FaceLandmarkerContext);
 }
 
 // node_modules/@react-three/drei/core/FaceControls.js
@@ -36285,8 +33492,8 @@ function localToLocal(objSrc, v4, objDst) {
   const v_world = objSrc.localToWorld(v4);
   return objDst.worldToLocal(v_world);
 }
-var FaceControlsContext = (0, import_react14.createContext)({});
-var FaceControls = (0, import_react14.forwardRef)(({
+var FaceControlsContext = (0, import_react13.createContext)({});
+var FaceControls = (0, import_react13.forwardRef)(({
   camera,
   autostart = true,
   webcam = true,
@@ -36310,14 +33517,14 @@ var FaceControls = (0, import_react14.forwardRef)(({
   const set = useThree((state) => state.set);
   const get = useThree((state) => state.get);
   const explCamera = camera || defaultCamera;
-  const webcamApiRef = (0, import_react14.useRef)(null);
-  const facemeshApiRef = (0, import_react14.useRef)(null);
-  const [target2] = (0, import_react14.useState)(() => new Object3D());
-  const [irisRightDirPos] = (0, import_react14.useState)(() => new Vector3());
-  const [irisLeftDirPos] = (0, import_react14.useState)(() => new Vector3());
-  const [irisRightLookAt] = (0, import_react14.useState)(() => new Vector3());
-  const [irisLeftLookAt] = (0, import_react14.useState)(() => new Vector3());
-  const computeTarget = (0, import_react14.useCallback)(() => {
+  const webcamApiRef = (0, import_react13.useRef)(null);
+  const facemeshApiRef = (0, import_react13.useRef)(null);
+  const [target2] = (0, import_react13.useState)(() => new Object3D());
+  const [irisRightDirPos] = (0, import_react13.useState)(() => new Vector3());
+  const [irisLeftDirPos] = (0, import_react13.useState)(() => new Vector3());
+  const [irisRightLookAt] = (0, import_react13.useState)(() => new Vector3());
+  const [irisLeftLookAt] = (0, import_react13.useState)(() => new Vector3());
+  const computeTarget = (0, import_react13.useCallback)(() => {
     target2.parent = explCamera.parent;
     const facemeshApi = facemeshApiRef.current;
     if (facemeshApi) {
@@ -36350,8 +33557,8 @@ var FaceControls = (0, import_react14.forwardRef)(({
     }
     return target2;
   }, [explCamera, irisLeftDirPos, irisLeftLookAt, irisRightDirPos, irisRightLookAt, scene, target2]);
-  const [current] = (0, import_react14.useState)(() => new Object3D());
-  const update3 = (0, import_react14.useCallback)(function(delta, target3) {
+  const [current] = (0, import_react13.useState)(() => new Object3D());
+  const update3 = (0, import_react13.useCallback)(function(delta, target3) {
     if (explCamera) {
       var _target;
       (_target = target3) !== null && _target !== void 0 ? _target : target3 = computeTarget();
@@ -36367,9 +33574,9 @@ var FaceControls = (0, import_react14.forwardRef)(({
       explCamera.rotation.copy(current.rotation);
     }
   }, [explCamera, computeTarget, smoothTime, current.position, current.rotation]);
-  const [faces, setFaces] = (0, import_react14.useState)();
+  const [faces, setFaces] = (0, import_react13.useState)();
   const faceLandmarker = useFaceLandmarker();
-  const detect = (0, import_react14.useCallback)((video, time) => {
+  const detect = (0, import_react13.useCallback)((video, time) => {
     const faces2 = faceLandmarker == null ? void 0 : faceLandmarker.detectForVideo(video, time);
     setFaces(faces2);
   }, [faceLandmarker]);
@@ -36378,7 +33585,7 @@ var FaceControls = (0, import_react14.forwardRef)(({
       update3(delta);
     }
   });
-  const api = (0, import_react14.useMemo)(() => Object.assign(Object.create(EventDispatcher.prototype), {
+  const api = (0, import_react13.useMemo)(() => Object.assign(Object.create(EventDispatcher.prototype), {
     detect,
     computeTarget,
     update: update3,
@@ -36394,8 +33601,8 @@ var FaceControls = (0, import_react14.forwardRef)(({
       (_webcamApiRef$current3 = webcamApiRef.current) == null ? void 0 : (_webcamApiRef$current4 = _webcamApiRef$current3.videoTextureApiRef.current) == null ? void 0 : _webcamApiRef$current4.texture.source.data.pause();
     }
   }), [detect, computeTarget, update3]);
-  (0, import_react14.useImperativeHandle)(fref, () => api, [api]);
-  (0, import_react14.useEffect)(() => {
+  (0, import_react13.useImperativeHandle)(fref, () => api, [api]);
+  (0, import_react13.useEffect)(() => {
     const onVideoFrameCb = (e2) => {
       if (!manualDetect)
         detect(e2.texture.source.data, e2.time);
@@ -36407,7 +33614,7 @@ var FaceControls = (0, import_react14.forwardRef)(({
       api.removeEventListener("videoFrame", onVideoFrameCb);
     };
   }, [api, detect, faceLandmarker, manualDetect, onVideoFrame]);
-  (0, import_react14.useEffect)(() => {
+  (0, import_react13.useEffect)(() => {
     if (makeDefault) {
       const old = get().controls;
       set({
@@ -36421,15 +33628,15 @@ var FaceControls = (0, import_react14.forwardRef)(({
   const points = faces == null ? void 0 : faces.faceLandmarks[0];
   const facialTransformationMatrix = faces == null ? void 0 : (_faces$facialTransfor = faces.facialTransformationMatrixes) == null ? void 0 : _faces$facialTransfor[0];
   const faceBlendshapes = faces == null ? void 0 : (_faces$faceBlendshape = faces.faceBlendshapes) == null ? void 0 : _faces$faceBlendshape[0];
-  return React51.createElement(FaceControlsContext.Provider, {
+  return React50.createElement(FaceControlsContext.Provider, {
     value: api
-  }, webcam && React51.createElement(import_react14.Suspense, {
+  }, webcam && React50.createElement(import_react13.Suspense, {
     fallback: null
-  }, React51.createElement(Webcam, {
+  }, React50.createElement(Webcam, {
     ref: webcamApiRef,
     autostart,
     videoTextureSrc: webcamVideoTextureSrc
-  })), React51.createElement(Facemesh, _extends({
+  })), React50.createElement(Facemesh, _extends({
     ref: facemeshApiRef
   }, facemesh, {
     points,
@@ -36443,16 +33650,16 @@ var FaceControls = (0, import_react14.forwardRef)(({
     debug,
     "rotation-z": Math.PI,
     visible: debug
-  }), React51.createElement("meshBasicMaterial", {
+  }), React50.createElement("meshBasicMaterial", {
     side: DoubleSide
   })));
 });
-var useFaceControls = () => (0, import_react14.useContext)(FaceControlsContext);
-var Webcam = (0, import_react14.forwardRef)(({
+var useFaceControls = () => (0, import_react13.useContext)(FaceControlsContext);
+var Webcam = (0, import_react13.forwardRef)(({
   videoTextureSrc,
   autostart = true
 }, fref) => {
-  const videoTextureApiRef = (0, import_react14.useRef)(null);
+  const videoTextureApiRef = (0, import_react13.useRef)(null);
   const faceControls = useFaceControls();
   const stream = suspend(async () => {
     return !videoTextureSrc ? await navigator.mediaDevices.getUserMedia({
@@ -36462,7 +33669,7 @@ var Webcam = (0, import_react14.forwardRef)(({
       }
     }) : Promise.resolve(null);
   }, [videoTextureSrc]);
-  (0, import_react14.useEffect)(() => {
+  (0, import_react13.useEffect)(() => {
     faceControls.dispatchEvent({
       type: "stream",
       stream
@@ -36472,19 +33679,19 @@ var Webcam = (0, import_react14.forwardRef)(({
       clear([videoTextureSrc]);
     };
   }, [stream, faceControls, videoTextureSrc]);
-  const api = (0, import_react14.useMemo)(() => ({
+  const api = (0, import_react13.useMemo)(() => ({
     videoTextureApiRef
   }), []);
-  (0, import_react14.useImperativeHandle)(fref, () => api, [api]);
-  return React51.createElement(import_react14.Suspense, {
+  (0, import_react13.useImperativeHandle)(fref, () => api, [api]);
+  return React50.createElement(import_react13.Suspense, {
     fallback: null
-  }, React51.createElement(VideoTexture2, {
+  }, React50.createElement(VideoTexture2, {
     ref: videoTextureApiRef,
     src: videoTextureSrc || stream,
     start: autostart
   }));
 });
-var VideoTexture2 = (0, import_react14.forwardRef)(({
+var VideoTexture2 = (0, import_react13.forwardRef)(({
   src,
   start: start2
 }, fref) => {
@@ -36493,7 +33700,7 @@ var VideoTexture2 = (0, import_react14.forwardRef)(({
   });
   const video = texture.source.data;
   const faceControls = useFaceControls();
-  const onVideoFrame = (0, import_react14.useCallback)((time) => {
+  const onVideoFrame = (0, import_react13.useCallback)((time) => {
     faceControls.dispatchEvent({
       type: "videoFrame",
       texture,
@@ -36501,14 +33708,14 @@ var VideoTexture2 = (0, import_react14.forwardRef)(({
     });
   }, [texture, faceControls]);
   useVideoFrame(video, onVideoFrame);
-  const api = (0, import_react14.useMemo)(() => ({
+  const api = (0, import_react13.useMemo)(() => ({
     texture
   }), [texture]);
-  (0, import_react14.useImperativeHandle)(fref, () => api, [api]);
-  return React51.createElement(React51.Fragment, null);
+  (0, import_react13.useImperativeHandle)(fref, () => api, [api]);
+  return React50.createElement(React50.Fragment, null);
 });
 var useVideoFrame = (video, f2) => {
-  (0, import_react14.useEffect)(() => {
+  (0, import_react13.useEffect)(() => {
     if (!video || !video.requestVideoFrameCallback)
       return;
     let handle;
@@ -36522,10 +33729,10 @@ var useVideoFrame = (video, f2) => {
 };
 
 // node_modules/@react-three/drei/core/GizmoHelper.js
-var React53 = __toESM(require_react());
+var React52 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/Hud.js
-var React52 = __toESM(require_react());
+var React51 = __toESM(require_react());
 function RenderHud({
   defaultScene,
   defaultCamera,
@@ -36548,7 +33755,7 @@ function RenderHud({
     gl.render(scene, camera);
     gl.autoClear = oldCLear;
   }, renderPriority);
-  return React52.createElement("group", {
+  return React51.createElement("group", {
     onPointerOver: () => null
   });
 }
@@ -36560,8 +33767,8 @@ function Hud({
     scene: defaultScene,
     camera: defaultCamera
   } = useThree();
-  const [hudScene] = React52.useState(() => new Scene());
-  return React52.createElement(React52.Fragment, null, createPortal(React52.createElement(React52.Fragment, null, children, React52.createElement(RenderHud, {
+  const [hudScene] = React51.useState(() => new Scene());
+  return React51.createElement(React51.Fragment, null, createPortal(React51.createElement(React51.Fragment, null, children, React51.createElement(RenderHud, {
     defaultScene,
     defaultCamera,
     renderPriority
@@ -36573,9 +33780,9 @@ function Hud({
 }
 
 // node_modules/@react-three/drei/core/GizmoHelper.js
-var Context = React53.createContext({});
+var Context = React52.createContext({});
 var useGizmoContext = () => {
-  return React53.useContext(Context);
+  return React52.useContext(Context);
 };
 var turnRate = 2 * Math.PI;
 var dummy = new Object3D();
@@ -36598,16 +33805,16 @@ var GizmoHelper = ({
   const mainCamera = useThree((state) => state.camera);
   const defaultControls = useThree((state) => state.controls);
   const invalidate = useThree((state) => state.invalidate);
-  const gizmoRef = React53.useRef();
-  const virtualCam = React53.useRef(null);
-  const animating = React53.useRef(false);
-  const radius = React53.useRef(0);
-  const focusPoint = React53.useRef(new Vector3(0, 0, 0));
-  const defaultUp = React53.useRef(new Vector3(0, 0, 0));
-  React53.useEffect(() => {
+  const gizmoRef = React52.useRef();
+  const virtualCam = React52.useRef(null);
+  const animating = React52.useRef(false);
+  const radius = React52.useRef(0);
+  const focusPoint = React52.useRef(new Vector3(0, 0, 0));
+  const defaultUp = React52.useRef(new Vector3(0, 0, 0));
+  React52.useEffect(() => {
     defaultUp.current.copy(mainCamera.up);
   }, [mainCamera]);
-  const tweenCamera = React53.useCallback((direction) => {
+  const tweenCamera = React52.useCallback((direction) => {
     animating.current = true;
     if (defaultControls || onTarget)
       focusPoint.current = (defaultControls == null ? void 0 : defaultControls.target) || (onTarget == null ? void 0 : onTarget());
@@ -36645,28 +33852,28 @@ var GizmoHelper = ({
       (_gizmoRef$current = gizmoRef.current) == null ? void 0 : _gizmoRef$current.quaternion.setFromRotationMatrix(matrix);
     }
   });
-  const gizmoHelperContext = React53.useMemo(() => ({
+  const gizmoHelperContext = React52.useMemo(() => ({
     tweenCamera
   }), [tweenCamera]);
   const [marginX, marginY] = margin;
   const x = alignment.endsWith("-center") ? 0 : alignment.endsWith("-left") ? -size.width / 2 + marginX : size.width / 2 - marginX;
   const y = alignment.startsWith("center-") ? 0 : alignment.startsWith("top-") ? size.height / 2 - marginY : -size.height / 2 + marginY;
-  return React53.createElement(Hud, {
+  return React52.createElement(Hud, {
     renderPriority
-  }, React53.createElement(Context.Provider, {
+  }, React52.createElement(Context.Provider, {
     value: gizmoHelperContext
-  }, React53.createElement(OrthographicCamera2, {
+  }, React52.createElement(OrthographicCamera2, {
     makeDefault: true,
     ref: virtualCam,
     position: [0, 0, 200]
-  }), React53.createElement("group", {
+  }), React52.createElement("group", {
     ref: gizmoRef,
     position: [x, y, 0]
   }, children)));
 };
 
 // node_modules/@react-three/drei/core/GizmoViewcube.js
-var React54 = __toESM(require_react());
+var React53 = __toESM(require_react());
 var colors2 = {
   bg: "#f0f0f0",
   hover: "#999",
@@ -36691,7 +33898,7 @@ var FaceMaterial = ({
   opacity = 1
 }) => {
   const gl = useThree((state) => state.gl);
-  const texture = React54.useMemo(() => {
+  const texture = React53.useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 128;
     canvas.height = 128;
@@ -36706,7 +33913,7 @@ var FaceMaterial = ({
     context10.fillText(faces[index].toUpperCase(), 64, 76);
     return new CanvasTexture(canvas);
   }, [index, faces, font, color, textColor, strokeColor]);
-  return React54.createElement("meshLambertMaterial", {
+  return React53.createElement("meshLambertMaterial", {
     map: texture,
     "map-anisotropy": gl.capabilities.getMaxAnisotropy() || 1,
     attach: `material-${index}`,
@@ -36719,7 +33926,7 @@ var FaceCube = (props) => {
   const {
     tweenCamera
   } = useGizmoContext();
-  const [hover, setHover] = React54.useState(null);
+  const [hover, setHover] = React53.useState(null);
   const handlePointerOut = (e2) => {
     e2.stopPropagation();
     setHover(null);
@@ -36732,15 +33939,15 @@ var FaceCube = (props) => {
     e2.stopPropagation();
     setHover(Math.floor(e2.faceIndex / 2));
   };
-  return React54.createElement("mesh", {
+  return React53.createElement("mesh", {
     onPointerOut: handlePointerOut,
     onPointerMove: handlePointerMove,
     onClick: props.onClick || handleClick
-  }, [...Array(6)].map((_, index) => React54.createElement(FaceMaterial, _extends({
+  }, [...Array(6)].map((_, index) => React53.createElement(FaceMaterial, _extends({
     key: index,
     index,
     hover: hover === index
-  }, props))), React54.createElement("boxGeometry", null));
+  }, props))), React53.createElement("boxGeometry", null));
 };
 var EdgeCube = ({
   onClick,
@@ -36751,7 +33958,7 @@ var EdgeCube = ({
   const {
     tweenCamera
   } = useGizmoContext();
-  const [hover, setHover] = React54.useState(false);
+  const [hover, setHover] = React53.useState(false);
   const handlePointerOut = (e2) => {
     e2.stopPropagation();
     setHover(false);
@@ -36764,54 +33971,54 @@ var EdgeCube = ({
     e2.stopPropagation();
     tweenCamera(position2);
   };
-  return React54.createElement("mesh", {
+  return React53.createElement("mesh", {
     scale: 1.01,
     position: position2,
     onPointerOver: handlePointerOver,
     onPointerOut: handlePointerOut,
     onClick: onClick || handleClick
-  }, React54.createElement("meshBasicMaterial", {
+  }, React53.createElement("meshBasicMaterial", {
     color: hover ? hoverColor : "white",
     transparent: true,
     opacity: 0.6,
     visible: hover
-  }), React54.createElement("boxGeometry", {
+  }), React53.createElement("boxGeometry", {
     args: dimensions
   }));
 };
 var GizmoViewcube = (props) => {
-  return React54.createElement("group", {
+  return React53.createElement("group", {
     scale: [60, 60, 60]
-  }, React54.createElement(FaceCube, props), edges.map((edge, index) => React54.createElement(EdgeCube, _extends({
+  }, React53.createElement(FaceCube, props), edges.map((edge, index) => React53.createElement(EdgeCube, _extends({
     key: index,
     position: edge,
     dimensions: edgeDimensions[index]
-  }, props))), corners.map((corner, index) => React54.createElement(EdgeCube, _extends({
+  }, props))), corners.map((corner, index) => React53.createElement(EdgeCube, _extends({
     key: index,
     position: corner,
     dimensions: cornerDimensions
-  }, props))), React54.createElement("ambientLight", {
+  }, props))), React53.createElement("ambientLight", {
     intensity: 0.5
-  }), React54.createElement("pointLight", {
+  }), React53.createElement("pointLight", {
     position: [10, 10, 10],
     intensity: 0.5
   }));
 };
 
 // node_modules/@react-three/drei/core/GizmoViewport.js
-var React55 = __toESM(require_react());
+var React54 = __toESM(require_react());
 function Axis({
   scale: scale2 = [0.8, 0.05, 0.05],
   color,
   rotation: rotation2
 }) {
-  return React55.createElement("group", {
+  return React54.createElement("group", {
     rotation: rotation2
-  }, React55.createElement("mesh", {
+  }, React54.createElement("mesh", {
     position: [0.4, 0, 0]
-  }, React55.createElement("boxGeometry", {
+  }, React54.createElement("boxGeometry", {
     args: scale2
-  }), React55.createElement("meshBasicMaterial", {
+  }), React54.createElement("meshBasicMaterial", {
     color,
     toneMapped: false
   })));
@@ -36827,7 +34034,7 @@ function AxisHead({
   ...props
 }) {
   const gl = useThree((state) => state.gl);
-  const texture = React55.useMemo(() => {
+  const texture = React54.useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 64;
     canvas.height = 64;
@@ -36845,7 +34052,7 @@ function AxisHead({
     }
     return new CanvasTexture(canvas);
   }, [arcStyle, label, labelColor, font]);
-  const [active, setActive] = React55.useState(false);
+  const [active, setActive] = React54.useState(false);
   const scale2 = (label ? 1 : 0.75) * (active ? 1.2 : 1) * axisHeadScale;
   const handlePointerOver = (e2) => {
     e2.stopPropagation();
@@ -36855,11 +34062,11 @@ function AxisHead({
     e2.stopPropagation();
     setActive(false);
   };
-  return React55.createElement("sprite", _extends({
+  return React54.createElement("sprite", _extends({
     scale: scale2,
     onPointerOver: !disabled ? handlePointerOver : void 0,
     onPointerOut: !disabled ? onClick || handlePointerOut : void 0
-  }, props), React55.createElement("spriteMaterial", {
+  }, props), React54.createElement("spriteMaterial", {
     map: texture,
     "map-anisotropy": gl.capabilities.getMaxAnisotropy() || 1,
     alphaTest: 0.3,
@@ -36895,51 +34102,51 @@ var GizmoViewport = ({
       e2.stopPropagation();
     } : void 0
   };
-  return React55.createElement("group", _extends({
+  return React54.createElement("group", _extends({
     scale: 40
-  }, props), React55.createElement(Axis, {
+  }, props), React54.createElement(Axis, {
     color: colorX,
     rotation: [0, 0, 0],
     scale: axisScale
-  }), React55.createElement(Axis, {
+  }), React54.createElement(Axis, {
     color: colorY,
     rotation: [0, 0, Math.PI / 2],
     scale: axisScale
-  }), React55.createElement(Axis, {
+  }), React54.createElement(Axis, {
     color: colorZ,
     rotation: [0, -Math.PI / 2, 0],
     scale: axisScale
-  }), !hideAxisHeads && React55.createElement(React55.Fragment, null, React55.createElement(AxisHead, _extends({
+  }), !hideAxisHeads && React54.createElement(React54.Fragment, null, React54.createElement(AxisHead, _extends({
     arcStyle: colorX,
     position: [1, 0, 0],
     label: labels[0]
-  }, axisHeadProps)), React55.createElement(AxisHead, _extends({
+  }, axisHeadProps)), React54.createElement(AxisHead, _extends({
     arcStyle: colorY,
     position: [0, 1, 0],
     label: labels[1]
-  }, axisHeadProps)), React55.createElement(AxisHead, _extends({
+  }, axisHeadProps)), React54.createElement(AxisHead, _extends({
     arcStyle: colorZ,
     position: [0, 0, 1],
     label: labels[2]
-  }, axisHeadProps)), !hideNegativeAxes && React55.createElement(React55.Fragment, null, React55.createElement(AxisHead, _extends({
+  }, axisHeadProps)), !hideNegativeAxes && React54.createElement(React54.Fragment, null, React54.createElement(AxisHead, _extends({
     arcStyle: colorX,
     position: [-1, 0, 0]
-  }, axisHeadProps)), React55.createElement(AxisHead, _extends({
+  }, axisHeadProps)), React54.createElement(AxisHead, _extends({
     arcStyle: colorY,
     position: [0, -1, 0]
-  }, axisHeadProps)), React55.createElement(AxisHead, _extends({
+  }, axisHeadProps)), React54.createElement(AxisHead, _extends({
     arcStyle: colorZ,
     position: [0, 0, -1]
-  }, axisHeadProps)))), React55.createElement("ambientLight", {
+  }, axisHeadProps)))), React54.createElement("ambientLight", {
     intensity: 0.5
-  }), React55.createElement("pointLight", {
+  }), React54.createElement("pointLight", {
     position: [10, 10, 10],
     intensity: 0.5
   }));
 };
 
 // node_modules/@react-three/drei/core/Grid.js
-var React56 = __toESM(require_react());
+var React55 = __toESM(require_react());
 var GridMaterial = shaderMaterial(
   {
     cellSize: 0.5,
@@ -37018,7 +34225,7 @@ var GridMaterial = shaderMaterial(
     }
   `
 );
-var Grid = React56.forwardRef(({
+var Grid = React55.forwardRef(({
   args,
   cellColor = "#000000",
   sectionColor = "#2080ff",
@@ -37036,7 +34243,7 @@ var Grid = React56.forwardRef(({
   extend({
     GridMaterial
   });
-  const ref = React56.useRef(null);
+  const ref = React55.useRef(null);
   useFrame((state) => {
     const plane = new Plane().setFromNormalAndCoplanarPoint(new Vector3(0, 1, 0), new Vector3(0, 0, 0)).applyMatrix4(ref.current.matrixWorld);
     const gridMaterial = ref.current.material;
@@ -37059,14 +34266,14 @@ var Grid = React56.forwardRef(({
     infiniteGrid,
     followCamera
   };
-  return React56.createElement("mesh", _extends({
+  return React55.createElement("mesh", _extends({
     ref: react_merge_refs_esm_default([ref, fRef]),
     frustumCulled: false
-  }, props), React56.createElement("gridMaterial", _extends({
+  }, props), React55.createElement("gridMaterial", _extends({
     transparent: true,
     "extensions-derivatives": true,
     side
-  }, uniforms1, uniforms2)), React56.createElement("planeGeometry", {
+  }, uniforms1, uniforms2)), React55.createElement("planeGeometry", {
     args
   }));
 });
@@ -37100,7 +34307,7 @@ useFBX.preload = (path) => useLoader.preload(FBXLoader, path);
 useFBX.clear = (input) => useLoader.clear(FBXLoader, input);
 
 // node_modules/@react-three/drei/core/useKTX2.js
-var import_react15 = __toESM(require_react());
+var import_react14 = __toESM(require_react());
 var cdn = "https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master";
 function useKTX2(input, basisPath = `${cdn}/basis/`) {
   const gl = useThree((state) => state.gl);
@@ -37108,7 +34315,7 @@ function useKTX2(input, basisPath = `${cdn}/basis/`) {
     loader2.detectSupport(gl);
     loader2.setTranscoderPath(basisPath);
   });
-  (0, import_react15.useEffect)(() => {
+  (0, import_react14.useEffect)(() => {
     const array = Array.isArray(textures) ? textures : [textures];
     array.forEach(gl.initTexture);
   }, [gl, textures]);
@@ -37129,24 +34336,24 @@ useKTX2.preload = (url, basisPath = `${cdn}/basis/`) => useLoader.preload(KTX2Lo
 useKTX2.clear = (input) => useLoader.clear(KTX2Loader, input);
 
 // node_modules/@react-three/drei/core/Stats.js
-var React58 = __toESM(require_react());
+var React57 = __toESM(require_react());
 var import_stats = __toESM(require_stats_min());
 
 // node_modules/@react-three/drei/helpers/useEffectfulState.js
-var React57 = __toESM(require_react());
-function call3(ref, value) {
+var React56 = __toESM(require_react());
+function call2(ref, value) {
   if (typeof ref === "function")
     ref(value);
   else if (ref != null)
     ref.current = value;
 }
 function useEffectfulState(fn, deps = [], cb) {
-  const [state, set] = React57.useState();
-  React57.useLayoutEffect(() => {
+  const [state, set] = React56.useState();
+  React56.useLayoutEffect(() => {
     const value = fn();
     set(value);
-    call3(cb, value);
-    return () => call3(cb, null);
+    call2(cb, value);
+    return () => call2(cb, null);
   }, deps);
   return state;
 }
@@ -37158,7 +34365,7 @@ function Stats({
   parent
 }) {
   const stats = useEffectfulState(() => new import_stats.default(), []);
-  React58.useEffect(() => {
+  React57.useEffect(() => {
     if (stats) {
       const node = parent && parent.current || document.body;
       stats.showPanel(showPanel);
@@ -37178,7 +34385,7 @@ function Stats({
 }
 
 // node_modules/@react-three/drei/core/useDepthBuffer.js
-var React59 = __toESM(require_react());
+var React58 = __toESM(require_react());
 function useDepthBuffer({
   size = 256,
   frames = Infinity
@@ -37190,7 +34397,7 @@ function useDepthBuffer({
   } = useThree((state) => state.size);
   const w = size || width * dpr;
   const h = size || height * dpr;
-  const depthConfig = React59.useMemo(() => {
+  const depthConfig = React58.useMemo(() => {
     const depthTexture = new DepthTexture(w, h);
     depthTexture.format = DepthFormat;
     depthTexture.type = UnsignedShortType;
@@ -37220,10 +34427,10 @@ function useAspect(width, height, factor = 1) {
 }
 
 // node_modules/@react-three/drei/core/useCamera.js
-var React60 = __toESM(require_react());
+var React59 = __toESM(require_react());
 function useCamera(camera, props) {
   const pointer = useThree((state) => state.pointer);
-  const [raycast2] = React60.useState(() => {
+  const [raycast2] = React59.useState(() => {
     const raycaster = new Raycaster();
     if (props)
       applyProps(raycaster, props, {});
@@ -37416,11 +34623,11 @@ var f = ({ mobileTiers: c6 = [0, 15, 30, 60], desktopTiers: d2 = [0, 15, 30, 60]
 var useDetectGPU = (props) => suspend(() => f(props), ["useDetectGPU"]);
 
 // node_modules/@react-three/drei/core/useHelper.js
-var React61 = __toESM(require_react());
+var React60 = __toESM(require_react());
 function useHelper(object3D, helperConstructor, ...args) {
-  const helper = React61.useRef();
+  const helper = React60.useRef();
   const scene = useThree((state) => state.scene);
-  React61.useLayoutEffect(() => {
+  React60.useLayoutEffect(() => {
     let currentHelper = void 0;
     if (object3D && object3D != null && object3D.current && helperConstructor) {
       helper.current = currentHelper = new helperConstructor(object3D.current, ...args);
@@ -37443,7 +34650,7 @@ function useHelper(object3D, helperConstructor, ...args) {
 }
 
 // node_modules/@react-three/drei/core/useBVH.js
-var React62 = __toESM(require_react());
+var React61 = __toESM(require_react());
 
 // node_modules/three-mesh-bvh/src/core/Constants.js
 var CENTER = 0;
@@ -40594,7 +37801,7 @@ function useBVH(mesh, options) {
     maxLeafTris: 10,
     ...options
   };
-  React62.useEffect(() => {
+  React61.useEffect(() => {
     if (mesh.current) {
       mesh.current.raycast = acceleratedRaycast;
       const geometry = mesh.current.geometry;
@@ -40609,7 +37816,7 @@ function useBVH(mesh, options) {
     }
   }, [mesh, JSON.stringify(options)]);
 }
-var Bvh = React62.forwardRef(({
+var Bvh = React61.forwardRef(({
   enabled = true,
   firstHitOnly = false,
   children,
@@ -40620,10 +37827,10 @@ var Bvh = React62.forwardRef(({
   maxLeafTris = 10,
   ...props
 }, fref) => {
-  const ref = React62.useRef(null);
+  const ref = React61.useRef(null);
   const raycaster = useThree((state) => state.raycaster);
-  React62.useImperativeHandle(fref, () => ref.current, []);
-  React62.useEffect(() => {
+  React61.useImperativeHandle(fref, () => ref.current, []);
+  React61.useEffect(() => {
     if (enabled) {
       const options = {
         strategy,
@@ -40653,20 +37860,20 @@ var Bvh = React62.forwardRef(({
       };
     }
   });
-  return React62.createElement("group", _extends({
+  return React61.createElement("group", _extends({
     ref
   }, props), children);
 });
 
 // node_modules/@react-three/drei/core/useContextBridge.js
-var React63 = __toESM(require_react());
+var React62 = __toESM(require_react());
 function useContextBridge(...contexts) {
-  const cRef = React63.useRef([]);
-  cRef.current = contexts.map((context10) => React63.useContext(context10));
-  return React63.useMemo(() => ({
+  const cRef = React62.useRef([]);
+  cRef.current = contexts.map((context10) => React62.useContext(context10));
+  return React62.useMemo(() => ({
     children
   }) => contexts.reduceRight(
-    (acc, Context2, i3) => React63.createElement(Context2.Provider, {
+    (acc, Context2, i3) => React62.createElement(Context2.Provider, {
       value: cRef.current[i3],
       children: acc
     }),
@@ -40680,16 +37887,16 @@ function useContextBridge(...contexts) {
 }
 
 // node_modules/@react-three/drei/core/useAnimations.js
-var React64 = __toESM(require_react());
+var React63 = __toESM(require_react());
 function useAnimations(clips, root) {
-  const ref = React64.useRef();
-  const [actualRef] = React64.useState(() => root ? root instanceof Object3D ? {
+  const ref = React63.useRef();
+  const [actualRef] = React63.useState(() => root ? root instanceof Object3D ? {
     current: root
   } : root : ref);
-  const [mixer] = React64.useState(() => new AnimationMixer(void 0));
-  React64.useLayoutEffect(() => void (mixer._root = actualRef.current), [mixer, root]);
-  const lazyActions = React64.useRef({});
-  const [api] = React64.useState(() => {
+  const [mixer] = React63.useState(() => new AnimationMixer(void 0));
+  React63.useLayoutEffect(() => void (mixer._root = actualRef.current), [mixer, root]);
+  const lazyActions = React63.useRef({});
+  const [api] = React63.useState(() => {
     const actions = {};
     clips.forEach((clip) => Object.defineProperty(actions, clip.name, {
       enumerable: true,
@@ -40709,7 +37916,7 @@ function useAnimations(clips, root) {
     };
   });
   useFrame((state, delta) => mixer.update(delta));
-  React64.useEffect(() => {
+  React63.useEffect(() => {
     const currentRoot = actualRef.current;
     return () => {
       lazyActions.current = {};
@@ -40720,7 +37927,7 @@ function useAnimations(clips, root) {
       });
     };
   }, [clips]);
-  React64.useEffect(() => {
+  React63.useEffect(() => {
     return () => {
       mixer.stopAllAction();
     };
@@ -40729,14 +37936,14 @@ function useAnimations(clips, root) {
 }
 
 // node_modules/@react-three/drei/core/useIntersect.js
-var React65 = __toESM(require_react());
+var React64 = __toESM(require_react());
 function useIntersect(onChange) {
-  const ref = React65.useRef(null);
-  const check = React65.useRef(false);
-  const temp5 = React65.useRef(false);
-  const callback = React65.useRef(onChange);
-  React65.useLayoutEffect(() => void (callback.current = onChange), [onChange]);
-  React65.useEffect(() => {
+  const ref = React64.useRef(null);
+  const check = React64.useRef(false);
+  const temp5 = React64.useRef(false);
+  const callback = React64.useRef(onChange);
+  React64.useLayoutEffect(() => void (callback.current = onChange), [onChange]);
+  React64.useEffect(() => {
     const obj = ref.current;
     if (obj) {
       const unsub1 = addEffect(() => {
@@ -40761,7 +37968,7 @@ function useIntersect(onChange) {
 }
 
 // node_modules/@react-three/drei/core/useBoxProjectedEnv.js
-var React66 = __toESM(require_react());
+var React65 = __toESM(require_react());
 var worldposReplace = (
   /* glsl */
   `
@@ -40832,7 +38039,7 @@ function boxProjectedEnvMap(shader, envMapPosition, envMapSize) {
         `)}`;
 }
 function useBoxProjectedEnv(position2 = new Vector3(), size = new Vector3()) {
-  const [config2] = React66.useState(() => ({
+  const [config2] = React65.useState(() => ({
     position: new Vector3(),
     size: new Vector3()
   }));
@@ -40840,27 +38047,27 @@ function useBoxProjectedEnv(position2 = new Vector3(), size = new Vector3()) {
     position: position2,
     size
   });
-  const ref = React66.useRef(null);
-  const spread = React66.useMemo(() => ({
+  const ref = React65.useRef(null);
+  const spread = React65.useMemo(() => ({
     ref,
     onBeforeCompile: (shader) => boxProjectedEnvMap(shader, config2.position, config2.size),
     customProgramCacheKey: () => JSON.stringify(config2.position.toArray()) + JSON.stringify(config2.size.toArray())
   }), [...config2.position.toArray(), ...config2.size.toArray()]);
-  React66.useLayoutEffect(() => void (ref.current.needsUpdate = true), [config2]);
+  React65.useLayoutEffect(() => void (ref.current.needsUpdate = true), [config2]);
   return spread;
 }
 
 // node_modules/@react-three/drei/core/BBAnchor.js
-var React67 = __toESM(require_react());
+var React66 = __toESM(require_react());
 var boundingBox3 = new Box3();
 var boundingBoxSize = new Vector3();
 var BBAnchor = ({
   anchor,
   ...props
 }) => {
-  const ref = React67.useRef(null);
-  const parentRef = React67.useRef(null);
-  React67.useEffect(() => {
+  const ref = React66.useRef(null);
+  const parentRef = React66.useRef(null);
+  React66.useEffect(() => {
     var _ref$current, _ref$current$parent;
     if ((_ref$current = ref.current) != null && (_ref$current$parent = _ref$current.parent) != null && _ref$current$parent.parent) {
       parentRef.current = ref.current.parent;
@@ -40874,13 +38081,13 @@ var BBAnchor = ({
       ref.current.position.set(parentRef.current.position.x + boundingBoxSize.x * anchor[0] / 2, parentRef.current.position.y + boundingBoxSize.y * anchor[1] / 2, parentRef.current.position.z + boundingBoxSize.z * anchor[2] / 2);
     }
   });
-  return React67.createElement("group", _extends({
+  return React66.createElement("group", _extends({
     ref
   }, props));
 };
 
 // node_modules/@react-three/drei/core/useTrailTexture.js
-var import_react16 = __toESM(require_react());
+var import_react15 = __toESM(require_react());
 function smoothAverage(current, measurement, smoothing = 0.9) {
   return measurement * smoothing + current * (1 - smoothing);
 }
@@ -41005,18 +38212,18 @@ function useTrailTexture(config2 = {}) {
     blend,
     ease
   } = config2;
-  const trail = (0, import_react16.useMemo)(() => new TrailTexture(config2), [size, maxAge, radius, intensity, interpolate2, smoothing, minForce, blend, ease]);
+  const trail = (0, import_react15.useMemo)(() => new TrailTexture(config2), [size, maxAge, radius, intensity, interpolate2, smoothing, minForce, blend, ease]);
   useFrame((_, delta) => void trail.update(delta));
-  const onMove = (0, import_react16.useCallback)((e2) => trail.addTouch(e2.uv), [trail]);
+  const onMove = (0, import_react15.useCallback)((e2) => trail.addTouch(e2.uv), [trail]);
   return [trail.texture, onMove];
 }
 
 // node_modules/@react-three/drei/core/Example.js
-var React69 = __toESM(require_react());
+var React68 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/Center.js
-var React68 = __toESM(require_react());
-var Center = React68.forwardRef(function Center2({
+var React67 = __toESM(require_react());
+var Center = React67.forwardRef(function Center2({
   children,
   disable,
   disableX,
@@ -41033,10 +38240,10 @@ var Center = React68.forwardRef(function Center2({
   cacheKey: cacheKey2 = 0,
   ...props
 }, fRef) {
-  const ref = React68.useRef(null);
-  const outer = React68.useRef(null);
-  const inner = React68.useRef(null);
-  React68.useLayoutEffect(() => {
+  const ref = React67.useRef(null);
+  const outer = React67.useRef(null);
+  const inner = React67.useRef(null);
+  React67.useLayoutEffect(() => {
     outer.current.matrixWorld.identity();
     const box3 = new Box3().setFromObject(inner.current, precise);
     const center = new Vector3();
@@ -41066,18 +38273,18 @@ var Center = React68.forwardRef(function Center2({
       });
     }
   }, [cacheKey2, onCentered, top, left, front, disable, disableX, disableY, disableZ, precise, right, bottom, back]);
-  React68.useImperativeHandle(fRef, () => ref.current, []);
-  return React68.createElement("group", _extends({
+  React67.useImperativeHandle(fRef, () => ref.current, []);
+  return React67.createElement("group", _extends({
     ref
-  }, props), React68.createElement("group", {
+  }, props), React67.createElement("group", {
     ref: outer
-  }, React68.createElement("group", {
+  }, React67.createElement("group", {
     ref: inner
   }, children)));
 });
 
 // node_modules/@react-three/drei/core/Example.js
-var Example = React69.forwardRef(({
+var Example = React68.forwardRef(({
   font,
   color = "#cbcbcb",
   bevelSize = 0.04,
@@ -41085,35 +38292,35 @@ var Example = React69.forwardRef(({
   children,
   ...props
 }, fref) => {
-  const [counter, setCounter] = React69.useState(0);
-  const incr = React69.useCallback((x = 1) => setCounter(counter + x), [counter]);
-  const decr = React69.useCallback((x = 1) => setCounter(counter - x), [counter]);
-  const api = React69.useMemo(() => ({
+  const [counter, setCounter] = React68.useState(0);
+  const incr = React68.useCallback((x = 1) => setCounter(counter + x), [counter]);
+  const decr = React68.useCallback((x = 1) => setCounter(counter - x), [counter]);
+  const api = React68.useMemo(() => ({
     incr,
     decr
   }), [incr, decr]);
-  React69.useImperativeHandle(fref, () => api, [api]);
-  return React69.createElement("group", props, React69.createElement(React69.Suspense, {
+  React68.useImperativeHandle(fref, () => api, [api]);
+  return React68.createElement("group", props, React68.createElement(React68.Suspense, {
     fallback: null
-  }, React69.createElement(Center, {
+  }, React68.createElement(Center, {
     top: true,
     cacheKey: JSON.stringify({
       counter,
       font
     })
-  }, React69.createElement(Text3D, {
+  }, React68.createElement(Text3D, {
     bevelEnabled: true,
     bevelSize,
     font
-  }, debug ? React69.createElement("meshNormalMaterial", {
+  }, debug ? React68.createElement("meshNormalMaterial", {
     wireframe: true
-  }) : React69.createElement("meshStandardMaterial", {
+  }) : React68.createElement("meshStandardMaterial", {
     color
   }), counter))), children);
 });
 
 // node_modules/@react-three/drei/core/SpriteAnimator.js
-var React70 = __toESM(require_react());
+var React69 = __toESM(require_react());
 var SpriteAnimator = ({
   startFrame,
   endFrame,
@@ -41137,18 +38344,18 @@ var SpriteAnimator = ({
   ...props
 }, fref) => {
   useThree((state) => state.viewport);
-  const spriteData = React70.useRef(null);
-  const [isJsonReady, setJsonReady] = React70.useState(false);
-  const matRef = React70.useRef();
-  const spriteRef = React70.useRef();
-  const timerOffset = React70.useRef(window.performance.now());
-  const textureData = React70.useRef();
-  const currentFrame2 = React70.useRef(startFrame || 0);
-  const currentFrameName = React70.useRef(frameName || "");
+  const spriteData = React69.useRef(null);
+  const [isJsonReady, setJsonReady] = React69.useState(false);
+  const matRef = React69.useRef();
+  const spriteRef = React69.useRef();
+  const timerOffset = React69.useRef(window.performance.now());
+  const textureData = React69.useRef();
+  const currentFrame2 = React69.useRef(startFrame || 0);
+  const currentFrameName = React69.useRef(frameName || "");
   const fpsInterval = 1e3 / (fps || 30);
-  const [spriteTexture, setSpriteTexture] = React70.useState(new Texture());
-  const totalFrames = React70.useRef(0);
-  const [aspect, setAspect] = React70.useState([1, 1, 1]);
+  const [spriteTexture, setSpriteTexture] = React69.useState(new Texture());
+  const totalFrames = React69.useRef(0);
+  const [aspect, setAspect] = React69.useState([1, 1, 1]);
   const flipOffset = flipX ? -1 : 1;
   function loadJsonAndTextureAndExecuteCallback(jsonUrl, textureUrl, callback) {
     const textureLoader = new TextureLoader();
@@ -41165,7 +38372,7 @@ var SpriteAnimator = ({
     spriteRef.current.scale.set(1, aspectRatio, 1);
     return [1, aspectRatio, 1];
   };
-  React70.useEffect(() => {
+  React69.useEffect(() => {
     if (textureDataURL && textureImageURL) {
       loadJsonAndTextureAndExecuteCallback(textureDataURL, textureImageURL, parseSpriteData);
     } else if (textureImageURL) {
@@ -41177,12 +38384,12 @@ var SpriteAnimator = ({
       });
     }
   }, []);
-  React70.useLayoutEffect(() => {
+  React69.useLayoutEffect(() => {
     modifySpritePosition();
   }, [spriteTexture, flipX]);
-  React70.useEffect(() => {
+  React69.useEffect(() => {
   }, [pause]);
-  React70.useEffect(() => {
+  React69.useEffect(() => {
     if (currentFrameName.current !== frameName && frameName) {
       currentFrame2.current = 0;
       currentFrameName.current = frameName;
@@ -41404,12 +38611,12 @@ var SpriteAnimator = ({
       };
     }
   };
-  return React70.createElement("group", props, React70.createElement(React70.Suspense, {
+  return React69.createElement("group", props, React69.createElement(React69.Suspense, {
     fallback: null
-  }, React70.createElement("sprite", {
+  }, React69.createElement("sprite", {
     ref: spriteRef,
     scale: aspect
-  }, React70.createElement("spriteMaterial", {
+  }, React69.createElement("spriteMaterial", {
     toneMapped: false,
     ref: matRef,
     map: spriteTexture,
@@ -41419,36 +38626,36 @@ var SpriteAnimator = ({
 };
 
 // node_modules/@react-three/drei/core/CurveModifier.js
-var React71 = __toESM(require_react());
-var CurveModifier = React71.forwardRef(({
+var React70 = __toESM(require_react());
+var CurveModifier = React70.forwardRef(({
   children,
   curve
 }, ref) => {
-  const [scene] = React71.useState(() => new Scene());
-  const [obj, set] = React71.useState();
-  const modifier = React71.useRef();
-  React71.useEffect(() => {
+  const [scene] = React70.useState(() => new Scene());
+  const [obj, set] = React70.useState();
+  const modifier = React70.useRef();
+  React70.useEffect(() => {
     modifier.current = new Flow(scene.children[0]);
     set(modifier.current.object3D);
   }, [children]);
-  React71.useEffect(() => {
+  React70.useEffect(() => {
     var _modifier$current;
     if (curve)
       (_modifier$current = modifier.current) == null ? void 0 : _modifier$current.updateCurve(0, curve);
   }, [curve]);
-  React71.useImperativeHandle(ref, () => ({
+  React70.useImperativeHandle(ref, () => ({
     moveAlongCurve: (val) => {
       var _modifier$current2;
       (_modifier$current2 = modifier.current) == null ? void 0 : _modifier$current2.moveAlongCurve(val);
     }
   }));
-  return React71.createElement(React71.Fragment, null, createPortal(children, scene), obj && React71.createElement("primitive", {
+  return React70.createElement(React70.Fragment, null, createPortal(children, scene), obj && React70.createElement("primitive", {
     object: obj
   }));
 });
 
 // node_modules/@react-three/drei/core/MeshDistortMaterial.js
-var React72 = __toESM(require_react());
+var React71 = __toESM(require_react());
 
 // node_modules/@react-three/drei/helpers/glsl/distort.vert.glsl.js
 var distort = "#define GLSLIFY 1\nvec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}float snoise(vec3 v){const vec2 C=vec2(1.0/6.0,1.0/3.0);const vec4 D=vec4(0.0,0.5,1.0,2.0);vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.0-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));float n_=0.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.0*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.0*x_);vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.0-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);vec4 s0=floor(b0)*2.0+1.0;vec4 s1=floor(b1)*2.0+1.0;vec4 sh=-step(h,vec4(0.0));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0);m=m*m;return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}";
@@ -41504,13 +38711,13 @@ var DistortMaterialImpl = class extends MeshPhysicalMaterial {
     this._radius.value = v4;
   }
 };
-var MeshDistortMaterial = React72.forwardRef(({
+var MeshDistortMaterial = React71.forwardRef(({
   speed = 1,
   ...props
 }, ref) => {
-  const [material] = React72.useState(() => new DistortMaterialImpl());
+  const [material] = React71.useState(() => new DistortMaterialImpl());
   useFrame((state) => material && (material.time = state.clock.getElapsedTime() * speed));
-  return React72.createElement("primitive", _extends({
+  return React71.createElement("primitive", _extends({
     object: material,
     ref,
     attach: "material"
@@ -41518,7 +38725,7 @@ var MeshDistortMaterial = React72.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MeshWobbleMaterial.js
-var React73 = __toESM(require_react());
+var React72 = __toESM(require_react());
 var WobbleMaterialImpl = class extends MeshStandardMaterial {
   constructor(parameters = {}) {
     super(parameters);
@@ -41558,13 +38765,13 @@ var WobbleMaterialImpl = class extends MeshStandardMaterial {
     this._factor.value = v4;
   }
 };
-var MeshWobbleMaterial = React73.forwardRef(({
+var MeshWobbleMaterial = React72.forwardRef(({
   speed = 1,
   ...props
 }, ref) => {
-  const [material] = React73.useState(() => new WobbleMaterialImpl());
+  const [material] = React72.useState(() => new WobbleMaterialImpl());
   useFrame((state) => material && (material.time = state.clock.getElapsedTime() * speed));
-  return React73.createElement("primitive", _extends({
+  return React72.createElement("primitive", _extends({
     object: material,
     ref,
     attach: "material"
@@ -41572,7 +38779,7 @@ var MeshWobbleMaterial = React73.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MeshReflectorMaterial.js
-var React74 = __toESM(require_react());
+var React73 = __toESM(require_react());
 
 // node_modules/@react-three/drei/materials/ConvolutionMaterial.js
 var ConvolutionMaterial = class extends ShaderMaterial {
@@ -41993,7 +39200,7 @@ var MeshReflectorMaterial = class extends MeshStandardMaterial {
 extend({
   MeshReflectorMaterialImpl: MeshReflectorMaterial
 });
-var MeshReflectorMaterial2 = React74.forwardRef(({
+var MeshReflectorMaterial2 = React73.forwardRef(({
   mixBlur = 0,
   mixStrength = 1,
   resolution = 256,
@@ -42020,20 +39227,20 @@ var MeshReflectorMaterial2 = React74.forwardRef(({
   }) => scene2);
   blur = Array.isArray(blur) ? blur : [blur, blur];
   const hasBlur = blur[0] + blur[1] > 0;
-  const materialRef = React74.useRef(null);
-  const [reflectorPlane] = React74.useState(() => new Plane());
-  const [normal2] = React74.useState(() => new Vector3());
-  const [reflectorWorldPosition] = React74.useState(() => new Vector3());
-  const [cameraWorldPosition] = React74.useState(() => new Vector3());
-  const [rotationMatrix] = React74.useState(() => new Matrix4());
-  const [lookAtPosition] = React74.useState(() => new Vector3(0, 0, -1));
-  const [clipPlane] = React74.useState(() => new Vector4());
-  const [view] = React74.useState(() => new Vector3());
-  const [target2] = React74.useState(() => new Vector3());
-  const [q] = React74.useState(() => new Vector4());
-  const [textureMatrix] = React74.useState(() => new Matrix4());
-  const [virtualCamera] = React74.useState(() => new PerspectiveCamera());
-  const beforeRender = React74.useCallback(() => {
+  const materialRef = React73.useRef(null);
+  const [reflectorPlane] = React73.useState(() => new Plane());
+  const [normal2] = React73.useState(() => new Vector3());
+  const [reflectorWorldPosition] = React73.useState(() => new Vector3());
+  const [cameraWorldPosition] = React73.useState(() => new Vector3());
+  const [rotationMatrix] = React73.useState(() => new Matrix4());
+  const [lookAtPosition] = React73.useState(() => new Vector3(0, 0, -1));
+  const [clipPlane] = React73.useState(() => new Vector4());
+  const [view] = React73.useState(() => new Vector3());
+  const [target2] = React73.useState(() => new Vector3());
+  const [q] = React73.useState(() => new Vector4());
+  const [textureMatrix] = React73.useState(() => new Matrix4());
+  const [virtualCamera] = React73.useState(() => new PerspectiveCamera());
+  const beforeRender = React73.useCallback(() => {
     var _materialRef$current;
     const parent = materialRef.current.parent || ((_materialRef$current = materialRef.current) == null ? void 0 : _materialRef$current.__r3f.parent);
     if (!parent)
@@ -42082,7 +39289,7 @@ var MeshReflectorMaterial2 = React74.forwardRef(({
     projectionMatrix.elements[10] = clipPlane.z + 1;
     projectionMatrix.elements[14] = clipPlane.w;
   }, [camera, reflectorOffset]);
-  const [fbo1, fbo2, blurpass, reflectorProps] = React74.useMemo(() => {
+  const [fbo1, fbo2, blurpass, reflectorProps] = React73.useMemo(() => {
     const parameters = {
       minFilter: LinearFilter,
       magFilter: LinearFilter,
@@ -42149,7 +39356,7 @@ var MeshReflectorMaterial2 = React74.forwardRef(({
     parent.visible = true;
     gl.setRenderTarget(null);
   });
-  return React74.createElement("meshReflectorMaterialImpl", _extends({
+  return React73.createElement("meshReflectorMaterialImpl", _extends({
     attach: "material",
     key: "key" + reflectorProps["defines-USE_BLUR"] + reflectorProps["defines-USE_DEPTH"] + reflectorProps["defines-USE_DISTORTION"],
     ref: react_merge_refs_esm_default([materialRef, ref])
@@ -42157,8 +39364,8 @@ var MeshReflectorMaterial2 = React74.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MeshRefractionMaterial.js
-var React75 = __toESM(require_react());
-var import_react17 = __toESM(require_react());
+var React74 = __toESM(require_react());
+var import_react16 = __toESM(require_react());
 
 // node_modules/@react-three/drei/materials/MeshRefractionMaterial.js
 var MeshRefractionMaterial = shaderMaterial(
@@ -42339,11 +39546,11 @@ function MeshRefractionMaterial2({
   extend({
     MeshRefractionMaterial
   });
-  const material = (0, import_react17.useRef)();
+  const material = (0, import_react16.useRef)();
   const {
     size
   } = useThree();
-  const defines = (0, import_react17.useMemo)(() => {
+  const defines = (0, import_react16.useMemo)(() => {
     var _ref, _envMap$image$;
     const temp5 = {};
     const isCubeMap = isCubeTexture(envMap);
@@ -42364,7 +39571,7 @@ function MeshRefractionMaterial2({
       temp5.FAST_CHROMA = "";
     return temp5;
   }, [aberrationStrength, fastChroma]);
-  (0, import_react17.useLayoutEffect)(() => {
+  (0, import_react16.useLayoutEffect)(() => {
     var _material$current, _material$current$__r, _material$current$__r2;
     const geometry = (_material$current = material.current) == null ? void 0 : (_material$current$__r = _material$current.__r3f) == null ? void 0 : (_material$current$__r2 = _material$current$__r.parent) == null ? void 0 : _material$current$__r2.geometry;
     if (geometry) {
@@ -42381,7 +39588,7 @@ function MeshRefractionMaterial2({
     material.current.viewMatrixInverse = camera.matrixWorld;
     material.current.projectionMatrixInverse = camera.projectionMatrixInverse;
   });
-  return React75.createElement("meshRefractionMaterial", _extends({
+  return React74.createElement("meshRefractionMaterial", _extends({
     // @ts-ignore
     key: JSON.stringify(defines),
     defines,
@@ -42393,7 +39600,7 @@ function MeshRefractionMaterial2({
 }
 
 // node_modules/@react-three/drei/core/MeshTransmissionMaterial.js
-var React76 = __toESM(require_react());
+var React75 = __toESM(require_react());
 
 // node_modules/@react-three/drei/materials/DiscardMaterial.js
 var DiscardMaterial = shaderMaterial({}, "void main() { }", "void main() { gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0); discard;  }");
@@ -42698,7 +39905,7 @@ var MeshTransmissionMaterialImpl = class extends MeshPhysicalMaterial {
     }));
   }
 };
-var MeshTransmissionMaterial = React76.forwardRef(({
+var MeshTransmissionMaterial = React75.forwardRef(({
   buffer,
   transmissionSampler = false,
   backside = false,
@@ -42717,8 +39924,8 @@ var MeshTransmissionMaterial = React76.forwardRef(({
   extend({
     MeshTransmissionMaterial: MeshTransmissionMaterialImpl
   });
-  const ref = React76.useRef(null);
-  const [discardMaterial] = React76.useState(() => new DiscardMaterial());
+  const ref = React75.useRef(null);
+  const [discardMaterial] = React75.useState(() => new DiscardMaterial());
   const fboBack = useFBO(backsideResolution || resolution);
   const fboMain = useFBO(resolution);
   let oldBg;
@@ -42755,8 +39962,8 @@ var MeshTransmissionMaterial = React76.forwardRef(({
       }
     }
   });
-  React76.useImperativeHandle(fref, () => ref.current, []);
-  return React76.createElement("meshTransmissionMaterial", _extends({
+  React75.useImperativeHandle(fref, () => ref.current, []);
+  return React75.createElement("meshTransmissionMaterial", _extends({
     // Samples must re-compile the shader so we memoize it
     args: [samples, transmissionSampler],
     ref
@@ -42771,18 +39978,18 @@ var MeshTransmissionMaterial = React76.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/MeshDiscardMaterial.js
-var React77 = __toESM(require_react());
-var MeshDiscardMaterial = React77.forwardRef((props, fref) => {
+var React76 = __toESM(require_react());
+var MeshDiscardMaterial = React76.forwardRef((props, fref) => {
   extend({
     DiscardMaterialImpl: DiscardMaterial
   });
-  return React77.createElement("discardMaterialImpl", _extends({
+  return React76.createElement("discardMaterialImpl", _extends({
     ref: fref
   }, props));
 });
 
 // node_modules/@react-three/drei/core/PointMaterial.js
-var React78 = __toESM(require_react());
+var React77 = __toESM(require_react());
 var PointMaterialImpl = class extends PointsMaterial {
   constructor(props) {
     super(props);
@@ -42803,9 +40010,9 @@ var PointMaterialImpl = class extends PointsMaterial {
     };
   }
 };
-var PointMaterial = React78.forwardRef((props, ref) => {
-  const [material] = React78.useState(() => new PointMaterialImpl(null));
-  return React78.createElement("primitive", _extends({}, props, {
+var PointMaterial = React77.forwardRef((props, ref) => {
+  const [material] = React77.useState(() => new PointMaterialImpl(null));
+  return React77.createElement("primitive", _extends({}, props, {
     object: material,
     ref,
     attach: "material"
@@ -42813,7 +40020,7 @@ var PointMaterial = React78.forwardRef((props, ref) => {
 });
 
 // node_modules/@react-three/drei/core/softShadows.js
-var React79 = __toESM(require_react());
+var React78 = __toESM(require_react());
 var pcss = ({
   focus = 0,
   size = 25,
@@ -42937,7 +40144,7 @@ function SoftShadows({
   const gl = useThree((state) => state.gl);
   const scene = useThree((state) => state.scene);
   const camera = useThree((state) => state.camera);
-  React79.useEffect(() => {
+  React78.useEffect(() => {
     const original = ShaderChunk.shadowmap_pars_fragment;
     ShaderChunk.shadowmap_pars_fragment = ShaderChunk.shadowmap_pars_fragment.replace("#ifdef USE_SHADOWMAP", "#ifdef USE_SHADOWMAP\n" + pcss({
       size,
@@ -42954,20 +40161,20 @@ function SoftShadows({
 }
 
 // node_modules/@react-three/drei/core/shapes.js
-var React80 = __toESM(require_react());
+var React79 = __toESM(require_react());
 function create2(type, effect) {
   const El = type + "Geometry";
-  return React80.forwardRef(({
+  return React79.forwardRef(({
     args,
     children,
     ...props
   }, fref) => {
-    const ref = React80.useRef(null);
-    React80.useImperativeHandle(fref, () => ref.current);
-    React80.useLayoutEffect(() => void (effect == null ? void 0 : effect(ref.current)));
-    return React80.createElement("mesh", _extends({
+    const ref = React79.useRef(null);
+    React79.useImperativeHandle(fref, () => ref.current);
+    React79.useLayoutEffect(() => void (effect == null ? void 0 : effect(ref.current)));
+    return React79.createElement("mesh", _extends({
       ref
-    }, props), React80.createElement(El, {
+    }, props), React79.createElement(El, {
       attach: "geometry",
       args
     }), children);
@@ -43011,7 +40218,7 @@ var Shape2 = create2("shape", ({
 });
 
 // node_modules/@react-three/drei/core/RoundedBox.js
-var React81 = __toESM(require_react());
+var React80 = __toESM(require_react());
 var eps = 1e-5;
 function createShape(width, height, radius0) {
   const shape = new Shape();
@@ -43022,7 +40229,7 @@ function createShape(width, height, radius0) {
   shape.absarc(width - radius * 2, eps, eps, 0, -Math.PI / 2, true);
   return shape;
 }
-var RoundedBox = React81.forwardRef(function RoundedBox2({
+var RoundedBox = React80.forwardRef(function RoundedBox2({
   args: [width = 1, height = 1, depth = 1] = [],
   radius = 0.05,
   steps: steps2 = 1,
@@ -43031,8 +40238,8 @@ var RoundedBox = React81.forwardRef(function RoundedBox2({
   children,
   ...rest
 }, ref) {
-  const shape = React81.useMemo(() => createShape(width, height, radius), [width, height, radius]);
-  const params = React81.useMemo(() => ({
+  const shape = React80.useMemo(() => createShape(width, height, radius), [width, height, radius]);
+  const params = React80.useMemo(() => ({
     depth: depth - radius * 2,
     bevelEnabled: true,
     bevelSegments: smoothness * 2,
@@ -43041,35 +40248,35 @@ var RoundedBox = React81.forwardRef(function RoundedBox2({
     bevelThickness: radius,
     curveSegments: smoothness
   }), [depth, radius, smoothness]);
-  const geomRef = React81.useRef();
-  React81.useLayoutEffect(() => {
+  const geomRef = React80.useRef();
+  React80.useLayoutEffect(() => {
     if (geomRef.current) {
       geomRef.current.center();
       toCreasedNormals(geomRef.current, creaseAngle);
     }
   }, [shape, params]);
-  return React81.createElement("mesh", _extends({
+  return React80.createElement("mesh", _extends({
     ref
-  }, rest), React81.createElement("extrudeGeometry", {
+  }, rest), React80.createElement("extrudeGeometry", {
     ref: geomRef,
     args: [shape, params]
   }), children);
 });
 
 // node_modules/@react-three/drei/core/ScreenQuad.js
-var React82 = __toESM(require_react());
+var React81 = __toESM(require_react());
 function createScreenQuadGeometry() {
   const geometry = new BufferGeometry();
   const vertices = new Float32Array([-1, -1, 3, -1, -1, 3]);
   geometry.setAttribute("position", new BufferAttribute(vertices, 2));
   return geometry;
 }
-var ScreenQuad = React82.forwardRef(function ScreenQuad2({
+var ScreenQuad = React81.forwardRef(function ScreenQuad2({
   children,
   ...restProps
 }, ref) {
-  const geometry = React82.useMemo(createScreenQuadGeometry, []);
-  return React82.createElement("mesh", _extends({
+  const geometry = React81.useMemo(createScreenQuadGeometry, []);
+  return React81.createElement("mesh", _extends({
     ref,
     geometry,
     frustumCulled: false
@@ -43077,8 +40284,8 @@ var ScreenQuad = React82.forwardRef(function ScreenQuad2({
 });
 
 // node_modules/@react-three/drei/core/Resize.js
-var React83 = __toESM(require_react());
-var Resize = React83.forwardRef(({
+var React82 = __toESM(require_react());
+var Resize = React82.forwardRef(({
   children,
   width,
   height,
@@ -43087,10 +40294,10 @@ var Resize = React83.forwardRef(({
   precise = true,
   ...props
 }, fRef) => {
-  const ref = React83.useRef(null);
-  const outer = React83.useRef(null);
-  const inner = React83.useRef(null);
-  React83.useLayoutEffect(() => {
+  const ref = React82.useRef(null);
+  const outer = React82.useRef(null);
+  const inner = React82.useRef(null);
+  React82.useLayoutEffect(() => {
     outer.current.matrixWorld.identity();
     let box = box3 || new Box3().setFromObject(inner.current, precise);
     const w = box.max.x - box.min.x;
@@ -43105,21 +40312,21 @@ var Resize = React83.forwardRef(({
       dimension = d2;
     outer.current.scale.setScalar(1 / dimension);
   }, [width, height, depth, box3, precise]);
-  React83.useImperativeHandle(fRef, () => ref.current, []);
-  return React83.createElement("group", _extends({
+  React82.useImperativeHandle(fRef, () => ref.current, []);
+  return React82.createElement("group", _extends({
     ref
-  }, props), React83.createElement("group", {
+  }, props), React82.createElement("group", {
     ref: outer
-  }, React83.createElement("group", {
+  }, React82.createElement("group", {
     ref: inner
   }, children)));
 });
 
 // node_modules/@react-three/drei/core/Bounds.js
-var React84 = __toESM(require_react());
+var React83 = __toESM(require_react());
 var isOrthographic = (def) => def && def.isOrthographicCamera;
 var isBox3 = (def) => def && def.isBox3;
-var context5 = React84.createContext(null);
+var context5 = React83.createContext(null);
 function Bounds({
   children,
   damping = 6,
@@ -43130,7 +40337,7 @@ function Bounds({
   eps: eps2 = 0.01,
   onFit
 }) {
-  const ref = React84.useRef(null);
+  const ref = React83.useRef(null);
   const {
     camera,
     invalidate,
@@ -43138,7 +40345,7 @@ function Bounds({
     controls: controlsImpl
   } = useThree();
   const controls = controlsImpl;
-  const onFitRef = React84.useRef(onFit);
+  const onFitRef = React83.useRef(onFit);
   onFitRef.current = onFit;
   function equals(a3, b) {
     return Math.abs(a3.x - b.x) < eps2 && Math.abs(a3.y - b.y) < eps2 && Math.abs(a3.z - b.z) < eps2;
@@ -43148,19 +40355,19 @@ function Bounds({
     v4.y = MathUtils.damp(v4.y, t2.y, lambda, delta);
     v4.z = MathUtils.damp(v4.z, t2.z, lambda, delta);
   }
-  const [current] = React84.useState(() => ({
+  const [current] = React83.useState(() => ({
     animating: false,
     focus: new Vector3(),
     camera: new Vector3(),
     zoom: 1
   }));
-  const [goal] = React84.useState(() => ({
+  const [goal] = React83.useState(() => ({
     focus: new Vector3(),
     camera: new Vector3(),
     zoom: 1
   }));
-  const [box] = React84.useState(() => new Box3());
-  const api = React84.useMemo(() => {
+  const [box] = React83.useState(() => new Box3());
+  const api = React83.useMemo(() => {
     function getSize() {
       const size2 = box.getSize(new Vector3());
       const center = box.getCenter(new Vector3());
@@ -43282,15 +40489,15 @@ function Bounds({
       }
     };
   }, [box, camera, controls, margin, damping, invalidate]);
-  React84.useLayoutEffect(() => {
+  React83.useLayoutEffect(() => {
     if (controls) {
       const callback = () => current.animating = false;
       controls.addEventListener("start", callback);
       return () => controls.removeEventListener("start", callback);
     }
   }, [controls]);
-  const count = React84.useRef(0);
-  React84.useLayoutEffect(() => {
+  const count = React83.useRef(0);
+  React83.useLayoutEffect(() => {
     if (observe || count.current++ === 0) {
       api.refresh();
       if (fit)
@@ -43325,19 +40532,19 @@ function Bounds({
       current.animating = false;
     }
   });
-  return React84.createElement("group", {
+  return React83.createElement("group", {
     ref
-  }, React84.createElement(context5.Provider, {
+  }, React83.createElement(context5.Provider, {
     value: api
   }, children));
 }
 function useBounds() {
-  return React84.useContext(context5);
+  return React83.useContext(context5);
 }
 
 // node_modules/@react-three/drei/core/CameraShake.js
-var React85 = __toESM(require_react());
-var CameraShake = React85.forwardRef(({
+var React84 = __toESM(require_react());
+var CameraShake = React84.forwardRef(({
   intensity = 1,
   decay,
   decayRate = 0.65,
@@ -43350,24 +40557,24 @@ var CameraShake = React85.forwardRef(({
 }, ref) => {
   const camera = useThree((state) => state.camera);
   const defaultControls = useThree((state) => state.controls);
-  const intensityRef = React85.useRef(intensity);
-  const initialRotation = React85.useRef(camera.rotation.clone());
-  const [yawNoise] = React85.useState(() => new SimplexNoise());
-  const [pitchNoise] = React85.useState(() => new SimplexNoise());
-  const [rollNoise] = React85.useState(() => new SimplexNoise());
+  const intensityRef = React84.useRef(intensity);
+  const initialRotation = React84.useRef(camera.rotation.clone());
+  const [yawNoise] = React84.useState(() => new SimplexNoise());
+  const [pitchNoise] = React84.useState(() => new SimplexNoise());
+  const [rollNoise] = React84.useState(() => new SimplexNoise());
   const constrainIntensity = () => {
     if (intensityRef.current < 0 || intensityRef.current > 1) {
       intensityRef.current = intensityRef.current < 0 ? 0 : 1;
     }
   };
-  React85.useImperativeHandle(ref, () => ({
+  React84.useImperativeHandle(ref, () => ({
     getIntensity: () => intensityRef.current,
     setIntensity: (val) => {
       intensityRef.current = val;
       constrainIntensity();
     }
   }), []);
-  React85.useEffect(() => {
+  React84.useEffect(() => {
     if (defaultControls) {
       const callback = () => void (initialRotation.current = camera.rotation.clone());
       defaultControls.addEventListener("change", callback);
@@ -43390,8 +40597,8 @@ var CameraShake = React85.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Float.js
-var React86 = __toESM(require_react());
-var Float = React86.forwardRef(({
+var React85 = __toESM(require_react());
+var Float = React85.forwardRef(({
   children,
   enabled = true,
   speed = 1,
@@ -43400,8 +40607,8 @@ var Float = React86.forwardRef(({
   floatingRange = [-0.1, 0.1],
   ...props
 }, forwardRef71) => {
-  const ref = React86.useRef(null);
-  const offset = React86.useRef(Math.random() * 1e4);
+  const ref = React85.useRef(null);
+  const offset = React85.useRef(Math.random() * 1e4);
   useFrame((state) => {
     var _floatingRange$, _floatingRange$2;
     if (!enabled || speed === 0)
@@ -43415,17 +40622,17 @@ var Float = React86.forwardRef(({
     ref.current.position.y = yPosition * floatIntensity;
     ref.current.updateMatrix();
   });
-  return React86.createElement("group", props, React86.createElement("group", {
+  return React85.createElement("group", props, React85.createElement("group", {
     ref: react_merge_refs_esm_default([ref, forwardRef71]),
     matrixAutoUpdate: false
   }, children));
 });
 
 // node_modules/@react-three/drei/core/Stage.js
-var React90 = __toESM(require_react());
+var React89 = __toESM(require_react());
 
 // node_modules/@react-three/drei/core/Environment.js
-var React87 = __toESM(require_react());
+var React86 = __toESM(require_react());
 
 // node_modules/@react-three/drei/helpers/environment-assets.js
 var presetsObj = {
@@ -43520,7 +40727,7 @@ function EnvironmentMap({
   map
 }) {
   const defaultScene = useThree((state) => state.scene);
-  React87.useLayoutEffect(() => {
+  React86.useLayoutEffect(() => {
     if (map)
       return setEnvProps(background, scene, defaultScene, map, blur);
   }, [defaultScene, scene, map, background, blur]);
@@ -43534,7 +40741,7 @@ function EnvironmentCube({
 }) {
   const texture = useEnvironment(rest);
   const defaultScene = useThree((state) => state.scene);
-  React87.useLayoutEffect(() => {
+  React86.useLayoutEffect(() => {
     return setEnvProps(background, scene, defaultScene, texture, blur);
   }, [texture, background, scene, defaultScene, blur]);
   return null;
@@ -43556,14 +40763,14 @@ function EnvironmentPortal({
 }) {
   const gl = useThree((state) => state.gl);
   const defaultScene = useThree((state) => state.scene);
-  const camera = React87.useRef(null);
-  const [virtualScene] = React87.useState(() => new Scene());
-  const fbo = React87.useMemo(() => {
+  const camera = React86.useRef(null);
+  const [virtualScene] = React86.useState(() => new Scene());
+  const fbo = React86.useMemo(() => {
     const fbo2 = new WebGLCubeRenderTarget(resolution);
     fbo2.texture.type = HalfFloatType;
     return fbo2;
   }, [resolution]);
-  React87.useLayoutEffect(() => {
+  React86.useLayoutEffect(() => {
     if (frames === 1)
       camera.current.update(gl, virtualScene);
     return setEnvProps(background, scene, defaultScene, fbo.texture, blur);
@@ -43575,16 +40782,16 @@ function EnvironmentPortal({
       count++;
     }
   });
-  return React87.createElement(React87.Fragment, null, createPortal(React87.createElement(React87.Fragment, null, children, React87.createElement("cubeCamera", {
+  return React86.createElement(React86.Fragment, null, createPortal(React86.createElement(React86.Fragment, null, children, React86.createElement("cubeCamera", {
     ref: camera,
     args: [near, far, fbo]
-  }), files || preset ? React87.createElement(EnvironmentCube, {
+  }), files || preset ? React86.createElement(EnvironmentCube, {
     background: true,
     files,
     preset,
     path,
     extensions: extensions2
-  }) : map ? React87.createElement(EnvironmentMap, {
+  }) : map ? React86.createElement(EnvironmentMap, {
     background: true,
     map,
     extensions: extensions2
@@ -43594,16 +40801,16 @@ function EnvironmentGround(props) {
   var _props$ground, _props$ground2, _scale, _props$ground3;
   const textureDefault = useEnvironment(props);
   const texture = props.map || textureDefault;
-  React87.useMemo(() => extend({
+  React86.useMemo(() => extend({
     GroundProjectedEnvImpl: GroundProjectedEnv
   }), []);
-  const args = React87.useMemo(() => [texture], [texture]);
+  const args = React86.useMemo(() => [texture], [texture]);
   const height = (_props$ground = props.ground) == null ? void 0 : _props$ground.height;
   const radius = (_props$ground2 = props.ground) == null ? void 0 : _props$ground2.radius;
   const scale2 = (_scale = (_props$ground3 = props.ground) == null ? void 0 : _props$ground3.scale) !== null && _scale !== void 0 ? _scale : 1e3;
-  return React87.createElement(React87.Fragment, null, React87.createElement(EnvironmentMap, _extends({}, props, {
+  return React86.createElement(React86.Fragment, null, React86.createElement(EnvironmentMap, _extends({}, props, {
     map: texture
-  })), React87.createElement("groundProjectedEnvImpl", {
+  })), React86.createElement("groundProjectedEnvImpl", {
     args,
     scale: scale2,
     height,
@@ -43611,12 +40818,12 @@ function EnvironmentGround(props) {
   }));
 }
 function Environment(props) {
-  return props.ground ? React87.createElement(EnvironmentGround, props) : props.map ? React87.createElement(EnvironmentMap, props) : props.children ? React87.createElement(EnvironmentPortal, props) : React87.createElement(EnvironmentCube, props);
+  return props.ground ? React86.createElement(EnvironmentGround, props) : props.map ? React86.createElement(EnvironmentMap, props) : props.children ? React86.createElement(EnvironmentPortal, props) : React86.createElement(EnvironmentCube, props);
 }
 
 // node_modules/@react-three/drei/core/ContactShadows.js
-var React88 = __toESM(require_react());
-var ContactShadows = React88.forwardRef(({
+var React87 = __toESM(require_react());
+var ContactShadows = React87.forwardRef(({
   scale: scale2 = 10,
   frames = Infinity,
   opacity = 1,
@@ -43631,13 +40838,13 @@ var ContactShadows = React88.forwardRef(({
   renderOrder,
   ...props
 }, fref) => {
-  const ref = React88.useRef(null);
+  const ref = React87.useRef(null);
   const scene = useThree((state) => state.scene);
   const gl = useThree((state) => state.gl);
-  const shadowCamera = React88.useRef(null);
+  const shadowCamera = React87.useRef(null);
   width = width * (Array.isArray(scale2) ? scale2[0] : scale2 || 1);
   height = height * (Array.isArray(scale2) ? scale2[1] : scale2 || 1);
-  const [renderTarget, planeGeometry, depthMaterial, blurPlane, horizontalBlurMaterial, verticalBlurMaterial, renderTargetBlur] = React88.useMemo(() => {
+  const [renderTarget, planeGeometry, depthMaterial, blurPlane, horizontalBlurMaterial, verticalBlurMaterial, renderTargetBlur] = React87.useMemo(() => {
     const renderTarget2 = new WebGLRenderTarget(resolution, resolution);
     const renderTargetBlur2 = new WebGLRenderTarget(resolution, resolution);
     renderTargetBlur2.texture.generateMipmaps = renderTarget2.texture.generateMipmaps = false;
@@ -43706,36 +40913,36 @@ var ContactShadows = React88.forwardRef(({
       scene.background = initialBackground;
     }
   });
-  React88.useImperativeHandle(fref, () => ref.current, []);
-  return React88.createElement("group", _extends({
+  React87.useImperativeHandle(fref, () => ref.current, []);
+  return React87.createElement("group", _extends({
     "rotation-x": Math.PI / 2
   }, props, {
     ref
-  }), React88.createElement("mesh", {
+  }), React87.createElement("mesh", {
     renderOrder,
     geometry: planeGeometry,
     scale: [1, -1, 1],
     rotation: [-Math.PI / 2, 0, 0]
-  }, React88.createElement("meshBasicMaterial", {
+  }, React87.createElement("meshBasicMaterial", {
     transparent: true,
     map: renderTarget.texture,
     opacity,
     depthWrite
-  })), React88.createElement("orthographicCamera", {
+  })), React87.createElement("orthographicCamera", {
     ref: shadowCamera,
     args: [-width / 2, width / 2, height / 2, -height / 2, 0, far]
   }));
 });
 
 // node_modules/@react-three/drei/core/AccumulativeShadows.js
-var React89 = __toESM(require_react());
+var React88 = __toESM(require_react());
 function isLight(object) {
   return object.isLight;
 }
 function isGeometry(object) {
   return !!object.geometry;
 }
-var accumulativeContext = React89.createContext(null);
+var accumulativeContext = React88.createContext(null);
 var SoftShadowMaterial = shaderMaterial({
   color: new Color(),
   blend: 2,
@@ -43758,7 +40965,7 @@ var SoftShadowMaterial = shaderMaterial({
      #include <tonemapping_fragment>
      #include <encodings_fragment>
    }`);
-var AccumulativeShadows = React89.forwardRef(({
+var AccumulativeShadows = React88.forwardRef(({
   children,
   temporal,
   frames = 40,
@@ -43780,13 +40987,13 @@ var AccumulativeShadows = React89.forwardRef(({
   const scene = useThree((state) => state.scene);
   const camera = useThree((state) => state.camera);
   const invalidate = useThree((state) => state.invalidate);
-  const gPlane = React89.useRef(null);
-  const gLights = React89.useRef(null);
-  const [plm] = React89.useState(() => new ProgressiveLightMap(gl, scene, resolution));
-  React89.useLayoutEffect(() => {
+  const gPlane = React88.useRef(null);
+  const gLights = React88.useRef(null);
+  const [plm] = React88.useState(() => new ProgressiveLightMap(gl, scene, resolution));
+  React88.useLayoutEffect(() => {
     plm.configure(gPlane.current);
   }, []);
-  const api = React89.useMemo(() => ({
+  const api = React88.useMemo(() => ({
     lights: /* @__PURE__ */ new Map(),
     temporal: !!temporal,
     frames: Math.max(2, frames),
@@ -43819,12 +41026,12 @@ var AccumulativeShadows = React89.forwardRef(({
       plm.finish();
     }
   }), [plm, camera, scene, temporal, frames, blend, opacity, alphaTest]);
-  React89.useLayoutEffect(() => {
+  React88.useLayoutEffect(() => {
     api.reset();
     if (!api.temporal && api.frames !== Infinity)
       api.update(api.blend);
   });
-  React89.useImperativeHandle(forwardRef71, () => api, [api]);
+  React88.useImperativeHandle(forwardRef71, () => api, [api]);
   useFrame(() => {
     if ((api.temporal || api.frames === Infinity) && api.count < api.frames && api.count < limit) {
       invalidate();
@@ -43832,17 +41039,17 @@ var AccumulativeShadows = React89.forwardRef(({
       api.count++;
     }
   });
-  return React89.createElement("group", props, React89.createElement("group", {
+  return React88.createElement("group", props, React88.createElement("group", {
     traverse: () => null,
     ref: gLights
-  }, React89.createElement(accumulativeContext.Provider, {
+  }, React88.createElement(accumulativeContext.Provider, {
     value: api
-  }, children)), React89.createElement("mesh", {
+  }, children)), React88.createElement("mesh", {
     receiveShadow: true,
     ref: gPlane,
     scale: scale2,
     rotation: [-Math.PI / 2, 0, 0]
-  }, React89.createElement("planeGeometry", null), React89.createElement("softShadowMaterial", {
+  }, React88.createElement("planeGeometry", null), React88.createElement("softShadowMaterial", {
     transparent: true,
     depthWrite: false,
     toneMapped,
@@ -43851,7 +41058,7 @@ var AccumulativeShadows = React89.forwardRef(({
     map: plm.progressiveLightMap2.texture
   })));
 });
-var RandomizedLight = React89.forwardRef(({
+var RandomizedLight = React88.forwardRef(({
   castShadow = true,
   bias = 1e-3,
   mapSize = 512,
@@ -43866,10 +41073,10 @@ var RandomizedLight = React89.forwardRef(({
   ambient = 0.5,
   ...props
 }, forwardRef71) => {
-  const gLights = React89.useRef(null);
+  const gLights = React88.useRef(null);
   const length = new Vector3(...position2).length();
-  const parent = React89.useContext(accumulativeContext);
-  const update3 = React89.useCallback(() => {
+  const parent = React88.useContext(accumulativeContext);
+  const update3 = React88.useCallback(() => {
     let light;
     if (gLights.current) {
       for (let l2 = 0; l2 < gLights.current.children.length; l2++) {
@@ -43884,27 +41091,27 @@ var RandomizedLight = React89.forwardRef(({
       }
     }
   }, [radius, ambient, length, ...position2]);
-  const api = React89.useMemo(() => ({
+  const api = React88.useMemo(() => ({
     update: update3
   }), [update3]);
-  React89.useImperativeHandle(forwardRef71, () => api, [api]);
-  React89.useLayoutEffect(() => {
+  React88.useImperativeHandle(forwardRef71, () => api, [api]);
+  React88.useLayoutEffect(() => {
     const group = gLights.current;
     if (parent)
       parent.lights.set(group.uuid, api);
     return () => void parent.lights.delete(group.uuid);
   }, [parent, api]);
-  return React89.createElement("group", _extends({
+  return React88.createElement("group", _extends({
     ref: gLights
   }, props), Array.from({
     length: amount
-  }, (_, index) => React89.createElement("directionalLight", {
+  }, (_, index) => React88.createElement("directionalLight", {
     key: index,
     castShadow,
     "shadow-bias": bias,
     "shadow-mapSize": [mapSize, mapSize],
     intensity: intensity / amount
-  }, React89.createElement("orthographicCamera", {
+  }, React88.createElement("orthographicCamera", {
     attach: "shadow-camera",
     args: [-size, size, size, -size, near, far]
   }))));
@@ -44027,7 +41234,7 @@ function Refit({
   adjustCamera
 }) {
   const api = useBounds();
-  React90.useEffect(() => {
+  React89.useEffect(() => {
     if (adjustCamera)
       api.refresh().clip().fit();
   }, [radius, adjustCamera]);
@@ -44048,7 +41255,7 @@ function Stage({
   const [{
     radius,
     height
-  }, set] = React90.useState({
+  }, set] = React89.useState({
     radius: 0,
     width: 0,
     height: 0,
@@ -44066,7 +41273,7 @@ function Stage({
   const environmentProps = !environment ? null : typeof environment === "string" ? {
     preset: environment
   } : environment;
-  const onCentered = React90.useCallback((props2) => {
+  const onCentered = React89.useCallback((props2) => {
     const {
       width,
       height: height2,
@@ -44082,9 +41289,9 @@ function Stage({
     if (center != null && center.onCentered)
       center.onCentered(props2);
   }, []);
-  return React90.createElement(React90.Fragment, null, React90.createElement("ambientLight", {
+  return React89.createElement(React89.Fragment, null, React89.createElement("ambientLight", {
     intensity: intensity / 3
-  }), React90.createElement("spotLight", {
+  }), React89.createElement("spotLight", {
     penumbra: 1,
     position: [config2.main[0] * radius, config2.main[1] * radius, config2.main[2] * radius],
     intensity: intensity * 2,
@@ -44092,33 +41299,33 @@ function Stage({
     "shadow-bias": shadowBias,
     "shadow-normalBias": normalBias,
     "shadow-mapSize": shadowSize
-  }), React90.createElement("pointLight", {
+  }), React89.createElement("pointLight", {
     position: [config2.fill[0] * radius, config2.fill[1] * radius, config2.fill[2] * radius],
     intensity
-  }), React90.createElement(Bounds, _extends({
+  }), React89.createElement(Bounds, _extends({
     fit: !!adjustCamera,
     clip: !!adjustCamera,
     margin: Number(adjustCamera),
     observe: true
-  }, props), React90.createElement(Refit, {
+  }, props), React89.createElement(Refit, {
     radius,
     adjustCamera
-  }), React90.createElement(Center, _extends({}, center, {
+  }), React89.createElement(Center, _extends({}, center, {
     position: [0, shadowOffset / 2, 0],
     onCentered
-  }), children)), React90.createElement("group", {
+  }), children)), React89.createElement("group", {
     position: [0, -height / 2 - shadowOffset / 2, 0]
-  }, contactShadow && React90.createElement(ContactShadows, _extends({
+  }, contactShadow && React89.createElement(ContactShadows, _extends({
     scale: radius * 4,
     far: radius,
     blur: 2
-  }, shadowSpread)), accumulativeShadow && React90.createElement(AccumulativeShadows, _extends({
+  }, shadowSpread)), accumulativeShadow && React89.createElement(AccumulativeShadows, _extends({
     temporal: true,
     frames: 100,
     alphaTest: 0.9,
     toneMapped: true,
     scale: radius * 4
-  }, shadowSpread), React90.createElement(RandomizedLight, {
+  }, shadowSpread), React89.createElement(RandomizedLight, {
     amount: (_amount = shadowSpread.amount) !== null && _amount !== void 0 ? _amount : 8,
     radius: (_radius = shadowSpread.radius) !== null && _radius !== void 0 ? _radius : radius,
     ambient: (_ambient = shadowSpread.ambient) !== null && _ambient !== void 0 ? _ambient : 0.5,
@@ -44127,11 +41334,11 @@ function Stage({
     size: radius * 4,
     bias: -shadowBias,
     mapSize: shadowSize
-  }))), environment && React90.createElement(Environment, environmentProps));
+  }))), environment && React89.createElement(Environment, environmentProps));
 }
 
 // node_modules/@react-three/drei/core/Backdrop.js
-var React91 = __toESM(require_react());
+var React90 = __toESM(require_react());
 var easeInExpo = (x) => x === 0 ? 0 : Math.pow(2, 10 * x - 10);
 function Backdrop({
   children,
@@ -44140,8 +41347,8 @@ function Backdrop({
   receiveShadow,
   ...props
 }) {
-  const ref = React91.useRef(null);
-  React91.useLayoutEffect(() => {
+  const ref = React90.useRef(null);
+  React90.useLayoutEffect(() => {
     let i3 = 0;
     const offset = segments / segments / 2;
     const position2 = ref.current.attributes.position;
@@ -44153,18 +41360,18 @@ function Backdrop({
     position2.needsUpdate = true;
     ref.current.computeVertexNormals();
   }, [segments, floor]);
-  return React91.createElement("group", props, React91.createElement("mesh", {
+  return React90.createElement("group", props, React90.createElement("mesh", {
     receiveShadow,
     rotation: [-Math.PI / 2, 0, Math.PI / 2]
-  }, React91.createElement("planeGeometry", {
+  }, React90.createElement("planeGeometry", {
     ref,
     args: [1, 1, segments, segments]
   }), children));
 }
 
 // node_modules/@react-three/drei/core/Shadow.js
-var React92 = __toESM(require_react());
-var Shadow = React92.forwardRef(({
+var React91 = __toESM(require_react());
+var Shadow = React91.forwardRef(({
   fog = false,
   renderOrder,
   depthWrite = false,
@@ -44173,7 +41380,7 @@ var Shadow = React92.forwardRef(({
   opacity = 0.5,
   ...props
 }, ref) => {
-  const canvas = React92.useMemo(() => {
+  const canvas = React91.useMemo(() => {
     const canvas2 = document.createElement("canvas");
     canvas2.width = 128;
     canvas2.height = 128;
@@ -44185,24 +41392,24 @@ var Shadow = React92.forwardRef(({
     context10.fillRect(0, 0, canvas2.width, canvas2.height);
     return canvas2;
   }, [color, colorStop]);
-  return React92.createElement("mesh", _extends({
+  return React91.createElement("mesh", _extends({
     renderOrder,
     ref,
     "rotation-x": -Math.PI / 2
-  }, props), React92.createElement("planeGeometry", null), React92.createElement("meshBasicMaterial", {
+  }, props), React91.createElement("planeGeometry", null), React91.createElement("meshBasicMaterial", {
     transparent: true,
     opacity,
     fog,
     depthWrite,
     side: DoubleSide
-  }, React92.createElement("canvasTexture", {
+  }, React91.createElement("canvasTexture", {
     attach: "map",
     args: [canvas]
   })));
 });
 
 // node_modules/@react-three/drei/core/Caustics.js
-var React93 = __toESM(require_react());
+var React92 = __toESM(require_react());
 function createNormalMaterial(side = FrontSide) {
   const viewMatrix = {
     value: new Matrix4()
@@ -44396,7 +41603,7 @@ var CAUSTICPROPS = {
   type: FloatType,
   generateMipmaps: true
 };
-var Caustics = React93.forwardRef(({
+var Caustics = React92.forwardRef(({
   debug,
   children,
   frames = 1,
@@ -44414,21 +41621,21 @@ var Caustics = React93.forwardRef(({
   extend({
     CausticsProjectionMaterial
   });
-  const ref = React93.useRef(null);
-  const camera = React93.useRef(null);
-  const scene = React93.useRef(null);
-  const plane = React93.useRef(null);
+  const ref = React92.useRef(null);
+  const camera = React92.useRef(null);
+  const scene = React92.useRef(null);
+  const plane = React92.useRef(null);
   const gl = useThree((state) => state.gl);
   const helper = useHelper(debug && camera, CameraHelper);
   const normalTarget = useFBO(resolution, resolution, NORMALPROPS);
   const normalTargetB = useFBO(resolution, resolution, NORMALPROPS);
   const causticsTarget = useFBO(resolution, resolution, CAUSTICPROPS);
   const causticsTargetB = useFBO(resolution, resolution, CAUSTICPROPS);
-  const [normalMat] = React93.useState(() => createNormalMaterial());
-  const [normalMatB] = React93.useState(() => createNormalMaterial(BackSide));
-  const [causticsMaterial] = React93.useState(() => new CausticsMaterial());
-  const [causticsQuad] = React93.useState(() => new FullScreenQuad(causticsMaterial));
-  React93.useLayoutEffect(() => {
+  const [normalMat] = React92.useState(() => createNormalMaterial());
+  const [normalMatB] = React92.useState(() => createNormalMaterial(BackSide));
+  const [causticsMaterial] = React92.useState(() => new CausticsMaterial());
+  const [causticsQuad] = React92.useState(() => new FullScreenQuad(causticsMaterial));
+  React92.useLayoutEffect(() => {
     ref.current.updateWorldMatrix(false, true);
   });
   let count = 0;
@@ -44544,19 +41751,19 @@ var Caustics = React93.forwardRef(({
         scene.current.visible = false;
     }
   });
-  React93.useImperativeHandle(fref, () => ref.current, []);
-  return React93.createElement("group", _extends({
+  React92.useImperativeHandle(fref, () => ref.current, []);
+  return React92.createElement("group", _extends({
     ref
-  }, props), React93.createElement("scene", {
+  }, props), React92.createElement("scene", {
     ref: scene
-  }, React93.createElement("orthographicCamera", {
+  }, React92.createElement("orthographicCamera", {
     ref: camera,
     up: [0, 1, 0]
-  }), children), React93.createElement("mesh", {
+  }), children), React92.createElement("mesh", {
     renderOrder: 2,
     ref: plane,
     "rotation-x": -Math.PI / 2
-  }, React93.createElement("planeGeometry", null), React93.createElement("causticsProjectionMaterial", {
+  }, React92.createElement("planeGeometry", null), React92.createElement("causticsProjectionMaterial", {
     transparent: true,
     color,
     causticsTexture: causticsTarget.texture,
@@ -44565,18 +41772,18 @@ var Caustics = React93.forwardRef(({
     blendSrc: OneFactor,
     blendDst: SrcAlphaFactor,
     depthWrite: false
-  }), debug && React93.createElement(Edges, null, React93.createElement("lineBasicMaterial", {
+  }), debug && React92.createElement(Edges, null, React92.createElement("lineBasicMaterial", {
     color: "#ffff00",
     toneMapped: false
   }))));
 });
 
 // node_modules/@react-three/drei/core/Reflector.js
-var React94 = __toESM(require_react());
+var React93 = __toESM(require_react());
 extend({
   MeshReflectorMaterial
 });
-var Reflector = React94.forwardRef(({
+var Reflector = React93.forwardRef(({
   mixBlur = 0,
   mixStrength = 0.5,
   resolution = 256,
@@ -44594,7 +41801,7 @@ var Reflector = React94.forwardRef(({
   distortionMap,
   ...props
 }, ref) => {
-  React94.useEffect(() => {
+  React93.useEffect(() => {
     console.warn("Reflector has been deprecated and will be removed next major. Replace it with <MeshReflectorMaterial />!");
   }, []);
   const gl = useThree(({
@@ -44608,20 +41815,20 @@ var Reflector = React94.forwardRef(({
   }) => scene2);
   blur = Array.isArray(blur) ? blur : [blur, blur];
   const hasBlur = blur[0] + blur[1] > 0;
-  const meshRef = React94.useRef(null);
-  const [reflectorPlane] = React94.useState(() => new Plane());
-  const [normal2] = React94.useState(() => new Vector3());
-  const [reflectorWorldPosition] = React94.useState(() => new Vector3());
-  const [cameraWorldPosition] = React94.useState(() => new Vector3());
-  const [rotationMatrix] = React94.useState(() => new Matrix4());
-  const [lookAtPosition] = React94.useState(() => new Vector3(0, 0, -1));
-  const [clipPlane] = React94.useState(() => new Vector4());
-  const [view] = React94.useState(() => new Vector3());
-  const [target2] = React94.useState(() => new Vector3());
-  const [q] = React94.useState(() => new Vector4());
-  const [textureMatrix] = React94.useState(() => new Matrix4());
-  const [virtualCamera] = React94.useState(() => new PerspectiveCamera());
-  const beforeRender = React94.useCallback(() => {
+  const meshRef = React93.useRef(null);
+  const [reflectorPlane] = React93.useState(() => new Plane());
+  const [normal2] = React93.useState(() => new Vector3());
+  const [reflectorWorldPosition] = React93.useState(() => new Vector3());
+  const [cameraWorldPosition] = React93.useState(() => new Vector3());
+  const [rotationMatrix] = React93.useState(() => new Matrix4());
+  const [lookAtPosition] = React93.useState(() => new Vector3(0, 0, -1));
+  const [clipPlane] = React93.useState(() => new Vector4());
+  const [view] = React93.useState(() => new Vector3());
+  const [target2] = React93.useState(() => new Vector3());
+  const [q] = React93.useState(() => new Vector4());
+  const [textureMatrix] = React93.useState(() => new Matrix4());
+  const [virtualCamera] = React93.useState(() => new PerspectiveCamera());
+  const beforeRender = React93.useCallback(() => {
     reflectorWorldPosition.setFromMatrixPosition(meshRef.current.matrixWorld);
     cameraWorldPosition.setFromMatrixPosition(camera.matrixWorld);
     rotationMatrix.extractRotation(meshRef.current.matrixWorld);
@@ -44665,7 +41872,7 @@ var Reflector = React94.forwardRef(({
     projectionMatrix.elements[10] = clipPlane.z + 1;
     projectionMatrix.elements[14] = clipPlane.w;
   }, []);
-  const [fbo1, fbo2, blurpass, reflectorProps] = React94.useMemo(() => {
+  const [fbo1, fbo2, blurpass, reflectorProps] = React93.useMemo(() => {
     const parameters = {
       type: HalfFloatType,
       minFilter: LinearFilter,
@@ -44732,15 +41939,15 @@ var Reflector = React94.forwardRef(({
     meshRef.current.visible = true;
     gl.setRenderTarget(null);
   });
-  return React94.createElement("mesh", _extends({
+  return React93.createElement("mesh", _extends({
     ref: react_merge_refs_esm_default([meshRef, ref])
-  }, props), React94.createElement("planeGeometry", {
+  }, props), React93.createElement("planeGeometry", {
     args
-  }), children ? children("meshReflectorMaterial", reflectorProps) : React94.createElement("meshReflectorMaterial", reflectorProps));
+  }), children ? children("meshReflectorMaterial", reflectorProps) : React93.createElement("meshReflectorMaterial", reflectorProps));
 });
 
 // node_modules/@react-three/drei/core/SpotLight.js
-var React95 = __toESM(require_react());
+var React94 = __toESM(require_react());
 
 // node_modules/@react-three/drei/materials/SpotLightMaterial.js
 var SpotLightMaterial = class extends ShaderMaterial {
@@ -44870,29 +42077,29 @@ function VolumetricMesh({
   attenuation = 5,
   anglePower = 5
 }) {
-  const mesh = React95.useRef(null);
+  const mesh = React94.useRef(null);
   const size = useThree((state) => state.size);
   const camera = useThree((state) => state.camera);
   const dpr = useThree((state) => state.viewport.dpr);
-  const [material] = React95.useState(() => new SpotLightMaterial());
-  const [vec] = React95.useState(() => new Vector3());
+  const [material] = React94.useState(() => new SpotLightMaterial());
+  const [vec] = React94.useState(() => new Vector3());
   radiusTop = radiusTop === void 0 ? 0.1 : radiusTop;
   radiusBottom = radiusBottom === void 0 ? angle * 7 : radiusBottom;
   useFrame(() => {
     material.uniforms.spotPosition.value.copy(mesh.current.getWorldPosition(vec));
     mesh.current.lookAt(mesh.current.parent.target.getWorldPosition(vec));
   });
-  const geom = React95.useMemo(() => {
+  const geom = React94.useMemo(() => {
     const geometry = new CylinderGeometry(radiusTop, radiusBottom, distance, 128, 64, true);
     geometry.applyMatrix4(new Matrix4().makeTranslation(0, -distance / 2, 0));
     geometry.applyMatrix4(new Matrix4().makeRotationX(-Math.PI / 2));
     return geometry;
   }, [distance, radiusTop, radiusBottom]);
-  return React95.createElement(React95.Fragment, null, React95.createElement("mesh", {
+  return React94.createElement(React94.Fragment, null, React94.createElement("mesh", {
     ref: mesh,
     geometry: geom,
     raycast: () => null
-  }, React95.createElement("primitive", {
+  }, React94.createElement("primitive", {
     object: material,
     attach: "material",
     "uniforms-opacity-value": opacity,
@@ -44906,8 +42113,8 @@ function VolumetricMesh({
   })));
 }
 function useCommon(spotlight, mesh, width, height, distance) {
-  const [[pos, dir]] = React95.useState(() => [new Vector3(), new Vector3()]);
-  React95.useLayoutEffect(() => {
+  const [[pos, dir]] = React94.useState(() => [new Vector3(), new Vector3()]);
+  React94.useLayoutEffect(() => {
     if (isSpotLight(spotlight.current)) {
       spotlight.current.shadow.mapSize.set(width, height);
       spotlight.current.shadow.needsUpdate = true;
@@ -44939,17 +42146,17 @@ function SpotlightShadowWithShader({
   children,
   ...rest
 }) {
-  const mesh = React95.useRef(null);
+  const mesh = React94.useRef(null);
   const spotlight = rest.spotlightRef;
   const debug = rest.debug;
   useCommon(spotlight, mesh, width, height, distance);
-  const renderTarget = React95.useMemo(() => new WebGLRenderTarget(width, height, {
+  const renderTarget = React94.useMemo(() => new WebGLRenderTarget(width, height, {
     format: RGBAFormat,
     encoding: LinearEncoding,
     stencilBuffer: false
     // depthTexture: null!
   }), [width, height]);
-  const uniforms = React95.useRef({
+  const uniforms = React94.useRef({
     uShadowMap: {
       value: map
     },
@@ -44957,8 +42164,8 @@ function SpotlightShadowWithShader({
       value: 0
     }
   });
-  React95.useEffect(() => void (uniforms.current.uShadowMap.value = map), [map]);
-  const fsQuad = React95.useMemo(() => new FullScreenQuad(new ShaderMaterial({
+  React94.useEffect(() => void (uniforms.current.uShadowMap.value = map), [map]);
+  const fsQuad = React94.useMemo(() => new FullScreenQuad(new ShaderMaterial({
     uniforms: uniforms.current,
     vertexShader: (
       /* glsl */
@@ -44973,11 +42180,11 @@ function SpotlightShadowWithShader({
     ),
     fragmentShader: shader
   })), [shader]);
-  React95.useEffect(() => () => {
+  React94.useEffect(() => () => {
     fsQuad.material.dispose();
     fsQuad.dispose();
   }, [fsQuad]);
-  React95.useEffect(() => () => renderTarget.dispose(), [renderTarget]);
+  React94.useEffect(() => () => renderTarget.dispose(), [renderTarget]);
   useFrame(({
     gl
   }, dt) => {
@@ -44986,11 +42193,11 @@ function SpotlightShadowWithShader({
     fsQuad.render(gl);
     gl.setRenderTarget(null);
   });
-  return React95.createElement(React95.Fragment, null, React95.createElement("mesh", {
+  return React94.createElement(React94.Fragment, null, React94.createElement("mesh", {
     ref: mesh,
     scale: scale2,
     castShadow: true
-  }, React95.createElement("planeGeometry", null), React95.createElement("meshBasicMaterial", {
+  }, React94.createElement("planeGeometry", null), React94.createElement("meshBasicMaterial", {
     transparent: true,
     side: DoubleSide,
     alphaTest,
@@ -45010,15 +42217,15 @@ function SpotlightShadowWithoutShader({
   children,
   ...rest
 }) {
-  const mesh = React95.useRef(null);
+  const mesh = React94.useRef(null);
   const spotlight = rest.spotlightRef;
   const debug = rest.debug;
   useCommon(spotlight, mesh, width, height, distance);
-  return React95.createElement(React95.Fragment, null, React95.createElement("mesh", {
+  return React94.createElement(React94.Fragment, null, React94.createElement("mesh", {
     ref: mesh,
     scale: scale2,
     castShadow: true
-  }, React95.createElement("planeGeometry", null), React95.createElement("meshBasicMaterial", {
+  }, React94.createElement("planeGeometry", null), React94.createElement("meshBasicMaterial", {
     transparent: true,
     side: DoubleSide,
     alphaTest,
@@ -45030,10 +42237,10 @@ function SpotlightShadowWithoutShader({
 }
 function SpotLightShadow(props) {
   if (props.shader)
-    return React95.createElement(SpotlightShadowWithShader, props);
-  return React95.createElement(SpotlightShadowWithoutShader, props);
+    return React94.createElement(SpotlightShadowWithShader, props);
+  return React94.createElement(SpotlightShadowWithoutShader, props);
 }
-var SpotLight = React95.forwardRef(({
+var SpotLight = React94.forwardRef(({
   // Volumetric
   opacity = 1,
   radiusTop,
@@ -45049,16 +42256,16 @@ var SpotLight = React95.forwardRef(({
   children,
   ...props
 }, ref) => {
-  const spotlight = React95.useRef(null);
-  return React95.createElement("group", null, debug && spotlight.current && React95.createElement("spotLightHelper", {
+  const spotlight = React94.useRef(null);
+  return React94.createElement("group", null, debug && spotlight.current && React94.createElement("spotLightHelper", {
     args: [spotlight.current]
-  }), React95.createElement("spotLight", _extends({
+  }), React94.createElement("spotLight", _extends({
     ref: react_merge_refs_esm_default([ref, spotlight]),
     angle,
     color,
     distance,
     castShadow: true
-  }, props), volumetric && React95.createElement(VolumetricMesh, {
+  }, props), volumetric && React94.createElement(VolumetricMesh, {
     debug,
     opacity,
     radiusTop,
@@ -45069,15 +42276,15 @@ var SpotLight = React95.forwardRef(({
     angle,
     attenuation,
     anglePower
-  })), children && React95.cloneElement(children, {
+  })), children && React94.cloneElement(children, {
     spotlightRef: spotlight,
     debug
   }));
 });
 
 // node_modules/@react-three/drei/core/Lightformer.js
-var React96 = __toESM(require_react());
-var Lightformer = React96.forwardRef(({
+var React95 = __toESM(require_react());
+var Lightformer = React95.forwardRef(({
   args,
   map,
   toneMapped = false,
@@ -45089,8 +42296,8 @@ var Lightformer = React96.forwardRef(({
   children,
   ...props
 }, forwardRef71) => {
-  const ref = React96.useRef(null);
-  React96.useLayoutEffect(() => {
+  const ref = React95.useRef(null);
+  React95.useLayoutEffect(() => {
     if (!children && !props.material) {
       applyProps(ref.current.material, {
         color
@@ -45098,21 +42305,21 @@ var Lightformer = React96.forwardRef(({
       ref.current.material.color.multiplyScalar(intensity);
     }
   }, [color, intensity, children, props.material]);
-  React96.useLayoutEffect(() => {
+  React95.useLayoutEffect(() => {
     if (target2)
       ref.current.lookAt(Array.isArray(target2) ? new Vector3(...target2) : target2);
   }, [target2]);
   scale2 = Array.isArray(scale2) && scale2.length === 2 ? [scale2[0], scale2[1], 1] : scale2;
-  return React96.createElement("mesh", _extends({
+  return React95.createElement("mesh", _extends({
     ref: react_merge_refs_esm_default([ref, forwardRef71]),
     scale: scale2
-  }, props), Form === "circle" ? React96.createElement("ringGeometry", {
+  }, props), Form === "circle" ? React95.createElement("ringGeometry", {
     args: [0, 1, 64]
-  }) : Form === "ring" ? React96.createElement("ringGeometry", {
+  }) : Form === "ring" ? React95.createElement("ringGeometry", {
     args: [0.5, 1, 64]
-  }) : Form === "rect" ? React96.createElement("planeGeometry", null) : React96.createElement(Form, {
+  }) : Form === "rect" ? React95.createElement("planeGeometry", null) : React95.createElement(Form, {
     args
-  }), children ? children : !props.material ? React96.createElement("meshBasicMaterial", {
+  }), children ? children : !props.material ? React95.createElement("meshBasicMaterial", {
     toneMapped,
     map,
     side: DoubleSide
@@ -45120,7 +42327,7 @@ var Lightformer = React96.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Sky.js
-var React97 = __toESM(require_react());
+var React96 = __toESM(require_react());
 function calcPosFromAngles(inclination, azimuth, vector = new Vector3()) {
   const theta = Math.PI * (inclination - 0.5);
   const phi = 2 * Math.PI * (azimuth - 0.5);
@@ -45129,7 +42336,7 @@ function calcPosFromAngles(inclination, azimuth, vector = new Vector3()) {
   vector.z = Math.sin(phi);
   return vector;
 }
-var Sky2 = React97.forwardRef(({
+var Sky2 = React96.forwardRef(({
   inclination = 0.6,
   azimuth = 0.1,
   distance = 1e3,
@@ -45140,9 +42347,9 @@ var Sky2 = React97.forwardRef(({
   sunPosition = calcPosFromAngles(inclination, azimuth),
   ...props
 }, ref) => {
-  const scale2 = React97.useMemo(() => new Vector3().setScalar(distance), [distance]);
-  const [sky] = React97.useState(() => new Sky());
-  return React97.createElement("primitive", _extends({
+  const scale2 = React96.useMemo(() => new Vector3().setScalar(distance), [distance]);
+  const [sky] = React96.useState(() => new Sky());
+  return React96.createElement("primitive", _extends({
     object: sky,
     ref,
     "material-uniforms-mieCoefficient-value": mieCoefficient,
@@ -45155,7 +42362,7 @@ var Sky2 = React97.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Stars.js
-var React98 = __toESM(require_react());
+var React97 = __toESM(require_react());
 var StarfieldMaterial = class extends ShaderMaterial {
   constructor() {
     super({
@@ -45204,7 +42411,7 @@ var StarfieldMaterial = class extends ShaderMaterial {
 var genStar = (r2) => {
   return new Vector3().setFromSpherical(new Spherical(r2, Math.acos(1 - Math.random() * 2), Math.random() * 2 * Math.PI));
 };
-var Stars = React98.forwardRef(({
+var Stars = React97.forwardRef(({
   radius = 100,
   depth = 50,
   count = 5e3,
@@ -45213,8 +42420,8 @@ var Stars = React98.forwardRef(({
   fade = false,
   speed = 1
 }, ref) => {
-  const material = React98.useRef();
-  const [position2, color, size] = React98.useMemo(() => {
+  const material = React97.useRef();
+  const [position2, color, size] = React97.useMemo(() => {
     const positions = [];
     const colors3 = [];
     const sizes = Array.from({
@@ -45232,19 +42439,19 @@ var Stars = React98.forwardRef(({
     return [new Float32Array(positions), new Float32Array(colors3), new Float32Array(sizes)];
   }, [count, depth, factor, radius, saturation]);
   useFrame((state) => material.current && (material.current.uniforms.time.value = state.clock.getElapsedTime() * speed));
-  const [starfieldMaterial] = React98.useState(() => new StarfieldMaterial());
-  return React98.createElement("points", {
+  const [starfieldMaterial] = React97.useState(() => new StarfieldMaterial());
+  return React97.createElement("points", {
     ref
-  }, React98.createElement("bufferGeometry", null, React98.createElement("bufferAttribute", {
+  }, React97.createElement("bufferGeometry", null, React97.createElement("bufferAttribute", {
     attach: "attributes-position",
     args: [position2, 3]
-  }), React98.createElement("bufferAttribute", {
+  }), React97.createElement("bufferAttribute", {
     attach: "attributes-color",
     args: [color, 3]
-  }), React98.createElement("bufferAttribute", {
+  }), React97.createElement("bufferAttribute", {
     attach: "attributes-size",
     args: [size, 1]
-  })), React98.createElement("primitive", {
+  })), React97.createElement("primitive", {
     ref: material,
     object: starfieldMaterial,
     attach: "material",
@@ -45257,7 +42464,7 @@ var Stars = React98.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Cloud.js
-var React99 = __toESM(require_react());
+var React98 = __toESM(require_react());
 var CLOUD_URL = "https://rawcdn.githack.com/pmndrs/drei-assets/9225a9f1fbd449d9411125c2f419b843d0308c9f/cloud.png";
 function Cloud({
   opacity = 0.5,
@@ -45270,9 +42477,9 @@ function Cloud({
   depthTest = true,
   ...props
 }) {
-  const group = React99.useRef();
+  const group = React98.useRef();
   const cloudTexture = useTexture(texture);
-  const clouds = React99.useMemo(() => [...new Array(segments)].map((_, index) => ({
+  const clouds = React98.useMemo(() => [...new Array(segments)].map((_, index) => ({
     x: width / 2 - Math.random() * width,
     y: width / 2 - Math.random() * width,
     scale: 0.4 + Math.sin((index + 1) / segments * Math.PI) * ((0.2 + Math.random()) * 10),
@@ -45286,7 +42493,7 @@ function Cloud({
       cloud.children[0].scale.setScalar(clouds[index].scale + (1 + Math.sin(state.clock.getElapsedTime() / 10)) / 2 * index / 10);
     });
   });
-  return React99.createElement("group", props, React99.createElement("group", {
+  return React98.createElement("group", props, React98.createElement("group", {
     position: [0, 0, segments / 2 * depth],
     ref: group
   }, clouds.map(({
@@ -45294,13 +42501,13 @@ function Cloud({
     y,
     scale: scale2,
     density
-  }, index) => React99.createElement(Billboard, {
+  }, index) => React98.createElement(Billboard, {
     key: index,
     position: [x, y, -index * depth]
-  }, React99.createElement(Plane2, {
+  }, React98.createElement(Plane2, {
     scale: scale2,
     rotation: [0, 0, 0]
-  }, React99.createElement("meshStandardMaterial", {
+  }, React98.createElement("meshStandardMaterial", {
     map: cloudTexture,
     transparent: true,
     opacity: scale2 / 6 * density * opacity,
@@ -45310,7 +42517,7 @@ function Cloud({
 }
 
 // node_modules/@react-three/drei/core/Sparkles.js
-var React100 = __toESM(require_react());
+var React99 = __toESM(require_react());
 var SparklesImplMaterial = shaderMaterial({
   time: 0,
   pixelRatio: 1
@@ -45355,7 +42562,7 @@ var normalizeVector = (v4) => {
   return [v4, v4, v4];
 };
 function usePropAsIsOrAsAttribute(count, prop, setDefault) {
-  return React100.useMemo(() => {
+  return React99.useMemo(() => {
     if (prop !== void 0) {
       if (isFloat32Array(prop)) {
         return prop;
@@ -45381,7 +42588,7 @@ function usePropAsIsOrAsAttribute(count, prop, setDefault) {
     }, setDefault);
   }, [prop]);
 }
-var Sparkles = React100.forwardRef(({
+var Sparkles = React99.forwardRef(({
   noise = 1,
   count = 100,
   speed = 1,
@@ -45392,12 +42599,12 @@ var Sparkles = React100.forwardRef(({
   children,
   ...props
 }, forwardRef71) => {
-  React100.useMemo(() => extend({
+  React99.useMemo(() => extend({
     SparklesImplMaterial
   }), []);
-  const ref = React100.useRef(null);
+  const ref = React99.useRef(null);
   const dpr = useThree((state) => state.viewport.dpr);
-  const positions = React100.useMemo(() => Float32Array.from(Array.from({
+  const positions = React99.useMemo(() => Float32Array.from(Array.from({
     length: count
   }, () => normalizeVector(scale2).map(MathUtils.randFloatSpread)).flat()), [count, scale2]);
   const sizes = usePropAsIsOrAsAttribute(count, size, Math.random);
@@ -45409,30 +42616,30 @@ var Sparkles = React100.forwardRef(({
     if (ref.current && ref.current.material)
       ref.current.material.time = state.clock.elapsedTime;
   });
-  React100.useImperativeHandle(forwardRef71, () => ref.current, []);
-  return React100.createElement("points", _extends({
+  React99.useImperativeHandle(forwardRef71, () => ref.current, []);
+  return React99.createElement("points", _extends({
     key: `particle-${count}-${JSON.stringify(scale2)}`
   }, props, {
     ref
-  }), React100.createElement("bufferGeometry", null, React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferGeometry", null, React99.createElement("bufferAttribute", {
     attach: "attributes-position",
     args: [positions, 3]
-  }), React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferAttribute", {
     attach: "attributes-size",
     args: [sizes, 1]
-  }), React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferAttribute", {
     attach: "attributes-opacity",
     args: [opacities, 1]
-  }), React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferAttribute", {
     attach: "attributes-speed",
     args: [speeds, 1]
-  }), React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferAttribute", {
     attach: "attributes-color",
     args: [colors3, 3]
-  }), React100.createElement("bufferAttribute", {
+  }), React99.createElement("bufferAttribute", {
     attach: "attributes-noise",
     args: [noises, 3]
-  })), children ? children : React100.createElement("sparklesImplMaterial", {
+  })), children ? children : React99.createElement("sparklesImplMaterial", {
     transparent: true,
     pixelRatio: dpr,
     depthWrite: false
@@ -45440,7 +42647,7 @@ var Sparkles = React100.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/useMatcapTexture.js
-var React101 = __toESM(require_react());
+var React100 = __toESM(require_react());
 function getFormatString(format) {
   switch (format) {
     case 64:
@@ -45460,8 +42667,8 @@ var MATCAP_ROOT = "https://rawcdn.githack.com/emmelleppi/matcaps/9b36ccaaf0a2488
 function useMatcapTexture(id = 0, format = 1024, onLoad) {
   const matcapList = suspend(() => fetch(LIST_URL).then((res) => res.json()), ["matcapList"]);
   const DEFAULT_MATCAP = matcapList[0];
-  const numTot = React101.useMemo(() => Object.keys(matcapList).length, []);
-  const fileHash = React101.useMemo(() => {
+  const numTot = React100.useMemo(() => Object.keys(matcapList).length, []);
+  const fileHash = React100.useMemo(() => {
     if (typeof id === "string") {
       return id;
     } else if (typeof id === "number") {
@@ -45476,7 +42683,7 @@ function useMatcapTexture(id = 0, format = 1024, onLoad) {
 }
 
 // node_modules/@react-three/drei/core/useNormalTexture.js
-var React102 = __toESM(require_react());
+var React101 = __toESM(require_react());
 var NORMAL_ROOT = "https://rawcdn.githack.com/pmndrs/drei-assets/7a3104997e1576f83472829815b00880d88b32fb";
 var LIST_URL2 = "https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/normals/normals.json";
 function useNormalTexture(id = 0, settings = {}, onLoad) {
@@ -45486,12 +42693,12 @@ function useNormalTexture(id = 0, settings = {}, onLoad) {
     offset = [0, 0]
   } = settings;
   const normalsList = suspend(() => fetch(LIST_URL2).then((res) => res.json()), ["normalsList"]);
-  const numTot = React102.useMemo(() => Object.keys(normalsList).length, []);
+  const numTot = React101.useMemo(() => Object.keys(normalsList).length, []);
   const DEFAULT_NORMAL = normalsList[0];
   const imageName = normalsList[id] || DEFAULT_NORMAL;
   const url = `${NORMAL_ROOT}/normals/${imageName}`;
   const normalTexture = useTexture(url, onLoad);
-  React102.useLayoutEffect(() => {
+  React101.useLayoutEffect(() => {
     if (!normalTexture)
       return;
     normalTexture.wrapS = normalTexture.wrapT = RepeatWrapping;
@@ -45503,10 +42710,10 @@ function useNormalTexture(id = 0, settings = {}, onLoad) {
 }
 
 // node_modules/@react-three/drei/core/Wireframe.js
-var React104 = __toESM(require_react());
+var React103 = __toESM(require_react());
 
 // node_modules/@react-three/drei/materials/WireframeMaterial.js
-var React103 = __toESM(require_react());
+var React102 = __toESM(require_react());
 var WireframeMaterialShaders = {
   uniforms: {
     strokeOpacity: 1,
@@ -45690,45 +42897,45 @@ function setWireframeOverride(material, uniforms) {
   material.transparent = true;
 }
 function useWireframeUniforms(uniforms, props) {
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$fillOpacity;
     return void (uniforms.fillOpacity.value = (_props$fillOpacity = props.fillOpacity) !== null && _props$fillOpacity !== void 0 ? _props$fillOpacity : uniforms.fillOpacity.value);
   }, [props.fillOpacity]);
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$fillMix;
     return void (uniforms.fillMix.value = (_props$fillMix = props.fillMix) !== null && _props$fillMix !== void 0 ? _props$fillMix : uniforms.fillMix.value);
   }, [props.fillMix]);
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$strokeOpacity;
     return void (uniforms.strokeOpacity.value = (_props$strokeOpacity = props.strokeOpacity) !== null && _props$strokeOpacity !== void 0 ? _props$strokeOpacity : uniforms.strokeOpacity.value);
   }, [props.strokeOpacity]);
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$thickness;
     return void (uniforms.thickness.value = (_props$thickness = props.thickness) !== null && _props$thickness !== void 0 ? _props$thickness : uniforms.thickness.value);
   }, [props.thickness]);
-  React103.useEffect(() => void (uniforms.colorBackfaces.value = !!props.colorBackfaces), [props.colorBackfaces]);
-  React103.useEffect(() => void (uniforms.dash.value = !!props.dash), [props.dash]);
-  React103.useEffect(() => void (uniforms.dashInvert.value = !!props.dashInvert), [props.dashInvert]);
-  React103.useEffect(() => {
+  React102.useEffect(() => void (uniforms.colorBackfaces.value = !!props.colorBackfaces), [props.colorBackfaces]);
+  React102.useEffect(() => void (uniforms.dash.value = !!props.dash), [props.dash]);
+  React102.useEffect(() => void (uniforms.dashInvert.value = !!props.dashInvert), [props.dashInvert]);
+  React102.useEffect(() => {
     var _props$dashRepeats;
     return void (uniforms.dashRepeats.value = (_props$dashRepeats = props.dashRepeats) !== null && _props$dashRepeats !== void 0 ? _props$dashRepeats : uniforms.dashRepeats.value);
   }, [props.dashRepeats]);
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$dashLength;
     return void (uniforms.dashLength.value = (_props$dashLength = props.dashLength) !== null && _props$dashLength !== void 0 ? _props$dashLength : uniforms.dashLength.value);
   }, [props.dashLength]);
-  React103.useEffect(() => void (uniforms.squeeze.value = !!props.squeeze), [props.squeeze]);
-  React103.useEffect(() => {
+  React102.useEffect(() => void (uniforms.squeeze.value = !!props.squeeze), [props.squeeze]);
+  React102.useEffect(() => {
     var _props$squeezeMin;
     return void (uniforms.squeezeMin.value = (_props$squeezeMin = props.squeezeMin) !== null && _props$squeezeMin !== void 0 ? _props$squeezeMin : uniforms.squeezeMin.value);
   }, [props.squeezeMin]);
-  React103.useEffect(() => {
+  React102.useEffect(() => {
     var _props$squeezeMax;
     return void (uniforms.squeezeMax.value = (_props$squeezeMax = props.squeezeMax) !== null && _props$squeezeMax !== void 0 ? _props$squeezeMax : uniforms.squeezeMax.value);
   }, [props.squeezeMax]);
-  React103.useEffect(() => void (uniforms.stroke.value = props.stroke ? new Color(props.stroke) : uniforms.stroke.value), [props.stroke]);
-  React103.useEffect(() => void (uniforms.fill.value = props.fill ? new Color(props.fill) : uniforms.fill.value), [props.fill]);
-  React103.useEffect(() => void (uniforms.backfaceStroke.value = props.backfaceStroke ? new Color(props.backfaceStroke) : uniforms.backfaceStroke.value), [props.backfaceStroke]);
+  React102.useEffect(() => void (uniforms.stroke.value = props.stroke ? new Color(props.stroke) : uniforms.stroke.value), [props.stroke]);
+  React102.useEffect(() => void (uniforms.fill.value = props.fill ? new Color(props.fill) : uniforms.fill.value), [props.fill]);
+  React102.useEffect(() => void (uniforms.backfaceStroke.value = props.backfaceStroke ? new Color(props.backfaceStroke) : uniforms.backfaceStroke.value), [props.backfaceStroke]);
 }
 
 // node_modules/@react-three/drei/core/Wireframe.js
@@ -45806,8 +43013,8 @@ function WireframeWithCustomGeo({
   simplify = false,
   ...props
 }) {
-  const [geometry, setGeometry] = React104.useState(null);
-  React104.useLayoutEffect(() => {
+  const [geometry, setGeometry] = React103.useState(null);
+  React103.useLayoutEffect(() => {
     const geom = getInputGeometry(customGeometry);
     if (!geom) {
       throw new Error("Wireframe: geometry prop must be a BufferGeometry or a ref to a BufferGeometry.");
@@ -45818,9 +43025,9 @@ function WireframeWithCustomGeo({
     }
   }, [simplify, customGeometry]);
   const drawnGeo = isRef2(customGeometry) ? geometry : customGeometry;
-  return React104.createElement(React104.Fragment, null, drawnGeo && React104.createElement("mesh", {
+  return React103.createElement(React103.Fragment, null, drawnGeo && React103.createElement("mesh", {
     geometry: drawnGeo
-  }, React104.createElement("meshWireframeMaterial", _extends({
+  }, React103.createElement("meshWireframeMaterial", _extends({
     attach: "material",
     transparent: true,
     side: DoubleSide,
@@ -45839,10 +43046,10 @@ function WireframeWithoutCustomGeo({
   simplify = false,
   ...props
 }) {
-  const objectRef = React104.useRef(null);
-  const uniforms = React104.useMemo(() => getUniforms(), [WireframeMaterialShaders.uniforms]);
+  const objectRef = React103.useRef(null);
+  const uniforms = React103.useMemo(() => getUniforms(), [WireframeMaterialShaders.uniforms]);
   useWireframeUniforms(uniforms, props);
-  React104.useLayoutEffect(() => {
+  React103.useLayoutEffect(() => {
     const geom = getInputGeometry(objectRef);
     if (!geom) {
       throw new Error("Wireframe: Must be a child of a Mesh, Line or Points object or specify a geometry prop.");
@@ -45854,7 +43061,7 @@ function WireframeWithoutCustomGeo({
       og.dispose();
     };
   }, [simplify]);
-  React104.useLayoutEffect(() => {
+  React103.useLayoutEffect(() => {
     const parentMesh = objectRef.current.parent;
     const og = parentMesh.material.clone();
     setWireframeOverride(parentMesh.material, uniforms);
@@ -45863,7 +43070,7 @@ function WireframeWithoutCustomGeo({
       parentMesh.material = og;
     };
   }, []);
-  return React104.createElement("object3D", {
+  return React103.createElement("object3D", {
     ref: objectRef
   });
 }
@@ -45872,15 +43079,15 @@ function Wireframe({
   ...props
 }) {
   if (customGeometry) {
-    return React104.createElement(WireframeWithCustomGeo, _extends({
+    return React103.createElement(WireframeWithCustomGeo, _extends({
       geometry: customGeometry
     }, props));
   }
-  return React104.createElement(WireframeWithoutCustomGeo, props);
+  return React103.createElement(WireframeWithoutCustomGeo, props);
 }
 
 // node_modules/@react-three/drei/core/Points.js
-var React105 = __toESM(require_react());
+var React104 = __toESM(require_react());
 var _inverseMatrix = new Matrix4();
 var _ray = new Ray();
 var _sphere2 = new Sphere();
@@ -45939,23 +43146,23 @@ var PositionPoint = class extends Group {
 };
 var i2;
 var positionRef;
-var context6 = React105.createContext(null);
+var context6 = React104.createContext(null);
 var parentMatrix = new Matrix4();
 var position = new Vector3();
-var PointsInstances = React105.forwardRef(({
+var PointsInstances = React104.forwardRef(({
   children,
   range,
   limit = 1e3,
   ...props
 }, ref) => {
-  const parentRef = React105.useRef(null);
-  const [refs, setRefs] = React105.useState([]);
-  const [[positions, colors3, sizes]] = React105.useState(() => [new Float32Array(limit * 3), Float32Array.from({
+  const parentRef = React104.useRef(null);
+  const [refs, setRefs] = React104.useState([]);
+  const [[positions, colors3, sizes]] = React104.useState(() => [new Float32Array(limit * 3), Float32Array.from({
     length: limit * 3
   }, () => 1), Float32Array.from({
     length: limit
   }, () => 1)]);
-  React105.useEffect(() => {
+  React104.useEffect(() => {
     parentRef.current.geometry.attributes.position.needsUpdate = true;
   });
   useFrame(() => {
@@ -45975,62 +43182,62 @@ var PointsInstances = React105.forwardRef(({
       parentRef.current.geometry.attributes.size.needsUpdate = true;
     }
   });
-  const api = React105.useMemo(() => ({
+  const api = React104.useMemo(() => ({
     getParent: () => parentRef,
     subscribe: (ref2) => {
       setRefs((refs2) => [...refs2, ref2]);
       return () => setRefs((refs2) => refs2.filter((item) => item.current !== ref2.current));
     }
   }), []);
-  return React105.createElement("points", _extends({
+  return React104.createElement("points", _extends({
     userData: {
       instances: refs
     },
     matrixAutoUpdate: false,
     ref: react_merge_refs_esm_default([ref, parentRef]),
     raycast: () => null
-  }, props), React105.createElement("bufferGeometry", null, React105.createElement("bufferAttribute", {
+  }, props), React104.createElement("bufferGeometry", null, React104.createElement("bufferAttribute", {
     attach: "attributes-position",
     count: positions.length / 3,
     array: positions,
     itemSize: 3,
     usage: DynamicDrawUsage
-  }), React105.createElement("bufferAttribute", {
+  }), React104.createElement("bufferAttribute", {
     attach: "attributes-color",
     count: colors3.length / 3,
     array: colors3,
     itemSize: 3,
     usage: DynamicDrawUsage
-  }), React105.createElement("bufferAttribute", {
+  }), React104.createElement("bufferAttribute", {
     attach: "attributes-size",
     count: sizes.length,
     array: sizes,
     itemSize: 1,
     usage: DynamicDrawUsage
-  })), React105.createElement(context6.Provider, {
+  })), React104.createElement(context6.Provider, {
     value: api
   }, children));
 });
-var Point = React105.forwardRef(({
+var Point = React104.forwardRef(({
   children,
   ...props
 }, ref) => {
-  React105.useMemo(() => extend({
+  React104.useMemo(() => extend({
     PositionPoint
   }), []);
-  const group = React105.useRef();
+  const group = React104.useRef();
   const {
     subscribe,
     getParent
-  } = React105.useContext(context6);
-  React105.useLayoutEffect(() => subscribe(group), []);
-  return React105.createElement("positionPoint", _extends({
+  } = React104.useContext(context6);
+  React104.useLayoutEffect(() => subscribe(group), []);
+  return React104.createElement("positionPoint", _extends({
     instance: getParent(),
     instanceKey: group,
     ref: react_merge_refs_esm_default([ref, group])
   }, props), children);
 });
-var PointsBuffer = React105.forwardRef(({
+var PointsBuffer = React104.forwardRef(({
   children,
   positions,
   colors: colors3,
@@ -46038,7 +43245,7 @@ var PointsBuffer = React105.forwardRef(({
   stride = 3,
   ...props
 }, forwardedRef) => {
-  const pointsRef = React105.useRef(null);
+  const pointsRef = React104.useRef(null);
   useFrame(() => {
     const attr = pointsRef.current.geometry.attributes;
     attr.position.needsUpdate = true;
@@ -46047,21 +43254,21 @@ var PointsBuffer = React105.forwardRef(({
     if (sizes)
       attr.size.needsUpdate = true;
   });
-  return React105.createElement("points", _extends({
+  return React104.createElement("points", _extends({
     ref: react_merge_refs_esm_default([forwardedRef, pointsRef])
-  }, props), React105.createElement("bufferGeometry", null, React105.createElement("bufferAttribute", {
+  }, props), React104.createElement("bufferGeometry", null, React104.createElement("bufferAttribute", {
     attach: "attributes-position",
     count: positions.length / stride,
     array: positions,
     itemSize: stride,
     usage: DynamicDrawUsage
-  }), colors3 && React105.createElement("bufferAttribute", {
+  }), colors3 && React104.createElement("bufferAttribute", {
     attach: "attributes-color",
     count: colors3.length / stride,
     array: colors3,
     itemSize: 3,
     usage: DynamicDrawUsage
-  }), sizes && React105.createElement("bufferAttribute", {
+  }), sizes && React104.createElement("bufferAttribute", {
     attach: "attributes-size",
     count: sizes.length / stride,
     array: sizes,
@@ -46069,22 +43276,22 @@ var PointsBuffer = React105.forwardRef(({
     usage: DynamicDrawUsage
   })), children);
 });
-var Points = React105.forwardRef((props, forwardedRef) => {
+var Points = React104.forwardRef((props, forwardedRef) => {
   if (props.positions instanceof Float32Array) {
-    return React105.createElement(PointsBuffer, _extends({}, props, {
+    return React104.createElement(PointsBuffer, _extends({}, props, {
       ref: forwardedRef
     }));
   } else
-    return React105.createElement(PointsInstances, _extends({}, props, {
+    return React104.createElement(PointsInstances, _extends({}, props, {
       ref: forwardedRef
     }));
 });
 
 // node_modules/@react-three/drei/core/Instances.js
-var React106 = __toESM(require_react());
+var React105 = __toESM(require_react());
 
 // node_modules/react-composer/es/index.js
-var import_react18 = __toESM(require_react());
+var import_react17 = __toESM(require_react());
 var import_prop_types = __toESM(require_prop_types());
 function Composer(props) {
   return renderRecursive(props.children, props.components);
@@ -46106,7 +43313,7 @@ function renderRecursive(render, remaining, results) {
     remaining[0]({ results, render: nextRender })
   ) : (
     // When it is an element, enhance the element's props with the render prop.
-    (0, import_react18.cloneElement)(remaining[0], { children: nextRender })
+    (0, import_react17.cloneElement)(remaining[0], { children: nextRender })
   );
 }
 
@@ -46160,34 +43367,34 @@ var PositionMesh = class extends Group {
     _instanceIntersects.length = 0;
   }
 };
-var globalContext2 = React106.createContext(null);
+var globalContext2 = React105.createContext(null);
 var parentMatrix2 = new Matrix4();
 var instanceMatrix = new Matrix4();
 var tempMatrix2 = new Matrix4();
 var translation = new Vector3();
 var rotation = new Quaternion();
 var scale = new Vector3();
-var Instance = React106.forwardRef(({
+var Instance = React105.forwardRef(({
   context: context10,
   children,
   ...props
 }, ref) => {
-  React106.useMemo(() => extend({
+  React105.useMemo(() => extend({
     PositionMesh
   }), []);
-  const group = React106.useRef();
+  const group = React105.useRef();
   const {
     subscribe,
     getParent
-  } = React106.useContext(context10 || globalContext2);
-  React106.useLayoutEffect(() => subscribe(group), []);
-  return React106.createElement("positionMesh", _extends({
+  } = React105.useContext(context10 || globalContext2);
+  React105.useLayoutEffect(() => subscribe(group), []);
+  return React105.createElement("positionMesh", _extends({
     instance: getParent(),
     instanceKey: group,
     ref: react_merge_refs_esm_default([ref, group])
   }, props), children);
 });
-var Instances = React106.forwardRef(({
+var Instances = React105.forwardRef(({
   children,
   range,
   limit = 1e3,
@@ -46197,26 +43404,26 @@ var Instances = React106.forwardRef(({
   const [{
     context: context10,
     instance
-  }] = React106.useState(() => {
-    const context11 = React106.createContext(null);
+  }] = React105.useState(() => {
+    const context11 = React105.createContext(null);
     return {
       context: context11,
-      instance: React106.forwardRef((props2, ref2) => React106.createElement(Instance, _extends({
+      instance: React105.forwardRef((props2, ref2) => React105.createElement(Instance, _extends({
         context: context11
       }, props2, {
         ref: ref2
       })))
     };
   });
-  const parentRef = React106.useRef(null);
-  const [instances, setInstances] = React106.useState([]);
-  const [[matrices, colors3]] = React106.useState(() => {
+  const parentRef = React105.useRef(null);
+  const [instances, setInstances] = React105.useState([]);
+  const [[matrices, colors3]] = React105.useState(() => {
     const mArray = new Float32Array(limit * 16);
     for (let i3 = 0; i3 < limit; i3++)
       tempMatrix2.identity().toArray(mArray, i3 * 16);
     return [mArray, new Float32Array([...new Array(limit * 3)].map(() => 1))];
   });
-  React106.useEffect(() => {
+  React105.useEffect(() => {
     parentRef.current.instanceMatrix.needsUpdate = true;
   });
   let count = 0;
@@ -46242,14 +43449,14 @@ var Instances = React106.forwardRef(({
       count++;
     }
   });
-  const api = React106.useMemo(() => ({
+  const api = React105.useMemo(() => ({
     getParent: () => parentRef,
     subscribe: (ref2) => {
       setInstances((instances2) => [...instances2, ref2]);
       return () => setInstances((instances2) => instances2.filter((item) => item.current !== ref2.current));
     }
   }), []);
-  return React106.createElement("instancedMesh", _extends({
+  return React105.createElement("instancedMesh", _extends({
     userData: {
       instances
     },
@@ -46257,25 +43464,25 @@ var Instances = React106.forwardRef(({
     ref: react_merge_refs_esm_default([ref, parentRef]),
     args: [null, null, 0],
     raycast: () => null
-  }, props), React106.createElement("instancedBufferAttribute", {
+  }, props), React105.createElement("instancedBufferAttribute", {
     attach: "instanceMatrix",
     count: matrices.length / 16,
     array: matrices,
     itemSize: 16,
     usage: DynamicDrawUsage
-  }), React106.createElement("instancedBufferAttribute", {
+  }), React105.createElement("instancedBufferAttribute", {
     attach: "instanceColor",
     count: colors3.length / 3,
     array: colors3,
     itemSize: 3,
     usage: DynamicDrawUsage
-  }), typeof children === "function" ? React106.createElement(context10.Provider, {
+  }), typeof children === "function" ? React105.createElement(context10.Provider, {
     value: api
-  }, children(instance)) : React106.createElement(globalContext2.Provider, {
+  }, children(instance)) : React105.createElement(globalContext2.Provider, {
     value: api
   }, children));
 });
-var Merged = React106.forwardRef(function Merged2({
+var Merged = React105.forwardRef(function Merged2({
   meshes,
   children,
   ...props
@@ -46286,13 +43493,13 @@ var Merged = React106.forwardRef(function Merged2({
       if (!meshes[key].isMesh)
         delete meshes[key];
   }
-  return React106.createElement("group", {
+  return React105.createElement("group", {
     ref
-  }, React106.createElement(Composer, {
+  }, React105.createElement(Composer, {
     components: (isArray3 ? meshes : Object.values(meshes)).map(({
       geometry,
       material
-    }) => React106.createElement(Instances, _extends({
+    }) => React105.createElement(Instances, _extends({
       key: geometry.uuid,
       geometry,
       material
@@ -46304,10 +43511,10 @@ var Merged = React106.forwardRef(function Merged2({
 });
 
 // node_modules/@react-three/drei/core/Segments.js
-var React107 = __toESM(require_react());
-var context7 = React107.createContext(null);
-var Segments = React107.forwardRef((props, forwardedRef) => {
-  React107.useMemo(() => extend({
+var React106 = __toESM(require_react());
+var context7 = React106.createContext(null);
+var Segments = React106.forwardRef((props, forwardedRef) => {
+  React106.useMemo(() => extend({
     SegmentObject
   }), []);
   const {
@@ -46316,14 +43523,14 @@ var Segments = React107.forwardRef((props, forwardedRef) => {
     children,
     ...rest
   } = props;
-  const [segments, setSegments] = React107.useState([]);
-  const [line] = React107.useState(() => new Line2());
-  const [material] = React107.useState(() => new LineMaterial());
-  const [geometry] = React107.useState(() => new LineSegmentsGeometry());
-  const [resolution] = React107.useState(() => new Vector2(512, 512));
-  const [positions] = React107.useState(() => Array(limit * 6).fill(0));
-  const [colors3] = React107.useState(() => Array(limit * 6).fill(0));
-  const api = React107.useMemo(() => ({
+  const [segments, setSegments] = React106.useState([]);
+  const [line] = React106.useState(() => new Line2());
+  const [material] = React106.useState(() => new LineMaterial());
+  const [geometry] = React106.useState(() => new LineSegmentsGeometry());
+  const [resolution] = React106.useState(() => new Vector2(512, 512));
+  const [positions] = React106.useState(() => Array(limit * 6).fill(0));
+  const [colors3] = React106.useState(() => Array(limit * 6).fill(0));
+  const api = React106.useMemo(() => ({
     subscribe: (ref) => {
       setSegments((segments2) => [...segments2, ref]);
       return () => setSegments((segments2) => segments2.filter((item) => item.current !== ref.current));
@@ -46352,19 +43559,19 @@ var Segments = React107.forwardRef((props, forwardedRef) => {
     geometry.setPositions(positions);
     line.computeLineDistances();
   });
-  return React107.createElement("primitive", {
+  return React106.createElement("primitive", {
     object: line,
     ref: forwardedRef
-  }, React107.createElement("primitive", {
+  }, React106.createElement("primitive", {
     object: geometry,
     attach: "geometry"
-  }), React107.createElement("primitive", _extends({
+  }), React106.createElement("primitive", _extends({
     object: material,
     attach: "material",
     vertexColors: true,
     resolution,
     linewidth: lineWidth
-  }, rest)), React107.createElement(context7.Provider, {
+  }, rest)), React106.createElement(context7.Provider, {
     value: api
   }, children));
 });
@@ -46376,17 +43583,17 @@ var SegmentObject = class {
   }
 };
 var normPos = (pos) => pos instanceof Vector3 ? pos : new Vector3(...typeof pos === "number" ? [pos, pos, pos] : pos);
-var Segment = React107.forwardRef(({
+var Segment = React106.forwardRef(({
   color,
   start: start2,
   end
 }, forwardedRef) => {
-  const api = React107.useContext(context7);
+  const api = React106.useContext(context7);
   if (!api)
     throw "Segment must used inside Segments component.";
-  const ref = React107.useRef(null);
-  React107.useLayoutEffect(() => api.subscribe(ref), []);
-  return React107.createElement("segmentObject", {
+  const ref = React106.useRef(null);
+  React106.useLayoutEffect(() => api.subscribe(ref), []);
+  return React106.createElement("segmentObject", {
     ref: react_merge_refs_esm_default([ref, forwardedRef]),
     color,
     start: normPos(start2),
@@ -46395,15 +43602,15 @@ var Segment = React107.forwardRef(({
 });
 
 // node_modules/@react-three/drei/core/Detailed.js
-var React108 = __toESM(require_react());
-var Detailed = React108.forwardRef(({
+var React107 = __toESM(require_react());
+var Detailed = React107.forwardRef(({
   children,
   hysteresis = 0,
   distances,
   ...props
 }, ref) => {
-  const lodRef = React108.useRef(null);
-  React108.useLayoutEffect(() => {
+  const lodRef = React107.useRef(null);
+  React107.useLayoutEffect(() => {
     const {
       current: lod
     } = lodRef;
@@ -46418,13 +43625,13 @@ var Detailed = React108.forwardRef(({
     var _lodRef$current;
     return (_lodRef$current = lodRef.current) == null ? void 0 : _lodRef$current.update(state.camera);
   });
-  return React108.createElement("lOD", _extends({
+  return React107.createElement("lOD", _extends({
     ref: react_merge_refs_esm_default([lodRef, ref])
   }, props), children);
 });
 
 // node_modules/@react-three/drei/core/Preload.js
-var React109 = __toESM(require_react());
+var React108 = __toESM(require_react());
 function Preload({
   all,
   scene,
@@ -46439,7 +43646,7 @@ function Preload({
   const dScene = useThree(({
     scene: scene2
   }) => scene2);
-  React109.useLayoutEffect(() => {
+  React108.useLayoutEffect(() => {
     const invisible = [];
     if (all) {
       (scene || dScene).traverse((object) => {
@@ -46460,10 +43667,10 @@ function Preload({
 }
 
 // node_modules/@react-three/drei/core/BakeShadows.js
-var import_react19 = __toESM(require_react());
+var import_react18 = __toESM(require_react());
 function BakeShadows() {
   const gl = useThree((state) => state.gl);
-  (0, import_react19.useEffect)(() => {
+  (0, import_react18.useEffect)(() => {
     gl.shadowMap.autoUpdate = false;
     gl.shadowMap.needsUpdate = true;
     return () => {
@@ -46502,7 +43709,7 @@ function meshBounds(raycaster, intersects) {
 }
 
 // node_modules/@react-three/drei/core/AdaptiveDpr.js
-var React110 = __toESM(require_react());
+var React109 = __toESM(require_react());
 function AdaptiveDpr({
   pixelated
 }) {
@@ -46511,7 +43718,7 @@ function AdaptiveDpr({
   const current = useThree((state) => state.performance.current);
   const initialDpr = useThree((state) => state.viewport.initialDpr);
   const setDpr = useThree((state) => state.setDpr);
-  React110.useEffect(() => {
+  React109.useEffect(() => {
     const domElement = gl.domElement;
     return () => {
       if (active)
@@ -46520,7 +43727,7 @@ function AdaptiveDpr({
         domElement.style.imageRendering = "auto";
     };
   }, []);
-  React110.useEffect(() => {
+  React109.useEffect(() => {
     setDpr(current * initialDpr);
     if (pixelated && gl.domElement)
       gl.domElement.style.imageRendering = current === 1 ? "auto" : "pixelated";
@@ -46529,27 +43736,27 @@ function AdaptiveDpr({
 }
 
 // node_modules/@react-three/drei/core/AdaptiveEvents.js
-var React111 = __toESM(require_react());
+var React110 = __toESM(require_react());
 function AdaptiveEvents() {
   const get = useThree((state) => state.get);
   const setEvents = useThree((state) => state.setEvents);
   const current = useThree((state) => state.performance.current);
-  React111.useEffect(() => {
+  React110.useEffect(() => {
     const enabled = get().events.enabled;
     return () => setEvents({
       enabled
     });
   }, []);
-  React111.useEffect(() => setEvents({
+  React110.useEffect(() => setEvents({
     enabled: current === 1
   }), [current]);
   return null;
 }
 
 // node_modules/@react-three/drei/core/PerformanceMonitor.js
-var React112 = __toESM(require_react());
-var import_react20 = __toESM(require_react());
-var context8 = (0, import_react20.createContext)(null);
+var React111 = __toESM(require_react());
+var import_react19 = __toESM(require_react());
+var context8 = (0, import_react19.createContext)(null);
 function PerformanceMonitor({
   iterations = 10,
   ms = 250,
@@ -46565,7 +43772,7 @@ function PerformanceMonitor({
   children
 }) {
   const decimalPlacesRatio = Math.pow(10, 0);
-  const [api, _] = (0, import_react20.useState)(() => ({
+  const [api, _] = (0, import_react19.useState)(() => ({
     fps: 0,
     index: 0,
     factor: _factor,
@@ -46632,7 +43839,7 @@ function PerformanceMonitor({
       }
     }
   });
-  return React112.createElement(context8.Provider, {
+  return React111.createElement(context8.Provider, {
     value: api
   }, children);
 }
@@ -46642,25 +43849,25 @@ function usePerformanceMonitor({
   onChange,
   onFallback
 }) {
-  const api = (0, import_react20.useContext)(context8);
-  const ref = (0, import_react20.useRef)({
+  const api = (0, import_react19.useContext)(context8);
+  const ref = (0, import_react19.useRef)({
     onIncline,
     onDecline,
     onChange,
     onFallback
   });
-  (0, import_react20.useLayoutEffect)(() => {
+  (0, import_react19.useLayoutEffect)(() => {
     ref.current.onIncline = onIncline;
     ref.current.onDecline = onDecline;
     ref.current.onChange = onChange;
     ref.current.onFallback = onFallback;
   }, [onIncline, onDecline, onChange, onFallback]);
-  (0, import_react20.useLayoutEffect)(() => api.subscribe(ref), [api]);
+  (0, import_react19.useLayoutEffect)(() => api.subscribe(ref), [api]);
 }
 
 // node_modules/@react-three/drei/core/RenderTexture.js
-var React113 = __toESM(require_react());
-var RenderTexture = React113.forwardRef(({
+var React112 = __toESM(require_react());
+var RenderTexture = React112.forwardRef(({
   children,
   compute: compute2,
   width,
@@ -46684,8 +43891,8 @@ var RenderTexture = React113.forwardRef(({
     depthBuffer,
     generateMipmaps
   });
-  const [vScene] = React113.useState(() => new Scene());
-  const uvCompute = React113.useCallback((event, state, previous) => {
+  const [vScene] = React112.useState(() => new Scene());
+  const uvCompute = React112.useCallback((event, state, previous) => {
     var _fbo$texture, _previous$previousRoo;
     let parent = (_fbo$texture = fbo.texture) == null ? void 0 : _fbo$texture.__r3f.parent;
     while (parent && !(parent instanceof Object3D)) {
@@ -46703,19 +43910,19 @@ var RenderTexture = React113.forwardRef(({
       return false;
     state.raycaster.setFromCamera(state.pointer.set(uv.x * 2 - 1, uv.y * 2 - 1), state.camera);
   }, []);
-  React113.useImperativeHandle(forwardRef71, () => fbo.texture, [fbo]);
-  return React113.createElement(React113.Fragment, null, createPortal(React113.createElement(Container, {
+  React112.useImperativeHandle(forwardRef71, () => fbo.texture, [fbo]);
+  return React112.createElement(React112.Fragment, null, createPortal(React112.createElement(Container, {
     renderPriority,
     frames,
     fbo
-  }, children, React113.createElement("group", {
+  }, children, React112.createElement("group", {
     onPointerOver: () => null
   })), vScene, {
     events: {
       compute: compute2 || uvCompute,
       priority: eventPriority
     }
-  }), React113.createElement("primitive", _extends({
+  }), React112.createElement("primitive", _extends({
     object: fbo.texture
   }, props)));
 });
@@ -46738,19 +43945,19 @@ function Container({
       count++;
     }
   }, renderPriority);
-  return React113.createElement(React113.Fragment, null, children);
+  return React112.createElement(React112.Fragment, null, children);
 }
 
 // node_modules/@react-three/drei/core/Mask.js
-var React114 = __toESM(require_react());
-var Mask = React114.forwardRef(({
+var React113 = __toESM(require_react());
+var Mask = React113.forwardRef(({
   id = 1,
   colorWrite = false,
   depthWrite = false,
   ...props
 }, fref) => {
-  const ref = React114.useRef(null);
-  const spread = React114.useMemo(() => ({
+  const ref = React113.useRef(null);
+  const spread = React113.useMemo(() => ({
     colorWrite,
     depthWrite,
     stencilWrite: true,
@@ -46760,11 +43967,11 @@ var Mask = React114.forwardRef(({
     stencilZFail: ReplaceStencilOp,
     stencilZPass: ReplaceStencilOp
   }), [id, colorWrite, depthWrite]);
-  React114.useLayoutEffect(() => {
+  React113.useLayoutEffect(() => {
     Object.assign(ref.current.material, spread);
   });
-  React114.useImperativeHandle(fref, () => ref.current, []);
-  return React114.createElement("mesh", _extends({
+  React113.useImperativeHandle(fref, () => ref.current, []);
+  return React113.createElement("mesh", _extends({
     ref,
     renderOrder: -id
   }, props));
@@ -46781,7 +43988,7 @@ function useMask(id, inverse = false) {
 }
 
 // node_modules/@react-three/drei/core/MeshPortalMaterial.js
-var React115 = __toESM(require_react());
+var React114 = __toESM(require_react());
 var PortalMaterialImpl = shaderMaterial({
   blur: 0,
   map: null,
@@ -46811,7 +44018,7 @@ var PortalMaterialImpl = shaderMaterial({
      #include <tonemapping_fragment>
      #include <encodings_fragment>
    }`);
-var MeshPortalMaterial = React115.forwardRef(({
+var MeshPortalMaterial = React114.forwardRef(({
   children,
   events = void 0,
   blur = 0,
@@ -46824,7 +44031,7 @@ var MeshPortalMaterial = React115.forwardRef(({
   extend({
     PortalMaterialImpl
   });
-  const ref = React115.useRef(null);
+  const ref = React114.useRef(null);
   const {
     scene,
     gl,
@@ -46833,25 +44040,25 @@ var MeshPortalMaterial = React115.forwardRef(({
     setEvents
   } = useThree();
   const maskRenderTarget = useFBO(resolution, resolution);
-  const [priority2, setPriority] = React115.useState(0);
+  const [priority2, setPriority] = React114.useState(0);
   useFrame(() => {
     const p = ref.current.blend > 0 ? Math.max(1, renderPriority) : 0;
     if (priority2 !== p)
       setPriority(p);
   });
-  React115.useEffect(() => {
+  React114.useEffect(() => {
     if (events !== void 0)
       setEvents({
         enabled: !events
       });
   }, [events]);
-  const [visible, setVisible] = React115.useState(true);
+  const [visible, setVisible] = React114.useState(true);
   const parent = useIntersect(setVisible);
-  React115.useLayoutEffect(() => {
+  React114.useLayoutEffect(() => {
     var _ref$current;
     parent.current = (_ref$current = ref.current) == null ? void 0 : _ref$current.__r3f.parent;
   }, []);
-  React115.useLayoutEffect(() => {
+  React114.useLayoutEffect(() => {
     if (!parent.current)
       return;
     if (blur && ref.current.sdf === null) {
@@ -46877,8 +44084,8 @@ var MeshPortalMaterial = React115.forwardRef(({
       gl.setRenderTarget(null);
     }
   }, [resolution, blur]);
-  React115.useImperativeHandle(fref, () => ref.current);
-  const compute2 = React115.useCallback((event, state, previous) => {
+  React114.useImperativeHandle(fref, () => ref.current);
+  const compute2 = React114.useCallback((event, state, previous) => {
     var _ref$current2;
     if (!parent.current)
       return false;
@@ -46892,20 +44099,20 @@ var MeshPortalMaterial = React115.forwardRef(({
       }
     }
   }, []);
-  return React115.createElement("portalMaterialImpl", _extends({
+  return React114.createElement("portalMaterialImpl", _extends({
     ref,
     blur,
     blend: 0,
     resolution: [size.width * viewport.dpr, size.height * viewport.dpr],
     toneMapped: false,
     attach: "material"
-  }, props), React115.createElement(RenderTexture, {
+  }, props), React114.createElement(RenderTexture, {
     attach: "map",
     frames: visible ? Infinity : 0,
     eventPriority,
     renderPriority,
     compute: compute2
-  }, children, React115.createElement(ManagePortalScene, {
+  }, children, React114.createElement(ManagePortalScene, {
     events,
     rootScene: scene,
     priority: priority2,
@@ -46924,16 +44131,16 @@ function ManagePortalScene({
   const setEvents = useThree((state) => state.setEvents);
   const buffer1 = useFBO();
   const buffer2 = useFBO();
-  React115.useLayoutEffect(() => {
+  React114.useLayoutEffect(() => {
     scene.matrixAutoUpdate = false;
   }, []);
-  React115.useEffect(() => {
+  React114.useEffect(() => {
     if (events !== void 0)
       setEvents({
         enabled: events
       });
   }, [events]);
-  const [quad, blend] = React115.useMemo(() => {
+  const [quad, blend] = React114.useMemo(() => {
     const blend2 = {
       value: 0
     };
@@ -47001,7 +44208,7 @@ function ManagePortalScene({
       }
     }
   }, priority2);
-  return React115.createElement(React115.Fragment, null);
+  return React114.createElement(React114.Fragment, null);
 }
 var makeSDFGenerator = (clientWidth, clientHeight, renderer) => {
   let finalTarget = new WebGLRenderTarget(clientWidth, clientHeight, {
@@ -47264,7 +44471,7 @@ var makeSDFGenerator = (clientWidth, clientHeight, renderer) => {
 };
 
 // node_modules/@react-three/drei/web/View.js
-var React116 = __toESM(require_react());
+var React115 = __toESM(require_react());
 var isOrthographicCamera2 = (def) => def && def.isOrthographicCamera;
 var col = new Color();
 function isNonLegacyCanvasSize(size) {
@@ -47367,7 +44574,7 @@ function Container2({
       state.gl.setScissorTest(true);
     }
   }, index);
-  React116.useEffect(() => {
+  React115.useEffect(() => {
     const old = get().events.connected;
     setEvents({
       connected: track.current
@@ -47376,13 +44583,13 @@ function Container2({
       connected: old
     });
   }, []);
-  React116.useEffect(() => {
+  React115.useEffect(() => {
     if (isNonLegacyCanvasSize(canvasSize)) {
       return;
     }
     console.warn("Detected @react-three/fiber canvas size does not include position information. <View /> may not work as expected. Upgrade to @react-three/fiber ^8.1.0 for support.\n See https://github.com/pmndrs/drei/issues/944");
   }, []);
-  return React116.createElement(React116.Fragment, null, children);
+  return React115.createElement(React115.Fragment, null, children);
 }
 var View = ({
   track,
@@ -47391,13 +44598,13 @@ var View = ({
   children
 }) => {
   var _rect$current, _rect$current2;
-  const rect = React116.useRef(null);
+  const rect = React115.useRef(null);
   const {
     size,
     scene
   } = useThree();
-  const [virtualScene] = React116.useState(() => new Scene());
-  const compute2 = React116.useCallback((event, state) => {
+  const [virtualScene] = React115.useState(() => new Scene());
+  const compute2 = React115.useCallback((event, state) => {
     if (rect.current && track.current && event.target === track.current) {
       const {
         width,
@@ -47411,20 +44618,20 @@ var View = ({
       state.raycaster.setFromCamera(state.pointer, state.camera);
     }
   }, [rect, track]);
-  const [ready, toggle] = React116.useReducer(() => true, false);
-  React116.useEffect(() => {
+  const [ready, toggle] = React115.useReducer(() => true, false);
+  React115.useEffect(() => {
     var _track$current2;
     rect.current = (_track$current2 = track.current) == null ? void 0 : _track$current2.getBoundingClientRect();
     toggle();
   }, [track]);
-  return React116.createElement(React116.Fragment, null, ready && createPortal(React116.createElement(Container2, {
+  return React115.createElement(React115.Fragment, null, ready && createPortal(React115.createElement(Container2, {
     canvasSize: size,
     frames,
     scene,
     track,
     rect,
     index
-  }, children, React116.createElement("group", {
+  }, children, React115.createElement("group", {
     onPointerOver: () => null
   })), virtualScene, {
     events: {
@@ -47439,14 +44646,14 @@ var View = ({
 };
 
 // node_modules/@react-three/drei/web/pivotControls/index.js
-var React121 = __toESM(require_react());
+var React120 = __toESM(require_react());
 
 // node_modules/@react-three/drei/web/pivotControls/AxisArrow.js
-var React118 = __toESM(require_react());
+var React117 = __toESM(require_react());
 
 // node_modules/@react-three/drei/web/pivotControls/context.js
-var React117 = __toESM(require_react());
-var context9 = React117.createContext(null);
+var React116 = __toESM(require_react());
+var context9 = React116.createContext(null);
 
 // node_modules/@react-three/drei/web/pivotControls/AxisArrow.js
 var vec1 = new Vector3();
@@ -47485,14 +44692,14 @@ var AxisArrow = ({
     onDrag,
     onDragEnd,
     userData
-  } = React118.useContext(context9);
+  } = React117.useContext(context9);
   const camControls = useThree((state) => state.controls);
-  const divRef = React118.useRef(null);
-  const objRef = React118.useRef(null);
-  const clickInfo = React118.useRef(null);
-  const offset0 = React118.useRef(0);
-  const [isHovered, setIsHovered] = React118.useState(false);
-  const onPointerDown = React118.useCallback((e2) => {
+  const divRef = React117.useRef(null);
+  const objRef = React117.useRef(null);
+  const clickInfo = React117.useRef(null);
+  const offset0 = React117.useRef(0);
+  const [isHovered, setIsHovered] = React117.useState(false);
+  const onPointerDown = React117.useCallback((e2) => {
     if (annotations) {
       divRef.current.innerText = `${translation2.current[axis].toFixed(2)}`;
       divRef.current.style.display = "block";
@@ -47516,7 +44723,7 @@ var AxisArrow = ({
     camControls && (camControls.enabled = false);
     e2.target.setPointerCapture(e2.pointerId);
   }, [annotations, direction, camControls, onDragStart, translation2, axis]);
-  const onPointerMove = React118.useCallback((e2) => {
+  const onPointerMove = React117.useCallback((e2) => {
     e2.stopPropagation();
     if (!isHovered)
       setIsHovered(true);
@@ -47541,7 +44748,7 @@ var AxisArrow = ({
       onDrag(offsetMatrix);
     }
   }, [annotations, onDrag, isHovered, translation2, translationLimits, axis]);
-  const onPointerUp = React118.useCallback((e2) => {
+  const onPointerUp = React117.useCallback((e2) => {
     if (annotations) {
       divRef.current.style.display = "none";
     }
@@ -47551,7 +44758,7 @@ var AxisArrow = ({
     camControls && (camControls.enabled = true);
     e2.target.releasePointerCapture(e2.pointerId);
   }, [annotations, camControls, onDragEnd]);
-  const onPointerOut = React118.useCallback((e2) => {
+  const onPointerOut = React117.useCallback((e2) => {
     e2.stopPropagation();
     setIsHovered(false);
   }, []);
@@ -47560,7 +44767,7 @@ var AxisArrow = ({
     coneWidth,
     coneLength,
     matrixL
-  } = React118.useMemo(() => {
+  } = React117.useMemo(() => {
     const coneWidth2 = fixed ? lineWidth / scale2 * 1.6 : scale2 / 20;
     const coneLength2 = fixed ? 0.2 : scale2 / 5;
     const cylinderLength2 = fixed ? 1 - coneLength2 : scale2 - coneLength2;
@@ -47574,18 +44781,18 @@ var AxisArrow = ({
     };
   }, [direction, scale2, lineWidth, fixed]);
   const color_ = isHovered ? hoveredColor : axisColors[axis];
-  return React118.createElement("group", {
+  return React117.createElement("group", {
     ref: objRef
-  }, React118.createElement("group", {
+  }, React117.createElement("group", {
     matrix: matrixL,
     matrixAutoUpdate: false,
     onPointerDown,
     onPointerMove,
     onPointerUp,
     onPointerOut
-  }, annotations && React118.createElement(Html, {
+  }, annotations && React117.createElement(Html, {
     position: [0, -coneLength, 0]
-  }, React118.createElement("div", {
+  }, React117.createElement("div", {
     style: {
       display: "none",
       background: "#151520",
@@ -47596,13 +44803,13 @@ var AxisArrow = ({
     },
     className: annotationsClass,
     ref: divRef
-  })), React118.createElement("mesh", {
+  })), React117.createElement("mesh", {
     visible: false,
     position: [0, (cylinderLength + coneLength) / 2, 0],
     userData
-  }, React118.createElement("cylinderGeometry", {
+  }, React117.createElement("cylinderGeometry", {
     args: [coneWidth * 1.4, coneWidth * 1.4, cylinderLength + coneLength, 8, 1]
-  })), React118.createElement(Line, {
+  })), React117.createElement(Line, {
     transparent: true,
     raycast: () => null,
     depthTest,
@@ -47614,13 +44821,13 @@ var AxisArrow = ({
     renderOrder: 1,
     polygonOffsetFactor: -10,
     fog: false
-  }), React118.createElement("mesh", {
+  }), React117.createElement("mesh", {
     raycast: () => null,
     position: [0, cylinderLength + coneLength / 2, 0],
     renderOrder: 500
-  }, React118.createElement("coneGeometry", {
+  }, React117.createElement("coneGeometry", {
     args: [coneWidth, coneLength, 24, 1]
-  }), React118.createElement("meshBasicMaterial", {
+  }), React117.createElement("meshBasicMaterial", {
     transparent: true,
     depthTest,
     color: color_,
@@ -47632,7 +44839,7 @@ var AxisArrow = ({
 };
 
 // node_modules/@react-three/drei/web/pivotControls/PlaneSlider.js
-var React119 = __toESM(require_react());
+var React118 = __toESM(require_react());
 var decomposeIntoBasis = (e1, e2, offset) => {
   const i1 = Math.abs(e1.x) >= Math.abs(e1.y) && Math.abs(e1.x) >= Math.abs(e1.z) ? 0 : Math.abs(e1.y) >= Math.abs(e1.x) && Math.abs(e1.y) >= Math.abs(e1.z) ? 1 : 2;
   const e2DegrowthOrder = [0, 1, 2].sort((a3, b) => Math.abs(e2.getComponent(b)) - Math.abs(e2.getComponent(a3)));
@@ -47671,15 +44878,15 @@ var PlaneSlider = ({
     onDrag,
     onDragEnd,
     userData
-  } = React119.useContext(context9);
+  } = React118.useContext(context9);
   const camControls = useThree((state) => state.controls);
-  const divRef = React119.useRef(null);
-  const objRef = React119.useRef(null);
-  const clickInfo = React119.useRef(null);
-  const offsetX0 = React119.useRef(0);
-  const offsetY0 = React119.useRef(0);
-  const [isHovered, setIsHovered] = React119.useState(false);
-  const onPointerDown = React119.useCallback((e2) => {
+  const divRef = React118.useRef(null);
+  const objRef = React118.useRef(null);
+  const clickInfo = React118.useRef(null);
+  const offsetX0 = React118.useRef(0);
+  const offsetY0 = React118.useRef(0);
+  const [isHovered, setIsHovered] = React118.useState(false);
+  const onPointerDown = React118.useCallback((e2) => {
     if (annotations) {
       divRef.current.innerText = `${translation2.current[(axis + 1) % 3].toFixed(2)}, ${translation2.current[(axis + 2) % 3].toFixed(2)}`;
       divRef.current.style.display = "block";
@@ -47708,7 +44915,7 @@ var PlaneSlider = ({
     camControls && (camControls.enabled = false);
     e2.target.setPointerCapture(e2.pointerId);
   }, [annotations, camControls, onDragStart, axis]);
-  const onPointerMove = React119.useCallback((e2) => {
+  const onPointerMove = React118.useCallback((e2) => {
     e2.stopPropagation();
     if (!isHovered)
       setIsHovered(true);
@@ -47748,7 +44955,7 @@ var PlaneSlider = ({
       onDrag(offsetMatrix2);
     }
   }, [annotations, onDrag, isHovered, translation2, translationLimits, axis]);
-  const onPointerUp = React119.useCallback((e2) => {
+  const onPointerUp = React118.useCallback((e2) => {
     if (annotations) {
       divRef.current.style.display = "none";
     }
@@ -47758,11 +44965,11 @@ var PlaneSlider = ({
     camControls && (camControls.enabled = true);
     e2.target.releasePointerCapture(e2.pointerId);
   }, [annotations, camControls, onDragEnd]);
-  const onPointerOut = React119.useCallback((e2) => {
+  const onPointerOut = React118.useCallback((e2) => {
     e2.stopPropagation();
     setIsHovered(false);
   }, []);
-  const matrixL = React119.useMemo(() => {
+  const matrixL = React118.useMemo(() => {
     const dir1N = dir1.clone().normalize();
     const dir2N = dir2.clone().normalize();
     return new Matrix4().makeBasis(dir1N, dir2N, dir1N.clone().cross(dir2N));
@@ -47770,14 +44977,14 @@ var PlaneSlider = ({
   const pos1 = fixed ? 1 / 7 : scale2 / 7;
   const length = fixed ? 0.225 : scale2 * 0.225;
   const color = isHovered ? hoveredColor : axisColors[axis];
-  const points = React119.useMemo(() => [new Vector3(0, 0, 0), new Vector3(0, length, 0), new Vector3(length, length, 0), new Vector3(length, 0, 0), new Vector3(0, 0, 0)], [length]);
-  return React119.createElement("group", {
+  const points = React118.useMemo(() => [new Vector3(0, 0, 0), new Vector3(0, length, 0), new Vector3(length, length, 0), new Vector3(length, 0, 0), new Vector3(0, 0, 0)], [length]);
+  return React118.createElement("group", {
     ref: objRef,
     matrix: matrixL,
     matrixAutoUpdate: false
-  }, annotations && React119.createElement(Html, {
+  }, annotations && React118.createElement(Html, {
     position: [0, 0, 0]
-  }, React119.createElement("div", {
+  }, React118.createElement("div", {
     style: {
       display: "none",
       background: "#151520",
@@ -47788,9 +44995,9 @@ var PlaneSlider = ({
     },
     className: annotationsClass,
     ref: divRef
-  })), React119.createElement("group", {
+  })), React118.createElement("group", {
     position: [pos1 * 1.7, pos1 * 1.7, 0]
-  }, React119.createElement("mesh", {
+  }, React118.createElement("mesh", {
     visible: true,
     onPointerDown,
     onPointerMove,
@@ -47798,7 +45005,7 @@ var PlaneSlider = ({
     onPointerOut,
     scale: length,
     userData
-  }, React119.createElement("planeGeometry", null), React119.createElement("meshBasicMaterial", {
+  }, React118.createElement("planeGeometry", null), React118.createElement("meshBasicMaterial", {
     transparent: true,
     depthTest,
     color,
@@ -47806,7 +45013,7 @@ var PlaneSlider = ({
     polygonOffsetFactor: -10,
     side: DoubleSide,
     fog: false
-  })), React119.createElement(Line, {
+  })), React118.createElement(Line, {
     position: [-length / 2, -length / 2, 0],
     transparent: true,
     depthTest,
@@ -47822,7 +45029,7 @@ var PlaneSlider = ({
 };
 
 // node_modules/@react-three/drei/web/pivotControls/AxisRotator.js
-var React120 = __toESM(require_react());
+var React119 = __toESM(require_react());
 var import_lodash4 = __toESM(require_lodash3());
 var clickDir = new Vector3();
 var intersectionDir = new Vector3();
@@ -47880,15 +45087,15 @@ var AxisRotator = ({
     onDrag,
     onDragEnd,
     userData
-  } = React120.useContext(context9);
+  } = React119.useContext(context9);
   const camControls = useThree((state) => state.controls);
-  const divRef = React120.useRef(null);
-  const objRef = React120.useRef(null);
-  const angle0 = React120.useRef(0);
-  const angle = React120.useRef(0);
-  const clickInfo = React120.useRef(null);
-  const [isHovered, setIsHovered] = React120.useState(false);
-  const onPointerDown = React120.useCallback((e2) => {
+  const divRef = React119.useRef(null);
+  const objRef = React119.useRef(null);
+  const angle0 = React119.useRef(0);
+  const angle = React119.useRef(0);
+  const clickInfo = React119.useRef(null);
+  const [isHovered, setIsHovered] = React119.useState(false);
+  const onPointerDown = React119.useCallback((e2) => {
     if (annotations) {
       divRef.current.innerText = `${toDegrees(angle.current).toFixed(0)}º`;
       divRef.current.style.display = "block";
@@ -47917,7 +45124,7 @@ var AxisRotator = ({
     camControls && (camControls.enabled = false);
     e2.target.setPointerCapture(e2.pointerId);
   }, [annotations, camControls, onDragStart, axis]);
-  const onPointerMove = React120.useCallback((e2) => {
+  const onPointerMove = React119.useCallback((e2) => {
     e2.stopPropagation();
     if (!isHovered)
       setIsHovered(true);
@@ -47960,7 +45167,7 @@ var AxisRotator = ({
       onDrag(rotMatrix);
     }
   }, [annotations, onDrag, isHovered, rotationLimits, axis]);
-  const onPointerUp = React120.useCallback((e2) => {
+  const onPointerUp = React119.useCallback((e2) => {
     if (annotations) {
       divRef.current.style.display = "none";
     }
@@ -47971,17 +45178,17 @@ var AxisRotator = ({
     camControls && (camControls.enabled = true);
     e2.target.releasePointerCapture(e2.pointerId);
   }, [annotations, camControls, onDragEnd]);
-  const onPointerOut = React120.useCallback((e2) => {
+  const onPointerOut = React119.useCallback((e2) => {
     e2.stopPropagation();
     setIsHovered(false);
   }, []);
-  const matrixL = React120.useMemo(() => {
+  const matrixL = React119.useMemo(() => {
     const dir1N = dir1.clone().normalize();
     const dir2N = dir2.clone().normalize();
     return new Matrix4().makeBasis(dir1N, dir2N, dir1N.clone().cross(dir2N));
   }, [dir1, dir2]);
   const r2 = fixed ? 0.65 : scale2 * 0.65;
-  const arc = React120.useMemo(() => {
+  const arc = React119.useMemo(() => {
     const segments = 32;
     const points = [];
     for (let j = 0; j <= segments; j++) {
@@ -47990,7 +45197,7 @@ var AxisRotator = ({
     }
     return points;
   }, [r2]);
-  return React120.createElement("group", {
+  return React119.createElement("group", {
     ref: objRef,
     onPointerDown,
     onPointerMove,
@@ -47998,9 +45205,9 @@ var AxisRotator = ({
     onPointerOut,
     matrix: matrixL,
     matrixAutoUpdate: false
-  }, annotations && React120.createElement(Html, {
+  }, annotations && React119.createElement(Html, {
     position: [r2, r2, 0]
-  }, React120.createElement("div", {
+  }, React119.createElement("div", {
     style: {
       display: "none",
       background: "#151520",
@@ -48011,12 +45218,12 @@ var AxisRotator = ({
     },
     className: annotationsClass,
     ref: divRef
-  })), React120.createElement(Line, {
+  })), React119.createElement(Line, {
     points: arc,
     lineWidth: lineWidth * 4,
     visible: false,
     userData
-  }), React120.createElement(Line, {
+  }), React119.createElement(Line, {
     transparent: true,
     raycast: () => null,
     depthTest,
@@ -48075,7 +45282,7 @@ var vPosition = new Vector3();
 var xDir = new Vector3(1, 0, 0);
 var yDir = new Vector3(0, 1, 0);
 var zDir = new Vector3(0, 0, 1);
-var PivotControls = React121.forwardRef(({
+var PivotControls = React120.forwardRef(({
   matrix: matrix2,
   onDragStart,
   onDrag,
@@ -48105,12 +45312,12 @@ var PivotControls = React121.forwardRef(({
   ...props
 }, fRef) => {
   const invalidate = useThree((state) => state.invalidate);
-  const parentRef = React121.useRef(null);
-  const ref = React121.useRef(null);
-  const gizmoRef = React121.useRef(null);
-  const childrenRef = React121.useRef(null);
-  const translation2 = React121.useRef([0, 0, 0]);
-  React121.useLayoutEffect(() => {
+  const parentRef = React120.useRef(null);
+  const ref = React120.useRef(null);
+  const gizmoRef = React120.useRef(null);
+  const childrenRef = React120.useRef(null);
+  const translation2 = React120.useRef([0, 0, 0]);
+  React120.useLayoutEffect(() => {
     if (!anchor)
       return;
     childrenRef.current.updateWorldMatrix(true, true);
@@ -48133,7 +45340,7 @@ var PivotControls = React121.forwardRef(({
     gizmoRef.current.position.copy(vPosition);
     invalidate();
   });
-  const config2 = React121.useMemo(() => ({
+  const config2 = React120.useMemo(() => ({
     onDragStart: (props2) => {
       mL0.copy(ref.current.matrix);
       mW0.copy(ref.current.matrixWorld);
@@ -48184,58 +45391,58 @@ var PivotControls = React121.forwardRef(({
       }
     }
   });
-  React121.useImperativeHandle(fRef, () => ref.current, []);
-  React121.useLayoutEffect(() => {
+  React120.useImperativeHandle(fRef, () => ref.current, []);
+  React120.useLayoutEffect(() => {
     if (matrix2 && matrix2 instanceof Matrix4)
       ref.current.matrix = matrix2;
   }, [matrix2]);
-  return React121.createElement(context9.Provider, {
+  return React120.createElement(context9.Provider, {
     value: config2
-  }, React121.createElement("group", {
+  }, React120.createElement("group", {
     ref: parentRef
-  }, React121.createElement("group", _extends({
+  }, React120.createElement("group", _extends({
     ref,
     matrix: matrix2,
     matrixAutoUpdate: false
-  }, props), React121.createElement("group", {
+  }, props), React120.createElement("group", {
     visible,
     ref: gizmoRef,
     position: offset,
     rotation: rotation2
-  }, !disableAxes && activeAxes[0] && React121.createElement(AxisArrow, {
+  }, !disableAxes && activeAxes[0] && React120.createElement(AxisArrow, {
     axis: 0,
     direction: xDir
-  }), !disableAxes && activeAxes[1] && React121.createElement(AxisArrow, {
+  }), !disableAxes && activeAxes[1] && React120.createElement(AxisArrow, {
     axis: 1,
     direction: yDir
-  }), !disableAxes && activeAxes[2] && React121.createElement(AxisArrow, {
+  }), !disableAxes && activeAxes[2] && React120.createElement(AxisArrow, {
     axis: 2,
     direction: zDir
-  }), !disableSliders && activeAxes[0] && activeAxes[1] && React121.createElement(PlaneSlider, {
+  }), !disableSliders && activeAxes[0] && activeAxes[1] && React120.createElement(PlaneSlider, {
     axis: 2,
     dir1: xDir,
     dir2: yDir
-  }), !disableSliders && activeAxes[0] && activeAxes[2] && React121.createElement(PlaneSlider, {
+  }), !disableSliders && activeAxes[0] && activeAxes[2] && React120.createElement(PlaneSlider, {
     axis: 1,
     dir1: zDir,
     dir2: xDir
-  }), !disableSliders && activeAxes[2] && activeAxes[1] && React121.createElement(PlaneSlider, {
+  }), !disableSliders && activeAxes[2] && activeAxes[1] && React120.createElement(PlaneSlider, {
     axis: 0,
     dir1: yDir,
     dir2: zDir
-  }), !disableRotations && activeAxes[0] && activeAxes[1] && React121.createElement(AxisRotator, {
+  }), !disableRotations && activeAxes[0] && activeAxes[1] && React120.createElement(AxisRotator, {
     axis: 2,
     dir1: xDir,
     dir2: yDir
-  }), !disableRotations && activeAxes[0] && activeAxes[2] && React121.createElement(AxisRotator, {
+  }), !disableRotations && activeAxes[0] && activeAxes[2] && React120.createElement(AxisRotator, {
     axis: 1,
     dir1: zDir,
     dir2: xDir
-  }), !disableRotations && activeAxes[2] && activeAxes[1] && React121.createElement(AxisRotator, {
+  }), !disableRotations && activeAxes[2] && activeAxes[1] && React120.createElement(AxisRotator, {
     axis: 0,
     dir1: yDir,
     dir2: zDir
-  })), React121.createElement("group", {
+  })), React120.createElement("group", {
     ref: childrenRef
   }, children))));
 });
@@ -48425,23 +45632,6 @@ export {
   useVideoTexture
 };
 /*! Bundled license information:
-
-react-is/cjs/react-is.development.js:
-  (** @license React v16.13.1
-   * react-is.development.js
-   *
-   * Copyright (c) Facebook, Inc. and its affiliates.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-object-assign/index.js:
-  (*
-  object-assign
-  (c) Sindre Sorhus
-  @license MIT
-  *)
 
 troika-three-text/dist/troika-three-text.esm.js:
   (*!

@@ -152,7 +152,7 @@ import {
   WebGLRenderer,
   WireframeGeometry,
   ZeroFactor
-} from "./chunk-7EGGLTW3.js";
+} from "./chunk-MFGWOOG5.js";
 import {
   __commonJS,
   __toESM
@@ -74923,4 +74923,4 @@ export {
 opentype.js/dist/opentype.module.js:
   (*! https://mths.be/codepointat v0.2.0 by @mathias *)
 */
-//# sourceMappingURL=chunk-GXFDE2YG.js.map
+//# sourceMappingURL=chunk-2PVCCXF7.js.map

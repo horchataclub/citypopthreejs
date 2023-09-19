@@ -1,20 +1,4 @@
 import {
-  easing,
-  isWebGL2Available
-} from "./chunk-GXFDE2YG.js";
-import {
-  applyProps,
-  createPortal,
-  extend,
-  useFrame,
-  useInstanceHandle,
-  useLoader,
-  useThree
-} from "./chunk-BXYVNOPC.js";
-import {
-  require_react
-} from "./chunk-6DDWND5A.js";
-import {
   BlendFunction,
   BloomEffect,
   BrightnessContrastEffect,
@@ -57,7 +41,24 @@ import {
   TiltShiftEffect,
   ToneMappingEffect,
   VignetteEffect
-} from "./chunk-S5WGWP4U.js";
+} from "./chunk-JD7M5BSG.js";
+import {
+  easing,
+  isWebGL2Available
+} from "./chunk-2PVCCXF7.js";
+import {
+  applyProps,
+  createPortal,
+  extend,
+  useFrame,
+  useInstanceHandle,
+  useLoader,
+  useThree
+} from "./chunk-JLFZSDCW.js";
+import "./chunk-52R4BH6Y.js";
+import {
+  require_react
+} from "./chunk-6DDWND5A.js";
 import {
   BufferAttribute,
   BufferGeometry,
@@ -95,7 +96,7 @@ import {
   WebGLMultipleRenderTargets,
   WebGLRenderTarget,
   sRGBEncoding
-} from "./chunk-7EGGLTW3.js";
+} from "./chunk-MFGWOOG5.js";
 import {
   __commonJS,
   __toESM

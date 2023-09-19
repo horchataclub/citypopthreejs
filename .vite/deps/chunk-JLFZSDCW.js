@@ -1,4 +1,8 @@
 import {
+  _extends,
+  create
+} from "./chunk-52R4BH6Y.js";
+import {
   require_react
 } from "./chunk-6DDWND5A.js";
 import {
@@ -25,7 +29,7 @@ import {
   Vector3,
   WebGLRenderer,
   three_module_exports
-} from "./chunk-7EGGLTW3.js";
+} from "./chunk-MFGWOOG5.js";
 import {
   __commonJS,
   __toESM
@@ -16076,117 +16080,6 @@ var require_debounce = __commonJS({
 // node_modules/@react-three/fiber/dist/index-76c68185.esm.js
 var React = __toESM(require_react());
 var import_constants = __toESM(require_constants());
-
-// node_modules/zustand/esm/index.js
-var import_react = __toESM(require_react());
-function createStore(createState) {
-  let state;
-  const listeners = /* @__PURE__ */ new Set();
-  const setState = (partial, replace) => {
-    const nextState = typeof partial === "function" ? partial(state) : partial;
-    if (nextState !== state) {
-      const previousState = state;
-      state = replace ? nextState : Object.assign({}, state, nextState);
-      listeners.forEach((listener) => listener(state, previousState));
-    }
-  };
-  const getState = () => state;
-  const subscribeWithSelector = (listener, selector = getState, equalityFn = Object.is) => {
-    console.warn("[DEPRECATED] Please use `subscribeWithSelector` middleware");
-    let currentSlice = selector(state);
-    function listenerToAdd() {
-      const nextSlice = selector(state);
-      if (!equalityFn(currentSlice, nextSlice)) {
-        const previousSlice = currentSlice;
-        listener(currentSlice = nextSlice, previousSlice);
-      }
-    }
-    listeners.add(listenerToAdd);
-    return () => listeners.delete(listenerToAdd);
-  };
-  const subscribe = (listener, selector, equalityFn) => {
-    if (selector || equalityFn) {
-      return subscribeWithSelector(listener, selector, equalityFn);
-    }
-    listeners.add(listener);
-    return () => listeners.delete(listener);
-  };
-  const destroy = () => listeners.clear();
-  const api = { setState, getState, subscribe, destroy };
-  state = createState(setState, getState, api);
-  return api;
-}
-var isSSR = typeof window === "undefined" || !window.navigator || /ServerSideRendering|^Deno\//.test(window.navigator.userAgent);
-var useIsomorphicLayoutEffect = isSSR ? import_react.useEffect : import_react.useLayoutEffect;
-function create(createState) {
-  const api = typeof createState === "function" ? createStore(createState) : createState;
-  const useStore2 = (selector = api.getState, equalityFn = Object.is) => {
-    const [, forceUpdate] = (0, import_react.useReducer)((c) => c + 1, 0);
-    const state = api.getState();
-    const stateRef = (0, import_react.useRef)(state);
-    const selectorRef = (0, import_react.useRef)(selector);
-    const equalityFnRef = (0, import_react.useRef)(equalityFn);
-    const erroredRef = (0, import_react.useRef)(false);
-    const currentSliceRef = (0, import_react.useRef)();
-    if (currentSliceRef.current === void 0) {
-      currentSliceRef.current = selector(state);
-    }
-    let newStateSlice;
-    let hasNewStateSlice = false;
-    if (stateRef.current !== state || selectorRef.current !== selector || equalityFnRef.current !== equalityFn || erroredRef.current) {
-      newStateSlice = selector(state);
-      hasNewStateSlice = !equalityFn(currentSliceRef.current, newStateSlice);
-    }
-    useIsomorphicLayoutEffect(() => {
-      if (hasNewStateSlice) {
-        currentSliceRef.current = newStateSlice;
-      }
-      stateRef.current = state;
-      selectorRef.current = selector;
-      equalityFnRef.current = equalityFn;
-      erroredRef.current = false;
-    });
-    const stateBeforeSubscriptionRef = (0, import_react.useRef)(state);
-    useIsomorphicLayoutEffect(() => {
-      const listener = () => {
-        try {
-          const nextState = api.getState();
-          const nextStateSlice = selectorRef.current(nextState);
-          if (!equalityFnRef.current(currentSliceRef.current, nextStateSlice)) {
-            stateRef.current = nextState;
-            currentSliceRef.current = nextStateSlice;
-            forceUpdate();
-          }
-        } catch (error) {
-          erroredRef.current = true;
-          forceUpdate();
-        }
-      };
-      const unsubscribe = api.subscribe(listener);
-      if (api.getState() !== stateBeforeSubscriptionRef.current) {
-        listener();
-      }
-      return unsubscribe;
-    }, []);
-    const sliceToReturn = hasNewStateSlice ? newStateSlice : currentSliceRef.current;
-    (0, import_react.useDebugValue)(sliceToReturn);
-    return sliceToReturn;
-  };
-  Object.assign(useStore2, api);
-  useStore2[Symbol.iterator] = function() {
-    console.warn("[useStore, api] = create() is deprecated and will be removed in v4");
-    const items = [useStore2, api];
-    return {
-      next() {
-        const done = items.length <= 0;
-        return { value: items.shift(), done };
-      }
-    };
-  };
-  return useStore2;
-}
-
-// node_modules/@react-three/fiber/dist/index-76c68185.esm.js
 var import_react_reconciler = __toESM(require_react_reconciler());
 var import_scheduler = __toESM(require_scheduler2());
 
@@ -16574,16 +16467,16 @@ var getColorManagement = () => {
 };
 var isOrthographicCamera = (def) => def && def.isOrthographicCamera;
 var isRef = (obj) => obj && obj.hasOwnProperty("current");
-var useIsomorphicLayoutEffect2 = typeof window !== "undefined" && ((_window$document = window.document) != null && _window$document.createElement || ((_window$navigator = window.navigator) == null ? void 0 : _window$navigator.product) === "ReactNative") ? React.useLayoutEffect : React.useEffect;
+var useIsomorphicLayoutEffect = typeof window !== "undefined" && ((_window$document = window.document) != null && _window$document.createElement || ((_window$navigator = window.navigator) == null ? void 0 : _window$navigator.product) === "ReactNative") ? React.useLayoutEffect : React.useEffect;
 function useMutableCallback(fn) {
   const ref = React.useRef(fn);
-  useIsomorphicLayoutEffect2(() => void (ref.current = fn), [fn]);
+  useIsomorphicLayoutEffect(() => void (ref.current = fn), [fn]);
   return ref;
 }
 function Block({
   set
 }) {
-  useIsomorphicLayoutEffect2(() => {
+  useIsomorphicLayoutEffect(() => {
     set(new Promise(() => null));
     return () => set(false);
   }, [set]);
@@ -17267,7 +17160,7 @@ function createEvents(store) {
 var privateKeys = ["set", "get", "setSize", "setFrameloop", "setDpr", "events", "invalidate", "advance", "size", "viewport"];
 var isRenderer = (def) => !!(def != null && def.render);
 var context = React.createContext(null);
-var createStore2 = (invalidate2, advance2) => {
+var createStore = (invalidate2, advance2) => {
   const rootState = create((set, get) => {
     const position = new Vector3();
     const defaultTarget = new Vector3();
@@ -17604,7 +17497,7 @@ function createLoop(roots2) {
 }
 function useInstanceHandle(ref) {
   const instance = React.useRef(null);
-  useIsomorphicLayoutEffect2(() => void (instance.current = ref.current.__r3f), [ref]);
+  useIsomorphicLayoutEffect(() => void (instance.current = ref.current.__r3f), [ref]);
   return instance;
 }
 function useStore() {
@@ -17620,7 +17513,7 @@ function useFrame(callback, renderPriority = 0) {
   const store = useStore();
   const subscribe = store.getState().internal.subscribe;
   const ref = useMutableCallback(callback);
-  useIsomorphicLayoutEffect2(() => subscribe(ref, renderPriority, store), [renderPriority, subscribe, store]);
+  useIsomorphicLayoutEffect(() => subscribe(ref, renderPriority, store), [renderPriority, subscribe, store]);
   return null;
 }
 function useGraph(object) {
@@ -17724,7 +17617,7 @@ function createRoot(canvas) {
     // In older browsers and test environments, fallback to console.error.
     console.error
   );
-  const store = prevStore || createStore2(invalidate, advance);
+  const store = prevStore || createStore(invalidate, advance);
   const fiber = prevFiber || reconciler.createContainer(store, import_constants.ConcurrentRoot, null, false, null, "", logRecoverableError, null);
   if (!prevRoot)
     roots.set(canvas, {
@@ -17943,7 +17836,7 @@ function Provider({
   onCreated,
   rootElement
 }) {
-  useIsomorphicLayoutEffect2(() => {
+  useIsomorphicLayoutEffect(() => {
     const state = store.getState();
     state.set((state2) => ({
       internal: {
@@ -18110,27 +18003,11 @@ reconciler.injectIntoDevTools({
 });
 var act = React.unstable_act;
 
-// node_modules/@babel/runtime/helpers/esm/extends.js
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function(target) {
-    for (var i2 = 1; i2 < arguments.length; i2++) {
-      var source = arguments[i2];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-
 // node_modules/@react-three/fiber/dist/react-three-fiber.esm.js
 var React3 = __toESM(require_react());
 
 // node_modules/react-use-measure/dist/web.js
-var import_react2 = __toESM(require_react());
+var import_react = __toESM(require_react());
 var import_debounce = __toESM(require_debounce());
 function useMeasure(_temp) {
   let {
@@ -18148,7 +18025,7 @@ function useMeasure(_temp) {
   if (!ResizeObserver) {
     throw new Error("This browser does not support ResizeObserver out of the box. See: https://github.com/react-spring/react-use-measure/#resize-observer-polyfills");
   }
-  const [bounds, set] = (0, import_react2.useState)({
+  const [bounds, set] = (0, import_react.useState)({
     left: 0,
     top: 0,
     width: 0,
@@ -18158,7 +18035,7 @@ function useMeasure(_temp) {
     x: 0,
     y: 0
   });
-  const state = (0, import_react2.useRef)({
+  const state = (0, import_react.useRef)({
     element: null,
     scrollContainers: null,
     resizeObserver: null,
@@ -18166,12 +18043,12 @@ function useMeasure(_temp) {
   });
   const scrollDebounce = debounce ? typeof debounce === "number" ? debounce : debounce.scroll : null;
   const resizeDebounce = debounce ? typeof debounce === "number" ? debounce : debounce.resize : null;
-  const mounted = (0, import_react2.useRef)(false);
-  (0, import_react2.useEffect)(() => {
+  const mounted = (0, import_react.useRef)(false);
+  (0, import_react.useEffect)(() => {
     mounted.current = true;
     return () => void (mounted.current = false);
   });
-  const [forceRefresh, resizeChange, scrollChange] = (0, import_react2.useMemo)(() => {
+  const [forceRefresh, resizeChange, scrollChange] = (0, import_react.useMemo)(() => {
     const callback = () => {
       if (!state.current.element)
         return;
@@ -18237,22 +18114,22 @@ function useMeasure(_temp) {
   };
   useOnWindowScroll(scrollChange, Boolean(scroll));
   useOnWindowResize(resizeChange);
-  (0, import_react2.useEffect)(() => {
+  (0, import_react.useEffect)(() => {
     removeListeners();
     addListeners();
   }, [scroll, scrollChange, resizeChange]);
-  (0, import_react2.useEffect)(() => removeListeners, []);
+  (0, import_react.useEffect)(() => removeListeners, []);
   return [ref, bounds, forceRefresh];
 }
 function useOnWindowResize(onWindowResize) {
-  (0, import_react2.useEffect)(() => {
+  (0, import_react.useEffect)(() => {
     const cb = onWindowResize;
     window.addEventListener("resize", cb);
     return () => void window.removeEventListener("resize", cb);
   }, [onWindowResize]);
 }
 function useOnWindowScroll(onScroll, enabled) {
-  (0, import_react2.useEffect)(() => {
+  (0, import_react.useEffect)(() => {
     if (enabled) {
       const cb = onScroll;
       window.addEventListener("scroll", cb, {
@@ -18523,7 +18400,7 @@ var CanvasImpl = React3.forwardRef(function Canvas({
   if (error)
     throw error;
   const root = React3.useRef(null);
-  useIsomorphicLayoutEffect2(() => {
+  useIsomorphicLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (containerRect.width > 0 && containerRect.height > 0 && canvas) {
       if (!root.current)
@@ -18604,7 +18481,6 @@ var Canvas2 = React3.forwardRef(function CanvasWrapper(props, ref) {
 });
 
 export {
-  create,
   suspend,
   preload,
   clear,
@@ -18634,7 +18510,6 @@ export {
   unmountComponentAtNode,
   createPortal,
   act,
-  _extends,
   createPointerEvents,
   Canvas2 as Canvas
 };
@@ -18684,4 +18559,4 @@ scheduler/cjs/scheduler.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 */
-//# sourceMappingURL=chunk-BXYVNOPC.js.map
+//# sourceMappingURL=chunk-JLFZSDCW.js.map
