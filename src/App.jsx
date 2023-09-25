@@ -10,6 +10,7 @@ import RoundedCube from './RoundedCube'
 import Hills from './Hills'
 import { PerspectiveCamera } from '@react-three/drei'
 import Dots from './dots'
+import Wind from './Wind'
 
 
 function App() {
@@ -43,7 +44,10 @@ function App() {
       
       <OrbitControls  target={[1, 3, 0]} />
 
-      <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}><Dots /></PerspectiveCamera>
+      <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
+        <Dots />
+        <Wind />
+      </PerspectiveCamera>
       {enableEffect && (<Effects />)}
       
       <ambientLight intensity={0.00} />

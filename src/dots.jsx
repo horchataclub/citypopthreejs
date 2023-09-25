@@ -183,11 +183,11 @@ for (let i = 0; i < numCircles; i++) {
     let size = Math.random() * (maxCircleSize - minCircleSize) + minCircleSize;
     sizesArray[i] = size * 1;
 
-
 }
 
+
 const { dotsPosition } = useControls({
-    dotsPosition: { value: [-12.3,-10.8,-11.2], step: 0.1 } //-1, 4, -7.0
+    dotsPosition: { value: [1.8,1.5,-6.6], step: 0.1 } //-1, 4, -7.0
   });
 
 
