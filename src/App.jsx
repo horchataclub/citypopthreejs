@@ -8,6 +8,7 @@ import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial } from
 import { useEffect } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
+import Car from './Car'
 import { PerspectiveCamera } from '@react-three/drei'
 import Dots from './dots'
 import Wind from './Wind'
@@ -55,9 +56,8 @@ function App() {
       
       <Torus position={ [ 0, 3, 0 ] } />
       <RoundedCube />
-      
-      <Hills />
-      
+      <Car />
+      <Hills />      
       <Ground /> 
     </>
   )
