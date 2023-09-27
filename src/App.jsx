@@ -12,6 +12,7 @@ import Car from './Car'
 import { PerspectiveCamera } from '@react-three/drei'
 import Dots from './dots'
 import Wind from './Wind'
+import Ribbons from './Ribbons'
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
       <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
         <Dots />
         <Wind />
+        <Ribbons />
       </PerspectiveCamera>
       {enableEffect && (<Effects />)}
       

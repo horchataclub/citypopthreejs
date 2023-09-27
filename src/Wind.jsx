@@ -8,7 +8,7 @@ export default function Wind() {
 
   const angle = THREE.MathUtils.degToRad(-45);
   const windSpeed = 0.18;
-  const windOdds = 0.3;
+  const windOdds = 0.1;
   const windBounds = [0, 9];
   const points = [
     [0, 0, 0],  // start point
@@ -82,7 +82,7 @@ export default function Wind() {
 
 
   const { windPosition } = useControls({
-    windPosition: { value: [1.1,0.8,-4.3], step: 0.1 } //-1, 4, -7.0
+    windPosition: { value: [1.1,3.3,-4.3], step: 0.1 } //-1, 4, -7.0
   });
 
   
