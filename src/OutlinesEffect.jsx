@@ -7,8 +7,10 @@ const fragmentShader = /* glsl */`
     uniform sampler2D tDiffuse; // this will probably just be inputColor
     uniform float pixelSize;
     uniform vec3 uTint;
+    uniform bool isExcluded;
 
     void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+
         vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
     
         vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel).rgb;
@@ -55,12 +57,14 @@ const fragmentShader = /* glsl */`
 
         // Determine if the pixel is part of the black outline or the transparent background
         float alpha = step(0.5, luminance);
+        //float alpha = smoothstep(0.1, 0.55, luminance);
         finalColor = mix(vec3(0.0, 0.0, 0.0), inputColor.rgb, alpha);
 
        // outputColor = vec4(0, 0, 0, alpha);
        // outputColor = inputColor; // testing the default color
        // outputColor = vec4(uv, 1.0, 1.0);
         outputColor = vec4( finalColor, 1.0 );
+        //outputColor = vec4( vec3(edge), 1.0 );
     }
 `
 

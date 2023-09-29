@@ -16,7 +16,7 @@ export default function Hills () {
 
  
     return <>
-        <mesh position={ position } scale={scale} >
+        <mesh position={ position } scale={scale} layers={0} >
             <planeGeometry args={[10, 3]} />
             <NoiseMat uHillShape={ hillShape1 } />
         </mesh>

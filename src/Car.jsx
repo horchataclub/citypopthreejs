@@ -55,14 +55,37 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.chrome_Porsche356_0019.geometry}
                   >
-                    <ToonMat color={ "#B8CEFF" } transmission={0} metalness={1} /> 
+                    {/* <ToonMat color={ "#B8CEFF" } />  */}
+                    <GlassMat
+                       toneMapped={ true } 
+                       color={ "#ffffff" } 
+                       thickness={ 0.5 } 
+                       transmission={ 0.7 } 
+                       roughness={0.0} 
+                       metalness={ 0.5} 
+                       envMapIntensity={ 1.175 }
+                       reflectivity={ 1.0 }
+                       clearcoat={ 1 }
+                       envMap={ cubeMap }
+                    />
                   </mesh>
                   <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Hubcap.geometry}
                   >
-                    <ToonMat color={ "#ffffff" } transmission={0} metalness={1} />
+                    <GlassMat
+                       toneMapped={ true } 
+                       color={ "#ffffff" } 
+                       thickness={ 0.5 } 
+                       transmission={ 0.7 } 
+                       roughness={0.0} 
+                       metalness={ 0.5} 
+                       envMapIntensity={ 1.175 }
+                       reflectivity={ 1.0 }
+                       clearcoat={ 1 }
+                       envMap={ cubeMap }
+                    />
                   </mesh>
                 </group>
               </group>
@@ -73,7 +96,7 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.blinkers.geometry}
                   >
-                    <ToonMat color={ "#FE5B00" } transmission={0} metalness={1} />
+                    <ToonMat color={ "#FE5B00" } />
                   </mesh>
                   <mesh
                     castShadow
@@ -98,7 +121,7 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.tailLights.geometry}
                   >
-                    <ToonMat color={ "#FE5B00" } transmission={0} metalness={1} />
+                    <ToonMat color={ "#FE5B00" } />
                   </mesh>
                   <mesh
                     castShadow
@@ -113,7 +136,7 @@ export default function Car(props) {
                        roughness={0.0} 
                        metalness={ 0.5} 
                        envMapIntensity={ 1.175 }
-                       reflectivity={ 1.0 }
+                       reflectivity={ 0.0 }
                        clearcoat={ 1 }
                        envMap={ cubeMap }
                     />
@@ -127,7 +150,7 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.interior_Porsche356_0.geometry}
                   >
-                    <ToonMat color={"0x12151a"} />
+                    <ToonMat color={"#12151a"} />
                   </mesh>
                 </group>
               </group>

@@ -28,7 +28,9 @@ export default function Ribbons() {
 
   function positionRibbon(item) {
     // set item somewhere between bounds
-    item.current.position.x = Math.random() * ribbonBounds[1];
+    if(item){
+      item.current.position.x = Math.random() * ribbonBounds[1];
+    }
   }
 
     const ribbonMeshes = []; 

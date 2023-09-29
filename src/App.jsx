@@ -25,6 +25,7 @@ function App() {
       // Other WebGLRenderer settings can be adjusted here
       gl.gammaInput = true;
       gl.gammaOutput = true;
+      gl.stencil = true;
     }
   }, [gl]);
 
