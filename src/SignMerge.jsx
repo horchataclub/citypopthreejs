@@ -49,7 +49,7 @@ export function SignMerge(props) {
         geometry={nodes.Cube.geometry}
         position={[0, 1, 0]}
       >
-        <ToonMat color="#cccccc" side={THREE.DoubleSide} /> 
+        <ToonMat color="#cccccc"  /> 
     </mesh>
       <mesh
         castShadow
@@ -59,7 +59,10 @@ export function SignMerge(props) {
         rotation={[-Math.PI / 4, 0, Math.PI / 2]}
         scale={1.852}
       >
-        <ToonMat color="#E8CE27" /> 
+        <ToonMat 
+          color="#E8CE27" 
+          side={THREE.DoubleSide} 
+        /> 
         <Decal position={signPos} rotation={signRotation} scale={signScale} map={colorMap} map-anisotropy={16} />
       </mesh>
     </group>
