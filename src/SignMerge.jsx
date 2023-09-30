@@ -20,7 +20,7 @@ export function SignMerge(props) {
         MergePosition: { value: [2.7,-0.11,-3.8], step: 0.1 }
     });
     const { MergeScale } = useControls({
-        MergeScale: { value: 0.2, step: 0.1 }
+        MergeScale: { value: 0.17, step: 0.1 }
     });
     const { MergeRotation } = useControls({
         MergeRotation: { value: [4.65,1.63,1.6], step: 0.1 }
@@ -49,7 +49,7 @@ export function SignMerge(props) {
         geometry={nodes.Cube.geometry}
         position={[0, 1, 0]}
       >
-        <ToonMat color="#cccccc" /> 
+        <ToonMat color="#cccccc" side={THREE.DoubleSide} /> 
     </mesh>
       <mesh
         castShadow

@@ -11,13 +11,14 @@ export default function Effects () {
 
     const outlinesRef = useRef()
 
-    return <EffectComposer multisampling={ 8 }>
+    return <EffectComposer multisampling={ 8 } disableNormalPass={false}>
         <Outlines 
             ref={ outlinesRef }
             tDiffuse={ null } 
             uTint={ null } 
             pixelSize={  0.001 } 
             //frameBufferType={ HalfFloatType }
+            //stencilBuffer: boolean
         />
     </EffectComposer>
 }

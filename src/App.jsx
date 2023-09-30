@@ -1,10 +1,10 @@
-import { OrbitControls, useHelper } from '@react-three/drei'
+import { OrbitControls, TorusKnot, useHelper } from '@react-three/drei'
 import Ground from './Ground'
 import Effects from './Effects'
 import Torus from './Torus'
 import { useControls } from 'leva'
 import { useThree } from '@react-three/fiber'
-import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial } from 'three'
+import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry } from 'three'
 import { useEffect, useRef } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
@@ -14,6 +14,7 @@ import Dots from './dots'
 import Wind from './Wind'
 import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
+
 
 
 function App() {
@@ -38,9 +39,9 @@ function App() {
     intensity: 1.7
   });
 
-
+ 
   const { SunDir }= useControls({
-    SunDir: { value: [1, 6, 0], label: 'Sun Direction', step: 0.5 },
+    SunDir: { value: [2.5,5.5,0.5], label: 'Sun Direction', step: 0.5 },
   })
 
 
