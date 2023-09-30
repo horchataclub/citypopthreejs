@@ -1,11 +1,11 @@
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, useHelper } from '@react-three/drei'
 import Ground from './Ground'
 import Effects from './Effects'
 import Torus from './Torus'
 import { useControls } from 'leva'
 import { useThree } from '@react-three/fiber'
 import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial } from 'three'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
 import Car from './Car'
@@ -13,6 +13,7 @@ import { PerspectiveCamera } from '@react-three/drei'
 import Dots from './dots'
 import Wind from './Wind'
 import Ribbons from './Ribbons'
+import { SignMerge } from './SignMerge'
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
   });
 
 
+  const { SunDir }= useControls({
+    SunDir: { value: [1, 6, 0], label: 'Sun Direction', step: 0.5 },
+  })
+
 
 
   return (
@@ -55,11 +60,12 @@ function App() {
       {enableEffect && (<Effects />)}
       
       <ambientLight intensity={0.00} />
-      <directionalLight color="white" position={[1, 6, 0]} intensity={ intensity } castShadow /> 
+      <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
       
       <Torus position={ [ 0, 3, 0 ] } />
       <RoundedCube />
       <Car />
+      <SignMerge />
       <Hills />      
       <Ground /> 
     </>

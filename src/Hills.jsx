@@ -18,7 +18,7 @@ export default function Hills () {
     return <>
         <mesh position={ position } scale={scale} layers={0} >
             <planeGeometry args={[10, 3]} />
-            <NoiseMat uHillShape={ hillShape1 } />
+            <NoiseMat uHillShape={ hillShape1 } stencil />
         </mesh>
 
         <mesh position={[-1, 3, -18]} scale={[ 3.7, 2.5, 1 ]} >
