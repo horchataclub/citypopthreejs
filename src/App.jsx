@@ -50,7 +50,7 @@ function App() {
 
   const dirLight = useRef()
   const shadowCam = useRef()
-  //useHelper(dirLight, DirectionalLightHelper, 1, "red");
+  useHelper(dirLight, DirectionalLightHelper, 1, "red");
   //useHelper(shadowCam, CameraHelper)
 
   return (
@@ -78,7 +78,7 @@ function App() {
         intensity={ intensity } 
         castShadow 
         shadow-camera-left={-20} 
-        target-position={[-1, 0, -1]}
+        target-position={[-2, 0, -4]}
       > 
           <orthographicCamera ref={shadowCam} attach="shadow-camera" left={-10} right={10} far={10}  top={10} bottom={-10}/>
         </directionalLight>
