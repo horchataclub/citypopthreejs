@@ -50,7 +50,7 @@ function App() {
 
   const dirLight = useRef()
   const shadowCam = useRef()
-  useHelper(dirLight, DirectionalLightHelper, 1, "red");
+  //useHelper(dirLight, DirectionalLightHelper, 1, "red");
   //useHelper(shadowCam, CameraHelper)
 
   return (

@@ -25,7 +25,7 @@ export function Billboard(props) {
 
   const { nodes, materials } = useGLTF("models/billboard.glb");
   return (
-    <group {...props} dispose={null} position={[4.06,0.18,-4.9]} rotation={[0,-3.17,0]} scale={.2}>
+    <group {...props} dispose={null} position={[4.06,0.18,-4.9]} rotation={[0,-3.07,0]} scale={.2}>
       <group name="Scene">
         <mesh
           name="billboard"
