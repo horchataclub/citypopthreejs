@@ -69,6 +69,7 @@ class CustomMeshPhongMaterial extends MeshPhongMaterial {
 
         // texture
         const gradMap = new TextureLoader().load('../textures/fourtoneLinear.jpg'); // fourtoneLinear
+        //const gradMap = new TextureLoader().load('../textures/4ToneBlack.jpg');
         gradMap.wrapS = THREE.ClampToEdgeWrapping;
         gradMap.wrapT = THREE.ClampToEdgeWrapping;
 

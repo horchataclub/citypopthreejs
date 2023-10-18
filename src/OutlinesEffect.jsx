@@ -11,7 +11,9 @@ const fragmentShader = /* glsl */`
 
     void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
 
+
         vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
+    
     
         vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel).rgb;
         vec3 i01 = texture2D(inputBuffer, uv + vec2(-1.0, 0.0) * texel).rgb;

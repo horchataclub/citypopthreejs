@@ -4,7 +4,7 @@ import Effects from './Effects'
 import Torus from './Torus'
 import { useControls } from 'leva'
 import { useThree } from '@react-three/fiber'
-import { LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry } from 'three'
+import { CameraHelper, LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry, DirectionalLightHelper } from 'three'
 import { useEffect, useRef } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
@@ -14,6 +14,7 @@ import Dots from './dots'
 import Wind from './Wind'
 import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
+import { Billboard } from './Billboard'
 
 
 
@@ -41,10 +42,16 @@ function App() {
 
  
   const { SunDir }= useControls({
-    SunDir: { value: [2.5,5.5,0.5], label: 'Sun Direction', step: 0.5 },
+    SunDir: { value: [2.5,7,0.5], label: 'Sun Direction', step: 0.5 },
+  })
+  const {ShadowBias} = useControls({
+    ShadowBias: { value: 0.0, label: 'Shadow Bias', step: .001, min: -2, max: 2 }
   })
 
-
+  const dirLight = useRef()
+  const shadowCam = useRef()
+  useHelper(dirLight, DirectionalLightHelper, 1, "red");
+  //useHelper(shadowCam, CameraHelper)
 
   return (
     <>
@@ -61,7 +68,20 @@ function App() {
       {enableEffect && (<Effects />)}
       
       <ambientLight intensity={0.00} />
-      <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
+      <directionalLight 
+        color="white" 
+        //shadow-bias={-0.003} 
+        shadow-bias={ 0 }
+        shadow-mapSize={[2048, 2048]}
+        ref={ dirLight } 
+        position={SunDir} 
+        intensity={ intensity } 
+        castShadow 
+        shadow-camera-left={-20} 
+        target-position={[-1, 0, -1]}
+      > 
+          <orthographicCamera ref={shadowCam} attach="shadow-camera" left={-10} right={10} far={10}  top={10} bottom={-10}/>
+        </directionalLight>
       
       <Torus position={ [ 0, 3, 0 ] } />
       <RoundedCube />
@@ -69,6 +89,7 @@ function App() {
       <SignMerge />
       <Hills />      
       <Ground /> 
+      <Billboard />
     </>
   )
 } 
