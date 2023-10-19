@@ -15,7 +15,7 @@ import Wind from './Wind'
 import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
 import { Billboard } from './Billboard'
-import AudioControls from './AudioControls'
+// import AudioControls from './AudioControls'
 
 
 
@@ -40,7 +40,6 @@ function App() {
   const { intensity } = useControls({
     intensity: 1.7
   });
-
  
   const { SunDir }= useControls({
     SunDir: { value: [2.5,7,0.5], label: 'Sun Direction', step: 0.5 },
@@ -57,10 +56,8 @@ function App() {
   return (
     <>
       
-      <color args={[ '#364d81' ]} attach="background" />
-      
+      <color args={[ '#364d81' ]} attach="background" />      
       <OrbitControls  target={[1, 3, 0]} />
-
       <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
         <Dots />
         <Wind />
@@ -70,7 +67,7 @@ function App() {
       
       <ambientLight intensity={0.00} />
       <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
-      <AudioControls />
+      
       <Torus position={ [ 0, 3, 0 ] } />
       <RoundedCube />
       <Car />
@@ -83,4 +80,3 @@ function App() {
 } 
 
 export default App
-
