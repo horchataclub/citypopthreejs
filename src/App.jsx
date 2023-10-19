@@ -15,6 +15,7 @@ import Wind from './Wind'
 import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
 import { Billboard } from './Billboard'
+import AudioControls from './AudioControls'
 
 
 
@@ -68,21 +69,8 @@ function App() {
       {enableEffect && (<Effects />)}
       
       <ambientLight intensity={0.00} />
-      <directionalLight 
-        color="white" 
-        //shadow-bias={-0.003} 
-        shadow-bias={ 0 }
-        shadow-mapSize={[2048, 2048]}
-        ref={ dirLight } 
-        position={SunDir} 
-        intensity={ intensity } 
-        castShadow 
-        shadow-camera-left={-20} 
-        target-position={[-2, 0, -4]}
-      > 
-          <orthographicCamera ref={shadowCam} attach="shadow-camera" left={-10} right={10} far={10}  top={10} bottom={-10}/>
-        </directionalLight>
-      
+      <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
+      <AudioControls />
       <Torus position={ [ 0, 3, 0 ] } />
       <RoundedCube />
       <Car />
