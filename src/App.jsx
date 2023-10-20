@@ -69,8 +69,8 @@ function App() {
       <ambientLight intensity={0.00} />
       <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
       
-      <Torus position={ [ 0, 3, 0 ] } />
-      <RoundedCube />
+      {/* <Torus position={ [ 0, 3, 0 ] } /> */}
+      {/* <RoundedCube /> */}
       <Car />
       <SignMerge />
       <Hills />      
