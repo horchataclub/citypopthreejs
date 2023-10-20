@@ -32,7 +32,7 @@ export default function Effects () {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [enableEffect]);
 
 
   // Use the useControls function to manually toggle the value
