@@ -43,12 +43,12 @@ function App() {
   });
  
   const { SunDir }= useControls({
-    SunDir: { value: [2.5,7,0.5], label: 'Sun Direction', step: 0.5 },
+    SunDir: { value: [8,14.5,4.5], label: 'Sun Direction', step: 0.5 },
   })
   const {ShadowBias} = useControls({
     ShadowBias: { value: 0.0, label: 'Shadow Bias', step: .001, min: -2, max: 2 }
   })
-
+ 
   const dirLight = useRef()
   const shadowCam = useRef()
   //useHelper(dirLight, DirectionalLightHelper, 1, "red");
@@ -67,7 +67,20 @@ function App() {
       <Effects />
       
       <ambientLight intensity={0.00} />
-      <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 
+      <directionalLight 
+        color="white" 
+        //shadow-bias={-0.003} 
+        shadow-bias={ 0 }
+        shadow-mapSize={[2048, 2048]}
+        ref={ dirLight } 
+        position={SunDir} 
+        intensity={ intensity } 
+        castShadow 
+        shadow-camera-left={-20} 
+        target-position={[-2, 0, -4]}
+      > 
+          <orthographicCamera ref={shadowCam} attach="shadow-camera" left={-10} right={10} far={22}  top={10} bottom={-10}/>
+        </directionalLight>
       
       {/* <Torus position={ [ 0, 3, 0 ] } /> */}
       {/* <RoundedCube /> */}
