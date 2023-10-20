@@ -5,7 +5,7 @@ import Torus from './Torus'
 import { useControls } from 'leva'
 import { useThree } from '@react-three/fiber'
 import { CameraHelper, LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry, DirectionalLightHelper } from 'three'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
 import Car from './Car'
@@ -21,6 +21,9 @@ import { Billboard } from './Billboard'
 
 function App() {
 
+  
+  
+
   const { gl } = useThree();
   
   useEffect(() => {
@@ -29,13 +32,11 @@ function App() {
       // Other WebGLRenderer settings can be adjusted here
       gl.gammaInput = true;
       gl.gammaOutput = true;
-      gl.stencil = true;
+      //gl.stencil = true;
     }
   }, [gl]);
 
-  const { enableEffect } = useControls({
-    enableEffect: { value: true, label: 'Toggle Post' },
-  })
+  
 
   const { intensity } = useControls({
     intensity: 1.7
@@ -63,7 +64,7 @@ function App() {
         <Wind />
         <Ribbons />
       </PerspectiveCamera>
-      {enableEffect && (<Effects />)}
+      <Effects />
       
       <ambientLight intensity={0.00} />
       <directionalLight color="white" position={SunDir} intensity={ intensity } castShadow /> 

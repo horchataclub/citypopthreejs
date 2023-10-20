@@ -1,14 +1,54 @@
 import { EffectComposer, SMAA } from '@react-three/postprocessing'
 import Outlines from './Outlines'
-import { useRef } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { HalfFloatType } from 'three'
 import { RenderPass, SMAAEffect } from 'postprocessing'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
+import { useControls } from 'leva'
 
 
 
 export default function Effects () {
+
+
+  const [enableEffect, setEnableEffect] = useState(false);
+
+  useEffect(() => {
+    // Function to set enableEffect to true when the component is mounted
+    setEnableEffect(true);
+    console.log("loaded:", enableEffect)
+
+    // Function to set enableEffect to true when the window is resized
+    const handleResize = () => {
+      setEnableEffect(!enableEffect);
+      console.log("resized:", enableEffect)
+    };
+
+    // Add an event listener for the "resize" event when the component mounts
+    window.addEventListener('resize', handleResize);
+
+    // Remove the event listener when the component is unmounted to avoid memory leaks
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  // Use the useControls function to manually toggle the value
+  useControls({
+    enableEffect: {
+      value: !enableEffect,
+      label: 'Toggle Post',
+      onChange: (newValue) => {
+        setEnableEffect(newValue);
+        console.log('enableEffect has been toggled:', enableEffect);
+        // You can perform additional actions here based on the new value
+      },
+    },
+  });
+
+
 
   const uTint = new THREE.Color(0.4, 0.6, 1.0);
 
@@ -25,16 +65,22 @@ export default function Effects () {
   );
 
 
-    return <EffectComposer  frameBufferType={HalfFloatType}  multisampling={ 8 } disableNormalPass={false} resolutionScale={1}>
-      
+
+    return <Suspense fallback={null}>
+        {enableEffect && ( <EffectComposer name={enableEffect}  frameBufferType={HalfFloatType}  multisampling={ 8 } disableNormalPass={false} resolutionScale={1}>
+          
         <Outlines 
-            ref={ outlinesRef }
-            tDiffuse={ null } 
-            uTint={ uTint } 
-            pixelSize={  0.001 } 
-            //frameBufferType={ HalfFloatType }
-            //stencilBuffer: boolean
-        />
-        <SMAA />
-    </EffectComposer>
+                ref={ outlinesRef }
+                tDiffuse={ null } 
+                uTint={ uTint } 
+                pixelSize={  0.001 } 
+                //attributes={1}
+                //frameBufferType={ HalfFloatType }
+                //stencilBuffer: boolean
+            />
+            <SMAA  
+              //attributes={4} 
+            />
+        </EffectComposer>)}
+      </Suspense>
 }
