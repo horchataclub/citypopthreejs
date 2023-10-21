@@ -32,7 +32,7 @@ export default function Car(props) {
   
   const { nodes, materials } = useGLTF("../models/car-4.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} rotation={[0, 3.13, 0]}>
       <group>
         <group rotation={[-Math.PI / 2, 0, 0]}>
           <group rotation={[Math.PI / 2, 0, 0]}>
