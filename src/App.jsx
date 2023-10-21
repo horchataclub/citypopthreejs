@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
 import Car from './Car'
+import Bush from './Bush'
 import { PerspectiveCamera } from '@react-three/drei'
 import Dots from './dots'
 import Wind from './Wind'
@@ -86,7 +87,8 @@ function App() {
       {/* <RoundedCube /> */}
       <Car />
       <SignMerge />
-      <Hills />      
+      <Hills />
+      <Bush />      
       <Ground /> 
       <Billboard />
     </>
