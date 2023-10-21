@@ -6,6 +6,8 @@ import { RenderPass, SMAAEffect } from 'postprocessing'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
+import { Noise } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
 
 
 
@@ -81,6 +83,7 @@ export default function Effects () {
             <SMAA  
               //attributes={4} 
             />
+            <Noise premultiply opacity={.25} blendFunction={BlendFunction.MULTIPLY} />
         </EffectComposer>)}
       </Suspense>
 }
