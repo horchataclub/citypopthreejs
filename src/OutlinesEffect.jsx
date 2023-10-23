@@ -71,7 +71,7 @@ const fragmentShader = /* glsl */`
         // Determine if the pixel is part of the black outline or the transparent background
         float alpha = step(0.5, luminance);
         //float alpha = smoothstep(0.1, 0.55, luminance);
-        finalColor = mix(vec3(0.00, 0.00, 0.00), inputColor.rgb, alpha);
+        finalColor = mix(vec3(0.01, 0.01, 0.01), inputColor.rgb, alpha);
 
        // outputColor = vec4(0, 0, 0, alpha);
        // outputColor = inputColor; // testing the default color
