@@ -8,6 +8,7 @@ import { useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { Noise } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
+import { Mask, useMask } from '@react-three/drei'
 
 
 
@@ -67,10 +68,15 @@ export default function Effects () {
   );
 
 
-
     return <Suspense fallback={null}>
-        {enableEffect && ( <EffectComposer name={enableEffect}  frameBufferType={HalfFloatType}  multisampling={ 8 } disableNormalPass={false} resolutionScale={1}>
-          
+        {enableEffect && ( <EffectComposer 
+          name={enableEffect}  
+          frameBufferType={HalfFloatType}  
+          multisampling={ 8 } 
+          disableNormalPass={false} 
+          //resolutionScale={1}
+          //stencilBuffer={true}
+        >
         <Outlines 
                 ref={ outlinesRef }
                 tDiffuse={ null } 
@@ -78,7 +84,7 @@ export default function Effects () {
                 pixelSize={  0.001 } 
                 //attributes={1}
                 //frameBufferType={ HalfFloatType }
-                //stencilBuffer: boolean
+                //stencilBuffer
             />
             <SMAA  
               //attributes={4} 
