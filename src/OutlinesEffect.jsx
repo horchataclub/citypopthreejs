@@ -14,16 +14,26 @@ const fragmentShader = /* glsl */`
 
         vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
     
-    
-        vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel).rgb;
-        vec3 i01 = texture2D(inputBuffer, uv + vec2(-1.0, 0.0) * texel).rgb;
-        vec3 i02 = texture2D(inputBuffer, uv + vec2(-1.0, 1.0) * texel).rgb;
-        vec3 i10 = texture2D(inputBuffer, uv + vec2(0.0, -1.0) * texel).rgb;
+        float lineWidth = .2;
+        vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel * lineWidth).rgb;
+        vec3 i01 = texture2D(inputBuffer, uv + vec2(-1.0, 0.0) * texel * lineWidth).rgb;
+        vec3 i02 = texture2D(inputBuffer, uv + vec2(-1.0, 1.0) * texel * lineWidth).rgb;
+        vec3 i10 = texture2D(inputBuffer, uv + vec2(0.0, -1.0) * texel * lineWidth).rgb;
         vec3 i11 = texture2D(inputBuffer, uv).rgb;
-        vec3 i12 = texture2D(inputBuffer, uv + vec2(0.0, 1.0) * texel).rgb;
-        vec3 i20 = texture2D(inputBuffer, uv + vec2(1.0, -1.0) * texel).rgb;
-        vec3 i21 = texture2D(inputBuffer, uv + vec2(1.0, 0.0) * texel).rgb;
-        vec3 i22 = texture2D(inputBuffer, uv + vec2(1.0, 1.0) * texel).rgb;
+        vec3 i12 = texture2D(inputBuffer, uv + vec2(0.0, 1.0) * texel * lineWidth).rgb;
+        vec3 i20 = texture2D(inputBuffer, uv + vec2(1.0, -1.0) * texel * lineWidth).rgb;
+        vec3 i21 = texture2D(inputBuffer, uv + vec2(1.0, 0.0) * texel * lineWidth).rgb;
+        vec3 i22 = texture2D(inputBuffer, uv + vec2(1.0, 1.0) * texel * lineWidth).rgb;
+    
+        // vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel).rgb;
+        // vec3 i01 = texture2D(inputBuffer, uv + vec2(-1.0, 0.0) * texel).rgb;
+        // vec3 i02 = texture2D(inputBuffer, uv + vec2(-1.0, 1.0) * texel).rgb;
+        // vec3 i10 = texture2D(inputBuffer, uv + vec2(0.0, -1.0) * texel).rgb;
+        // vec3 i11 = texture2D(inputBuffer, uv).rgb;
+        // vec3 i12 = texture2D(inputBuffer, uv + vec2(0.0, 1.0) * texel).rgb;
+        // vec3 i20 = texture2D(inputBuffer, uv + vec2(1.0, -1.0) * texel).rgb;
+        // vec3 i21 = texture2D(inputBuffer, uv + vec2(1.0, 0.0) * texel).rgb;
+        // vec3 i22 = texture2D(inputBuffer, uv + vec2(1.0, 1.0) * texel).rgb;
     
         // Sobel operator masks for h+v edges
         mat3 sobelX = mat3(-1.0, 0.0, 1.0, 
@@ -48,6 +58,7 @@ const fragmentShader = /* glsl */`
         float threshold =  0.036; // 0.036; // 0.2 // higher = less lines
         edge = edge > threshold ? 1.0 : 0.0;
         edge = 1.0 - edge;
+        
         //vec4 texelColor = texture(tDiffuse, vUv);
 
         // Output the edge color
@@ -60,7 +71,7 @@ const fragmentShader = /* glsl */`
         // Determine if the pixel is part of the black outline or the transparent background
         float alpha = step(0.5, luminance);
         //float alpha = smoothstep(0.1, 0.55, luminance);
-        finalColor = mix(vec3(0.0, 0.0, 0.0), inputColor.rgb, alpha);
+        finalColor = mix(vec3(0.00, 0.00, 0.00), inputColor.rgb, alpha);
 
        // outputColor = vec4(0, 0, 0, alpha);
        // outputColor = inputColor; // testing the default color
