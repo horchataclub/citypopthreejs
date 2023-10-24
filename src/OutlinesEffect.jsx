@@ -14,7 +14,7 @@ const fragmentShader = /* glsl */`
 
         vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
     
-        float lineWidth = .2;
+        float lineWidth = .2; // .2
         vec3 i00 = texture2D(inputBuffer, uv + vec2(-1.0, -1.0) * texel * lineWidth).rgb;
         vec3 i01 = texture2D(inputBuffer, uv + vec2(-1.0, 0.0) * texel * lineWidth).rgb;
         vec3 i02 = texture2D(inputBuffer, uv + vec2(-1.0, 1.0) * texel * lineWidth).rgb;

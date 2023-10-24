@@ -10,10 +10,10 @@ export default function Model(props) {
     <group {...props} dispose={null}>
       <mesh
         name="Grid"
-        castShadow
+        //castShadow
         receiveShadow
         geometry={nodes.Grid.geometry}
-        material={nodes.Grid.material}
+        //material={nodes.Grid.material}
         scale={ 15 }
       >
          <NodeToyMaterial data={data} />
@@ -21,7 +21,7 @@ export default function Model(props) {
 
       <mesh
         name="road"
-        castShadow
+        //castShadow
         receiveShadow
         geometry={nodes.road.geometry}
         material={nodes.road.material}
