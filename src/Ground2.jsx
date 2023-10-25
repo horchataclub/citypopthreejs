@@ -2,21 +2,19 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { NodeToyMaterial, NodeToyTick } from '@nodetoy/react-nodetoy'
 import { data } from './ShaderData.ts';
-import { ToonMat } from "./mats/ToonMat.jsx";
 import { ToonMatBlack } from "./mats/ToonmatBlack.jsx";
 
 export function Ground2(props) {
-  const { nodes, materials } = useGLTF("/models/ground2.glb");
+  const { nodes, materials } = useGLTF("/models/ground2.gltf");
   return (
     <group {...props} dispose={null}>
       <mesh
         name="Street"
         castShadow
-        receiveShadow
+        receiveShadow 
         geometry={nodes.Street.geometry}
         material={nodes.Street.material}
       >
-        
       </mesh>
       <mesh
         name="Shoulder1"
@@ -26,7 +24,7 @@ export function Ground2(props) {
         material={nodes.Shoulder1.material}
         position={[0, 0, 2]}
       >
-        <ToonMatBlack color={"#EAD0A0"} />
+      <ToonMatBlack color={"#EAD0A0"} />
     </mesh>
       <mesh
         name="Shoulder2"
@@ -62,4 +60,4 @@ export function Ground2(props) {
   );
 }
 
-useGLTF.preload("/models/ground2.glb");
+useGLTF.preload("/models/ground2.gltf");
