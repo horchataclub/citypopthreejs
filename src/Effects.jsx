@@ -89,7 +89,7 @@ export default function Effects () {
             <SMAA  
               //attributes={4} 
             />
-            <Noise premultiply opacity={.25} blendFunction={BlendFunction.MULTIPLY} />
+            {/* <Noise premultiply opacity={.25} blendFunction={BlendFunction.MULTIPLY} /> */}
         </EffectComposer>)}
       </Suspense>
 }
