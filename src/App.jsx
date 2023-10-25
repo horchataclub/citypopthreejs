@@ -16,6 +16,7 @@ import Wind from './Wind'
 import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
 import { Billboard } from './Billboard'
+import { Ground2 } from './Ground2'
 // import AudioControls from './AudioControls'
 
 
@@ -55,9 +56,13 @@ function App() {
   //useHelper(dirLight, DirectionalLightHelper, 1, "red");
   //useHelper(shadowCam, CameraHelper)
 
+  // const { groundPosition } = useControls({
+  //   groundPosition: { value: [0.0, 0.0, 0.0], label: 'Ground Position', step: 0.5, min: -20, max: 20 }
+  // })
+  
   return (
     <>
-      
+       {/* <axesHelper args={[5, 5, 5]} /> */}
       <color args={[ '#364d81' ]} attach="background" />      
       <OrbitControls  target={[1, 3, 0]} />
       <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
@@ -89,7 +94,7 @@ function App() {
       <SignMerge />
       <Hills />
       <Bush />      
-      <Ground /> 
+      <Ground2 rotation-y={1.6} scale={3.5} position={[-2, 0, -1]} />
       <Billboard />
     </>
   )
