@@ -90,7 +90,7 @@ function App() {
       
       {/* <Torus position={ [ 0, 3, 0 ] } /> */}
       {/* <RoundedCube /> */}
-      <Car />
+      <Car position={ [0, 0, 5]} />
       <SignMerge />
       <Hills />
       <Bush />      
