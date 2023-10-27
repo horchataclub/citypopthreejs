@@ -60,4 +60,4 @@ export function Ground2(props) {
   );
 }
 
-useGLTF.preload("/models/ground2.gltf");
+useGLTF.preload("/models/ground2.gltf"); 
