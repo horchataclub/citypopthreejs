@@ -19,7 +19,8 @@
     "postprocessing": "^6.33.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.154.0"
+    "three": "^0.154.0",
+    "tone": "^14.7.77"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

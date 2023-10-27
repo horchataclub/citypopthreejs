@@ -17,17 +17,10 @@ import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
 import { Billboard } from './Billboard'
 import { Ground2 } from './Ground2'
-// import AudioControls from './AudioControls'
-
 
 
 function App() {
-
-  
-  
-
-  const { gl } = useThree();
-  
+  const { gl } = useThree();  
   useEffect(() => {
     if (gl) {
       gl.outputColorSpace = SRGBColorSpace;
@@ -37,8 +30,6 @@ function App() {
       //gl.stencil = true;
     }
   }, [gl]);
-
-  
 
   const { intensity } = useControls({
     intensity: 1.7
@@ -95,7 +86,7 @@ function App() {
       <Hills />
       <Bush />      
       <Ground2 rotation-y={1.6} scale={3.5} position={[-2, 0, -1]} />
-      <Billboard />
+      <Billboard />      
     </>
   )
 } 
