@@ -42,21 +42,50 @@ function App() {
     ShadowBias: { value: 0.0, label: 'Shadow Bias', step: .001, min: -2, max: 2 }
   })
  
+  const mainCam = useRef()
   const dirLight = useRef()
   const shadowCam = useRef()
+
+  //useHelper(mainCam, CameraHelper )
   //useHelper(dirLight, DirectionalLightHelper, 1, "red");
   //useHelper(shadowCam, CameraHelper)
+
 
   // const { groundPosition } = useControls({
   //   groundPosition: { value: [0.0, 0.0, 0.0], label: 'Ground Position', step: 0.5, min: -20, max: 20 }
   // })
+
+  
+
+
   
   return (
     <>
        {/* <axesHelper args={[5, 5, 5]} /> */}
-      <color args={[ '#364d81' ]} attach="background" />      
-      <OrbitControls  target={[1, 3, 0]} />
-      <PerspectiveCamera makeDefault rotation={[10,50,0]} fov={45} near={0.1} far={200} position={[ 2, 6, 6 ]}>
+      <color args={[ '#364d81' ]} attach="background" /> 
+
+      <OrbitControls target={[1, 3, 0]}
+
+        // constraints---------------------
+
+        // enablePan={false}
+        // enableZoom={false}
+        // minAzimuthAngle={-Math.PI / 4}
+        // maxAzimuthAngle={Math.PI / 4}
+        // minPolarAngle={Math.PI / 6}
+        // maxPolarAngle={Math.PI / 2} 
+
+      />
+
+      <PerspectiveCamera 
+        makeDefault 
+        ref={mainCam} 
+        rotation={[10,50,0]} 
+        fov={45} 
+        near={0.1} 
+        far={200} 
+        position={[.77, 0.8, 10]}
+      >
         <Dots />
         <Wind />
         <Ribbons />
