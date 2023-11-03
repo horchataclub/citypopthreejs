@@ -114,7 +114,7 @@ function App() {
       <SignMerge />
       <Hills />
       <Bush />   
-      <Street rotation-y={1.6} scale={3.5} position={[-2, 0, -1]} />
+      <Street rotation-y={1.6} scale={3.7} position={[-2, 0, -1]} />
       <Billboard />      
     </>
   )

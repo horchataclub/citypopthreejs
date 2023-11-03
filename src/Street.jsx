@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { NodeToyMaterial, NodeToyTick } from '@nodetoy/react-nodetoy'
 import { data } from './ShaderData.ts';
+import { data2 } from './ShaderDataStreet.ts';
 import { ToonMatBlack } from "./mats/ToonmatBlack.jsx";
 
 export function Street(props) {
@@ -13,8 +14,9 @@ export function Street(props) {
         castShadow
         receiveShadow
         geometry={nodes.Street.geometry}
-        material={nodes.Street.material}
-      />
+       // material={nodes.Street.material}
+      >
+        <NodeToyMaterial data={data2} /></mesh>
       <mesh
         name="Shoulder1"
         castShadow
