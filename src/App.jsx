@@ -4,7 +4,7 @@ import Effects from './Effects'
 import Torus from './Torus'
 import { useControls } from 'leva'
 import { useThree } from '@react-three/fiber'
-import { CameraHelper, LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry, DirectionalLightHelper } from 'three'
+import { CubeTextureLoader, CameraHelper, LinearSRGBColorSpace, Mesh, SRGBColorSpace, MeshPhysicalMaterial, MeshStandardMaterial, TorusKnotGeometry, DirectionalLightHelper, TetrahedronGeometry } from 'three'
 import { useEffect, useRef, useState } from 'react'
 import RoundedCube from './RoundedCube'
 import Hills from './Hills'
@@ -17,6 +17,10 @@ import Ribbons from './Ribbons'
 import { SignMerge } from './SignMerge'
 import { Billboard } from './Billboard'
 import { Street } from './Street'
+import * as THREE from 'three' 
+import { Barbershop } from './Barbershop'
+
+
 
 
 function App() {
@@ -28,11 +32,12 @@ function App() {
       gl.gammaInput = true;
       gl.gammaOutput = true;
       //gl.stencil = true;
+      //gl.shadowMap.type = THREE.VSMShadowMap;
     }
   }, [gl]);
 
   const { intensity } = useControls({
-    intensity: 1.7
+    intensity: 1.7 
   });
  
   const { SunDir }= useControls({
@@ -92,12 +97,14 @@ function App() {
       </PerspectiveCamera>
       <Effects />
       
-      <ambientLight intensity={0.00} />
+      <ambientLight intensity={.08} color={"#234a99"} />
       <directionalLight 
         color="white" 
         //shadow-bias={-0.003} 
         shadow-bias={ 0 }
+        //shadow-radius={ 0 }
         shadow-mapSize={[2048, 2048]}
+       // shadow-mapSize={[1024, 1024]}
         ref={ dirLight } 
         position={SunDir} 
         intensity={ intensity } 
@@ -115,7 +122,8 @@ function App() {
       <Hills />
       <Bush />   
       <Street rotation-y={1.6} scale={3.7} position={[-2, 0, -1]} />
-      <Billboard />      
+      <Billboard /> 
+      <Barbershop scale={ 1.4 } rotation-y={ 1.6}  position={[-8, 0, 1]} />
     </>
   )
 } 
