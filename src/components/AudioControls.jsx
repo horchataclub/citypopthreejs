@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react'
 import * as Tone from 'tone'
 
-//create a synth and connect it to the main output (your speakers)
-const synth = new Tone.Synth().toDestination();
+//instantiate new instance of Tone's Player obj
+const player = new Tone.Player({
+    url: 'src/audio/AkariDream.wav',
+    loop: true,
+    mute: false
+}).toDestination();
 
-//play a middle 'C' for the duration of an 8th note
-synth.triggerAttackRelease("C4", "8n");
-
+//play audio on button click
 function playBtn() {
     if (Tone.context.state != "running" ) {
-        Tone.start();
+        player.start()
     }
+}
+
+//mute button
+function muteBtn() {
+    // !player.mute ? false : true
+    if(player.mute === false) {
+        player.mute = true
+        document.getElementById('mute').innerHTML = 'Sound On'
+    } else if(player.mute === true) {
+        player.mute = false
+        document.getElementById('mute').innerHTML = 'Sound Off'
+    }
+    console.log('Clicked')
 }
 
 export default function AudioControls() {
     return(
-        <>
-            <button id="play" onClick={playBtn}>Play</button>
-        </>
+        <div className="audioControls">
+            <button id="audioPlay" onClick={playBtn}>Play</button>
+            <button id="mute" onClick={muteBtn}>Mute</button>
+        </div>
     )
 }
