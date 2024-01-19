@@ -73,12 +73,12 @@ function App() {
 
         // constraints---------------------
 
-        // enablePan={false}
-        // enableZoom={false}
-        // minAzimuthAngle={-Math.PI / 4}
-        // maxAzimuthAngle={Math.PI / 4}
-        // minPolarAngle={Math.PI / 6}
-        // maxPolarAngle={Math.PI / 2} 
+         enablePan={false}
+         enableZoom={false}
+         minAzimuthAngle={-Math.PI / 4}
+         maxAzimuthAngle={Math.PI / 4}
+         minPolarAngle={Math.PI / 6}
+         maxPolarAngle={Math.PI / 2} 
 
       />
 
