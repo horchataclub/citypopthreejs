@@ -21,7 +21,7 @@ export default function Hills () {
             <NoiseMat uHillShape={ hillShape1 } />
         </mesh>
 
-        <mesh position={[-1, 3, -38]} scale={[ 12, 4, 1 ]} >
+        <mesh position={[-1, 3, -33]} scale={[ 12, 4, 1 ]} >
             <planeGeometry args={[ 10, 3 ]} />
             <meshBasicMaterial 
                 color={ 0xb2ae7e } 
