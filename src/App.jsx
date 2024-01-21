@@ -61,7 +61,9 @@ function App() {
   // })
 
   
-
+  const { camPosition } = useControls({
+    camPosition: { value: [0.3,1.6,12.7], step: 0.1 },
+  });
 
   
   return (
@@ -93,7 +95,7 @@ function App() {
         fov={45} 
         near={0.1} 
         far={200} 
-        position={[.77, 0.8, 10]}
+        position={ camPosition }
       >
         <Dots />
         <Wind />

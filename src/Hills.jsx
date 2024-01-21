@@ -10,8 +10,8 @@ export default function Hills () {
   const hillShape2 = useLoader(TextureLoader, '../textures/hillShape2.png')
 
     const { scale, position } = useControls({
-        scale: { value: [10, 5.6, 1], step: 0.1, min: 0.1, max: 12 },
-        position: { value: [0, 2.4, -40], step: 0.1 },
+        scale: { value: [18, 5.6, 1], step: 0.1, min: 0.1, max: 12 },
+        position: { value: [3.8, 2.4, -40], step: 0.1 },
       });
 
       
@@ -21,7 +21,7 @@ export default function Hills () {
             <NoiseMat uHillShape={ hillShape1 } />
         </mesh>
 
-        <mesh position={[-1, 3, -38]} scale={[ 9, 4, 1 ]} >
+        <mesh position={[-1, 3, -38]} scale={[ 12, 4, 1 ]} >
             <planeGeometry args={[ 10, 3 ]} />
             <meshBasicMaterial 
                 color={ 0xb2ae7e } 
