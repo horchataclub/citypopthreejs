@@ -51,24 +51,18 @@ interiorMap.colorSpace = THREE.SRGBColorSpace;
 
 export function Barbershop(props) {
 
-
   // rotate for lul
   const meshRef = useRef();
 
   let rotationDirection = 1;
-
   useFrame((state, delta) => {
     // Calculate the rotation angle based on time and speed
-    const rotationSpeed = 0.6;
-    const rotationAngle = Math.sin(state.clock.elapsedTime * rotationSpeed) / 2.0 + 1.4;
+    // const rotationSpeed = 0.6;
+    // const rotationAngle = Math.sin(state.clock.elapsedTime * rotationSpeed) / 2.0 + 1.4;
 
     // Update the rotation property of the mesh
-    meshRef.current.rotation.y = rotationAngle;
+    // meshRef.current.rotation.y = rotationAngle;
   });
-
-
-
-
 
   const colorMap = useLoader(TextureLoader, 'textures/barber.png');
   const { nodes, materials } = useGLTF("models/barberShop.glb");
