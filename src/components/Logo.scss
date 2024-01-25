@@ -1,0 +1,10 @@
+$logoSpacing: 56px;
+
+.logo {
+    position: absolute;
+    top: $logoSpacing;
+    left: $logoSpacing;
+    width: 262px;
+    height: 146px;
+    z-index: 10;
+}

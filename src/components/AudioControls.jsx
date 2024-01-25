@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
 import * as Tone from 'tone'
+import './AudioControls.scss'
 
 //instantiate new instance of Tone's Player obj
 const player = new Tone.Player({
