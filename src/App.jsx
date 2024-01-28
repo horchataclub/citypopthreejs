@@ -19,10 +19,11 @@ import { Billboard } from './Billboard'
 import { Street } from './Street'
 import * as THREE from 'three' 
 import { Barbershop } from './Barbershop'
+import { TestTorus } from './TestTorus'
 
 
 
-
+ 
 function App() {
   const { gl } = useThree();  
   useEffect(() => {
@@ -122,6 +123,24 @@ function App() {
         </directionalLight>
       
       {/* <Torus position={ [ 0, 3, 0 ] } /> */}
+
+      {/* TESTING TOONMAT LUMINANCE  */}
+      {/* <TestTorus position={[-10, 2, 0]} color={"red"} />
+      <TestTorus position={[-6, 2, 0]} color={"#FF6B00"} />
+      <TestTorus position={[-2, 2, 0]} color={"#FFE500"} />
+      <TestTorus position={[2, 2, 0]} color={"#52FF00"} />
+      <TestTorus position={[6, 2, 0]} color={"#00F0FF"} />
+      <TestTorus position={[10, 2, 0]} color={"#0000FF"} />
+
+      <TestTorus position={[-10, 6, 0]} color={"#7000FF"} />
+      <TestTorus position={[-6, 6, 0]} color={"#FF00E5"} />
+      <TestTorus position={[-2, 6, 0]} color={"#000000"} />
+      <TestTorus position={[2, 6, 0]} color={"#535353"} />
+      <TestTorus position={[6, 6, 0]} color={"#A7A7A7"} />
+      <TestTorus position={[10, 6, 0]} color={"#DEDEDE"} /> */}
+
+
+
       {/* <RoundedCube /> */}
       <Car position={ [0, 0, 3]} />
       <SignMerge />
@@ -129,7 +148,7 @@ function App() {
       <Bush />   
       <Street rotation-y={1.6} scale={3.7} position={[-2, 0, -1]} />
       <Billboard /> 
-      <Barbershop scale={ 1.4 } rotation-y={ 1.6}  position={[-8, 0, 1]} />
+      {/* <Barbershop scale={ 1.4 } rotation-y={ 1.6}  position={[-8, 0, 1]} /> */}
     </>
   )
 } 

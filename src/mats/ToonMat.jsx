@@ -31,6 +31,14 @@ const toonOverlay = /* glsl */`
 `;
 
 
+
+const toonGrey = /* glsl */`
+    vec3 greyDiffuse = vec3(0.0, 0.0, 5.0);
+
+    vec4 diffuseColor = vec4( greyDiffuse, opacity );
+`;
+
+
 const toonOutput = /* glsl */`
     #include <dithering_fragment>   
 
@@ -84,7 +92,7 @@ class CustomMeshPhongMaterial extends MeshPhongMaterial {
         this.onBeforeCompile = (shader) => {
             // declare uniform variable for gradient map texture
             shader.uniforms.uGradientMap = { value: gradMap };
-            shader.uniforms.color = { value: new Color("#1678a2") };
+            shader.uniforms.color = { value: new Color("#808080") };
             shader.uniforms.specular = { value: new Color("white") };
             shader.uniforms.shininess = { value: 10.0 };
 
@@ -94,6 +102,13 @@ class CustomMeshPhongMaterial extends MeshPhongMaterial {
                 toonOverlay
             );
 
+            // make the object medium grey
+            shader.fragmentShader  =shader.fragmentShader.replace(
+              `vec4 diffuseColor = vec4( diffuse, opacity );`,
+              toonGrey
+            );
+
+            // toonify
             shader.fragmentShader = shader.fragmentShader.replace(
                 `#include <dithering_fragment>`,
                 toonOutput
