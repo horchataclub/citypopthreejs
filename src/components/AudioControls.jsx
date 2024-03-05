@@ -3,7 +3,7 @@ import './AudioControls.scss'
 
 //instantiate new instance of Tone's Player obj
 const player = new Tone.Player({
-    url: 'src/audio/AkariDream.wav',
+    url: 'audio/AkariDream.wav',
     loop: true,
     mute: false
 }).toDestination();
