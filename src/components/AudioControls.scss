@@ -1,9 +1,26 @@
 .audioControls {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
     bottom: 56px;
     right: 56px;
     padding: 12px 16px;
     border-radius: 8px;
     z-index: 10;
-    background: #fff;
+    background: pink;
+}
+
+.btn {
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+
+    &:hover {
+        background-color: lighten(navy, 10)
+    }
 }

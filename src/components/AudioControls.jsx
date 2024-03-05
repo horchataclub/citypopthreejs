@@ -31,8 +31,8 @@ function muteBtn() {
 export default function AudioControls() {
     return(
         <div className="audioControls">
-            <button id="audioPlay" onClick={playBtn}>Play</button>
-            <button id="mute" onClick={muteBtn}>Mute</button>
+            <button id="audioPlay" onClick={playBtn} className="btn">Play</button>
+            <button id="mute" onClick={muteBtn} className="btn">Mute</button>
         </div>
     )
 }
