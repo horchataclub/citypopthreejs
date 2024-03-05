@@ -38,7 +38,7 @@ export function Billboard(props) {
           scale={5.461}
         >
            <ToonMat color="#cccccc" />
-          <Decal position={signPos} rotation={signRotation} scale={signScale} map={colorMap} map-anisotropy={16} />
+          <Decal position={signPos} rotation={signRotation} scale={signScale} map={colorMap} mapAnisotropy={16} />
         </mesh>
         <mesh
           name="Cube009"

@@ -71,7 +71,7 @@ export function SignMerge(props) {
           color="#E8CE27" 
           side={THREE.DoubleSide} 
         /> 
-        <Decal position={signPos} rotation={signRotation} scale={signScale} map={colorMap} map-anisotropy={16} />
+        <Decal position={signPos} rotation={signRotation} scale={signScale} map={colorMap} mapAnisotropy={16} />
       </mesh>
     </group>
   );
