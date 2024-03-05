@@ -1,9 +1,11 @@
 import * as Tone from 'tone'
 import './AudioControls.scss'
 
+const buffer1 = new Tone.Buffer('/src/audio/AkariDream.wav');
+
 //instantiate new instance of Tone's Player obj
 const player = new Tone.Player({
-    url: '/src/audio/AkariDream.wav',
+    url: buffer1,
     loop: true,
     mute: false
 }).toDestination();
