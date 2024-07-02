@@ -108,7 +108,8 @@ function App() {
       <directionalLight 
         color="white" 
         //shadow-bias={-0.003} 
-        shadow-bias={ 0 }
+      //  shadow-bias={ 0 }
+       shadow-bias={- 0.0005 }
         //shadow-radius={ 0 }
         shadow-mapSize={[2048, 2048]}
        // shadow-mapSize={[1024, 1024]}
