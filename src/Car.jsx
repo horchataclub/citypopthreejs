@@ -55,7 +55,7 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.chrome_Porsche356_0019.geometry}
                   >
-                    {/* <ToonMat color={ "#B8CEFF" } />  */}
+                    {/* chrome details */}
                     <GlassMat
                        toneMapped={ true } 
                        color={ "#ffffff" } 
@@ -69,6 +69,8 @@ export default function Car(props) {
                        envMap={ cubeMap }
                     />
                   </mesh>
+
+                  {/* RIMS */}
                   <mesh
                     castShadow
                     receiveShadow
@@ -96,8 +98,11 @@ export default function Car(props) {
                     receiveShadow
                     geometry={nodes.blinkers.geometry}
                   >
+                    {/* FRONT BLINKERS */}
                     <ToonMat color={ "#FE5B00" } />
                   </mesh>
+
+                  {/* HEADLIGHTS */}
                   <mesh
                     castShadow
                     receiveShadow
@@ -116,6 +121,7 @@ export default function Car(props) {
                        envMap={ cubeMap }
                     />
                   </mesh>
+                  {/* TAILLIGHTS */}
                   <mesh
                     castShadow
                     receiveShadow
@@ -123,6 +129,7 @@ export default function Car(props) {
                   >
                     <ToonMat color={ "#FE5B00" } />
                   </mesh>
+                  {/* WINDOWS */}
                   <mesh
                     castShadow
                     receiveShadow
@@ -156,6 +163,7 @@ export default function Car(props) {
               </group>
               <group rotation={[-Math.PI / 2, 0, 0]}>
                 <group rotation={[0, 0, -Math.PI / 2]}>
+                  {/* TIRES + TRIM RUBBER */}
                   <mesh
                     castShadow
                     receiveShadow

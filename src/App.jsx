@@ -73,21 +73,21 @@ function App() {
       <color args={[ '#364d81' ]} attach="background" /> 
 
 
-       <OrbitControls target={[1, 3, 0]}
+      <OrbitControls target={[1, 3, 0]}
 
         // constraints---------------------
 
-         enablePan={false}
+         //enablePan={false}
          enableZoom={true}
          enableDamping={true}
-         minAzimuthAngle={-Math.PI / 4}
-         maxAzimuthAngle={Math.PI / 4}
-         minPolarAngle={Math.PI / 6}
-         maxPolarAngle={Math.PI / 2} 
-         minDistance={0}
-         maxDistance={40}
+         //minAzimuthAngle={-Math.PI / 4}
+         //maxAzimuthAngle={Math.PI / 4}
+         //minPolarAngle={Math.PI / 6}
+         //maxPolarAngle={Math.PI / 2} 
+         //minDistance={0}
+        // maxDistance={40}
 
-      /> 
+      />  
 
       <PerspectiveCamera 
         makeDefault 
