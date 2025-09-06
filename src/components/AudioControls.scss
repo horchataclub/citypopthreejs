@@ -1,14 +1,29 @@
 .audioControls {
-    position: absolute;
+    position: absolute;    
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width: 388px;
+    height: 198px;
     display: flex;
     flex-direction: row;
-    gap: 8px;
-    bottom: 56px;
-    right: 56px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    z-index: 10;
-    background: pink;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    overflow: hidden;
+    padding: 3%;
+
+    #spline-canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    // #audioToggle {
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 0;
+    //     z-index: 12;
+    // }
 }
 
 .btn {
