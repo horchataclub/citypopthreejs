@@ -1,0 +1,22 @@
+---
+description: Use an 8px spacing scale for margin and padding
+alwaysApply: true
+---
+
+# Spacing Scale (8px)
+
+When creating new elements or setting margin/padding, use multiples of **8** only.
+
+Valid values: `0`, `8`, `16`, `24`, `32`, `40`, `48`, etc.
+
+```scss
+// ❌ BAD
+margin: 10px;
+padding: 12px 20px;
+
+// ✅ GOOD
+margin: 8px;
+padding: 16px 24px;
+```
+
+Also apply this to gap, inset, and similar spacing properties when adding new styles.

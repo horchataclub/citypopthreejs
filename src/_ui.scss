@@ -1,0 +1,11 @@
+#controls {
+    position: absolute;
+    bottom: var(--spacing-4);
+    left: var(--spacing-4);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-2);
+    gap: var(--spacing-4);
+}

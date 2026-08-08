@@ -1,0 +1,32 @@
+---
+description: Use camelCase for classes, functions, and IDs
+alwaysApply: true
+---
+
+# camelCase Naming
+
+Classes, functions, and IDs must use **camelCase**.
+
+```js
+// ❌ BAD
+function render_mini_map() {}
+const KeyBoard_Controls = () => {};
+document.querySelector('#mini-map');
+
+// ✅ GOOD
+function renderMiniMap() {}
+const keyBoardControls = () => {};
+document.querySelector('#miniMap');
+```
+
+```scss
+// ❌ BAD
+.mini-map { }
+#key-board-controls { }
+
+// ✅ GOOD
+.miniMap { }
+#keyBoardControls { }
+```
+
+Do not use kebab-case, snake_case, or PascalCase for class names or IDs. React component identifiers may remain PascalCase; CSS class/id strings and non-component functions should be camelCase.

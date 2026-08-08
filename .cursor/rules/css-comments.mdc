@@ -1,0 +1,25 @@
+---
+description: Require comments for all new CSS/SCSS
+alwaysApply: true
+---
+
+# CSS Comments Required
+
+Always include comments when writing new CSS or SCSS. Comment the purpose of selectors, blocks, and non-obvious values.
+
+```scss
+// ❌ BAD
+.logo {
+  margin: 16px;
+  opacity: 0.85;
+}
+
+// ✅ GOOD
+// Brand mark in the top-left overlay
+.logo {
+  margin: 16px; // Offset from viewport edge
+  opacity: 0.85; // Soften so the scene stays primary
+}
+```
+
+Keep comments short and intent-focused—what the rule is for, not a restatement of the property name.

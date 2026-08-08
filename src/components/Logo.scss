@@ -1,9 +1,7 @@
-$logoSpacing: 56px;
-
 .logo {
     position: absolute;
-    top: $logoSpacing;
-    left: $logoSpacing;
+    top: var(--spacing-4);
+    left: var(--spacing-4);
     width: 180px;
     height: auto;
     z-index: 10;    
